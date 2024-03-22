@@ -1,3 +1,6 @@
+controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
+	
+})
 tiles.setCurrentTilemap(tilemap`niveau1`)
 let mySprite = sprites.create(img`
     . . . . . 2 2 2 2 2 2 . . . . . 
