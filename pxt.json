@@ -2,7 +2,8 @@
     "name": "CampJeunes",
     "description": "",
     "dependencies": {
-        "device": "*"
+        "device": "*",
+        "edge-connector": "*"
     },
     "files": [
         "main.blocks",
@@ -22,5 +23,5 @@
     "supportedTargets": [
         "arcade"
     ],
-    "preferredEditor": "tsprj"
+    "preferredEditor": "blocksprj"
 }
