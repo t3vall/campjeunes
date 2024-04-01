@@ -1,0 +1,26 @@
+<xml xmlns="https://developers.google.com/blockly/xml"><variables><variable id=",L:S@{4Xk6}GZjz8#J@v">mySprite</variable><variable type="KIND_SpriteKind" id="O7)KjUZby6L,hYdkCmqQ">Player</variable><variable type="KIND_SpriteKind" id="p3]H5qO|8d.{]2*|;`5~">Projectile</variable><variable type="KIND_SpriteKind" id="`WU=Iix#[.2x6GhCoOH*">Food</variable><variable type="KIND_SpriteKind" id="sXI0LzAzQ2x(`*9Z$S44">Enemy</variable></variables><block type="pxt-on-start" x="0" y="0"><statement name="HANDLER"><block type="set_current_tilemap"><comment pinned="false" h="80" w="160">-Faire TuileMap:
+
+    Extérieur
+    
+    Intérieur
+    
+    Ascenseur et/ou Escalier
+    
+    -Une .3D isométrique ne fonctionnera pas pour nous donc faire une simple vue de dessus</comment><value name="tilemap"><shadow type="tiles_tilemap_editor"><field name="tilemap">tilemap`niveau1`</field><data>{"commentRefs":[],"fieldData":{"tilemap":"niveau1"}}</data></shadow></value><next><block type="variables_set"><field name="VAR" id=",L:S@{4Xk6}GZjz8#J@v">mySprite</field><value name="VALUE"><shadow type="math_number"><field name="NUM">0</field></shadow><block type="spritescreate"><value name="img"><shadow type="screen_image_picker"><field name="img">img`
+    . . . . . 2 2 2 2 2 2 . . . . . 
+    . . . . 2 2 2 2 2 2 2 2 2 2 . . 
+    . . . . e e e e 3 3 e 3 . . . . 
+    . . . e e 3 e 3 3 3 e 3 3 3 . . 
+    . . . e e 3 e e 3 3 3 e 3 3 3 . 
+    . . . e e e 3 3 3 3 e e e e . . 
+    . . . . . 3 3 3 3 3 3 3 3 . . . 
+    . . . . 2 2 2 8 2 2 2 . . . . . 
+    . . . 2 2 2 2 8 2 2 8 2 2 2 . . 
+    . . 2 2 2 2 2 8 8 8 8 2 2 2 2 . 
+    . . 3 3 3 2 8 5 8 8 5 8 2 3 3 . 
+    . . 3 3 3 3 8 8 8 8 8 8 3 3 3 . 
+    . . 3 3 3 8 8 8 8 8 8 8 8 3 3 . 
+    . . . . 8 8 8 8 . 8 8 8 8 . . . 
+    . . . e e e e . . . e e e e . . 
+    . . e e e e e . . . e e e e e . 
+    `</field><data>{"commentRefs":[],"fieldData":{"img":null}}</data></shadow></value><value name="kind"><shadow type="spritekind"><field name="MEMBER">Player</field></shadow></value></block></value><next><block type="game_control_sprite"><mutation xmlns="http://www.w3.org/1999/xhtml" _expanded="2" _input_init="true"></mutation><value name="sprite"><shadow type="variables_get"><field name="VAR" id=",L:S@{4Xk6}GZjz8#J@v">mySprite</field></shadow></value><value name="vx"><shadow type="spriteSpeedPicker"><field name="speed">100</field></shadow></value><value name="vy"><shadow type="spriteSpeedPicker"><field name="speed">100</field></shadow></value><next><block type="camerafollow"><value name="sprite"><shadow type="variables_get"><field name="VAR" id=",L:S@{4Xk6}GZjz8#J@v">mySprite</field></shadow></value></block></next></block></next></block></next></block></statement></block><block type="keyonevent" x="614" y="0"><field name="button">controller.A</field><field name="event">ControllerButtonEvent.Pressed</field></block></xml>
