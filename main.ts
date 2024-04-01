@@ -1,18 +1,4 @@
-/**
- * -Faire TuileMap:
- * 
- * Extérieur
- * 
- * Intérieur
- * 
- * Ascenseur et/ou Escalier
- * 
- * -Une 3D isométrique ne fonctionnera pas pour nous donc faire une simple vue de dessus
- */
-/**
- */
-/**
- */
+
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
 	
 })
@@ -37,3 +23,14 @@ let mySprite = sprites.create(img`
     `, SpriteKind.Player)
 controller.moveSprite(mySprite, 100, 100)
 scene.cameraFollowSprite(mySprite)
+/**
+ * -Faire TuileMap:
+ *
+ * Extérieur
+ *
+ * Intérieur
+ *
+ * Ascenseur et/ou Escalier
+ *
+ * -Une 3D isométrique ne fonctionnera pas pour nous donc faire une simple vue de dessus
+ */
