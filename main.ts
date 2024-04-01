@@ -12,7 +12,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
  * 
  * -Une 3D isométrique ne fonctionnera pas pour nous donc faire une simple vue de dessus
  */
-tiles.setCurrentTilemap(tilemap`niveau1`)
+tiles.setCurrentTilemap(tilemap`niveau2`)
 let mySprite = sprites.create(img`
     . . . . . 2 2 2 2 2 2 . . . . . 
     . . . . 2 2 2 2 2 2 2 2 2 2 . . 
