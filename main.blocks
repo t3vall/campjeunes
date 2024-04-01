@@ -6,7 +6,8 @@
     
     Ascenseur et/ou Escalier
     
-    -Une .3D isométrique ne fonctionnera pas pour nous donc faire une simple vue de dessus</comment><value name="tilemap"><shadow type="tiles_tilemap_editor"><field name="tilemap">tilemap`niveau1`</field><data>{"commentRefs":[],"fieldData":{"tilemap":"niveau1"}}</data></shadow></value><next><block type="variables_set"><field name="VAR" id=",L:S@{4Xk6}GZjz8#J@v">mySprite</field><value name="VALUE"><shadow type="math_number"><field name="NUM">0</field></shadow><block type="spritescreate"><value name="img"><shadow type="screen_image_picker"><field name="img">img`
+    -Une .3D isométrique ne fonctionnera pas pour nous donc faire une simple vue de dessus
+</comment><value name="tilemap"><shadow type="tiles_tilemap_editor"><field name="tilemap">tilemap`niveau1`</field><data>{"commentRefs":[],"fieldData":{"tilemap":"niveau1"}}</data></shadow></value><next><block type="variables_set"><field name="VAR" id=",L:S@{4Xk6}GZjz8#J@v">mySprite</field><value name="VALUE"><shadow type="math_number"><field name="NUM">0</field></shadow><block type="spritescreate"><value name="img"><shadow type="screen_image_picker"><field name="img">img`
     . . . . . 2 2 2 2 2 2 . . . . . 
     . . . . 2 2 2 2 2 2 2 2 2 2 . . 
     . . . . e e e e 3 3 e 3 . . . . 
