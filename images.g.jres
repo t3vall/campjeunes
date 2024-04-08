@@ -4,6 +4,31 @@
         "mimeType": "image/x-mkcd-f4",
         "displayName": "SpriteToit"
     },
+    "image2": {
+        "data": "hwQQABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHAzA+AA4O4AdzMD7nDu7nB3M4Pudz7jc3c3iO537j5zd4iI7nc+PoOIhYgAdzMzc4eICAB3MzNzh4iIAHfu43OIhYjucDPuA3eIiO5wMOMDdzeI7nAw4wB3MwPuAAADAHAzA+AAAAAAAAAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "Luigi"
+    },
+    "*uJ#z2_13ege6rd]wPo": {
+        "data": "hwQQABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAzA+AA4O4AIjMD7iDu7iAiM4PuIj7jIyIyiO4i7j4jIoiI7iI+PoOIhYgAIjMzI4KICAAiMzMjgoiIACLu4yOIhYjuIDPuAyKIiO4gMOMDIjKI7iAw4wAiMwPuAAADACAzA+AAAAAAAAAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "Mario"
+    },
+    "9;F2NRcIxQ/": {
+        "data": "hwQQABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAEAAAAAAAAQAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "repereMaison"
+    },
+    "Ud6@I*}3f](f5Dz(1XdR": {
+        "data": "hwQQABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKAKAAAAAAAAoAoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "repereAtelier"
+    },
+    "2a+%pQyeEv6/JL_d16!~": {
+        "data": "hwQQABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACACAAAAAAAAIAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "repereStudio"
+    },
     "*": {
         "mimeType": "image/x-mkcd-f4",
         "dataEncoding": "base64",

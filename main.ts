@@ -1,5 +1,6 @@
 namespace SpriteKind {
     export const Toit = SpriteKind.create()
+    export const PNJ = SpriteKind.create()
 }
 function CréerImgToit (ArrCoin: tiles.Location[]) {
     CoinSupDrt = (ArrCoin[2].column + 1) * 16
@@ -69,6 +70,46 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
             SpriteToitAtelier.setFlag(SpriteFlag.Invisible, false)
         }
     }
+    for (let valeur of sprites.allOfKind(SpriteKind.PNJ)) {
+        if (controller.A.isPressed()) {
+            if (Math.floor(Joueur.y / 16) == Math.floor(valeur.y / 16)) {
+                if (Math.floor(Joueur.x / 16) - Math.floor(valeur.x / 16) == 1) {
+                    game.setDialogFrame(img`
+                        .....cccccccccccccc.....
+                        ...cbd111111111111dbc...
+                        ..cd1111111111111111dc..
+                        .cd111111111111111111dc.
+                        .b11111111111111111111b.
+                        cd11111111111111111111dc
+                        c1111111111111111111111c
+                        c1111111111111111111111c
+                        c1111111111111111111111c
+                        c1111111111111111111111c
+                        c1111111111111111111111c
+                        c1111111111111111111111c
+                        c1111111111111111111111c
+                        c1111111111111111111111c
+                        c1111111111111111111111c
+                        c1111111111111111111111c
+                        c1111111111111111111111c
+                        cd11111111111111111111dc
+                        .b11111111111111111111b.
+                        .cd111111111111111111dc.
+                        ..cd1111111111111111dc..
+                        ..b11d111111111111dbc...
+                        .b11bcccccccccccccc.....
+                        ccccc...................
+                        `)
+                    if (Math.percentChance(99)) {
+                        game.showLongText("bonjour mario!", DialogLayout.Bottom)
+                    } else {
+                        game.showLongText("Mario!!!!", DialogLayout.Bottom)
+                        game.showLongText("On est pas dans le bon jeu!!!!!", DialogLayout.Bottom)
+                    }
+                }
+            }
+        }
+    }
 })
 controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
     if (debug == 0) {
@@ -80,6 +121,9 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
         SpriteToitMaison.setFlag(SpriteFlag.Invisible, false)
         debug = 0
     }
+})
+sprites.onOverlap(SpriteKind.Player, SpriteKind.PNJ, function (sprite, otherSprite) {
+    tiles.placeOnTile(sprite, tiles.getTileLocation(Math.floor(sprite.x / 16), Math.floor(sprite.y / 16)))
 })
 let ImgToit: Image = null
 let CoinInfDrt = 0
@@ -97,25 +141,10 @@ debug = 0
 ArrCoin = []
 PosPortGch = []
 tiles.setCurrentTilemap(tilemap`niveau2`)
-Joueur = sprites.create(img`
-    . . . . . 2 2 2 2 2 2 . . . . . 
-    . . . . 2 2 2 2 2 2 2 2 2 2 . . 
-    . . . . e e e e 3 3 e 3 . . . . 
-    . . . e e 3 e 3 3 3 e 3 3 3 . . 
-    . . . e e 3 e e 3 3 3 e 3 3 3 . 
-    . . . e e e 3 3 3 3 e e e e . . 
-    . . . . . 3 3 3 3 3 3 3 3 . . . 
-    . . . . 2 2 2 8 2 2 2 . . . . . 
-    . . . 2 2 2 2 8 2 2 8 2 2 2 . . 
-    . . 2 2 2 2 2 8 8 8 8 2 2 2 2 . 
-    . . 3 3 3 2 8 5 8 8 5 8 2 3 3 . 
-    . . 3 3 3 3 8 8 8 8 8 8 3 3 3 . 
-    . . 3 3 3 8 8 8 8 8 8 8 8 3 3 . 
-    . . . . 8 8 8 8 . 8 8 8 8 . . . 
-    . . . e e e e . . . e e e e . . 
-    . . e e e e e . . . e e e e e . 
-    `, SpriteKind.Player)
+Joueur = sprites.create(assets.image`Mario`, SpriteKind.Player)
+let PNJ1 = sprites.create(assets.image`Luigi`, SpriteKind.PNJ)
 tiles.placeOnTile(Joueur, tiles.getTileLocation(11, 55))
+tiles.placeOnTile(PNJ1, tiles.getTileLocation(5, 55))
 controller.moveSprite(Joueur, 100, 100)
 scene.cameraFollowSprite(Joueur)
 Joueur.setFlag(SpriteFlag.ShowPhysics, true)
@@ -139,60 +168,12 @@ SpriteToitStudio = sprites.create(img`
     `, SpriteKind.Toit)
 SpriteToitAtelier = sprites.create(assets.image`SpriteToit`, SpriteKind.Toit)
 SpriteToitMaison = sprites.create(assets.image`SpriteToit`, SpriteKind.Toit)
-CréerSpriteToit(img`
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . 2 2 . . . . . . . 
-    . . . . . . . 2 2 . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    `, SpriteToitStudio)
-CréerSpriteToit(img`
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . 4 4 . . . . . . . 
-    . . . . . . . 4 4 . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    `, SpriteToitMaison)
-CréerSpriteToit(img`
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . a a . . . . . . . 
-    . . . . . . . a a . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    `, SpriteToitAtelier)
+CréerSpriteToit(assets.image`repereStudio`, SpriteToitStudio)
+CréerSpriteToit(assets.image`repereMaison`, SpriteToitMaison)
+CréerSpriteToit(assets.image`repereAtelier`, SpriteToitAtelier)
 for (let valeur of tiles.getTilesByType(assets.tile`TuilePorteGch`)) {
     PosPortGch.push(valeur)
 }
+forever(function () {
+	
+})
