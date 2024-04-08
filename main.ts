@@ -20,24 +20,10 @@ let mySprite = sprites.create(img`
     . . . e e e e . . . e e e e . . 
     . . e e e e e . . . e e e e e . 
     `, SpriteKind.Player)
-let mySprite2 = sprites.create(img`
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . 4 4 4 4 4 4 . . . . . . . 
-    . . . . . . . . . 4 . . . . . . 
-    . . . . . . . . . 4 . . . . . . 
-    . . 4 4 4 . . . . 4 4 4 . . . . 
-    . 4 . . . . . . . 4 4 . . . . . 
-    . 4 4 . . . 4 4 4 . . . . . . . 
-    . . . 4 4 4 . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    `, SpriteKind.Player)
-tiles.placeOnTile(mySprite, tiles.getTileLocation(11, 55))
+let mySprite2 = sprites.create(assets.image`SpriteToit`, SpriteKind.Player)
+mySprite2.setPosition(80, 816)
+tiles.placeOnTile(mySprite, tiles.getTileLocation(8, 55))
 controller.moveSprite(mySprite, 100, 100)
 scene.cameraFollowSprite(mySprite)
+mySprite2.z += 1
+mySprite.z += 2
