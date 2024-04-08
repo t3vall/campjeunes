@@ -5,6 +5,19 @@ function placerSpriteToit (ArrCoin: tiles.Location[], mySprite: Sprite) {
     CoinInfDrt = (ArrCoin[3].row + 1) * 16
     mySprite.setPosition(CoinSupGch + (CoinSupDrt - CoinSupGch) / 2, CoinSupDrt2 + (CoinInfDrt - CoinSupDrt2) / 2)
 }
+function placerTuileCoin (ArrCoin: tiles.Location[]) {
+    for (let valeur of ArrCoin) {
+        if (ArrCoin.indexOf(valeur) == 0) {
+            tiles.setTileAt(valeur, assets.tile`myTile`)
+        } else if (ArrCoin.indexOf(valeur) == 1) {
+            tiles.setTileAt(valeur, assets.tile`myTile3`)
+        } else if (ArrCoin.indexOf(valeur) == 2) {
+            tiles.setTileAt(valeur, assets.tile`myTile0`)
+        } else {
+            tiles.setTileAt(valeur, assets.tile`myTile5`)
+        }
+    }
+}
 function CréerSpriteToit (ArrCoin: tiles.Location[]) {
     CoinSupDrt = (ArrCoin[2].column + 1) * 16
     CoinSupDrt2 = ArrCoin[2].row * 16
@@ -78,3 +91,4 @@ for (let valeur of tiles.getTilesByType(assets.tile`TuileCoinBatTest`)) {
 }
 mySprite3 = sprites.create(CréerSpriteToit(ArrCoin), SpriteKind.Player)
 placerSpriteToit(ArrCoin, mySprite3)
+placerTuileCoin(ArrCoin)

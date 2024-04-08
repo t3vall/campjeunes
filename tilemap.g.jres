@@ -152,6 +152,30 @@
         "tilemapTile": true,
         "displayName": "TuileCoinBatTest"
     },
+    "tile26": {
+        "data": "hwQQABAAAADPZmZmxmxmZvx8d3d3fHd3xsx3d3fMd3d2zGxmZsZmZnbHzMzMzMzMdmfMfHd3d8Z2Z8zMZmZmzHZnbMzMzMzMdmd8xsxmZmZ8Z3zGzGxmZnxnfMbGzMzMzGd8xmbMbGbMbHzGZszMzHbMfMZmbMxmdmdsxmZszM92Z8zGZmxs/A==",
+        "mimeType": "image/x-mkcd-f4",
+        "tilemapTile": true,
+        "displayName": "myTile"
+    },
+    "tile27": {
+        "data": "hwQQABAAAAB2Z8zMZmxs/HZnbMxmbGzPdmd8xmZszGx2Z3zGZszMzHbMfMZmzGxmzGx8xsbMzMx8Z3zGzGxmZnZnfMbMZmZmdmd8zMzMzMx2Z8zMZmZmZnZnzGx3d3fGdsfMzMzMzMx2zGxmZmbGZsbMd3d3d8x3/Hx3d3fHfHfPZmZmxsxsZg==",
+        "mimeType": "image/x-mkcd-f4",
+        "tilemapTile": true,
+        "displayName": "myTile0"
+    },
+    "tile28": {
+        "data": "hwQQABAAAABmxsxsZmZm/HfHfHd3d8fPd8x3d3d3zGxmbGZmZsbMZ8zMzMzMzHxnbHd3d8bMdmdmZmZmzMx2Z8zMzMzMx3ZnZmZmzGzHdmdmZsbMbMd2x8zMzGxsx8bMZsbMZmzHzGfMzMxmbMd2Z8bMxmZsx3Zn/MbGZszGdmfPxsZmzMx2Zw==",
+        "mimeType": "image/x-mkcd-f4",
+        "tilemapTile": true,
+        "displayName": "myTile3"
+    },
+    "tile29": {
+        "data": "hwQQABAAAADPxsZmbMx2Z/zMxmZsxnZnZszGZmzHzGfMzMxmbMfGzGbGzGZsx3bMzMzMbGzHdsdmZsbMbMd2x2ZmZsxsx3ZnzMzMzMzGdmfMZmZmzMx2Z2x3d3fHzHZnzMzMzMzMfGdmZmxmZsbMZ3d3zHd3d8xsd3fHd3d3x89mZsZsZmZm/A==",
+        "mimeType": "image/x-mkcd-f4",
+        "tilemapTile": true,
+        "displayName": "myTile5"
+    },
     "niveau1": {
         "id": "niveau1",
         "mimeType": "application/mkcd-tilemap",
@@ -229,7 +253,11 @@
             "sprites.dungeon.greenOuterEast0",
             "sprites.dungeon.greenOuterWest0",
             "sprites.dungeon.greenOuterSouth1",
-            "sprites.dungeon.greenOuterNorth0"
+            "sprites.dungeon.greenOuterNorth0",
+            "myTiles.tile26",
+            "myTiles.tile27",
+            "myTiles.tile28",
+            "myTiles.tile29"
         ],
         "displayName": "niveau2"
     },
