@@ -43,12 +43,20 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     if (Joueur.tileKindAt(TileDirection.Left, assets.tile`TuilePorteGch`)) {
         if (game.ask("Voulez vous entrer?")) {
             tiles.placeOnTile(Joueur, tiles.getTileLocation(Math.floor(Joueur.x / 16) - 2, Math.floor(Joueur.y / 16)))
-            SpriteToitStudio.setFlag(SpriteFlag.Invisible, true)
+            if (Math.floor(Joueur.y / 16) == PosPortGch[0].row) {
+                SpriteToitStudio.setFlag(SpriteFlag.Invisible, true)
+            } else {
+                SpriteToitMaison.setFlag(SpriteFlag.Invisible, true)
+            }
         }
     } else if (Joueur.tileKindAt(TileDirection.Right, assets.tile`TuilePorteGch`)) {
         if (game.ask("Voulez vous Sortir?")) {
             tiles.placeOnTile(Joueur, tiles.getTileLocation(Math.floor(Joueur.x / 16) + 2, Math.floor(Joueur.y / 16)))
-            SpriteToitStudio.setFlag(SpriteFlag.Invisible, false)
+            if (Math.floor(Joueur.y / 16) == PosPortGch[0].row) {
+                SpriteToitStudio.setFlag(SpriteFlag.Invisible, false)
+            } else {
+                SpriteToitMaison.setFlag(SpriteFlag.Invisible, false)
+            }
         }
     } else if (Joueur.tileKindAt(TileDirection.Right, assets.tile`TuilePorteGch0`)) {
         if (game.ask("Voulez vous entrer?")) {
@@ -82,10 +90,12 @@ let SpriteToitMaison: Sprite = null
 let SpriteToitAtelier: Sprite = null
 let SpriteToitStudio: Sprite = null
 let Joueur: Sprite = null
+let PosPortGch: tiles.Location[] = []
 let ArrCoin: tiles.Location[] = []
 let debug = 0
 debug = 0
 ArrCoin = []
+PosPortGch = []
 tiles.setCurrentTilemap(tilemap`niveau2`)
 Joueur = sprites.create(img`
     . . . . . 2 2 2 2 2 2 . . . . . 
@@ -183,3 +193,6 @@ CréerSpriteToit(img`
     . . . . . . . . . . . . . . . . 
     . . . . . . . . . . . . . . . . 
     `, SpriteToitAtelier)
+for (let valeur of tiles.getTilesByType(assets.tile`TuilePorteGch`)) {
+    PosPortGch.push(valeur)
+}
