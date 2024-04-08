@@ -86,8 +86,6 @@ let ArrCoin: tiles.Location[] = []
 let debug = 0
 debug = 0
 ArrCoin = []
-let PosPortDrt: tiles.Location[] = []
-let PosPortGch: tiles.Location[] = []
 tiles.setCurrentTilemap(tilemap`niveau2`)
 Joueur = sprites.create(img`
     . . . . . 2 2 2 2 2 2 . . . . . 
@@ -185,9 +183,3 @@ CréerSpriteToit(img`
     . . . . . . . . . . . . . . . . 
     . . . . . . . . . . . . . . . . 
     `, SpriteToitAtelier)
-for (let valeur of tiles.getTilesByType(assets.tile`TuilePorteGch`)) {
-    PosPortDrt.push(valeur)
-}
-for (let valeur of tiles.getTilesByType(assets.tile`TuilePorteGch0`)) {
-    PosPortGch.push(valeur)
-}
