@@ -3,14 +3,12 @@ namespace SpriteKind {
     export const PNJ = SpriteKind.create()
     export const PC = SpriteKind.create()
 }
-function CréerImgToit (ArrCoin: tiles.Location[]) {
-    CoinSupDrt = (ArrCoin[2].column + 1) * 16
-    CoinSupDrt2 = ArrCoin[2].row * 16
-    CoinSupGch = ArrCoin[0].column * 16
-    CoinInfDrt = (ArrCoin[3].row + 1) * 16
-    ImgToit = image.create(CoinSupDrt - CoinSupGch, CoinInfDrt - CoinSupDrt2)
-    ImgToit.fill(4)
-    return ImgToit
+function creerSpriteToit (repereCoin: Image, mySprite: Sprite) {
+    creeTabCoin(repereCoin)
+    mySprite.setImage(creerImgToit(tempTabCoin))
+    placerSpriteToit(tempTabCoin, mySprite)
+    placerTuileCoin(tempTabCoin)
+    tempTabCoin = []
 }
 function placerSpriteToit (ArrCoin: tiles.Location[], mySprite: Sprite) {
     CoinSupDrt = (ArrCoin[2].column + 1) * 16
@@ -32,41 +30,66 @@ function placerTuileCoin (ArrCoin: tiles.Location[]) {
         }
     }
 }
-function CréerSpriteToit (repereCoin: Image, mySprite: Sprite) {
-    CrééTabCoin(repereCoin)
-    mySprite.setImage(CréerImgToit(TempTabCoin))
-    placerSpriteToit(TempTabCoin, mySprite)
-    placerTuileCoin(TempTabCoin)
-    TempTabCoin = []
+controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
+    game.showLongText(tempTabCoin[1], DialogLayout.Bottom)
+    if (debug == 0) {
+        debug = 1
+    } else {
+        debug = 0
+    }
+})
+function creerImgToit (ArrCoin: tiles.Location[]) {
+    CoinSupDrt = (ArrCoin[2].column + 1) * 16
+    CoinSupDrt2 = ArrCoin[2].row * 16
+    CoinSupGch = ArrCoin[0].column * 16
+    CoinInfDrt = (ArrCoin[3].row + 1) * 16
+    ImgToit = image.create(CoinSupDrt - CoinSupGch, CoinInfDrt - CoinSupDrt2)
+    ImgToit.fill(4)
+    return ImgToit
 }
+function creeTabCoin (RepereCoin: Image) {
+    for (let valeur3 of tiles.getTilesByType(RepereCoin)) {
+        tempTabCoin.push(valeur3)
+        if (RepereCoin.equals(assets.image`repereStudio`)) {
+            tabCoinStudio.push(valeur3)
+        } else if (RepereCoin.equals(assets.image`repereMaison`)) {
+            tabCoinMaison.push(valeur3)
+        } else {
+            tabCoinAtelier.push(valeur3)
+        }
+    }
+}
+sprites.onOverlap(SpriteKind.Player, SpriteKind.PNJ, function (sprite, otherSprite) {
+    tiles.placeOnTile(sprite, tiles.getTileLocation(Math.floor(sprite.x / 16), Math.floor(sprite.y / 16)))
+})
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     if (Joueur.tileKindAt(TileDirection.Left, assets.tile`TuilePorteGch`)) {
         if (game.ask("Voulez vous entrer?")) {
             tiles.placeOnTile(Joueur, tiles.getTileLocation(Math.floor(Joueur.x / 16) - 2, Math.floor(Joueur.y / 16)))
-            if (Math.floor(Joueur.y / 16) == PosPortGch[0].row) {
-                SpriteToitStudio.setFlag(SpriteFlag.Invisible, true)
+            if (Math.floor(Joueur.y / 16) == posPortGch[0].row) {
+                spriteToitStudio.setFlag(SpriteFlag.Invisible, true)
             } else {
-                SpriteToitMaison.setFlag(SpriteFlag.Invisible, true)
+                spriteToitMaison.setFlag(SpriteFlag.Invisible, true)
             }
         }
     } else if (Joueur.tileKindAt(TileDirection.Right, assets.tile`TuilePorteGch`)) {
         if (game.ask("Voulez vous Sortir?")) {
             tiles.placeOnTile(Joueur, tiles.getTileLocation(Math.floor(Joueur.x / 16) + 2, Math.floor(Joueur.y / 16)))
-            if (Math.floor(Joueur.y / 16) == PosPortGch[0].row) {
-                SpriteToitStudio.setFlag(SpriteFlag.Invisible, false)
+            if (Math.floor(Joueur.y / 16) == posPortGch[0].row) {
+                spriteToitStudio.setFlag(SpriteFlag.Invisible, false)
             } else {
-                SpriteToitMaison.setFlag(SpriteFlag.Invisible, false)
+                spriteToitMaison.setFlag(SpriteFlag.Invisible, false)
             }
         }
     } else if (Joueur.tileKindAt(TileDirection.Right, assets.tile`TuilePorteDrt`)) {
         if (game.ask("Voulez vous entrer?")) {
             tiles.placeOnTile(Joueur, tiles.getTileLocation(Math.floor(Joueur.x / 16) + 2, Math.floor(Joueur.y / 16)))
-            SpriteToitAtelier.setFlag(SpriteFlag.Invisible, true)
+            spriteToitAtelier.setFlag(SpriteFlag.Invisible, true)
         }
     } else if (Joueur.tileKindAt(TileDirection.Left, assets.tile`TuilePorteDrt`)) {
         if (game.ask("Voulez vous Sortir?")) {
             tiles.placeOnTile(Joueur, tiles.getTileLocation(Math.floor(Joueur.x / 16) - 2, Math.floor(Joueur.y / 16)))
-            SpriteToitAtelier.setFlag(SpriteFlag.Invisible, false)
+            spriteToitAtelier.setFlag(SpriteFlag.Invisible, false)
         }
     }
     for (let valeur2 of sprites.allOfKind(SpriteKind.PNJ)) {
@@ -108,50 +131,27 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
         }
     }
 })
-controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
-    game.showLongText(TempTabCoin[1], DialogLayout.Bottom)
-    if (debug == 0) {
-        debug = 1
-    } else {
-        debug = 0
-    }
-})
-function CrééTabCoin (RepereCoin: Image) {
-    for (let valeur3 of tiles.getTilesByType(RepereCoin)) {
-        TempTabCoin.push(valeur3)
-        if (RepereCoin.equals(assets.image`repereStudio`)) {
-            TabCoinStudio.push(valeur3)
-        } else if (RepereCoin.equals(assets.image`repereMaison`)) {
-            TabCoinMaison.push(valeur3)
-        } else {
-            TabCoinAtelier.push(valeur3)
-        }
-    }
-}
-sprites.onOverlap(SpriteKind.Player, SpriteKind.PNJ, function (sprite, otherSprite) {
-    tiles.placeOnTile(sprite, tiles.getTileLocation(Math.floor(sprite.x / 16), Math.floor(sprite.y / 16)))
-})
 let ImgToit: Image = null
 let CoinInfDrt = 0
 let CoinSupGch = 0
 let CoinSupDrt2 = 0
 let CoinSupDrt = 0
-let SpriteToitMaison: Sprite = null
-let SpriteToitAtelier: Sprite = null
-let SpriteToitStudio: Sprite = null
+let spriteToitMaison: Sprite = null
+let spriteToitAtelier: Sprite = null
+let spriteToitStudio: Sprite = null
 let Joueur: Sprite = null
-let PosPortGch: tiles.Location[] = []
-let TabCoinAtelier: tiles.Location[] = []
-let TabCoinMaison: tiles.Location[] = []
-let TabCoinStudio: tiles.Location[] = []
-let TempTabCoin: tiles.Location[] = []
+let posPortGch: tiles.Location[] = []
+let tabCoinAtelier: tiles.Location[] = []
+let tabCoinMaison: tiles.Location[] = []
+let tabCoinStudio: tiles.Location[] = []
+let tempTabCoin: tiles.Location[] = []
 let debug = 0
 debug = 0
-TempTabCoin = []
-TabCoinStudio = []
-TabCoinMaison = []
-TabCoinAtelier = []
-PosPortGch = []
+tempTabCoin = []
+tabCoinStudio = []
+tabCoinMaison = []
+tabCoinAtelier = []
+posPortGch = []
 tiles.setCurrentTilemap(tilemap`niveau2`)
 let PC2 = sprites.create(assets.image`SpritePc`, SpriteKind.PC)
 Joueur = sprites.create(assets.image`Mario`, SpriteKind.Player)
@@ -162,7 +162,7 @@ tiles.placeOnTile(PNJ1, tiles.getTileLocation(5, 55))
 controller.moveSprite(Joueur, 100, 100)
 scene.cameraFollowSprite(Joueur)
 Joueur.setFlag(SpriteFlag.ShowPhysics, true)
-SpriteToitStudio = sprites.create(img`
+spriteToitStudio = sprites.create(img`
     . . . . . . . . . . . . . . . . 
     . . . . . . . . . . . . . . . . 
     . . . . . . . . . . . . . . . . 
@@ -180,18 +180,18 @@ SpriteToitStudio = sprites.create(img`
     . . . . . . . . . . . . . . . . 
     . . . . . . . . . . . . . . . . 
     `, SpriteKind.Toit)
-SpriteToitAtelier = sprites.create(assets.image`SpriteToit`, SpriteKind.Toit)
-SpriteToitMaison = sprites.create(assets.image`SpriteToit`, SpriteKind.Toit)
-CréerSpriteToit(assets.image`repereStudio`, SpriteToitStudio)
-CréerSpriteToit(assets.image`repereMaison`, SpriteToitMaison)
-CréerSpriteToit(assets.image`repereAtelier`, SpriteToitAtelier)
+spriteToitAtelier = sprites.create(assets.image`SpriteToit`, SpriteKind.Toit)
+spriteToitMaison = sprites.create(assets.image`SpriteToit`, SpriteKind.Toit)
+creerSpriteToit(assets.image`repereStudio`, spriteToitStudio)
+creerSpriteToit(assets.image`repereMaison`, spriteToitMaison)
+creerSpriteToit(assets.image`repereAtelier`, spriteToitAtelier)
 for (let valeur4 of tiles.getTilesByType(assets.tile`TuilePorteGch`)) {
-    PosPortGch.push(valeur4)
+    posPortGch.push(valeur4)
 }
 forever(function () {
-    if (Math.floor(Joueur.x / 16) >= TabCoinMaison[0].column && Math.floor(Joueur.x / 16) <= TabCoinMaison[2].column && (Math.floor(Joueur.y / 16) >= TabCoinMaison[0].row && Math.floor(Joueur.y / 16) <= TabCoinMaison[1].row)) {
-        SpriteToitMaison.setFlag(SpriteFlag.Invisible, true)
+    if (Math.floor(Joueur.x / 16) >= tabCoinMaison[0].column && Math.floor(Joueur.x / 16) <= tabCoinMaison[2].column && (Math.floor(Joueur.y / 16) >= tabCoinMaison[0].row && Math.floor(Joueur.y / 16) <= tabCoinMaison[1].row)) {
+        spriteToitMaison.setFlag(SpriteFlag.Invisible, true)
     } else {
-        SpriteToitMaison.setFlag(SpriteFlag.Invisible, false)
+        spriteToitMaison.setFlag(SpriteFlag.Invisible, false)
     }
 })
