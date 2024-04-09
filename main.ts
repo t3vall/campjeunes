@@ -93,40 +93,38 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
         }
     }
     for (let valeur2 of sprites.allOfKind(SpriteKind.PNJ)) {
-        if (Math.floor(Joueur.y / 16) == Math.floor(valeur2.y / 16)) {
-            if (Math.floor(Joueur.x / 16) - Math.floor(valeur2.x / 16) == 1) {
-                game.setDialogFrame(img`
-                    .....cccccccccccccc.....
-                    ...cbd111111111111dbc...
-                    ..cd1111111111111111dc..
-                    .cd111111111111111111dc.
-                    .b11111111111111111111b.
-                    cd11111111111111111111dc
-                    c1111111111111111111111c
-                    c1111111111111111111111c
-                    c1111111111111111111111c
-                    c1111111111111111111111c
-                    c1111111111111111111111c
-                    c1111111111111111111111c
-                    c1111111111111111111111c
-                    c1111111111111111111111c
-                    c1111111111111111111111c
-                    c1111111111111111111111c
-                    c1111111111111111111111c
-                    cd11111111111111111111dc
-                    .b11111111111111111111b.
-                    .cd111111111111111111dc.
-                    ..cd1111111111111111dc..
-                    ..b11d111111111111dbc...
-                    .b11bcccccccccccccc.....
-                    ccccc...................
-                    `)
-                if (Math.percentChance(90)) {
-                    game.showLongText("bonjour mario!", DialogLayout.Bottom)
-                } else {
-                    game.showLongText("Mario!!!!", DialogLayout.Bottom)
-                    game.showLongText("On est pas dans le bon jeu!!!!!", DialogLayout.Bottom)
-                }
+        if (Math.floor(Joueur.y / 16) == Math.floor(valeur2.y / 16) && (Math.floor(Joueur.x / 16) - Math.floor(valeur2.x / 16) == 1 || Math.ceil(Joueur.x / 16) - Math.floor(valeur2.x / 16) == 0) || Math.floor(Joueur.x / 16) == Math.floor(valeur2.x / 16) && (Math.floor(Joueur.y / 16) - Math.floor(valeur2.y / 16) == 1 || Math.ceil(Joueur.y / 16) - Math.floor(valeur2.y / 16) == 0)) {
+            game.setDialogFrame(img`
+                .....cccccccccccccc.....
+                ...cbd111111111111dbc...
+                ..cd1111111111111111dc..
+                .cd111111111111111111dc.
+                .b11111111111111111111b.
+                cd11111111111111111111dc
+                c1111111111111111111111c
+                c1111111111111111111111c
+                c1111111111111111111111c
+                c1111111111111111111111c
+                c1111111111111111111111c
+                c1111111111111111111111c
+                c1111111111111111111111c
+                c1111111111111111111111c
+                c1111111111111111111111c
+                c1111111111111111111111c
+                c1111111111111111111111c
+                cd11111111111111111111dc
+                .b11111111111111111111b.
+                .cd111111111111111111dc.
+                ..cd1111111111111111dc..
+                ..b11d111111111111dbc...
+                .b11bcccccccccccccc.....
+                ccccc...................
+                `)
+            if (Math.percentChance(90)) {
+                game.showLongText("bonjour mario!", DialogLayout.Bottom)
+            } else {
+                game.showLongText("Mario!!!!", DialogLayout.Bottom)
+                game.showLongText("On est pas dans le bon jeu!!!!!", DialogLayout.Bottom)
             }
         }
     }
