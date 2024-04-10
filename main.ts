@@ -2,13 +2,16 @@ namespace SpriteKind {
     export const Toit = SpriteKind.create()
     export const PNJ = SpriteKind.create()
     export const PC = SpriteKind.create()
+    export const Exterieur = SpriteKind.create()
 }
 function creerSpriteToit (repereCoin: Image, mySprite: Sprite) {
-    creeTabCoin(repereCoin)
-    mySprite.setImage(creerImgToit(tempTabCoin))
-    placerSpriteToit(tempTabCoin, mySprite)
-    placerTuileCoin(tempTabCoin)
-    tempTabCoin = []
+    test = []
+    if (mySprite.kind() == SpriteKind.Toit) {
+        creeTabCoin(repereCoin)
+        mySprite.setImage(creerImgToit(test))
+        placerSpriteToit(test, mySprite)
+        placerTuileCoin(test)
+    }
 }
 function placerSpriteToit (ArrCoin: tiles.Location[], mySprite: Sprite) {
     CoinSupDrt = (ArrCoin[2].column + 1) * 16
@@ -49,14 +52,14 @@ function creerImgToit (ArrCoin: tiles.Location[]) {
 }
 function creeTabCoin (RepereCoin: Image) {
     for (let valeur3 of tiles.getTilesByType(RepereCoin)) {
-        tempTabCoin.push(valeur3)
-        if (RepereCoin.equals(assets.image`repereStudio`)) {
-            tabCoinStudio.push(valeur3)
-        } else if (RepereCoin.equals(assets.image`repereMaison`)) {
-            tabCoinMaison.push(valeur3)
-        } else {
-            tabCoinAtelier.push(valeur3)
-        }
+        test.push(valeur3)
+    }
+    if (RepereCoin.equals(assets.image`repereStudio`)) {
+        tabCoinStudio = test
+    } else if (RepereCoin.equals(assets.image`repereMaison`)) {
+        tabCoinMaison = test
+    } else {
+        tabCoinAtelier = test
     }
 }
 sprites.onOverlap(SpriteKind.Player, SpriteKind.PNJ, function (sprite, otherSprite) {
@@ -134,6 +137,7 @@ let CoinInfDrt = 0
 let CoinSupGch = 0
 let CoinSupDrt2 = 0
 let CoinSupDrt = 0
+let test: tiles.Location[] = []
 let spriteToitMaison: Sprite = null
 let spriteToitAtelier: Sprite = null
 let spriteToitStudio: Sprite = null
@@ -142,7 +146,7 @@ let posPortGch: tiles.Location[] = []
 let tabCoinAtelier: tiles.Location[] = []
 let tabCoinMaison: tiles.Location[] = []
 let tabCoinStudio: tiles.Location[] = []
-let tempTabCoin: tiles.Location[] = []
+let tempTabCoin: number[] = []
 let debug = 0
 debug = 0
 tempTabCoin = []
@@ -180,6 +184,9 @@ spriteToitStudio = sprites.create(img`
     `, SpriteKind.Toit)
 spriteToitAtelier = sprites.create(assets.image`SpriteToit`, SpriteKind.Toit)
 spriteToitMaison = sprites.create(assets.image`SpriteToit`, SpriteKind.Toit)
+let spriteExtMaison = sprites.create(assets.image`SpriteToit`, SpriteKind.Exterieur)
+let spriteExtAtelier = sprites.create(assets.image`SpriteToit`, SpriteKind.Exterieur)
+let spriteExtStudio = sprites.create(assets.image`SpriteToit`, SpriteKind.Exterieur)
 creerSpriteToit(assets.image`repereStudio`, spriteToitStudio)
 creerSpriteToit(assets.image`repereMaison`, spriteToitMaison)
 creerSpriteToit(assets.image`repereAtelier`, spriteToitAtelier)
