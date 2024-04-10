@@ -8,9 +8,11 @@ function creerSpriteToit (repereCoin: Image, mySprite: Sprite) {
     test = []
     if (mySprite.kind() == SpriteKind.Toit) {
         creeTabCoin(repereCoin)
-        mySprite.setImage(creerImgToit(test))
+        mySprite.setImage(creerImgToit(test, mySprite))
         placerSpriteToit(test, mySprite)
         placerTuileCoin(test)
+    } else {
+    	
     }
 }
 function placerSpriteToit (ArrCoin: tiles.Location[], mySprite: Sprite) {
@@ -33,38 +35,6 @@ function placerTuileCoin (ArrCoin: tiles.Location[]) {
         }
     }
 }
-controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
-    game.showLongText(tempTabCoin[1], DialogLayout.Bottom)
-    if (debug == 0) {
-        debug = 1
-    } else {
-        debug = 0
-    }
-})
-function creerImgToit (ArrCoin: tiles.Location[]) {
-    CoinSupDrt = (ArrCoin[2].column + 1) * 16
-    CoinSupDrt2 = ArrCoin[2].row * 16
-    CoinSupGch = ArrCoin[0].column * 16
-    CoinInfDrt = (ArrCoin[3].row + 1) * 16
-    ImgToit = image.create(CoinSupDrt - CoinSupGch, CoinInfDrt - CoinSupDrt2)
-    ImgToit.fill(4)
-    return ImgToit
-}
-function creeTabCoin (RepereCoin: Image) {
-    for (let valeur3 of tiles.getTilesByType(RepereCoin)) {
-        test.push(valeur3)
-    }
-    if (RepereCoin.equals(assets.image`repereStudio`)) {
-        tabCoinStudio = test
-    } else if (RepereCoin.equals(assets.image`repereMaison`)) {
-        tabCoinMaison = test
-    } else {
-        tabCoinAtelier = test
-    }
-}
-sprites.onOverlap(SpriteKind.Player, SpriteKind.PNJ, function (sprite, otherSprite) {
-    tiles.placeOnTile(sprite, tiles.getTileLocation(Math.floor(sprite.x / 16), Math.floor(sprite.y / 16)))
-})
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     if (Joueur.tileKindAt(TileDirection.Left, assets.tile`TuilePorteGch`)) {
         if (game.ask("Voulez vous entrer?")) {
@@ -132,7 +102,48 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
         }
     }
 })
-let ImgToit: Image = null
+controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
+    game.showLongText(tempTabCoin[1], DialogLayout.Bottom)
+    if (debug == 0) {
+        debug = 1
+    } else {
+        debug = 0
+    }
+})
+function creerImgToit (ArrCoin: tiles.Location[], mySprite: Sprite) {
+    CoinSupDrt = (ArrCoin[2].column + 1) * 16
+    CoinSupDrt2 = ArrCoin[2].row * 16
+    CoinSupGch = ArrCoin[0].column * 16
+    CoinInfDrt = (ArrCoin[3].row + 1) * 16
+    if (mySprite.kind() == SpriteKind.Toit) {
+        imgToit = image.create(CoinSupDrt - CoinSupGch, CoinInfDrt - CoinSupDrt2)
+        imgToit.fill(4)
+    } else {
+        imgToit = image.create(CoinSupDrt + 4 * 16 - (CoinSupGch - 4 * 16), CoinInfDrt + 4 * 16 - (CoinSupDrt2 - 4 * 16))
+        for (let X = 0; X <= CoinSupDrt + 4 * 16 - (CoinSupGch - 4 * 16); X++) {
+            for (let Y = 0; Y <= 4; Y++) {
+                imgToit.setPixel(X, Y, 9)
+            }
+        }
+    }
+    return imgToit
+}
+function creeTabCoin (RepereCoin: Image) {
+    for (let valeur3 of tiles.getTilesByType(RepereCoin)) {
+        test.push(valeur3)
+    }
+    if (RepereCoin.equals(assets.image`repereStudio`)) {
+        tabCoinStudio = test
+    } else if (RepereCoin.equals(assets.image`repereMaison`)) {
+        tabCoinMaison = test
+    } else {
+        tabCoinAtelier = test
+    }
+}
+sprites.onOverlap(SpriteKind.Player, SpriteKind.PNJ, function (sprite, otherSprite) {
+    tiles.placeOnTile(sprite, tiles.getTileLocation(Math.floor(sprite.x / 16), Math.floor(sprite.y / 16)))
+})
+let imgToit: Image = null
 let CoinInfDrt = 0
 let CoinSupGch = 0
 let CoinSupDrt2 = 0
@@ -190,6 +201,7 @@ let spriteExtStudio = sprites.create(assets.image`SpriteToit`, SpriteKind.Exteri
 creerSpriteToit(assets.image`repereStudio`, spriteToitStudio)
 creerSpriteToit(assets.image`repereMaison`, spriteToitMaison)
 creerSpriteToit(assets.image`repereAtelier`, spriteToitAtelier)
+creerSpriteToit(assets.image`repereAtelier`, spriteExtAtelier)
 for (let valeur4 of tiles.getTilesByType(assets.tile`TuilePorteGch`)) {
     posPortGch.push(valeur4)
 }
