@@ -97,12 +97,14 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
             tiles.placeOnTile(Joueur, tiles.getTileLocation(Math.floor(Joueur.x / 16) - 2, Math.floor(Joueur.y / 16)))
             if (Math.floor(Joueur.y / 16) == posPortGch[0].row) {
                 if (besoinExt == 0) {
+                    spriteExtStudio = sprites.create(assets.image`SpriteToit`, SpriteKind.Exterieur)
                     creerSpriteToit(assets.image`repereStudio`, spriteExtStudio)
                     spriteToitStudio.setFlag(SpriteFlag.Invisible, true)
                     besoinExt = 1
                 }
             } else {
                 if (besoinExt == 0) {
+                    spriteExtMaison = sprites.create(assets.image`SpriteToit`, SpriteKind.Exterieur)
                     creerSpriteToit(assets.image`repereMaison`, spriteExtMaison)
                     spriteToitMaison.setFlag(SpriteFlag.Invisible, true)
                     besoinExt = 1
@@ -130,8 +132,9 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
         if (game.ask("Voulez vous entrer?")) {
             tiles.placeOnTile(Joueur, tiles.getTileLocation(Math.floor(Joueur.x / 16) + 2, Math.floor(Joueur.y / 16)))
             if (besoinExt == 0) {
+                spriteExtAtelier = sprites.create(assets.image`SpriteToit`, SpriteKind.Exterieur)
                 creerSpriteToit(assets.image`repereAtelier`, spriteExtAtelier)
-                spriteExtAtelier.setFlag(SpriteFlag.Invisible, true)
+                spriteToitAtelier.setFlag(SpriteFlag.Invisible, true)
                 besoinExt = 1
             }
         }
