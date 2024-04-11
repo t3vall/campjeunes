@@ -130,7 +130,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
             tiles.placeOnTile(Joueur, tiles.getTileLocation(Math.floor(Joueur.x / 16) + 2, Math.floor(Joueur.y / 16)))
             if (besoinExt == 0) {
                 creerSpriteToit(assets.image`repereAtelier`, spriteExtAtelier)
-                spriteToitAtelier.setFlag(SpriteFlag.Invisible, true)
+                spriteExtAtelier.setFlag(SpriteFlag.Invisible, true)
                 besoinExt = 1
             }
         }
@@ -184,6 +184,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
 controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
 	
 })
+let decalage = 0
 let imgToit: Image = null
 let CoinInfDrt = 0
 let CoinSupGch = 0
@@ -205,7 +206,6 @@ let taille = 0
 let besoinExt = 0
 let debug = 0
 besoinExt = 0
-let besoinExtMode2 = 0
 let tempTabCoin: number[] = []
 taille = 2
 tabCoinStudio = []
@@ -253,21 +253,23 @@ for (let valeur4 of tiles.getTilesByType(assets.tile`TuilePorteGch`)) {
 }
 forever(function () {
     if (Math.floor(Joueur.x / 16) >= tabCoinMaison[0].column && Math.floor(Joueur.x / 16) <= tabCoinMaison[2].column && (Math.floor(Joueur.y / 16) >= tabCoinMaison[0].row && Math.floor(Joueur.y / 16) <= tabCoinMaison[1].row)) {
-        if (besoinExtMode2 == 0) {
-            besoinExtMode2 = 1
+        if (besoinExt == 0) {
             creerSpriteToit(assets.image`repereMaison`, spriteExtMaison)
             spriteToitMaison.setFlag(SpriteFlag.Invisible, true)
+            besoinExt = 1
         }
     } else {
-        if (besoinExtMode2 == 1) {
-            besoinExtMode2 = 0
+        if (besoinExt == 1) {
             sprites.destroy(spriteExtMaison)
             spriteToitMaison.setFlag(SpriteFlag.Invisible, false)
+            besoinExt = 0
         }
     }
 })
 game.onUpdate(function () {
-    if (controller.A.isPressed()) {
-    	
+    if (controller.B.isPressed()) {
+        decalage += 1
+        spriteExtStudio.setPosition(80 + decalage * 16, 824)
+        console.log("decalage = " + decalage)
     }
 })
