@@ -5,16 +5,17 @@ namespace SpriteKind {
     export const Exterieur = SpriteKind.create()
 }
 function creerSpriteToit (repereCoin: Image, mySprite: Sprite) {
+    tempSprite = mySprite
     test = []
-    if (mySprite.kind() == SpriteKind.Toit) {
+    if (tempSprite.kind() == SpriteKind.Toit) {
         creeTabCoin(repereCoin)
-        mySprite.setImage(creerImgToit(test, mySprite))
-        placerSpriteToit(test, mySprite)
+        tempSprite.setImage(creerImgToit(test, tempSprite))
+        placerSpriteToit(test, tempSprite)
         placerTuileCoin(test)
     } else {
         creeTabCoin(repereCoin)
-        mySprite.setImage(creerImgToit(test, mySprite))
-        placerSpriteToit(test, mySprite)
+        tempSprite.setImage(creerImgToit(test, tempSprite))
+        placerSpriteToit(test, tempSprite)
     }
 }
 function placerSpriteToit (ArrCoin: tiles.Location[], mySprite: Sprite) {
@@ -37,59 +38,6 @@ function placerTuileCoin (ArrCoin: tiles.Location[]) {
         }
     }
 }
-function creerImgToit (ArrCoin: tiles.Location[], mySprite: Sprite) {
-    CoinSupDrt = ArrCoin[2].x + 8
-    CoinSupDrt2 = ArrCoin[2].y - 8
-    CoinSupGch = ArrCoin[0].x - 8
-    CoinInfDrt = ArrCoin[3].y + 8
-    if (mySprite.kind() == SpriteKind.Toit) {
-        imgToit = image.create(CoinSupDrt - CoinSupGch, CoinInfDrt - CoinSupDrt2)
-        imgToit.fill(4)
-    } else {
-        imgToit = image.create(CoinSupDrt + taille * 16 - (CoinSupGch - taille * 16), CoinInfDrt + taille * 16 - (CoinSupDrt2 - taille * 16))
-        for (let X = 0; X <= CoinSupDrt + taille * 16 - (CoinSupGch - taille * 16); X++) {
-            for (let Y = 0; Y <= CoinInfDrt + taille * 16 - (CoinSupDrt2 - taille * 16); Y++) {
-                if (Y < taille * 16 || Y >= CoinInfDrt + taille * 16 - (CoinSupDrt2 - taille * 16) - taille * 16 || (X < taille * 16 || X >= CoinSupDrt + taille * 16 - (CoinSupGch - taille * 16) - taille * 16)) {
-                    imgToit.setPixel(X, Y, 15)
-                } else {
-                    imgToit.setPixel(X, Y, 0)
-                }
-            }
-        }
-    }
-    return imgToit
-}
-function creeTabCoin (RepereCoin: Image) {
-    if (tiles.getTilesByType(RepereCoin).length != 0) {
-        for (let valeur3 of tiles.getTilesByType(RepereCoin)) {
-            test.push(valeur3)
-        }
-        if (RepereCoin.equals(assets.image`repereStudio`)) {
-            tabCoinStudio = test
-        } else if (RepereCoin.equals(assets.image`repereMaison`)) {
-            tabCoinMaison = test
-        } else {
-            tabCoinAtelier = test
-        }
-    } else {
-        if (RepereCoin.equals(assets.image`repereStudio`)) {
-            for (let valeur32 of tabCoinStudio) {
-                test.push(valeur32)
-            }
-        } else if (RepereCoin.equals(assets.image`repereMaison`)) {
-            for (let valeur33 of tabCoinMaison) {
-                test.push(valeur33)
-            }
-        } else {
-            for (let valeur34 of tabCoinAtelier) {
-                test.push(valeur34)
-            }
-        }
-    }
-}
-sprites.onOverlap(SpriteKind.Player, SpriteKind.PNJ, function (sprite, otherSprite) {
-    tiles.placeOnTile(sprite, tiles.getTileLocation(Math.floor(sprite.x / 16), Math.floor(sprite.y / 16)))
-})
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     if (Joueur.tileKindAt(TileDirection.Left, assets.tile`TuilePorteGch`)) {
         if (game.ask("Voulez vous entrer?")) {
@@ -184,6 +132,60 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
 controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
 	
 })
+function creerImgToit (ArrCoin: tiles.Location[], mySprite: Sprite) {
+    CoinSupDrt = ArrCoin[2].x + 8
+    CoinSupDrt2 = ArrCoin[2].y - 8
+    CoinSupGch = ArrCoin[0].x - 8
+    CoinInfDrt = ArrCoin[3].y + 8
+    if (mySprite.kind() == SpriteKind.Toit) {
+        imgToit = image.create(CoinSupDrt - CoinSupGch, CoinInfDrt - CoinSupDrt2)
+        imgToit.fill(4)
+    } else {
+        imgToit = image.create(CoinSupDrt + taille * 16 - (CoinSupGch - taille * 16), CoinInfDrt + taille * 16 - (CoinSupDrt2 - taille * 16))
+        for (let X = 0; X <= CoinSupDrt + taille * 16 - (CoinSupGch - taille * 16); X++) {
+            for (let Y = 0; Y <= CoinInfDrt + taille * 16 - (CoinSupDrt2 - taille * 16); Y++) {
+                if (Y < taille * 16 || Y >= CoinInfDrt + taille * 16 - (CoinSupDrt2 - taille * 16) - taille * 16 || (X < taille * 16 || X >= CoinSupDrt + taille * 16 - (CoinSupGch - taille * 16) - taille * 16)) {
+                    imgToit.setPixel(X, Y, 15)
+                } else {
+                    imgToit.setPixel(X, Y, 0)
+                }
+            }
+        }
+    }
+    return imgToit
+}
+function creeTabCoin (RepereCoin: Image) {
+    if (tiles.getTilesByType(RepereCoin).length != 0) {
+        for (let valeur3 of tiles.getTilesByType(RepereCoin)) {
+            test.push(valeur3)
+        }
+        if (RepereCoin.equals(assets.image`repereStudio`)) {
+            tabCoinStudio = test
+        } else if (RepereCoin.equals(assets.image`repereMaison`)) {
+            tabCoinMaison = test
+        } else {
+            tabCoinAtelier = test
+        }
+    } else {
+        if (RepereCoin.equals(assets.image`repereStudio`)) {
+            for (let valeur32 of tabCoinStudio) {
+                test.push(valeur32)
+            }
+        } else if (RepereCoin.equals(assets.image`repereMaison`)) {
+            for (let valeur33 of tabCoinMaison) {
+                test.push(valeur33)
+            }
+        } else {
+            for (let valeur34 of tabCoinAtelier) {
+                test.push(valeur34)
+            }
+        }
+    }
+}
+sprites.onOverlap(SpriteKind.Player, SpriteKind.PNJ, function (sprite, otherSprite) {
+    tiles.placeOnTile(sprite, tiles.getTileLocation(Math.floor(sprite.x / 16), Math.floor(sprite.y / 16)))
+})
+let besoinExtMode2 = 0
 let decalage = 0
 let imgToit: Image = null
 let CoinInfDrt = 0
@@ -191,6 +193,7 @@ let CoinSupGch = 0
 let CoinSupDrt2 = 0
 let CoinSupDrt = 0
 let test: tiles.Location[] = []
+let tempSprite: Sprite = null
 let spriteExtStudio: Sprite = null
 let spriteExtAtelier: Sprite = null
 let spriteExtMaison: Sprite = null
@@ -205,8 +208,8 @@ let tabCoinStudio: tiles.Location[] = []
 let taille = 0
 let besoinExt = 0
 let debug = 0
-besoinExt = 0
 let tempTabCoin: number[] = []
+besoinExt = 0
 taille = 2
 tabCoinStudio = []
 tabCoinMaison = []
@@ -251,25 +254,26 @@ creerSpriteToit(assets.image`repereMaison`, spriteToitMaison)
 for (let valeur4 of tiles.getTilesByType(assets.tile`TuilePorteGch`)) {
     posPortGch.push(valeur4)
 }
-forever(function () {
-    if (Math.floor(Joueur.x / 16) >= tabCoinMaison[0].column && Math.floor(Joueur.x / 16) <= tabCoinMaison[2].column && (Math.floor(Joueur.y / 16) >= tabCoinMaison[0].row && Math.floor(Joueur.y / 16) <= tabCoinMaison[1].row)) {
-        if (besoinExt == 0) {
-            creerSpriteToit(assets.image`repereMaison`, spriteExtMaison)
-            spriteToitMaison.setFlag(SpriteFlag.Invisible, true)
-            besoinExt = 1
-        }
-    } else {
-        if (besoinExt == 1) {
-            sprites.destroy(spriteExtMaison)
-            spriteToitMaison.setFlag(SpriteFlag.Invisible, false)
-            besoinExt = 0
-        }
-    }
-})
 game.onUpdate(function () {
+    // console.log("decalage = " + decalage)
     if (controller.B.isPressed()) {
         decalage += 1
         spriteExtStudio.setPosition(80 + decalage * 16, 824)
-        console.log("decalage = " + decalage)
+    }
+})
+forever(function () {
+    if (Math.floor(Joueur.x / 16) >= tabCoinMaison[0].column && Math.floor(Joueur.x / 16) <= tabCoinMaison[2].column && (Math.floor(Joueur.y / 16) >= tabCoinMaison[0].row && Math.floor(Joueur.y / 16) <= tabCoinMaison[1].row)) {
+        if (besoinExtMode2 == 0) {
+            spriteExtMaison = sprites.create(assets.image`SpriteToit`, SpriteKind.Exterieur)
+            creerSpriteToit(assets.image`repereMaison`, spriteExtMaison)
+            spriteToitMaison.setFlag(SpriteFlag.Invisible, true)
+            besoinExtMode2 = 1
+        }
+    } else {
+        if (besoinExtMode2 == 1) {
+            sprites.destroy(spriteExtMaison)
+            spriteToitMaison.setFlag(SpriteFlag.Invisible, false)
+            besoinExtMode2 = 0
+        }
     }
 })
