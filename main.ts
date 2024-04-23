@@ -4,7 +4,22 @@ namespace SpriteKind {
     export const PC = SpriteKind.create()
     export const Exterieur = SpriteKind.create()
 }
-controller.menu.onEvent(ControllerButtonEvent.Pressed, function () {
+function creerSpriteToit (repereCoin: Image, mySprite: Sprite, desactivation: boolean) {
+    tempSprite = mySprite
+    test = []
+    creeTabCoin(repereCoin)
+    if (desactivation) {
+        if (tempSprite.kind() == SpriteKind.Toit) {
+            tempSprite.setImage(creerImgToit(test, tempSprite))
+            placerSpriteToit(test, tempSprite)
+            placerTuileCoin(test)
+        } else {
+            tempSprite.setImage(creerImgToit(test, tempSprite))
+            placerSpriteToit(test, tempSprite)
+        }
+    }
+}
+controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
     if (Joueur.tileKindAt(TileDirection.Left, assets.tile`tilePorteGch`)) {
         if (game.ask("Voulez vous entrer?")) {
             tiles.placeOnTile(Joueur, tiles.getTileLocation(Math.floor(Joueur.x / 16) - 2, Math.floor(Joueur.y / 16)))
@@ -98,21 +113,6 @@ controller.menu.onEvent(ControllerButtonEvent.Pressed, function () {
         }
     }
 })
-function creerSpriteToit (repereCoin: Image, mySprite: Sprite, desactivation: boolean) {
-    tempSprite = mySprite
-    test = []
-    creeTabCoin(repereCoin)
-    if (desactivation) {
-        if (tempSprite.kind() == SpriteKind.Toit) {
-            tempSprite.setImage(creerImgToit(test, tempSprite))
-            placerSpriteToit(test, tempSprite)
-            placerTuileCoin(test)
-        } else {
-            tempSprite.setImage(creerImgToit(test, tempSprite))
-            placerSpriteToit(test, tempSprite)
-        }
-    }
-}
 function placerSpriteToit (ArrCoin: tiles.Location[], mySprite: Sprite) {
     CoinSupDrt = ArrCoin[2].x + 8
     CoinSupDrt2 = ArrCoin[2].y - 8
@@ -164,17 +164,22 @@ function creerTuileCoin (coinSupDrtCol: number, coinInfDrtRow: number, coinSupDr
         }
     }
 }
-function creerIntBat (coinSupDrtCol: number, coinInfDrtRow: number, coinSupDrtRow: number, coinSupGchCol: number, posPorteCol: number, posPorteRow: number) {
+function creerIntBat (coinSupDrtCol: number, coinInfDrtRow: number, coinSupDrtRow: number, coinSupGchCol: number, posPorteCol: number, posPorteRow: number, Maison: boolean) {
     creerTuileMur(coinSupDrtCol, coinInfDrtRow, coinSupDrtRow, coinSupGchCol)
     creerTuileCoin(coinSupDrtCol, coinInfDrtRow, coinSupDrtRow, coinSupGchCol)
     creerTuilePorte(coinSupDrtCol, coinInfDrtRow, posPorteCol, posPorteRow)
-    creerTuileSol(coinSupDrtCol, coinInfDrtRow, coinSupDrtRow, coinSupGchCol)
+    creerTuileSol(coinSupDrtCol, coinInfDrtRow, coinSupDrtRow, coinSupGchCol, Maison)
 }
-function creerTuileSol (coinSupDrtCol: number, coinInfDrtRow: number, coinSupDrtRow: number, coinSupGchCol: number) {
+function creerTuileSol (coinSupDrtCol: number, coinInfDrtRow: number, coinSupDrtRow: number, coinSupGchCol: number, Maison: boolean) {
     for (let X2 = 0; X2 <= coinSupDrtCol; X2++) {
         for (let Y2 = 0; Y2 <= coinInfDrtRow; Y2++) {
             if (X2 >= coinSupGchCol + 1 && X2 <= coinSupDrtCol - 1 && (Y2 >= coinSupDrtRow + 1 && Y2 <= coinInfDrtRow - 1)) {
                 tiles.setTileAt(tiles.getTileLocation(X2, Y2), assets.tile`tileSol1`)
+            }
+            if (Maison) {
+                if (X2 == coinSupGchCol && (Y2 >= coinSupDrtPmaisonRow + 1 && Y2 <= coinInfDrtPmaisonRow - 1)) {
+                    tiles.setTileAt(tiles.getTileLocation(X2, Y2), assets.tile`tileSol1`)
+                }
             }
         }
     }
@@ -254,7 +259,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     if (Math.floor(Joueur.x / 16) == posPorteStudioCol + 1 && Math.floor(Joueur.y / 16) == posPorteStudioRow) {
         if (game.ask("Voulez vous entrer?")) {
             tiles.placeOnTile(Joueur, tiles.getTileLocation(Math.floor(Joueur.x / 16) - 2, Math.floor(Joueur.y / 16)))
-            creerIntBat(coinSupDrtStudioCol, coinInfDrtSudioRow, coinSupDrtStudioRow, coinSupGchStudioCol, posPorteStudioCol, posPorteStudioRow)
+            creerIntBat(coinSupDrtStudioCol, coinInfDrtSudioRow, coinSupDrtStudioRow, coinSupGchStudioCol, posPorteStudioCol, posPorteStudioRow, false)
         }
     } else if (Math.floor(Joueur.x / 16) == posPorteStudioCol - 1 && Math.floor(Joueur.y / 16) == posPorteStudioRow) {
         if (game.ask("Voulez vous Sortir?")) {
@@ -265,7 +270,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     if (Math.floor(Joueur.x / 16) == posPorteAtelierCol - 1 && Math.floor(Joueur.y / 16) == posPorteAtelierRow) {
         if (game.ask("Voulez vous entrer?")) {
             tiles.placeOnTile(Joueur, tiles.getTileLocation(Math.floor(Joueur.x / 16) + 2, Math.floor(Joueur.y / 16)))
-            creerIntBat(coinSupDrtAtelierCol, coinInfDrtAtelierRow, coinSupDrtAtelierRow, coinSupGchAtelierCol, posPorteAtelierCol, posPorteAtelierRow)
+            creerIntBat(coinSupDrtAtelierCol, coinInfDrtAtelierRow, coinSupDrtAtelierRow, coinSupGchAtelierCol, posPorteAtelierCol, posPorteAtelierRow, false)
         }
     } else if (Math.floor(Joueur.x / 16) == posPorteAtelierCol + 1 && Math.floor(Joueur.y / 16) == posPorteAtelierRow) {
         if (game.ask("Voulez vous Sortir?")) {
@@ -273,9 +278,19 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
             creeTuileToit(coinSupDrtAtelierCol, coinInfDrtAtelierRow, coinSupDrtAtelierRow, coinSupGchAtelierCol)
         }
     }
-})
-controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
-	
+    if (Math.floor(Joueur.x / 16) == posPorteMaisonCol + 1 && Math.floor(Joueur.y / 16) == posPorteMaisonRow) {
+        if (game.ask("Voulez vous entrer?")) {
+            tiles.placeOnTile(Joueur, tiles.getTileLocation(Math.floor(Joueur.x / 16) - 2, Math.floor(Joueur.y / 16)))
+            creerIntBat(coinSupDrtPmaisonCol, coinInfDrtPmaisonRow, coinSupDrtPmaisonRow, coinSupGchPmaisonCol, posPorteMaisonCol, posPorteMaisonRow, false)
+            creerIntBat(coinSupDrtMaisonCol, coinInfDrtMaisonRow, coinSupDrtMaisonRow, coinSupGchMaisonCol, posPorteMaisonCol, posPorteMaisonRow, true)
+        }
+    } else if (Math.floor(Joueur.x / 16) == posPorteMaisonCol - 1 && Math.floor(Joueur.y / 16) == posPorteMaisonRow) {
+        if (game.ask("Voulez vous Sortir?")) {
+            tiles.placeOnTile(Joueur, tiles.getTileLocation(Math.floor(Joueur.x / 16) + 2, Math.floor(Joueur.y / 16)))
+            creeTuileToit(coinSupDrtPmaisonCol, coinInfDrtPmaisonRow, coinSupDrtPmaisonRow, coinSupGchPmaisonCol)
+            creeTuileToit(coinSupDrtMaisonCol, coinInfDrtMaisonRow, coinSupDrtMaisonRow, coinSupGchMaisonCol)
+        }
+    }
 })
 function creeTuileToit (coinSupDrtCol: number, coinInfDrtRow: number, coinSupDrtRow: number, coinSupGchCol: number) {
     for (let X22 = 0; X22 <= coinSupDrtCol; X22++) {
@@ -303,6 +318,16 @@ let CoinSupDrt2 = 0
 let CoinSupDrt = 0
 let test: tiles.Location[] = []
 let tempSprite: Sprite = null
+let coinInfDrtPmaisonRow = 0
+let coinSupDrtPmaisonRow = 0
+let coinSupDrtPmaisonCol = 0
+let coinSupGchPmaisonCol = 0
+let posPorteMaisonRow = 0
+let posPorteMaisonCol = 0
+let coinInfDrtMaisonRow = 0
+let coinSupDrtMaisonRow = 0
+let coinSupDrtMaisonCol = 0
+let coinSupGchMaisonCol = 0
 let posPorteAtelierRow = 0
 let posPorteAtelierCol = 0
 let coinInfDrtAtelierRow = 0
@@ -391,6 +416,16 @@ if (modeSprite) {
     coinInfDrtAtelierRow = 62
     posPorteAtelierCol = 43
     posPorteAtelierRow = 57
+    coinSupGchMaisonCol = 17
+    coinSupDrtMaisonCol = 39
+    coinSupDrtMaisonRow = 12
+    coinInfDrtMaisonRow = 32
+    posPorteMaisonCol = 39
+    posPorteMaisonRow = 30
+    coinSupGchPmaisonCol = 8
+    coinSupDrtPmaisonCol = 17
+    coinSupDrtPmaisonRow = 22
+    coinInfDrtPmaisonRow = 31
     PNJ1.setFlag(SpriteFlag.Invisible, true)
     PC2.setFlag(SpriteFlag.Invisible, true)
 }
