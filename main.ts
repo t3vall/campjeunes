@@ -3,6 +3,8 @@ namespace SpriteKind {
     export const PNJ = SpriteKind.create()
     export const PC = SpriteKind.create()
     export const Exterieur = SpriteKind.create()
+    export const QtObjet = SpriteKind.create()
+    export const Curseur = SpriteKind.create()
 }
 function creerSpriteToit (repereCoin: Image, mySprite: Sprite, desactivation: boolean) {
     tempSprite = mySprite
@@ -76,42 +78,6 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
             }
         }
     }
-    for (let valeur2 of sprites.allOfKind(SpriteKind.PNJ)) {
-        if (Math.floor(Joueur.y / 16) == Math.floor(valeur2.y / 16) && (Math.floor(Joueur.x / 16) - Math.floor(valeur2.x / 16) == 1 || Math.ceil(Joueur.x / 16) - Math.floor(valeur2.x / 16) == 0) || Math.floor(Joueur.x / 16) == Math.floor(valeur2.x / 16) && (Math.floor(Joueur.y / 16) - Math.floor(valeur2.y / 16) == 1 || Math.ceil(Joueur.y / 16) - Math.floor(valeur2.y / 16) == 0)) {
-            game.setDialogFrame(img`
-                .....cccccccccccccc.....
-                ...cbd111111111111dbc...
-                ..cd1111111111111111dc..
-                .cd111111111111111111dc.
-                .b11111111111111111111b.
-                cd11111111111111111111dc
-                c1111111111111111111111c
-                c1111111111111111111111c
-                c1111111111111111111111c
-                c1111111111111111111111c
-                c1111111111111111111111c
-                c1111111111111111111111c
-                c1111111111111111111111c
-                c1111111111111111111111c
-                c1111111111111111111111c
-                c1111111111111111111111c
-                c1111111111111111111111c
-                cd11111111111111111111dc
-                .b11111111111111111111b.
-                .cd111111111111111111dc.
-                ..cd1111111111111111dc..
-                ..b11d111111111111dbc...
-                .b11bcccccccccccccc.....
-                ccccc...................
-                `)
-            if (Math.percentChance(90)) {
-                game.showLongText("bonjour mario!", DialogLayout.Bottom)
-            } else {
-                game.showLongText("Mario!!!!", DialogLayout.Bottom)
-                game.showLongText("On est pas dans le bon jeu!!!!!", DialogLayout.Bottom)
-            }
-        }
-    }
 })
 function placerSpriteToit (ArrCoin: tiles.Location[], mySprite: Sprite) {
     CoinSupDrt = ArrCoin[2].x + 8
@@ -133,6 +99,12 @@ function placerTuileCoin (ArrCoin: tiles.Location[]) {
         }
     }
 }
+sprites.onOverlap(SpriteKind.Player, SpriteKind.QtObjet, function (sprite, otherSprite) {
+    q1MDP.left = 2
+    q1MDP.top = 30
+    q1MDP.setFlag(SpriteFlag.RelativeToCamera, true)
+    updateQuete(numQuete)
+})
 function creerTuilePorte (coinSupDrtCol: number, coinInfDrtRow: number, posPorteCol: number, posPorteRow: number) {
     for (let X2 = 0; X2 <= coinSupDrtCol; X2++) {
         for (let Y2 = 0; Y2 <= coinInfDrtRow; Y2++) {
@@ -147,19 +119,19 @@ function creerTuilePorte (coinSupDrtCol: number, coinInfDrtRow: number, posPorte
     }
 }
 function creerTuileCoin (coinSupDrtCol: number, coinInfDrtRow: number, coinSupDrtRow: number, coinSupGchCol: number, Maison: boolean) {
-    for (let X2 = 0; X2 <= coinSupDrtCol; X2++) {
-        for (let Y2 = 0; Y2 <= coinInfDrtRow; Y2++) {
-            if (X2 == coinSupGchCol && Y2 == coinSupDrtRow) {
-                tiles.setTileAt(tiles.getTileLocation(X2, Y2), assets.tile`tileCoinSupGch`)
+    for (let X22 = 0; X22 <= coinSupDrtCol; X22++) {
+        for (let Y22 = 0; Y22 <= coinInfDrtRow; Y22++) {
+            if (X22 == coinSupGchCol && Y22 == coinSupDrtRow) {
+                tiles.setTileAt(tiles.getTileLocation(X22, Y22), assets.tile`tileCoinSupGch`)
             }
-            if (X2 == coinSupDrtCol && Y2 == coinSupDrtRow) {
-                tiles.setTileAt(tiles.getTileLocation(X2, Y2), assets.tile`tileCoinSupDrt`)
+            if (X22 == coinSupDrtCol && Y22 == coinSupDrtRow) {
+                tiles.setTileAt(tiles.getTileLocation(X22, Y22), assets.tile`tileCoinSupDrt`)
             }
-            if (X2 == coinSupDrtCol && Y2 == coinInfDrtRow) {
-                tiles.setTileAt(tiles.getTileLocation(X2, Y2), assets.tile`tileCoinInfDrt`)
+            if (X22 == coinSupDrtCol && Y22 == coinInfDrtRow) {
+                tiles.setTileAt(tiles.getTileLocation(X22, Y22), assets.tile`tileCoinInfDrt`)
             }
-            if (X2 == coinSupGchCol && Y2 == coinInfDrtRow) {
-                tiles.setTileAt(tiles.getTileLocation(X2, Y2), assets.tile`tileCoinInfGch`)
+            if (X22 == coinSupGchCol && Y22 == coinInfDrtRow) {
+                tiles.setTileAt(tiles.getTileLocation(X22, Y22), assets.tile`tileCoinInfGch`)
             }
         }
     }
@@ -168,21 +140,40 @@ function creerTuileCoin (coinSupDrtCol: number, coinInfDrtRow: number, coinSupDr
         tiles.setTileAt(tiles.getTileLocation(coinSupDrtPmaisonCol, coinInfDrtPmaisonRow), assets.tile`tileCoinInt2`)
     }
 }
+function debutQuete () {
+    if (numQuete == 0) {
+        numQuete = 1
+        txtQueteL1.setText("Retrouver le")
+        txtQueteL2.setText("Mot de Passe du PC!")
+        q1MDP = sprites.create(assets.image`spritePapier`, SpriteKind.QtObjet)
+        tempQ1MDP = sprites.create(assets.image`spritePapier`, SpriteKind.QtObjet)
+        q1MDP.setPosition(randint(12, 38) * 16, randint(37, 58) * 16)
+        tempQ1MDP.setPosition(1 * 16, 244 * 16)
+    }
+}
 function creerIntBat (coinSupDrtCol: number, coinInfDrtRow: number, coinSupDrtRow: number, coinSupGchCol: number, posPorteCol: number, posPorteRow: number, Maison: boolean) {
     creerTuileMur(coinSupDrtCol, coinInfDrtRow, coinSupDrtRow, coinSupGchCol)
     creerTuileCoin(coinSupDrtCol, coinInfDrtRow, coinSupDrtRow, coinSupGchCol, Maison)
     creerTuilePorte(coinSupDrtCol, coinInfDrtRow, posPorteCol, posPorteRow)
     creerTuileSol(coinSupDrtCol, coinInfDrtRow, coinSupDrtRow, coinSupGchCol, Maison)
 }
+function updateQuete (numQuete: number) {
+    if (numQuete == 1) {
+        if (tempQ1MDP.tilemapLocation().column == 1 && tempQ1MDP.tilemapLocation().row == 244) {
+            txtQueteL1.setText("Entrer dans l'ordinateur")
+            txtQueteL2.setText("")
+        }
+    }
+}
 function creerTuileSol (coinSupDrtCol: number, coinInfDrtRow: number, coinSupDrtRow: number, coinSupGchCol: number, Maison: boolean) {
-    for (let X2 = 0; X2 <= coinSupDrtCol; X2++) {
-        for (let Y2 = 0; Y2 <= coinInfDrtRow; Y2++) {
-            if (X2 >= coinSupGchCol + 1 && X2 <= coinSupDrtCol - 1 && (Y2 >= coinSupDrtRow + 1 && Y2 <= coinInfDrtRow - 1)) {
-                tiles.setTileAt(tiles.getTileLocation(X2, Y2), assets.tile`tileSol1`)
+    for (let X23 = 0; X23 <= coinSupDrtCol; X23++) {
+        for (let Y23 = 0; Y23 <= coinInfDrtRow; Y23++) {
+            if (X23 >= coinSupGchCol + 1 && X23 <= coinSupDrtCol - 1 && (Y23 >= coinSupDrtRow + 1 && Y23 <= coinInfDrtRow - 1)) {
+                tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tileSol1`)
             }
             if (Maison) {
-                if (X2 == coinSupGchCol && (Y2 >= coinSupDrtPmaisonRow + 1 && Y2 <= coinInfDrtPmaisonRow - 1)) {
-                    tiles.setTileAt(tiles.getTileLocation(X2, Y2), assets.tile`tileSol1`)
+                if (X23 == coinSupGchCol && (Y23 >= coinSupDrtPmaisonRow + 1 && Y23 <= coinInfDrtPmaisonRow - 1)) {
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tileSol1`)
                 }
             }
         }
@@ -211,19 +202,19 @@ function creerImgToit (ArrCoin: tiles.Location[], mySprite: Sprite) {
     return imgToit
 }
 function creerTuileMur (coinSupDrtCol: number, coinInfDrtRow: number, coinSupDrtRow: number, coinSupGchCol: number) {
-    for (let X2 = 0; X2 <= coinSupDrtCol; X2++) {
-        for (let Y2 = 0; Y2 <= coinInfDrtRow; Y2++) {
-            if (Y2 == coinSupDrtRow && X2 >= coinSupGchCol) {
-                tiles.setTileAt(tiles.getTileLocation(X2, Y2), assets.tile`tileMur2`)
+    for (let X24 = 0; X24 <= coinSupDrtCol; X24++) {
+        for (let Y24 = 0; Y24 <= coinInfDrtRow; Y24++) {
+            if (Y24 == coinSupDrtRow && X24 >= coinSupGchCol) {
+                tiles.setTileAt(tiles.getTileLocation(X24, Y24), assets.tile`tileMur2`)
             }
-            if (Y2 == coinInfDrtRow && X2 >= coinSupGchCol) {
-                tiles.setTileAt(tiles.getTileLocation(X2, Y2), assets.tile`tileMur4`)
+            if (Y24 == coinInfDrtRow && X24 >= coinSupGchCol) {
+                tiles.setTileAt(tiles.getTileLocation(X24, Y24), assets.tile`tileMur4`)
             }
-            if (X2 == coinSupGchCol && (Y2 >= coinSupDrtRow && Y2 <= coinInfDrtRow)) {
-                tiles.setTileAt(tiles.getTileLocation(X2, Y2), assets.tile`tileMur1`)
+            if (X24 == coinSupGchCol && (Y24 >= coinSupDrtRow && Y24 <= coinInfDrtRow)) {
+                tiles.setTileAt(tiles.getTileLocation(X24, Y24), assets.tile`tileMur1`)
             }
-            if (X2 == coinSupDrtCol && (Y2 >= coinSupDrtRow && Y2 <= coinInfDrtRow)) {
-                tiles.setTileAt(tiles.getTileLocation(X2, Y2), assets.tile`tileMur0`)
+            if (X24 == coinSupDrtCol && (Y24 >= coinSupDrtRow && Y24 <= coinInfDrtRow)) {
+                tiles.setTileAt(tiles.getTileLocation(X24, Y24), assets.tile`tileMur0`)
             }
         }
     }
@@ -299,33 +290,85 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
             creeTuileToit(coinSupDrtMaisonCol, coinInfDrtMaisonRow, coinSupDrtMaisonRow, coinSupGchMaisonCol)
         }
     }
+    if (Math.floor(Joueur.x / 16) == 11 && Math.floor(Joueur.y / 16) == 56 || Math.floor(Joueur.x / 16) == 11 && Math.floor(Joueur.y / 16) == 58) {
+        game.splash("Le Studio")
+    }
+    if (Math.floor(Joueur.x / 16) == 39 && Math.floor(Joueur.y / 16) == 56 || Math.floor(Joueur.x / 16) == 39 && Math.floor(Joueur.y / 16) == 58) {
+        game.splash("L'Atelier")
+    }
+    if (Math.floor(Joueur.x / 16) == 42 && Math.floor(Joueur.y / 16) == 29 || Math.floor(Joueur.x / 16) == 42 && Math.floor(Joueur.y / 16) == 31) {
+        game.splash("La Maison")
+    }
+    for (let valeur2 of sprites.allOfKind(SpriteKind.PNJ)) {
+        if (Math.floor(Joueur.y / 16) == Math.floor(valeur2.y / 16) && (Math.floor(Joueur.x / 16) - Math.floor(valeur2.x / 16) == 1 || Math.ceil(Joueur.x / 16) - Math.floor(valeur2.x / 16) == 0) || Math.floor(Joueur.x / 16) == Math.floor(valeur2.x / 16) && (Math.floor(Joueur.y / 16) - Math.floor(valeur2.y / 16) == 1 || Math.ceil(Joueur.y / 16) - Math.floor(valeur2.y / 16) == 0)) {
+            game.setDialogFrame(img`
+                .....cccccccccccccc.....
+                ...cbd111111111111dbc...
+                ..cd1111111111111111dc..
+                .cd111111111111111111dc.
+                .b11111111111111111111b.
+                cd11111111111111111111dc
+                c1111111111111111111111c
+                c1111111111111111111111c
+                c1111111111111111111111c
+                c1111111111111111111111c
+                c1111111111111111111111c
+                c1111111111111111111111c
+                c1111111111111111111111c
+                c1111111111111111111111c
+                c1111111111111111111111c
+                c1111111111111111111111c
+                c1111111111111111111111c
+                cd11111111111111111111dc
+                .b11111111111111111111b.
+                .cd111111111111111111dc.
+                ..cd1111111111111111dc..
+                ..b11d111111111111dbc...
+                .b11bcccccccccccccc.....
+                ccccc...................
+                `)
+            if (Math.percentChance(90)) {
+                game.showLongText("bonjour mario!", DialogLayout.Bottom)
+                game.showLongText("Tu doit trouver le Mot de Passe du PC!", DialogLayout.Bottom)
+                debutQuete()
+            } else {
+                game.showLongText("Mario!!!!", DialogLayout.Bottom)
+                game.showLongText("On est pas dans le bon jeu!!!!!", DialogLayout.Bottom)
+            }
+        }
+    }
 })
 function creeTuileToit (coinSupDrtCol: number, coinInfDrtRow: number, coinSupDrtRow: number, coinSupGchCol: number) {
-    for (let X22 = 0; X22 <= coinSupDrtCol; X22++) {
-        for (let Y22 = 0; Y22 <= coinInfDrtRow; Y22++) {
-            if (X22 < coinSupGchCol + Math.floor((coinSupDrtCol - coinSupGchCol) / 2) && Y22 >= coinSupDrtRow && X22 >= coinSupGchCol) {
-                tiles.setTileAt(tiles.getTileLocation(X22, Y22), assets.tile`tuile3`)
+    for (let X223 = 0; X223 <= coinSupDrtCol; X223++) {
+        for (let Y223 = 0; Y223 <= coinInfDrtRow; Y223++) {
+            if (X223 < coinSupGchCol + Math.floor((coinSupDrtCol - coinSupGchCol) / 2) && Y223 >= coinSupDrtRow && X223 >= coinSupGchCol) {
+                tiles.setTileAt(tiles.getTileLocation(X223, Y223), assets.tile`tuile3`)
             }
-            if (X22 == coinSupGchCol + Math.floor((coinSupDrtCol - coinSupGchCol) / 2) && Y22 >= coinSupDrtRow) {
-                tiles.setTileAt(tiles.getTileLocation(X22, Y22), assets.tile`tileToitCtr1`)
+            if (X223 == coinSupGchCol + Math.floor((coinSupDrtCol - coinSupGchCol) / 2) && Y223 >= coinSupDrtRow) {
+                tiles.setTileAt(tiles.getTileLocation(X223, Y223), assets.tile`tileToitCtr1`)
             }
-            if (X22 == coinSupGchCol + Math.ceil((coinSupDrtCol - coinSupGchCol) / 2) && Y22 >= coinSupDrtRow) {
-                tiles.setTileAt(tiles.getTileLocation(X22, Y22), assets.tile`tileToitCtr2`)
+            if (X223 == coinSupGchCol + Math.ceil((coinSupDrtCol - coinSupGchCol) / 2) && Y223 >= coinSupDrtRow) {
+                tiles.setTileAt(tiles.getTileLocation(X223, Y223), assets.tile`tileToitCtr2`)
             }
-            if (X22 > coinSupGchCol + Math.ceil((coinSupDrtCol - coinSupGchCol) / 2) && Y22 >= coinSupDrtRow) {
-                tiles.setTileAt(tiles.getTileLocation(X22, Y22), assets.tile`tuile2`)
+            if (X223 > coinSupGchCol + Math.ceil((coinSupDrtCol - coinSupGchCol) / 2) && Y223 >= coinSupDrtRow) {
+                tiles.setTileAt(tiles.getTileLocation(X223, Y223), assets.tile`tuile2`)
             }
         }
     }
 }
 let decalage = 0
 let imgToit: Image = null
+let tempQ1MDP: Sprite = null
+let q1MDP: Sprite = null
 let CoinInfDrt = 0
 let CoinSupGch = 0
 let CoinSupDrt2 = 0
 let CoinSupDrt = 0
 let test: tiles.Location[] = []
 let tempSprite: Sprite = null
+let txtQueteL2: TextSprite = null
+let txtQueteL1: TextSprite = null
+let numQuete = 0
 let coinInfDrtPmaisonRow = 0
 let coinSupDrtPmaisonRow = 0
 let coinSupDrtPmaisonCol = 0
@@ -366,6 +409,7 @@ let PNJ1: Sprite = null
 let Joueur: Sprite = null
 let PC2: Sprite = null
 let debug = 0
+let curseur2 = sprites.create(assets.image`spriteCurseur`, SpriteKind.Curseur)
 tiles.setCurrentTilemap(tilemap`niveau0`)
 PC2 = sprites.create(assets.image`SpritePc`, SpriteKind.PC)
 Joueur = sprites.create(assets.image`Mario`, SpriteKind.Player)
@@ -439,6 +483,20 @@ if (modeSprite) {
     PNJ1.setFlag(SpriteFlag.Invisible, true)
     PC2.setFlag(SpriteFlag.Invisible, true)
 }
+curseur2.left = 0
+curseur2.top = 28
+curseur2.setFlag(SpriteFlag.RelativeToCamera, true)
+curseur2.setFlag(SpriteFlag.Invisible, true)
+numQuete = 0
+txtQueteL1 = textsprite.create("", 1, 15)
+txtQueteL2 = textsprite.create("", 1, 15)
+txtQueteL1.left = 0
+txtQueteL1.top = 0
+txtQueteL1.setFlag(SpriteFlag.RelativeToCamera, true)
+txtQueteL2.left = 0
+txtQueteL2.top = 8
+txtQueteL1.setFlag(SpriteFlag.RelativeToCamera, true)
+txtQueteL2.setFlag(SpriteFlag.RelativeToCamera, true)
 forever(function () {
     if (false) {
         if (modeSprite) {

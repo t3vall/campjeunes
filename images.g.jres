@@ -39,6 +39,16 @@
         "mimeType": "image/x-mkcd-f4",
         "displayName": "tileTest"
     },
+    "image5": {
+        "data": "hwQQABAAAADwDwD/DwAAD9/9/939///98N3d3d3d3f3w3d3d3d3dD9/9/f39/d0P3/39/d393f3f/d39/f3d/fDd/d39/d393/393f3d3f3f/f3d/d3dD9/93d3d3f0A8N3d3d3dDwDw3d3d3f0AAPDd3d3dDwAA39393/0AAADw/w/wDwAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "spritePapier"
+    },
+    "image6": {
+        "data": "hwQUABQAAAAFAAAAAAAAAABQAABQVVVVVVVVVVUFAABQVQAAAAAAAFUFAABQBQAAAAAAAFAFAABQAAAAAAAAAAAFAABQAAAAAAAAAAAFAABQAAAAAAAAAAAFAABQAAAAAAAAAAAFAABQAAAAAAAAAAAFAABQAAAAAAAAAAAFAABQAAAAAAAAAAAFAABQAAAAAAAAAAAFAABQAAAAAAAAAAAFAABQAAAAAAAAAAAFAABQAAAAAAAAAAAFAABQAAAAAAAAAAAFAABQBQAAAAAAAFAFAABQVQAAAAAAAFUFAABQVVVVVVVVVVUFAAAFAAAAAAAAAABQAAA=",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "spriteCurseur"
+    },
     "*": {
         "mimeType": "image/x-mkcd-f4",
         "dataEncoding": "base64",

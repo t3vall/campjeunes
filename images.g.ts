@@ -155,6 +155,48 @@ c c c c c c c c c c c c c c c .
 . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . 
 `;
+            case "image5":
+            case "spritePapier":return img`
+. f . . f f f . f f f . . . f . 
+f d f f d d d f d d d f f f d f 
+f d d d d d d d d d d d d d d f 
+. f d d f f f d f f f d d d d f 
+. f d d d d d d d d d d d d d f 
+. f d d f f d f f f d d d d f . 
+f d d d d d d d d d d d d d f . 
+f d d d f f f d d d d d d d d f 
+f d d d d d d d d d d d d d d f 
+. f d d f d f f f f d d d d f . 
+. f d d d d d d d d d d d f . . 
+. f d d f f f f d d d d f . . . 
+. f d d d d d d d d d f . . . . 
+. f d d d d d d d d f . . . . . 
+f d d f f d d d d f . . . . . . 
+. f f . . f f f f . . . . . . . 
+`;
+            case "image6":
+            case "spriteCurseur":return img`
+5..................5
+.555555555555555555.
+.555............555.
+.55..............55.
+.5................5.
+.5................5.
+.5................5.
+.5................5.
+.5................5.
+.5................5.
+.5................5.
+.5................5.
+.5................5.
+.5................5.
+.5................5.
+.5................5.
+.55..............55.
+.555............555.
+.555555555555555555.
+5..................5
+`;
         }
         return null;
     })
