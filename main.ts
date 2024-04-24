@@ -6,11 +6,19 @@ namespace SpriteKind {
     export const QtObjet = SpriteKind.create()
     export const Curseur = SpriteKind.create()
 }
+controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
+    if (isCursorVisible == 0) {
+        curseur2.setFlag(SpriteFlag.Invisible, false)
+        isCursorVisible = 1
+    } else {
+        curseur2.setFlag(SpriteFlag.Invisible, true)
+        isCursorVisible = 0
+    }
+})
 sprites.onOverlap(SpriteKind.Player, SpriteKind.QtObjet, function (sprite, otherSprite) {
-    q1MDP.left = 2
-    q1MDP.top = 30
-    q1MDP.setFlag(SpriteFlag.RelativeToCamera, true)
+    q1MDP.setFlag(SpriteFlag.Invisible, false)
     updateQuete(numQuete)
+    sprites.destroy(otherSprite)
 })
 function creerTuilePorte (coinSupDrtCol: number, coinInfDrtRow: number, posPorteCol: number, posPorteRow: number) {
     for (let X2 = 0; X2 <= coinSupDrtCol; X2++) {
@@ -54,8 +62,8 @@ function debutQuete () {
         txtQueteL2.setText("Mot de Passe du PC!")
         q1MDP = sprites.create(assets.image`spritePapier`, SpriteKind.QtObjet)
         tempQ1MDP = sprites.create(assets.image`spritePapier`, SpriteKind.QtObjet)
-        q1MDP.setPosition(randint(12, 38) * 16, randint(37, 58) * 16)
-        tempQ1MDP.setPosition(1 * 16, 244 * 16)
+        q1MDP.setFlag(SpriteFlag.Invisible, true)
+        tempQ1MDP.setPosition(randint(12, 38) * 16, randint(37, 58) * 16)
     }
 }
 function creerIntBat (coinSupDrtCol: number, coinInfDrtRow: number, coinSupDrtRow: number, coinSupGchCol: number, posPorteCol: number, posPorteRow: number, Maison: boolean) {
@@ -86,9 +94,6 @@ function creerTuileSol (coinSupDrtCol: number, coinInfDrtRow: number, coinSupDrt
         }
     }
 }
-controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
-	
-})
 function creerTuileMur (coinSupDrtCol: number, coinInfDrtRow: number, coinSupDrtRow: number, coinSupGchCol: number) {
     for (let X24 = 0; X24 <= coinSupDrtCol; X24++) {
         for (let Y24 = 0; Y24 <= coinInfDrtRow; Y24++) {
@@ -107,6 +112,14 @@ function creerTuileMur (coinSupDrtCol: number, coinInfDrtRow: number, coinSupDrt
         }
     }
 }
+spriteutils.addEventHandler(spriteutils.UpdatePriorityModifier.After, spriteutils.UpdatePriority.Camera, function () {
+    curseur2.left = scene.cameraProperty(CameraProperty.Left) + 0
+    curseur2.top = scene.cameraProperty(CameraProperty.Top) + 28
+    if (q1MDP) {
+        q1MDP.left = scene.cameraProperty(CameraProperty.Left) + 2
+        q1MDP.top = scene.cameraProperty(CameraProperty.Top) + 30
+    }
+})
 sprites.onOverlap(SpriteKind.Player, SpriteKind.PNJ, function (sprite, otherSprite) {
     tiles.placeOnTile(sprite, tiles.getTileLocation(Math.floor(sprite.x / 16), Math.floor(sprite.y / 16)))
 })
@@ -197,6 +210,11 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
             }
         }
     }
+    if (q1MDP && isCursorVisible == 1) {
+        if (curseur2.overlapsWith(q1MDP)) {
+            game.splash("le MDP est: popo")
+        }
+    }
 })
 function creeTuileToit (coinSupDrtCol: number, coinInfDrtRow: number, coinSupDrtRow: number, coinSupGchCol: number) {
     for (let X223 = 0; X223 <= coinSupDrtCol; X223++) {
@@ -246,8 +264,11 @@ let coinSupGchStudioCol = 0
 let PNJ1: Sprite = null
 let Joueur: Sprite = null
 let PC2: Sprite = null
+let isCursorVisible = 0
+let curseur2: Sprite = null
 let debug = 0
-let curseur2 = sprites.create(assets.image`spriteCurseur`, SpriteKind.Curseur)
+curseur2 = sprites.create(assets.image`spriteCurseur`, SpriteKind.Curseur)
+isCursorVisible = 0
 tiles.setCurrentTilemap(tilemap`niveau0`)
 PC2 = sprites.create(assets.image`SpritePc`, SpriteKind.PC)
 Joueur = sprites.create(assets.image`Mario`, SpriteKind.Player)
@@ -282,9 +303,10 @@ coinSupDrtPmaisonRow = 22
 coinInfDrtPmaisonRow = 31
 PNJ1.setFlag(SpriteFlag.Invisible, true)
 PC2.setFlag(SpriteFlag.Invisible, true)
-curseur2.left = 0
-curseur2.top = 28
-curseur2.setFlag(SpriteFlag.RelativeToCamera, true)
+curseur2.left = scene.cameraProperty(CameraProperty.Left) + 0
+curseur2.top = scene.cameraProperty(CameraProperty.Top) + 28
+curseur2.z = 0
+curseur2.setFlag(SpriteFlag.RelativeToCamera, false)
 curseur2.setFlag(SpriteFlag.Invisible, true)
 numQuete = 0
 txtQueteL1 = textsprite.create("", 1, 15)
