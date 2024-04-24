@@ -3,10 +3,10 @@ namespace SpriteKind {
     export const PNJ = SpriteKind.create()
     export const PC = SpriteKind.create()
     export const Exterieur = SpriteKind.create()
-    export const qtObjet = SpriteKind.create()
-    export const curseur = SpriteKind.create()
+    export const QtObjet = SpriteKind.create()
+    export const Curseur = SpriteKind.create()
 }
-sprites.onOverlap(SpriteKind.Player, SpriteKind.qtObjet, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.Player, SpriteKind.QtObjet, function (sprite, otherSprite) {
     q1MDP.left = 2
     q1MDP.top = 30
     q1MDP.setFlag(SpriteFlag.RelativeToCamera, true)
@@ -52,8 +52,8 @@ function debutQuete () {
         numQuete = 1
         txtQueteL1.setText("Retrouver le")
         txtQueteL2.setText("Mot de Passe du PC!")
-        q1MDP = sprites.create(assets.image`spritePapier`, SpriteKind.qtObjet)
-        tempQ1MDP = sprites.create(assets.image`spritePapier`, SpriteKind.qtObjet)
+        q1MDP = sprites.create(assets.image`spritePapier`, SpriteKind.QtObjet)
+        tempQ1MDP = sprites.create(assets.image`spritePapier`, SpriteKind.QtObjet)
         q1MDP.setPosition(randint(12, 38) * 16, randint(37, 58) * 16)
         tempQ1MDP.setPosition(1 * 16, 244 * 16)
     }
@@ -247,7 +247,7 @@ let PNJ1: Sprite = null
 let Joueur: Sprite = null
 let PC2: Sprite = null
 let debug = 0
-let curseur2 = sprites.create(assets.image`spriteCurseur`, SpriteKind.curseur)
+let curseur2 = sprites.create(assets.image`spriteCurseur`, SpriteKind.Curseur)
 tiles.setCurrentTilemap(tilemap`niveau0`)
 PC2 = sprites.create(assets.image`SpritePc`, SpriteKind.PC)
 Joueur = sprites.create(assets.image`Mario`, SpriteKind.Player)
