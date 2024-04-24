@@ -146,7 +146,7 @@ function creerTuilePorte (coinSupDrtCol: number, coinInfDrtRow: number, posPorte
         }
     }
 }
-function creerTuileCoin (coinSupDrtCol: number, coinInfDrtRow: number, coinSupDrtRow: number, coinSupGchCol: number) {
+function creerTuileCoin (coinSupDrtCol: number, coinInfDrtRow: number, coinSupDrtRow: number, coinSupGchCol: number, Maison: boolean) {
     for (let X2 = 0; X2 <= coinSupDrtCol; X2++) {
         for (let Y2 = 0; Y2 <= coinInfDrtRow; Y2++) {
             if (X2 == coinSupGchCol && Y2 == coinSupDrtRow) {
@@ -163,10 +163,14 @@ function creerTuileCoin (coinSupDrtCol: number, coinInfDrtRow: number, coinSupDr
             }
         }
     }
+    if (Maison) {
+        tiles.setTileAt(tiles.getTileLocation(coinSupDrtPmaisonCol, coinSupDrtPmaisonRow), assets.tile`tileCoinInt0`)
+        tiles.setTileAt(tiles.getTileLocation(coinSupDrtPmaisonCol, coinInfDrtPmaisonRow), assets.tile`tileCoinInt2`)
+    }
 }
 function creerIntBat (coinSupDrtCol: number, coinInfDrtRow: number, coinSupDrtRow: number, coinSupGchCol: number, posPorteCol: number, posPorteRow: number, Maison: boolean) {
     creerTuileMur(coinSupDrtCol, coinInfDrtRow, coinSupDrtRow, coinSupGchCol)
-    creerTuileCoin(coinSupDrtCol, coinInfDrtRow, coinSupDrtRow, coinSupGchCol)
+    creerTuileCoin(coinSupDrtCol, coinInfDrtRow, coinSupDrtRow, coinSupGchCol, Maison)
     creerTuilePorte(coinSupDrtCol, coinInfDrtRow, posPorteCol, posPorteRow)
     creerTuileSol(coinSupDrtCol, coinInfDrtRow, coinSupDrtRow, coinSupGchCol, Maison)
 }
@@ -260,11 +264,15 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
         if (game.ask("Voulez vous entrer?")) {
             tiles.placeOnTile(Joueur, tiles.getTileLocation(Math.floor(Joueur.x / 16) - 2, Math.floor(Joueur.y / 16)))
             creerIntBat(coinSupDrtStudioCol, coinInfDrtSudioRow, coinSupDrtStudioRow, coinSupGchStudioCol, posPorteStudioCol, posPorteStudioRow, false)
+            PC2.setFlag(SpriteFlag.Invisible, false)
+            PNJ1.setFlag(SpriteFlag.Invisible, false)
         }
     } else if (Math.floor(Joueur.x / 16) == posPorteStudioCol - 1 && Math.floor(Joueur.y / 16) == posPorteStudioRow) {
         if (game.ask("Voulez vous Sortir?")) {
             tiles.placeOnTile(Joueur, tiles.getTileLocation(Math.floor(Joueur.x / 16) + 2, Math.floor(Joueur.y / 16)))
             creeTuileToit(coinSupDrtStudioCol, coinInfDrtSudioRow, coinSupDrtStudioRow, coinSupGchStudioCol)
+            PC2.setFlag(SpriteFlag.Invisible, true)
+            PNJ1.setFlag(SpriteFlag.Invisible, true)
         }
     }
     if (Math.floor(Joueur.x / 16) == posPorteAtelierCol - 1 && Math.floor(Joueur.y / 16) == posPorteAtelierRow) {
@@ -354,12 +362,14 @@ let taille = 0
 let besoinExt = 0
 let tempTabCoin: number[] = []
 let modeSprite = 0
+let PNJ1: Sprite = null
 let Joueur: Sprite = null
+let PC2: Sprite = null
 let debug = 0
 tiles.setCurrentTilemap(tilemap`niveau0`)
-let PC2 = sprites.create(assets.image`SpritePc`, SpriteKind.PC)
+PC2 = sprites.create(assets.image`SpritePc`, SpriteKind.PC)
 Joueur = sprites.create(assets.image`Mario`, SpriteKind.Player)
-let PNJ1 = sprites.create(assets.image`Luigi`, SpriteKind.PNJ)
+PNJ1 = sprites.create(assets.image`Luigi`, SpriteKind.PNJ)
 controller.moveSprite(Joueur, 100, 100)
 scene.cameraFollowSprite(Joueur)
 Joueur.setFlag(SpriteFlag.ShowPhysics, true)
