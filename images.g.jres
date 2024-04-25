@@ -49,6 +49,16 @@
         "mimeType": "image/x-mkcd-f4",
         "displayName": "spriteCurseur"
     },
+    "image7": {
+        "data": "hwQQABAAAAD///////////ARERERERHxAB8REREREQ8A8BERERHxAAAAHxEREQ8AAADwERER8Q8AAAAfERER8QAAAPAR8R8RAAAAAB/x8B8AAAAA8PEA8AAAAAAA/wAAAAAAAADwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "spriteCursor"
+    },
+    "image8": {
+        "data": "hwQQABAAAAAAACIiIgIAAAAiIiIiIgIAICIAAAAgIgAgAgAAAAAiACIAAAAAACACIgAAAAAAIAIAAAAAAAAgAiIiIiIAACACIiIiIgAAIAIAAAAAAAAgAiIAAAAAACACIgAAAAAAIAIgAgAAAAAiACAiAAAAICIAACIiIiIiAgAAACIiIgIAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "spriteOnOff"
+    },
     "*": {
         "mimeType": "image/x-mkcd-f4",
         "dataEncoding": "base64",

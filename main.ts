@@ -5,6 +5,7 @@ namespace SpriteKind {
     export const Exterieur = SpriteKind.create()
     export const QtObjet = SpriteKind.create()
     export const Curseur = SpriteKind.create()
+    export const Icon = SpriteKind.create()
 }
 controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
     if (isCursorVisible == 0) {
@@ -16,9 +17,10 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
     }
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.QtObjet, function (sprite, otherSprite) {
+    info.changeScoreBy(10)
     q1MDP.setFlag(SpriteFlag.Invisible, false)
+    tempQ1MDP.setPosition(1 * 16, 244 * 16)
     updateQuete(numQuete)
-    sprites.destroy(otherSprite)
 })
 function creerTuilePorte (coinSupDrtCol: number, coinInfDrtRow: number, posPorteCol: number, posPorteRow: number) {
     for (let X2 = 0; X2 <= coinSupDrtCol; X2++) {
@@ -64,6 +66,25 @@ function debutQuete () {
         tempQ1MDP = sprites.create(assets.image`spritePapier`, SpriteKind.QtObjet)
         q1MDP.setFlag(SpriteFlag.Invisible, true)
         tempQ1MDP.setPosition(randint(12, 38) * 16, randint(37, 58) * 16)
+    }
+}
+function logInPC () {
+    if (Math.floor(Joueur.x / 16) == 1 && Math.floor(Joueur.y / 16) == 42) {
+        if (isPCOn == 0) {
+            info.changeScoreBy(10)
+            sprites.destroy(q1MDP)
+            sprites.destroy(tempQ1MDP)
+            isPCOn = 1
+            if (game.askForString("Veuillez entrer le mot de passe!!!") == mdpPC) {
+                scene.centerCameraAt(6 * 16, 70 * 16)
+                curseur3 = sprites.create(assets.image`spriteCursor`, SpriteKind.Player)
+                curseur3.setPosition(6 * 16, 70 * 16)
+                controller.moveSprite(Joueur, 0, 0)
+                controller.moveSprite(curseur3)
+                logOutIcon = sprites.create(assets.image`spriteOnOff`, SpriteKind.Icon)
+                logOutIcon.setPosition(1 * 16 + 8, 73 * 16)
+            }
+        }
     }
 }
 function creerIntBat (coinSupDrtCol: number, coinInfDrtRow: number, coinSupDrtRow: number, coinSupGchCol: number, posPorteCol: number, posPorteRow: number, Maison: boolean) {
@@ -118,6 +139,20 @@ spriteutils.addEventHandler(spriteutils.UpdatePriorityModifier.After, spriteutil
     if (q1MDP) {
         q1MDP.left = scene.cameraProperty(CameraProperty.Left) + 2
         q1MDP.top = scene.cameraProperty(CameraProperty.Top) + 30
+    }
+})
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Icon, function (sprite, otherSprite) {
+    if (controller.A.isPressed()) {
+        isPCOn = 0
+        sprites.destroy(logOutIcon)
+        sprites.destroy(curseur3)
+        scene.cameraFollowSprite(Joueur)
+        controller.moveSprite(curseur3, 0, 0)
+        controller.moveSprite(Joueur)
+        txtQueteL1.setText("")
+        txtQueteL2.setText("")
+        game.splash("Quete ", "" + numQuete + ": Terminée")
+        info.changeScoreBy(100)
     }
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.PNJ, function (sprite, otherSprite) {
@@ -201,10 +236,12 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
                 ccccc...................
                 `)
             if (Math.percentChance(90)) {
+                info.changeScoreBy(10)
                 game.showLongText("bonjour mario!", DialogLayout.Bottom)
                 game.showLongText("Tu doit trouver le Mot de Passe du PC!", DialogLayout.Bottom)
                 debutQuete()
             } else {
+                info.changeScoreBy(100)
                 game.showLongText("Mario!!!!", DialogLayout.Bottom)
                 game.showLongText("On est pas dans le bon jeu!!!!!", DialogLayout.Bottom)
             }
@@ -212,9 +249,13 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     }
     if (q1MDP && isCursorVisible == 1) {
         if (curseur2.overlapsWith(q1MDP)) {
-            game.splash("le MDP est: popo")
+            info.changeScoreBy(10)
+            game.splash("le MDP est: ", mdpPC)
+            curseur2.setFlag(SpriteFlag.Invisible, true)
+            isCursorVisible = 0
         }
     }
+    logInPC()
 })
 function creeTuileToit (coinSupDrtCol: number, coinInfDrtRow: number, coinSupDrtRow: number, coinSupGchCol: number) {
     for (let X223 = 0; X223 <= coinSupDrtCol; X223++) {
@@ -234,6 +275,8 @@ function creeTuileToit (coinSupDrtCol: number, coinInfDrtRow: number, coinSupDrt
         }
     }
 }
+let logOutIcon: Sprite = null
+let curseur3: Sprite = null
 let tempQ1MDP: Sprite = null
 let q1MDP: Sprite = null
 let txtQueteL2: TextSprite = null
@@ -264,11 +307,16 @@ let coinSupGchStudioCol = 0
 let PNJ1: Sprite = null
 let Joueur: Sprite = null
 let PC2: Sprite = null
+let isPCOn = 0
 let isCursorVisible = 0
 let curseur2: Sprite = null
+let mdpPC = ""
 let debug = 0
+info.setScore(0)
+mdpPC = "P"
 curseur2 = sprites.create(assets.image`spriteCurseur`, SpriteKind.Curseur)
 isCursorVisible = 0
+isPCOn = 0
 tiles.setCurrentTilemap(tilemap`niveau0`)
 PC2 = sprites.create(assets.image`SpritePc`, SpriteKind.PC)
 Joueur = sprites.create(assets.image`Mario`, SpriteKind.Player)
@@ -306,7 +354,6 @@ PC2.setFlag(SpriteFlag.Invisible, true)
 curseur2.left = scene.cameraProperty(CameraProperty.Left) + 0
 curseur2.top = scene.cameraProperty(CameraProperty.Top) + 28
 curseur2.z = 0
-curseur2.setFlag(SpriteFlag.RelativeToCamera, false)
 curseur2.setFlag(SpriteFlag.Invisible, true)
 numQuete = 0
 txtQueteL1 = textsprite.create("", 1, 15)
