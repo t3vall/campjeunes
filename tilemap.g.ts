@@ -987,6 +987,25 @@ namespace myTiles {
 ...............................................................................................................................................................................................................................................................
 ...............................................................................................................................................................................................................................................................
 `, [myTiles.transparency16,myTiles.tile1,myTiles.tile2,myTiles.tile5,sprites.castle.tileGrass2,sprites.dungeon.purpleOuterNorth1,sprites.dungeon.purpleOuterWest1,sprites.dungeon.purpleOuterNorth0,sprites.castle.tilePath5,myTiles.tile15,sprites.castle.tilePath6,sprites.castle.tilePath8,sprites.castle.tileGrass3,sprites.castle.tilePath3,sprites.castle.tilePath9,sprites.castle.tileGrass1,sprites.castle.tilePath2,sprites.castle.tilePath7,sprites.castle.tilePath4,sprites.castle.tilePath1,sprites.swamp.swampTile9,sprites.dungeon.purpleOuterEast1,myTiles.tile21,myTiles.tile23,myTiles.tile24,myTiles.tile32,myTiles.tile33,myTiles.tile34,myTiles.tile35,myTiles.tile36,myTiles.tile37,myTiles.tile38,myTiles.tile39,myTiles.tile6,myTiles.tile11,myTiles.tile43,myTiles.tile44,myTiles.tile8,myTiles.tile45,myTiles.tile46,myTiles.tile47,myTiles.tile4], TileScale.Sixteen);
+            case "niveau10":
+            case "niveau10":return tiles.createTilemap(hex`1000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000`, img`
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`, [myTiles.transparency16], TileScale.Sixteen);
         }
         return null;
     })

@@ -71,11 +71,11 @@ function debutQuete () {
 function logInPC () {
     if (Math.floor(Joueur.x / 16) == 1 && Math.floor(Joueur.y / 16) == 42) {
         if (isPCOn == 0) {
-            info.changeScoreBy(10)
-            sprites.destroy(q1MDP)
-            sprites.destroy(tempQ1MDP)
-            isPCOn = 1
             if (game.askForString("Veuillez entrer le mot de passe!!!") == mdpPC) {
+                sprites.destroy(q1MDP)
+                sprites.destroy(tempQ1MDP)
+                info.changeScoreBy(10)
+                isPCOn = 1
                 scene.centerCameraAt(6 * 16, 70 * 16)
                 curseur3 = sprites.create(assets.image`spriteCursor`, SpriteKind.Player)
                 curseur3.setPosition(6 * 16, 70 * 16)
@@ -83,6 +83,8 @@ function logInPC () {
                 controller.moveSprite(curseur3)
                 logOutIcon = sprites.create(assets.image`spriteOnOff`, SpriteKind.Icon)
                 logOutIcon.setPosition(1 * 16 + 8, 73 * 16)
+            } else {
+                game.splash("Mot de Passe Incorrect!!!")
             }
         }
     }
