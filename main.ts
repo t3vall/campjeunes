@@ -35,6 +35,23 @@ function creerTuilePorte (coinSupDrtCol: number, coinInfDrtRow: number, posPorte
         }
     }
 }
+function creetuileEscalier (coinSupDrtCol: number, coinInfDrtRow: number, coinSupDrtRow: number, coinSupGchCol: number, Maison: boolean) {
+    if (coinSupDrtCol <= rdcMilieu) {
+        tiles.setTileAt(tiles.getTileLocation(coinSupDrtCol - 1, coinInfDrtRow - 2), assets.tile`tileStair0`)
+        tiles.setTileAt(tiles.getTileLocation(coinSupDrtCol - 1, coinInfDrtRow - 1), assets.tile`myTile7`)
+        tiles.setTileAt(tiles.getTileLocation(coinSupDrtCol - 2, coinInfDrtRow - 1), assets.tile`tileStair2`)
+    } else if (coinSupDrtCol > rdcMilieu) {
+    	
+    } else {
+        if (Maison) {
+            if (true) {
+                let Y23 = 0
+                let X23 = 0
+                tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tileSol1`)
+            }
+        }
+    }
+}
 function creerTuileCoin (coinSupDrtCol: number, coinInfDrtRow: number, coinSupDrtRow: number, coinSupGchCol: number, Maison: boolean) {
     for (let X22 = 0; X22 <= coinSupDrtCol; X22++) {
         for (let Y22 = 0; Y22 <= coinInfDrtRow; Y22++) {
@@ -72,6 +89,8 @@ function logInPC () {
     if (Math.floor(Joueur.x / 16) == 1 && Math.floor(Joueur.y / 16) == 42) {
         if (isPCOn == 0) {
             if (game.askForString("Veuillez entrer le mot de passe!!!") == mdpPC) {
+                txtQueteL1.setText("")
+                txtQueteL2.setText("")
                 sprites.destroy(q1MDP)
                 sprites.destroy(tempQ1MDP)
                 info.changeScoreBy(10)
@@ -94,6 +113,7 @@ function creerIntBat (coinSupDrtCol: number, coinInfDrtRow: number, coinSupDrtRo
     creerTuileCoin(coinSupDrtCol, coinInfDrtRow, coinSupDrtRow, coinSupGchCol, Maison)
     creerTuilePorte(coinSupDrtCol, coinInfDrtRow, posPorteCol, posPorteRow)
     creerTuileSol(coinSupDrtCol, coinInfDrtRow, coinSupDrtRow, coinSupGchCol, Maison)
+    creetuileEscalier(coinSupDrtCol, coinInfDrtRow, coinSupDrtRow, coinSupGchCol, Maison)
 }
 function updateQuete (numQuete: number) {
     if (numQuete == 1) {
@@ -115,6 +135,13 @@ function creerTuileSol (coinSupDrtCol: number, coinInfDrtRow: number, coinSupDrt
                 }
             }
         }
+    }
+}
+function estDansStudio (coinSupDrtCol: number, coinSupDrtRow: number, coinInfDrtRow: number, CoinSupGchCol: number) {
+    if (Joueur.x < coinSupDrtCol * 16 && Joueur.x > CoinSupGchCol * 16 && Joueur.y > coinSupDrtRow * 16 || Joueur.x < (coinSupDrtCol + 63) * 16 && Joueur.x > (CoinSupGchCol + 63) * 16 && Joueur.y > coinSupDrtRow * 16) {
+        return true
+    } else {
+        return false
     }
 }
 function creerTuileMur (coinSupDrtCol: number, coinInfDrtRow: number, coinSupDrtRow: number, coinSupGchCol: number) {
@@ -151,8 +178,6 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Icon, function (sprite, otherSpr
         scene.cameraFollowSprite(Joueur)
         controller.moveSprite(curseur3, 0, 0)
         controller.moveSprite(Joueur)
-        txtQueteL1.setText("")
-        txtQueteL2.setText("")
         game.splash("Quete ", "" + numQuete + ": Terminée")
         info.changeScoreBy(100)
     }
@@ -241,7 +266,9 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
                 info.changeScoreBy(10)
                 game.showLongText("bonjour mario!", DialogLayout.Bottom)
                 game.showLongText("Tu doit trouver le Mot de Passe du PC!", DialogLayout.Bottom)
-                debutQuete()
+                if (numQuete == 0) {
+                    debutQuete()
+                }
             } else {
                 info.changeScoreBy(100)
                 game.showLongText("Mario!!!!", DialogLayout.Bottom)
@@ -313,7 +340,10 @@ let isPCOn = 0
 let isCursorVisible = 0
 let curseur2: Sprite = null
 let mdpPC = ""
+let rdcMilieu = 0
 let debug = 0
+let rdcLongeur = 52
+rdcMilieu = rdcLongeur / 2
 info.setScore(0)
 mdpPC = "P"
 curseur2 = sprites.create(assets.image`spriteCurseur`, SpriteKind.Curseur)
@@ -367,3 +397,15 @@ txtQueteL2.left = 0
 txtQueteL2.top = 8
 txtQueteL1.setFlag(SpriteFlag.RelativeToCamera, true)
 txtQueteL2.setFlag(SpriteFlag.RelativeToCamera, true)
+let posEscalierStudio = [[7 * 16 + 8, 70 * 16 + 8], [61 * 16 + 8, 61 * 16 + 8]]
+let test2 = 0
+forever(function () {
+    if (estDansStudio(coinSupDrtStudioCol, coinSupDrtStudioRow, coinInfDrtSudioRow, coinSupGchStudioCol)) {
+        if (Joueur.left <= posEscalierStudio[0][0] && Joueur.y == posEscalierStudio[1][0]) {
+            Joueur.setPosition(posEscalierStudio[0][1], posEscalierStudio[1][1])
+        }
+        if (Joueur.left >= posEscalierStudio[0][1] && Joueur.y == posEscalierStudio[1][1]) {
+            Joueur.setPosition(posEscalierStudio[0][0] + 16, posEscalierStudio[1][0])
+        }
+    }
+})
