@@ -35,6 +35,20 @@ function creerTuilePorte (coinSupDrtCol: number, coinInfDrtRow: number, posPorte
         }
     }
 }
+scene.onOverlapTile(SpriteKind.Player, assets.tile`tileStair2`, function (sprite, location) {
+    if (estRDCStudio(coinSupDrtStudioCol, coinSupDrtStudioRow, coinInfDrtSudioRow, coinSupGchStudioCol)) {
+        if (!(Math.floor(sprite.x / 16) == Math.ceil(posEscalierStudio[0][0] / 16) || Math.floor(sprite.x / 16) == Math.floor(posEscalierStudio[0][0] / 16))) {
+            tiles.placeOnTile(sprite, tiles.getTileLocation(Math.floor(sprite.x / 16) - 1, Math.floor(sprite.y / 16)))
+        }
+        if (Math.ceil(sprite.y / 16) == Math.floor(posEscalierStudio[1][0] / 16)) {
+            tiles.placeOnTile(sprite, tiles.getTileLocation(Math.floor(sprite.x / 16), Math.floor(sprite.y / 16) - 1))
+        }
+    } else if (estEtageStudio(coinSupDrtStudioCol, coinSupDrtStudioRow, coinInfDrtSudioRow, coinSupGchStudioCol)) {
+        if (Math.ceil(sprite.y / 16) == Math.floor(posEscalierStudio[1][1] / 16)) {
+            tiles.placeOnTile(sprite, tiles.getTileLocation(Math.floor(sprite.x / 16), Math.floor(sprite.y / 16) - 1))
+        }
+    }
+})
 function creetuileEscalier (coinSupDrtCol: number, coinInfDrtRow: number, coinSupDrtRow: number, coinSupGchCol: number, Maison: boolean) {
     if (coinSupDrtCol <= rdcMilieu) {
         tiles.setTileAt(tiles.getTileLocation(coinSupDrtCol - 1, coinInfDrtRow - 2), assets.tile`tileStair0`)
@@ -115,6 +129,13 @@ function creerIntBat (coinSupDrtCol: number, coinInfDrtRow: number, coinSupDrtRo
     creerTuileSol(coinSupDrtCol, coinInfDrtRow, coinSupDrtRow, coinSupGchCol, Maison)
     creetuileEscalier(coinSupDrtCol, coinInfDrtRow, coinSupDrtRow, coinSupGchCol, Maison)
 }
+scene.onOverlapTile(SpriteKind.Player, assets.tile`tuileNoir`, function (sprite, location) {
+    if (estEtageStudio(coinSupDrtStudioCol, coinSupDrtStudioRow, coinInfDrtSudioRow, coinSupGchStudioCol)) {
+        if (Math.ceil(sprite.y / 16) == location.row) {
+            tiles.placeOnTile(sprite, tiles.getTileLocation(Math.floor(sprite.x / 16), Math.floor(sprite.y / 16) - 1))
+        }
+    }
+})
 function updateQuete (numQuete: number) {
     if (numQuete == 1) {
         if (tempQ1MDP.tilemapLocation().column == 1 && tempQ1MDP.tilemapLocation().row == 244) {
@@ -137,8 +158,8 @@ function creerTuileSol (coinSupDrtCol: number, coinInfDrtRow: number, coinSupDrt
         }
     }
 }
-function estDansStudio (coinSupDrtCol: number, coinSupDrtRow: number, coinInfDrtRow: number, CoinSupGchCol: number) {
-    if (Joueur.x < coinSupDrtCol * 16 && Joueur.x > CoinSupGchCol * 16 && Joueur.y > coinSupDrtRow * 16 || Joueur.x < (coinSupDrtCol + 63) * 16 && Joueur.x > (CoinSupGchCol + 63) * 16 && Joueur.y > coinSupDrtRow * 16) {
+function estDansStudio (coinSupDrtCol: number, coinSupDrtRow: number, coinInfDrtRow: number, coinSupGchCol: number) {
+    if (estRDCStudio(coinSupDrtCol, coinSupDrtRow, coinInfDrtRow, coinSupGchCol) || estEtageStudio(coinSupDrtCol, coinSupDrtRow, coinInfDrtRow, coinSupGchCol)) {
         return true
     } else {
         return false
@@ -160,6 +181,13 @@ function creerTuileMur (coinSupDrtCol: number, coinInfDrtRow: number, coinSupDrt
                 tiles.setTileAt(tiles.getTileLocation(X24, Y24), assets.tile`tileMur0`)
             }
         }
+    }
+}
+function estRDCStudio (coinSupDrtCol: number, coinSupDrtRow: number, coinInfDrtRow: number, coinSupGchCol: number) {
+    if (Joueur.x < coinSupDrtCol * 16 && Joueur.x > coinSupGchCol * 16 && Joueur.y > coinSupDrtRow * 16) {
+        return true
+    } else {
+        return false
     }
 }
 spriteutils.addEventHandler(spriteutils.UpdatePriorityModifier.After, spriteutils.UpdatePriority.Camera, function () {
@@ -185,6 +213,13 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Icon, function (sprite, otherSpr
 sprites.onOverlap(SpriteKind.Player, SpriteKind.PNJ, function (sprite, otherSprite) {
     tiles.placeOnTile(sprite, tiles.getTileLocation(Math.floor(sprite.x / 16), Math.floor(sprite.y / 16)))
 })
+function estEtageStudio (coinSupDrtCol: number, coinSupDrtRow: number, coinInfDrtRow: number, coinSupGchCol: number) {
+    if (Joueur.x < (coinSupDrtCol + 63) * 16 && Joueur.x > (coinSupGchCol + 63) * 16 && Joueur.y > coinSupDrtRow * 16) {
+        return true
+    } else {
+        return false
+    }
+}
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     if (Math.floor(Joueur.x / 16) == posPorteStudioCol + 1 && Math.floor(Joueur.y / 16) == posPorteStudioRow) {
         if (game.ask("Voulez vous entrer?")) {
@@ -308,6 +343,7 @@ let logOutIcon: Sprite = null
 let curseur3: Sprite = null
 let tempQ1MDP: Sprite = null
 let q1MDP: Sprite = null
+let posEscalierStudio: number[][] = []
 let txtQueteL2: TextSprite = null
 let txtQueteL1: TextSprite = null
 let numQuete = 0
@@ -361,7 +397,7 @@ tiles.placeOnTile(Joueur, tiles.getTileLocation(11, 55))
 tiles.placeOnTile(PNJ1, tiles.getTileLocation(5, 55))
 coinSupGchStudioCol = 0
 coinSupDrtStudioCol = 9
-coinSupDrtStudioRow = 40
+coinSupDrtStudioRow = 37
 coinInfDrtSudioRow = 62
 posPorteStudioCol = 9
 posPorteStudioRow = 57
@@ -397,11 +433,11 @@ txtQueteL2.left = 0
 txtQueteL2.top = 8
 txtQueteL1.setFlag(SpriteFlag.RelativeToCamera, true)
 txtQueteL2.setFlag(SpriteFlag.RelativeToCamera, true)
-let posEscalierStudio = [[7 * 16 + 8, 70 * 16 + 8], [61 * 16 + 8, 61 * 16 + 8]]
+posEscalierStudio = [[7 * 16 + 8, 70 * 16 + 8], [61 * 16 + 8, 61 * 16 + 8]]
 let test2 = 0
 forever(function () {
     if (estDansStudio(coinSupDrtStudioCol, coinSupDrtStudioRow, coinInfDrtSudioRow, coinSupGchStudioCol)) {
-        if (Joueur.left <= posEscalierStudio[0][0] && Joueur.y == posEscalierStudio[1][0]) {
+        if (Joueur.left <= posEscalierStudio[0][0] && Joueur.left >= posEscalierStudio[0][0] - 8 && Joueur.y == posEscalierStudio[1][0]) {
             Joueur.setPosition(posEscalierStudio[0][1], posEscalierStudio[1][1])
         }
         if (Joueur.left >= posEscalierStudio[0][1] && Joueur.y == posEscalierStudio[1][1]) {
