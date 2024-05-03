@@ -59,6 +59,40 @@
         "mimeType": "image/x-mkcd-f4",
         "displayName": "spriteOnOff"
     },
+    "image9": {
+        "data": "hwQQABAAAAADAAAAAAAwAzAAAAAAMAMAMAMAADAzAAAAMwAAMwAAAAAwADADAAAAAAADMAAAAAAAADAzAAAAAAAAAAMAAAAAAAAwMAAAAAAAAAMAAwAAAAAAAwAwAAAAADAAAAAzAAAAAwAAADADAAADAAAAADMAMAAAAAAAMDMwAAAAAAAAMA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "croix"
+    },
+    "image10": {
+        "data": "hwQQABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADADAAAAAAAAMAMwMwAAAAADAzMwAwAAMAMwAwAzAAAwADADADAAADAAMDAAMAAAAAMDADMwAAAAMAMAADMAAAAwAwAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "donnerunnom"
+    },
+    "song1": {
+        "data": "00780004080200",
+        "mimeType": "application/mkcd-song",
+        "displayName": "Atelier",
+        "namespace": "mySongs."
+    },
+    "song2": {
+        "data": "00780004080200",
+        "mimeType": "application/mkcd-song",
+        "displayName": "Studio",
+        "namespace": "mySongs."
+    },
+    "song3": {
+        "data": "00780004080200",
+        "mimeType": "application/mkcd-song",
+        "displayName": "Jardin",
+        "namespace": "mySongs."
+    },
+    "song4": {
+        "data": "00780004080200",
+        "mimeType": "application/mkcd-song",
+        "displayName": "Maison",
+        "namespace": "mySongs."
+    },
     "*": {
         "mimeType": "image/x-mkcd-f4",
         "dataEncoding": "base64",

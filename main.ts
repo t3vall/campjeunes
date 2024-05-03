@@ -377,6 +377,11 @@ let isCursorVisible = 0
 let curseur2: Sprite = null
 let mdpPC = ""
 let rdcMilieu = 0
+let songAtelier = music.createSong(assets.song`Atelier`)
+let songStudio = music.createSong(assets.song`Studio`)
+let songJardin = music.createSong(assets.song`Jardin`)
+let songMaison = music.createSong(assets.song`Maison`)
+let mySprite = sprites.create(assets.image`croix`, SpriteKind.Player)
 let debug = 0
 let rdcLongeur = 52
 rdcMilieu = rdcLongeur / 2
@@ -435,6 +440,9 @@ txtQueteL1.setFlag(SpriteFlag.RelativeToCamera, true)
 txtQueteL2.setFlag(SpriteFlag.RelativeToCamera, true)
 posEscalierStudio = [[7 * 16 + 8, 70 * 16 + 8], [61 * 16 + 8, 61 * 16 + 8]]
 let test2 = 0
+game.onUpdate(function () {
+	
+})
 forever(function () {
     if (estDansStudio(coinSupDrtStudioCol, coinSupDrtStudioRow, coinInfDrtSudioRow, coinSupGchStudioCol)) {
         if (Joueur.left <= posEscalierStudio[0][0] && Joueur.left >= posEscalierStudio[0][0] - 8 && Joueur.y == posEscalierStudio[1][0]) {
