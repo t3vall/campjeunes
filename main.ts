@@ -49,6 +49,9 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`tileStair2`, function (sprite
         }
     }
 })
+function stopMove () {
+    controller.moveSprite(Joueur, 0, 0)
+}
 function creetuileEscalier (coinSupDrtCol: number, coinInfDrtRow: number, coinSupDrtRow: number, coinSupGchCol: number, Maison: boolean) {
     if (coinSupGchCol <= rdcDrtGch && coinSupDrtRow >= rdcHtBs) {
         tiles.setTileAt(tiles.getTileLocation(coinSupDrtCol - 1, coinInfDrtRow - 2), assets.tile`tileStair0`)
@@ -340,8 +343,12 @@ function creeMurInterieur (coinSupDrtCol: number, coinInfDrtRow: number, coinSup
                     tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`myTile19`)
                     tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
                 }
-                if (X23 == 34 && (Y23 > 24 && Y23 < 28)) {
+                if (X23 == 34 && (Y23 > 24 && Y23 < 27)) {
                     tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tileMur12`)
+                    tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
+                }
+                if (X23 == 34 && Y23 == 27) {
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tileMur16`)
                     tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
                 }
                 if (X23 == coinSupGchCol && (Y23 > 22 && Y23 < coinInfDrtRow - 1)) {
@@ -363,6 +370,64 @@ function creeMurInterieur (coinSupDrtCol: number, coinInfDrtRow: number, coinSup
             }
         }
     }
+}
+function appuisBtnAsc () {
+    if (Joueur.tileKindAt(TileDirection.Right, assets.tile`tileMur16`)) {
+        stopMove()
+        story.showPlayerChoices("1er Etage", "2e Etage")
+        if (story.checkLastAnswer("1er Etage")) {
+            music.play(music.createSong(assets.song`dansAsc`), music.PlaybackMode.InBackground)
+            Joueur.setPosition(Joueur.x - 1 * 16, Joueur.y + 49 * 16)
+            pause(3000)
+            Joueur.setPosition(Joueur.x + 54 * 16, Joueur.y - 50 * 16)
+            music.stopAllSounds()
+        } else {
+            music.play(music.createSong(assets.song`dansAsc`), music.PlaybackMode.InBackground)
+            Joueur.setPosition(Joueur.x - 1 * 16, Joueur.y + 49 * 16)
+            pause(6000)
+            Joueur.setPosition(Joueur.x + 84 * 16, Joueur.y - 50 * 16)
+            music.stopAllSounds()
+        }
+        music.play(music.createSong(assets.song`AscArrivé`), music.PlaybackMode.InBackground)
+    } else if (Joueur.tileKindAt(TileDirection.Right, assets.tile`tileMur17`)) {
+        stopMove()
+        story.showPlayerChoices("RdC", "2e Etage")
+        if (story.checkLastAnswer("RdC")) {
+            music.play(music.createSong(assets.song`dansAsc`), music.PlaybackMode.InBackground)
+            Joueur.setPosition(Joueur.x - 55 * 16, Joueur.y + 49 * 16)
+            pause(3000)
+            Joueur.setPosition(Joueur.x, Joueur.y - 50 * 16)
+            music.stopAllSounds()
+        } else {
+            music.play(music.createSong(assets.song`dansAsc`), music.PlaybackMode.InBackground)
+            Joueur.setPosition(Joueur.x - 1 * 16, Joueur.y + 49 * 16)
+            pause(3000)
+            Joueur.setPosition(Joueur.x + 84 * 16, Joueur.y - 50 * 16)
+            music.stopAllSounds()
+        }
+        music.play(music.createSong(assets.song`AscArrivé`), music.PlaybackMode.InBackground)
+    } else if (Joueur.tileKindAt(TileDirection.Right, assets.tile`tileMur18`)) {
+        stopMove()
+        story.showPlayerChoices("RdC", "1er Etage")
+        if (story.checkLastAnswer("RdC")) {
+            music.play(music.createSong(assets.song`dansAsc`), music.PlaybackMode.InBackground)
+            Joueur.setPosition(Joueur.x - 85 * 16, Joueur.y + 49 * 16)
+            pause(6000)
+            Joueur.setPosition(Joueur.x, Joueur.y - 50 * 16)
+            music.stopAllSounds()
+        } else {
+            music.play(music.createSong(assets.song`dansAsc`), music.PlaybackMode.InBackground)
+            Joueur.setPosition(Joueur.x - 1 * 16, Joueur.y + 49 * 16)
+            pause(3000)
+            Joueur.setPosition(Joueur.x + 54 * 16, Joueur.y - 50 * 16)
+            music.stopAllSounds()
+        }
+        music.play(music.createSong(assets.song`AscArrivé`), music.PlaybackMode.InBackground)
+    }
+    startMove()
+}
+function startMove () {
+    controller.moveSprite(Joueur, 100, 100)
 }
 spriteutils.addEventHandler(spriteutils.UpdatePriorityModifier.After, spriteutils.UpdatePriority.Camera, function () {
     curseur2.left = scene.cameraProperty(CameraProperty.Left) + 0
@@ -494,6 +559,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
         }
     }
     logInPC()
+    appuisBtnAsc()
 })
 function creeTuileToit (coinSupDrtCol: number, coinInfDrtRow: number, coinSupDrtRow: number, coinSupGchCol: number) {
     for (let X223 = 0; X223 <= coinSupDrtCol; X223++) {

@@ -93,6 +93,18 @@
         "displayName": "Maison",
         "namespace": "mySongs."
     },
+    "song5": {
+        "data": "0078000408010101001c000f05001202c102c201000405002800000064002800031400060200040c0000000800012a100018000124",
+        "mimeType": "application/mkcd-song",
+        "displayName": "AscArrivé",
+        "namespace": "mySongs."
+    },
+    "song6": {
+        "data": "0078000408030100001c00010a006400f4016400000400000000000000000000000000050000044e0000000800012408000c0001270c001000012a18002000012a20002400012724002800012430003800012438003c0001273c004000012a44004800012748004c00012a500054000127540058000124",
+        "mimeType": "application/mkcd-song",
+        "displayName": "dansAsc",
+        "namespace": "mySongs."
+    },
     "*": {
         "mimeType": "image/x-mkcd-f4",
         "dataEncoding": "base64",
