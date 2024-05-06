@@ -440,9 +440,6 @@ txtQueteL1.setFlag(SpriteFlag.RelativeToCamera, true)
 txtQueteL2.setFlag(SpriteFlag.RelativeToCamera, true)
 posEscalierStudio = [[7 * 16 + 8, 70 * 16 + 8], [61 * 16 + 8, 61 * 16 + 8]]
 let test2 = 0
-game.onUpdate(function () {
-	
-})
 forever(function () {
     if (estDansStudio(coinSupDrtStudioCol, coinSupDrtStudioRow, coinInfDrtSudioRow, coinSupGchStudioCol)) {
         if (Joueur.left <= posEscalierStudio[0][0] && Joueur.left >= posEscalierStudio[0][0] - 8 && Joueur.y == posEscalierStudio[1][0]) {
@@ -452,4 +449,7 @@ forever(function () {
             Joueur.setPosition(posEscalierStudio[0][0] + 16, posEscalierStudio[1][0])
         }
     }
+})
+game.onUpdate(function () {
+	
 })
