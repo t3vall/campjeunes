@@ -180,6 +180,11 @@ function creerTuileSol (coinSupDrtCol: number, coinInfDrtRow: number, coinSupDrt
         for (let Y23 = 0; Y23 <= coinInfDrtRow; Y23++) {
             if (X23 >= coinSupGchCol + 1 && X23 <= coinSupDrtCol - 1 && (Y23 >= coinSupDrtRow + 1 && Y23 <= coinInfDrtRow - 1)) {
                 tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tileSol1`)
+                if (Maison) {
+                    if (X23 > 30 && X23 < 34 && (Y23 > 24 && Y23 < 28)) {
+                        tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`myTile18`)
+                    }
+                }
             }
             if (Maison) {
                 if (X23 == coinSupGchCol && (Y23 >= coinSupDrtPmaisonRow + 1 && Y23 <= coinInfDrtPmaisonRow - 1)) {
@@ -280,13 +285,16 @@ function creeMurInterieur (coinSupDrtCol: number, coinInfDrtRow: number, coinSup
                 }
                 if (X23 == 30 && (Y23 > coinSupDrtRow && Y23 < 28)) {
                     if (Y23 == 24) {
-                        tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`myTile15`)
+                        tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`myTile27`)
                         tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
                     } else if (Y23 == 14) {
                         tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tileMur10`)
                         tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
                     } else if (Y23 == 17) {
                         tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tileMur9`)
+                        tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
+                    } else if (Y23 > 24 && Y23 < 28) {
+                        tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tileMur5`)
                         tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
                     } else if (!(Y23 == 15 || Y23 == 16)) {
                         tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tileMur3`)
@@ -297,7 +305,9 @@ function creeMurInterieur (coinSupDrtCol: number, coinInfDrtRow: number, coinSup
                 }
                 if (Y23 == 24 && (X23 > 30 && X23 < coinSupDrtCol)) {
                     if (X23 == 34) {
-                        tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`myTile14`)
+                        tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`myTile26`)
+                    } else if (X23 > 30 && X23 < 34) {
+                        tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tileMur11`)
                     } else {
                         tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tileMur6`)
                     }
@@ -305,12 +315,18 @@ function creeMurInterieur (coinSupDrtCol: number, coinInfDrtRow: number, coinSup
                 }
                 if (Y23 == 28 && (X23 > 30 && X23 < coinSupDrtCol)) {
                     if (X23 == 34) {
-                        tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`myTile13`)
+                        tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`myTile28`)
                         tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
-                    } else if (X23 == 31 || X23 == 35) {
+                    } else if (X23 == 31) {
+                        tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tileMur14`)
+                        tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
+                    } else if (X23 == 33) {
+                        tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tileMur15`)
+                        tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
+                    } else if (X23 == 35) {
                         tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tileMur7`)
                         tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
-                    } else if (X23 == 33 || X23 == 38) {
+                    } else if (X23 == 38) {
                         tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tileMur8`)
                         tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
                     } else if (!(X23 == 36 || X23 == 37 || X23 == 32)) {
@@ -321,11 +337,11 @@ function creeMurInterieur (coinSupDrtCol: number, coinInfDrtRow: number, coinSup
                     }
                 }
                 if (X23 == 30 && Y23 == 28) {
-                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`myTile9`)
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`myTile19`)
                     tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
                 }
                 if (X23 == 34 && (Y23 > 24 && Y23 < 28)) {
-                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tileMur3`)
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tileMur12`)
                     tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
                 }
                 if (X23 == coinSupGchCol && (Y23 > 22 && Y23 < coinInfDrtRow - 1)) {
