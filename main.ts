@@ -50,11 +50,11 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`tileStair2`, function (sprite
     }
 })
 function creetuileEscalier (coinSupDrtCol: number, coinInfDrtRow: number, coinSupDrtRow: number, coinSupGchCol: number, Maison: boolean) {
-    if (coinSupDrtCol <= rdcMilieu) {
+    if (coinSupGchCol <= rdcDrtGch && coinSupDrtRow >= rdcHtBs) {
         tiles.setTileAt(tiles.getTileLocation(coinSupDrtCol - 1, coinInfDrtRow - 2), assets.tile`tileStair0`)
         tiles.setTileAt(tiles.getTileLocation(coinSupDrtCol - 1, coinInfDrtRow - 1), assets.tile`myTile7`)
         tiles.setTileAt(tiles.getTileLocation(coinSupDrtCol - 2, coinInfDrtRow - 1), assets.tile`tileStair2`)
-    } else if (coinSupDrtCol > rdcMilieu) {
+    } else if (coinSupDrtCol > rdcDrtGch) {
     	
     } else {
         if (Maison) {
@@ -69,23 +69,53 @@ function creetuileEscalier (coinSupDrtCol: number, coinInfDrtRow: number, coinSu
 function creerTuileCoin (coinSupDrtCol: number, coinInfDrtRow: number, coinSupDrtRow: number, coinSupGchCol: number, Maison: boolean) {
     for (let X22 = 0; X22 <= coinSupDrtCol; X22++) {
         for (let Y22 = 0; Y22 <= coinInfDrtRow; Y22++) {
-            if (X22 == coinSupGchCol && Y22 == coinSupDrtRow) {
-                tiles.setTileAt(tiles.getTileLocation(X22, Y22), assets.tile`tileCoinSupGch`)
-            }
-            if (X22 == coinSupDrtCol && Y22 == coinSupDrtRow) {
-                tiles.setTileAt(tiles.getTileLocation(X22, Y22), assets.tile`tileCoinSupDrt`)
-            }
-            if (X22 == coinSupDrtCol && Y22 == coinInfDrtRow) {
-                tiles.setTileAt(tiles.getTileLocation(X22, Y22), assets.tile`tileCoinInfDrt`)
-            }
-            if (X22 == coinSupGchCol && Y22 == coinInfDrtRow) {
-                tiles.setTileAt(tiles.getTileLocation(X22, Y22), assets.tile`tileCoinInfGch`)
+            if (!(Maison)) {
+                if (coinSupGchCol <= rdcDrtGch && coinSupDrtRow <= rdcHtBs) {
+                    if (X22 == coinSupGchCol && Y22 == coinSupDrtRow) {
+                        tiles.setTileAt(tiles.getTileLocation(X22, Y22), assets.tile`myTile21`)
+                    }
+                    if (X22 == coinSupDrtCol && Y22 == coinSupDrtRow) {
+                        tiles.setTileAt(tiles.getTileLocation(X22, Y22), assets.tile`myTile22`)
+                    }
+                    if (X22 == coinSupDrtCol && Y22 == coinInfDrtRow) {
+                        tiles.setTileAt(tiles.getTileLocation(X22, Y22), assets.tile`myTile23`)
+                    }
+                    if (X22 == coinSupGchCol && Y22 == coinInfDrtRow) {
+                        tiles.setTileAt(tiles.getTileLocation(X22, Y22), assets.tile`myTile9`)
+                    }
+                } else {
+                    if (X22 == coinSupGchCol && Y22 == coinSupDrtRow) {
+                        tiles.setTileAt(tiles.getTileLocation(X22, Y22), assets.tile`tileCoinSupGch`)
+                    }
+                    if (X22 == coinSupDrtCol && Y22 == coinSupDrtRow) {
+                        tiles.setTileAt(tiles.getTileLocation(X22, Y22), assets.tile`tileCoinSupDrt`)
+                    }
+                    if (X22 == coinSupDrtCol && Y22 == coinInfDrtRow) {
+                        tiles.setTileAt(tiles.getTileLocation(X22, Y22), assets.tile`tileCoinInfDrt`)
+                    }
+                    if (X22 == coinSupGchCol && Y22 == coinInfDrtRow) {
+                        tiles.setTileAt(tiles.getTileLocation(X22, Y22), assets.tile`tileCoinInfGch`)
+                    }
+                }
+            } else {
+                if (X22 == coinSupGchCol && Y22 == coinSupDrtRow) {
+                    tiles.setTileAt(tiles.getTileLocation(X22, Y22), assets.tile`myTile21`)
+                }
+                if (X22 == coinSupDrtCol && Y22 == coinSupDrtRow) {
+                    tiles.setTileAt(tiles.getTileLocation(X22, Y22), assets.tile`myTile22`)
+                }
+                if (X22 == coinSupDrtCol && Y22 == coinInfDrtRow) {
+                    tiles.setTileAt(tiles.getTileLocation(X22, Y22), assets.tile`myTile23`)
+                }
+                if (X22 == coinSupGchCol && Y22 == coinInfDrtRow) {
+                    tiles.setTileAt(tiles.getTileLocation(X22, Y22), assets.tile`myTile9`)
+                }
             }
         }
     }
     if (Maison) {
-        tiles.setTileAt(tiles.getTileLocation(coinSupDrtPmaisonCol, coinSupDrtPmaisonRow), assets.tile`tileCoinInt0`)
-        tiles.setTileAt(tiles.getTileLocation(coinSupDrtPmaisonCol, coinInfDrtPmaisonRow), assets.tile`tileCoinInt2`)
+        tiles.setTileAt(tiles.getTileLocation(coinSupDrtPmaisonCol, coinSupDrtPmaisonRow), assets.tile`myTile16`)
+        tiles.setTileAt(tiles.getTileLocation(coinSupDrtPmaisonCol, coinInfDrtPmaisonRow), assets.tile`myTile16`)
     }
 }
 function debutQuete () {
@@ -123,10 +153,11 @@ function logInPC () {
     }
 }
 function creerIntBat (coinSupDrtCol: number, coinInfDrtRow: number, coinSupDrtRow: number, coinSupGchCol: number, posPorteCol: number, posPorteRow: number, Maison: boolean) {
-    creerTuileMur(coinSupDrtCol, coinInfDrtRow, coinSupDrtRow, coinSupGchCol)
+    creerTuileMur(coinSupDrtCol, coinInfDrtRow, coinSupDrtRow, coinSupGchCol, Maison)
     creerTuileCoin(coinSupDrtCol, coinInfDrtRow, coinSupDrtRow, coinSupGchCol, Maison)
     creerTuilePorte(coinSupDrtCol, coinInfDrtRow, posPorteCol, posPorteRow)
     creerTuileSol(coinSupDrtCol, coinInfDrtRow, coinSupDrtRow, coinSupGchCol, Maison)
+    creeMurInterieur(coinSupDrtCol, coinInfDrtRow, coinSupDrtRow, coinSupGchCol, Maison)
     creetuileEscalier(coinSupDrtCol, coinInfDrtRow, coinSupDrtRow, coinSupGchCol, Maison)
 }
 scene.onOverlapTile(SpriteKind.Player, assets.tile`tuileNoir`, function (sprite, location) {
@@ -165,20 +196,59 @@ function estDansStudio (coinSupDrtCol: number, coinSupDrtRow: number, coinInfDrt
         return false
     }
 }
-function creerTuileMur (coinSupDrtCol: number, coinInfDrtRow: number, coinSupDrtRow: number, coinSupGchCol: number) {
+function creerTuileMur (coinSupDrtCol: number, coinInfDrtRow: number, coinSupDrtRow: number, coinSupGchCol: number, Maison: boolean) {
     for (let X24 = 0; X24 <= coinSupDrtCol; X24++) {
         for (let Y24 = 0; Y24 <= coinInfDrtRow; Y24++) {
-            if (Y24 == coinSupDrtRow && X24 >= coinSupGchCol) {
-                tiles.setTileAt(tiles.getTileLocation(X24, Y24), assets.tile`tileMur2`)
-            }
-            if (Y24 == coinInfDrtRow && X24 >= coinSupGchCol) {
-                tiles.setTileAt(tiles.getTileLocation(X24, Y24), assets.tile`tileMur4`)
-            }
-            if (X24 == coinSupGchCol && (Y24 >= coinSupDrtRow && Y24 <= coinInfDrtRow)) {
-                tiles.setTileAt(tiles.getTileLocation(X24, Y24), assets.tile`tileMur1`)
-            }
-            if (X24 == coinSupDrtCol && (Y24 >= coinSupDrtRow && Y24 <= coinInfDrtRow)) {
-                tiles.setTileAt(tiles.getTileLocation(X24, Y24), assets.tile`tileMur0`)
+            if (!(Maison)) {
+                if (coinSupGchCol <= rdcDrtGch && coinSupDrtRow <= rdcHtBs) {
+                    if (Y24 == coinSupDrtRow && X24 >= coinSupGchCol) {
+                        tiles.setTileAt(tiles.getTileLocation(X24, Y24), assets.tile`tileMur6`)
+                    }
+                    if (Y24 == coinInfDrtRow && X24 >= coinSupGchCol) {
+                        tiles.setTileAt(tiles.getTileLocation(X24, Y24), assets.tile`tileMur6`)
+                    }
+                    if (X24 == coinSupGchCol && (Y24 >= coinSupDrtRow && Y24 <= coinInfDrtRow)) {
+                        tiles.setTileAt(tiles.getTileLocation(X24, Y24), assets.tile`tileMur3`)
+                    }
+                    if (X24 == coinSupDrtCol && (Y24 >= coinSupDrtRow && Y24 <= coinInfDrtRow)) {
+                        tiles.setTileAt(tiles.getTileLocation(X24, Y24), assets.tile`tileMur3`)
+                    }
+                } else {
+                    if (Y24 == coinSupDrtRow && X24 >= coinSupGchCol) {
+                        tiles.setTileAt(tiles.getTileLocation(X24, Y24), assets.tile`tileMur2`)
+                    }
+                    if (Y24 == coinInfDrtRow && X24 >= coinSupGchCol) {
+                        tiles.setTileAt(tiles.getTileLocation(X24, Y24), assets.tile`tileMur4`)
+                    }
+                    if (X24 == coinSupGchCol && (Y24 >= coinSupDrtRow && Y24 <= coinInfDrtRow)) {
+                        tiles.setTileAt(tiles.getTileLocation(X24, Y24), assets.tile`tileMur1`)
+                    }
+                    if (X24 == coinSupDrtCol && (Y24 >= coinSupDrtRow && Y24 <= coinInfDrtRow)) {
+                        tiles.setTileAt(tiles.getTileLocation(X24, Y24), assets.tile`tileMur0`)
+                    }
+                }
+            } else {
+                if (Y24 == coinSupDrtRow && X24 >= coinSupGchCol) {
+                    tiles.setTileAt(tiles.getTileLocation(X24, Y24), assets.tile`tileMur6`)
+                }
+                if (Y24 == coinInfDrtRow && X24 >= coinSupGchCol) {
+                    tiles.setTileAt(tiles.getTileLocation(X24, Y24), assets.tile`tileMur6`)
+                }
+                if (X24 == coinSupGchCol && (Y24 >= coinSupDrtRow && Y24 <= coinInfDrtRow)) {
+                    tiles.setTileAt(tiles.getTileLocation(X24, Y24), assets.tile`tileMur3`)
+                }
+                if (X24 == coinSupDrtCol && (Y24 >= coinSupDrtRow && Y24 <= coinInfDrtRow)) {
+                    tiles.setTileAt(tiles.getTileLocation(X24, Y24), assets.tile`tileMur3`)
+                }
+                if ((X24 == 26 || X24 == 30) && Y24 == coinSupDrtRow) {
+                    tiles.setTileAt(tiles.getTileLocation(X24, Y24), assets.tile`myTile14`)
+                }
+                if (X24 == 39 && (Y24 == 24 || Y24 == 28)) {
+                    tiles.setTileAt(tiles.getTileLocation(X24, Y24), assets.tile`myTile16`)
+                }
+                if (X24 == 26 && Y24 == coinInfDrtRow) {
+                    tiles.setTileAt(tiles.getTileLocation(X24, Y24), assets.tile`myTile13`)
+                }
             }
         }
     }
@@ -188,6 +258,94 @@ function estRDCStudio (coinSupDrtCol: number, coinSupDrtRow: number, coinInfDrtR
         return true
     } else {
         return false
+    }
+}
+function creeMurInterieur (coinSupDrtCol: number, coinInfDrtRow: number, coinSupDrtRow: number, coinSupGchCol: number, Maison: boolean) {
+    for (let X23 = 0; X23 <= coinSupDrtCol; X23++) {
+        for (let Y23 = 0; Y23 <= coinInfDrtRow; Y23++) {
+            if (Maison) {
+                if (X23 == 26 && (Y23 > coinSupDrtRow && Y23 < coinInfDrtRow)) {
+                    if (Y23 == 14 || Y23 == 25) {
+                        tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tileMur10`)
+                        tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
+                    } else if (Y23 == 17 || Y23 == 28) {
+                        tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tileMur9`)
+                        tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
+                    } else if (!(Y23 == 15 || Y23 == 16 || (Y23 == 26 || Y23 == 27))) {
+                        tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tileMur3`)
+                        tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
+                    } else {
+                    	
+                    }
+                }
+                if (X23 == 30 && (Y23 > coinSupDrtRow && Y23 < 28)) {
+                    if (Y23 == 24) {
+                        tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`myTile15`)
+                        tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
+                    } else if (Y23 == 14) {
+                        tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tileMur10`)
+                        tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
+                    } else if (Y23 == 17) {
+                        tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tileMur9`)
+                        tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
+                    } else if (!(Y23 == 15 || Y23 == 16)) {
+                        tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tileMur3`)
+                        tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
+                    } else {
+                    	
+                    }
+                }
+                if (Y23 == 24 && (X23 > 30 && X23 < coinSupDrtCol)) {
+                    if (X23 == 34) {
+                        tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`myTile14`)
+                    } else {
+                        tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tileMur6`)
+                    }
+                    tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
+                }
+                if (Y23 == 28 && (X23 > 30 && X23 < coinSupDrtCol)) {
+                    if (X23 == 34) {
+                        tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`myTile13`)
+                        tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
+                    } else if (X23 == 31 || X23 == 35) {
+                        tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tileMur7`)
+                        tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
+                    } else if (X23 == 33 || X23 == 38) {
+                        tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tileMur8`)
+                        tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
+                    } else if (!(X23 == 36 || X23 == 37 || X23 == 32)) {
+                        tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tileMur6`)
+                        tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
+                    } else {
+                    	
+                    }
+                }
+                if (X23 == 30 && Y23 == 28) {
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`myTile9`)
+                    tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
+                }
+                if (X23 == 34 && (Y23 > 24 && Y23 < 28)) {
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tileMur3`)
+                    tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
+                }
+                if (X23 == coinSupGchCol && (Y23 > 22 && Y23 < coinInfDrtRow - 1)) {
+                    if (Y23 == 23) {
+                        tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tileMur10`)
+                        tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
+                    } else if (Y23 == 26) {
+                        tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tileMur9`)
+                        tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
+                    } else if (!(Y23 == 24 || Y23 == 25)) {
+                        tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tileMur3`)
+                        tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
+                    } else {
+                    	
+                    }
+                }
+            } else {
+            	
+            }
+        }
     }
 }
 spriteutils.addEventHandler(spriteutils.UpdatePriorityModifier.After, spriteutils.UpdatePriority.Camera, function () {
@@ -376,15 +534,18 @@ let isPCOn = 0
 let isCursorVisible = 0
 let curseur2: Sprite = null
 let mdpPC = ""
-let rdcMilieu = 0
+let rdcHtBs = 0
+let rdcDrtGch = 0
 let songAtelier = music.createSong(assets.song`Atelier`)
 let songStudio = music.createSong(assets.song`Studio`)
 let songJardin = music.createSong(assets.song`Jardin`)
 let songMaison = music.createSong(assets.song`Maison`)
 let mySprite = sprites.create(assets.image`croix`, SpriteKind.Player)
 let debug = 0
-let rdcLongeur = 52
-rdcMilieu = rdcLongeur / 2
+let rdcLargeur = 52
+let rdcHauteur = 62
+rdcDrtGch = rdcLargeur / 2
+rdcHtBs = rdcLargeur / 2
 info.setScore(0)
 mdpPC = "P"
 curseur2 = sprites.create(assets.image`spriteCurseur`, SpriteKind.Curseur)
