@@ -93,30 +93,30 @@ function stopMove () {
     controller.moveSprite(Joueur, 0, 0)
 }
 function creetuileEscalier (coinSupDrtCol: number, coinInfDrtRow: number, coinSupDrtRow: number, coinSupGchCol: number, Maison: boolean) {
-    if (coinSupGchCol <= rdcDrtGch && coinSupDrtRow >= rdcHtBs) {
+    if (coinSupGchCol <= rdcGchDrt && coinSupDrtRow >= rdcHtBs) {
         tiles.setTileAt(tiles.getTileLocation(coinSupDrtCol - 1, coinInfDrtRow - 2), assets.tile`tileStair0`)
         tiles.setTileAt(tiles.getTileLocation(coinSupDrtCol - 1, coinInfDrtRow - 1), assets.tile`myTile7`)
         tiles.setTileAt(tiles.getTileLocation(coinSupDrtCol - 2, coinInfDrtRow - 1), assets.tile`tileStair2`)
-    } else if (coinSupDrtCol > rdcDrtGch) {
+    } else if (coinSupDrtCol > rdcGchDrt && !Maison) {
         tiles.setTileAt(tiles.getTileLocation(coinSupDrtCol - 1, coinInfDrtRow - 3), assets.tile`tileStair0`)
         tiles.setTileAt(tiles.getTileLocation(coinSupDrtCol - 1, coinInfDrtRow - 2), assets.tile`tileStair0`)
         tiles.setTileAt(tiles.getTileLocation(coinSupDrtCol - 1, coinInfDrtRow - 1), assets.tile`myTile7`)
         tiles.setTileAt(tiles.getTileLocation(coinSupDrtCol - 2, coinInfDrtRow - 1), assets.tile`tileStair2`)
     } else {
-        if (Maison) {
-            if (true) {
-                let Y23 = 0
-                let X23 = 0
-                tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tileSol1`)
-            }
-        }
+        // if (Maison) {
+        //     if (true) {
+        //         let Y23 = 0
+        //         let X23 = 0
+        //         tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tileSol1`)
+        //     }
+        // }
     }
 }
 function creerTuileCoin (coinSupDrtCol: number, coinInfDrtRow: number, coinSupDrtRow: number, coinSupGchCol: number, Maison: boolean) {
     for (let X22 = 0; X22 <= coinSupDrtCol; X22++) {
         for (let Y22 = 0; Y22 <= coinInfDrtRow; Y22++) {
             if (!(Maison)) {
-                if (coinSupGchCol <= rdcDrtGch && coinSupDrtRow <= rdcHtBs) {
+                if (coinSupGchCol <= rdcGchDrt && coinSupDrtRow <= rdcHtBs) {
                     if (X22 == coinSupGchCol && Y22 == coinSupDrtRow) {
                         tiles.setTileAt(tiles.getTileLocation(X22, Y22), assets.tile`myTile21`)
                     }
@@ -255,7 +255,7 @@ function creerTuileMur (coinSupDrtCol: number, coinInfDrtRow: number, coinSupDrt
     for (let X24 = 0; X24 <= coinSupDrtCol; X24++) {
         for (let Y24 = 0; Y24 <= coinInfDrtRow; Y24++) {
             if (!(Maison)) {
-                if (coinSupGchCol <= rdcDrtGch && coinSupDrtRow <= rdcHtBs) {
+                if (coinSupGchCol <= rdcGchDrt && coinSupDrtRow <= rdcHtBs) {
                     if (Y24 == coinSupDrtRow && X24 >= coinSupGchCol) {
                         tiles.setTileAt(tiles.getTileLocation(X24, Y24), assets.tile`tileMur6`)
                     }
@@ -662,7 +662,7 @@ let isCursorVisible = 0
 let curseur2: Sprite = null
 let mdpPC = ""
 let rdcHtBs = 0
-let rdcDrtGch = 0
+let rdcGchDrt = 0
 let songAtelier = music.createSong(assets.song`Atelier`)
 let songStudio = music.createSong(assets.song`Studio`)
 let songJardin = music.createSong(assets.song`Jardin`)
@@ -671,7 +671,7 @@ let mySprite = sprites.create(assets.image`croix`, SpriteKind.Player)
 let debug = 0
 let rdcLargeur = 52
 let rdcHauteur = 62
-rdcDrtGch = rdcLargeur / 2
+rdcGchDrt = rdcLargeur / 2
 rdcHtBs = rdcLargeur / 2
 info.setScore(0)
 mdpPC = "P"
