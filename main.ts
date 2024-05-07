@@ -102,14 +102,6 @@ function creetuileEscalier (coinSupDrtCol: number, coinInfDrtRow: number, coinSu
         tiles.setTileAt(tiles.getTileLocation(coinSupDrtCol - 1, coinInfDrtRow - 2), assets.tile`tileStair0`)
         tiles.setTileAt(tiles.getTileLocation(coinSupDrtCol - 1, coinInfDrtRow - 1), assets.tile`myTile7`)
         tiles.setTileAt(tiles.getTileLocation(coinSupDrtCol - 2, coinInfDrtRow - 1), assets.tile`tileStair2`)
-    } else {
-        // if (Maison) {
-        //     if (true) {
-        //         let Y23 = 0
-        //         let X23 = 0
-        //         tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tileSol1`)
-        //     }
-        // }
     }
 }
 function creerTuileCoin (coinSupDrtCol: number, coinInfDrtRow: number, coinSupDrtRow: number, coinSupGchCol: number, Maison: boolean) {
