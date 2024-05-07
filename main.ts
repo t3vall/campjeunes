@@ -746,6 +746,15 @@ forever(function () {
             Joueur.setPosition(posEscAtelier[0][0], posEscAtelier[1][0] + 16)
         }
     }
+    if (Math.ceil(Joueur.x / 16) == 30 && Math.ceil(Joueur.y / 16) == 26)  {
+        Joueur.setPosition((30 * 16) + 8, (26 * 16) + 8)
+    }
+    if (Math.ceil(Joueur.x / 16) == 84 && Math.ceil(Joueur.y / 16) == 26) {
+        Joueur.setPosition((84 * 16) + 8, (26 * 16) + 8)
+    }
+    if (Math.ceil(Joueur.x / 16) == 114 && Math.ceil(Joueur.y / 16) == 26) {
+        Joueur.setPosition((114 * 16) + 8, (26 * 16) + 8)
+    }
 })
 game.onUpdate(function () {
 	
