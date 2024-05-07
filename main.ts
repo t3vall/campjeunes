@@ -296,10 +296,13 @@ function creeMurInterieur (coinSupDrtCol: number, coinInfDrtRow: number, coinSup
                     } else if (Y23 == 17) {
                         tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tileMur9`)
                         tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
-                    } else if (Y23 > 24 && Y23 < 28) {
-                        tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tileMur5`)
+                    } else if (Y23 == 25) {
+                        tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tileMur15`)
                         tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
-                    } else if (!(Y23 == 15 || Y23 == 16)) {
+                    } else if (Y23 == 27) {
+                        tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tileMur14`)
+                        tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
+                    } else if (!(Y23 == 15 || Y23 == 16 || Y23 == 26)) {
                         tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tileMur3`)
                         tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
                     } else {
@@ -320,20 +323,14 @@ function creeMurInterieur (coinSupDrtCol: number, coinInfDrtRow: number, coinSup
                     if (X23 == 34) {
                         tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`myTile28`)
                         tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
-                    } else if (X23 == 31) {
-                        tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tileMur14`)
-                        tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
-                    } else if (X23 == 33) {
-                        tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tileMur15`)
-                        tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
                     } else if (X23 == 35) {
                         tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tileMur7`)
                         tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
                     } else if (X23 == 38) {
                         tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tileMur8`)
                         tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
-                    } else if (!(X23 == 36 || X23 == 37 || X23 == 32)) {
-                        tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tileMur6`)
+                    } else if (X23 > 30 && X23 < 34) {
+                        tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tileMur13`)
                         tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
                     } else {
                     	
@@ -400,7 +397,7 @@ function appuisBtnAsc () {
             music.stopAllSounds()
         } else {
             music.play(music.createSong(assets.song`dansAsc`), music.PlaybackMode.InBackground)
-            Joueur.setPosition(Joueur.x - 1 * 16, Joueur.y + 49 * 16)
+            Joueur.setPosition(Joueur.x - 55 * 16, Joueur.y + 49 * 16)
             pause(3000)
             Joueur.setPosition(Joueur.x + 84 * 16, Joueur.y - 50 * 16)
             music.stopAllSounds()
@@ -417,7 +414,7 @@ function appuisBtnAsc () {
             music.stopAllSounds()
         } else {
             music.play(music.createSong(assets.song`dansAsc`), music.PlaybackMode.InBackground)
-            Joueur.setPosition(Joueur.x - 1 * 16, Joueur.y + 49 * 16)
+            Joueur.setPosition(Joueur.x - 85 * 16, Joueur.y + 49 * 16)
             pause(3000)
             Joueur.setPosition(Joueur.x + 54 * 16, Joueur.y - 50 * 16)
             music.stopAllSounds()
