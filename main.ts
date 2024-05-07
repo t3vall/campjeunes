@@ -22,6 +22,27 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.QtObjet, function (sprite, other
     tempQ1MDP.setPosition(1 * 16, 244 * 16)
     updateQuete(numQuete)
 })
+function estRDCAtelier(coinSupDrtCol: number, coinSupDrtRow: number, coinInfDrtRow: number, coinSupGchCol: number) {
+    if (Joueur.x < coinSupDrtCol * 16 && Joueur.x > coinSupGchCol * 16 && Joueur.y > coinSupDrtRow * 16) {
+        return true
+    } else {
+        return false
+    }
+}
+function estEtageAtelier(coinSupDrtCol: number, coinSupDrtRow: number, coinInfDrtRow: number, coinSupGchCol: number) {
+    if (Joueur.x < (coinSupDrtCol + 40) * 16 && Joueur.x > (coinSupGchCol + 40) * 16 && Joueur.y > coinSupDrtRow * 16) {
+        return true
+    } else {
+        return false
+    }
+}
+function estDansAtelier(coinSupDrtCol: number, coinSupDrtRow: number, coinInfDrtRow: number, coinSupGchCol: number) {
+    if (estRDCAtelier(coinSupDrtCol, coinSupDrtRow, coinInfDrtRow, coinSupGchCol) || estEtageAtelier(coinSupDrtCol, coinSupDrtRow, coinInfDrtRow, coinSupGchCol)) {
+        return true
+    } else {
+        return false
+    }
+}
 function creerTuilePorte (coinSupDrtCol: number, coinInfDrtRow: number, posPorteCol: number, posPorteRow: number) {
     for (let X2 = 0; X2 <= coinSupDrtCol; X2++) {
         for (let Y2 = 0; Y2 <= coinInfDrtRow; Y2++) {
@@ -48,6 +69,25 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`tileStair2`, function (sprite
             tiles.placeOnTile(sprite, tiles.getTileLocation(Math.floor(sprite.x / 16), Math.floor(sprite.y / 16) - 1))
         }
     }
+    if (estRDCAtelier(coinSupDrtAtelierCol, coinSupDrtAtelierRow, coinInfDrtAtelierRow, coinSupGchAtelierCol)) {
+        if (Math.ceil(sprite.y / 16) == Math.floor(posEscalierStudio[1][0] / 16)) {
+            tiles.placeOnTile(sprite, tiles.getTileLocation(Math.floor(sprite.x / 16), Math.floor(sprite.y / 16) - 1))
+        }
+    }
+})
+scene.onOverlapTile(SpriteKind.Player, assets.tile`tileStair0`, function (sprite, location) {
+    if (estRDCAtelier(coinSupDrtAtelierCol, coinSupDrtAtelierRow, coinInfDrtAtelierRow, coinSupGchAtelierCol)) {
+        if (Math.ceil(sprite.x / 16) == Math.floor(posEscAtelier[0][0] / 16)) {
+            tiles.placeOnTile(sprite, tiles.getTileLocation(Math.floor(sprite.x / 16) - 1, Math.floor(sprite.y / 16)))
+        }
+        if (Math.ceil(sprite.y / 16) == Math.floor(posEscAtelier[1][0] / 16)) {
+            tiles.placeOnTile(sprite, tiles.getTileLocation(Math.floor(sprite.x / 16), Math.floor(sprite.y / 16) - 1))
+        }
+    } else if (estEtageAtelier(coinSupDrtAtelierCol, coinSupDrtAtelierRow, coinInfDrtAtelierRow, coinSupGchAtelierCol)) {
+        if (Math.ceil(sprite.x / 16) == Math.floor(posEscAtelier[0][1] / 16)) {
+            tiles.placeOnTile(sprite, tiles.getTileLocation(Math.floor(sprite.x / 16) - 1, Math.floor(sprite.y / 16)))
+        }
+    }
 })
 function stopMove () {
     controller.moveSprite(Joueur, 0, 0)
@@ -58,7 +98,10 @@ function creetuileEscalier (coinSupDrtCol: number, coinInfDrtRow: number, coinSu
         tiles.setTileAt(tiles.getTileLocation(coinSupDrtCol - 1, coinInfDrtRow - 1), assets.tile`myTile7`)
         tiles.setTileAt(tiles.getTileLocation(coinSupDrtCol - 2, coinInfDrtRow - 1), assets.tile`tileStair2`)
     } else if (coinSupDrtCol > rdcDrtGch) {
-    	
+        tiles.setTileAt(tiles.getTileLocation(coinSupDrtCol - 1, coinInfDrtRow - 3), assets.tile`tileStair0`)
+        tiles.setTileAt(tiles.getTileLocation(coinSupDrtCol - 1, coinInfDrtRow - 2), assets.tile`tileStair0`)
+        tiles.setTileAt(tiles.getTileLocation(coinSupDrtCol - 1, coinInfDrtRow - 1), assets.tile`myTile7`)
+        tiles.setTileAt(tiles.getTileLocation(coinSupDrtCol - 2, coinInfDrtRow - 1), assets.tile`tileStair2`)
     } else {
         if (Maison) {
             if (true) {
@@ -167,6 +210,10 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`tuileNoir`, function (sprite,
     if (estEtageStudio(coinSupDrtStudioCol, coinSupDrtStudioRow, coinInfDrtSudioRow, coinSupGchStudioCol)) {
         if (Math.ceil(sprite.y / 16) == location.row) {
             tiles.placeOnTile(sprite, tiles.getTileLocation(Math.floor(sprite.x / 16), Math.floor(sprite.y / 16) - 1))
+        }
+    } else if (estDansAtelier(coinSupDrtAtelierCol, coinSupDrtAtelierRow, coinInfDrtAtelierRow, coinSupGchAtelierCol)) {
+        if (Math.ceil(sprite.x / 16) == location.column) {
+            tiles.placeOnTile(sprite, tiles.getTileLocation(Math.floor(sprite.x / 16) - 1, Math.floor(sprite.y / 16)))
         }
     }
 })
@@ -581,6 +628,7 @@ let curseur3: Sprite = null
 let tempQ1MDP: Sprite = null
 let q1MDP: Sprite = null
 let posEscalierStudio: number[][] = []
+let posEscAtelier: number[][] = []
 let txtQueteL2: TextSprite = null
 let txtQueteL1: TextSprite = null
 let numQuete = 0
@@ -679,6 +727,7 @@ txtQueteL2.top = 8
 txtQueteL1.setFlag(SpriteFlag.RelativeToCamera, true)
 txtQueteL2.setFlag(SpriteFlag.RelativeToCamera, true)
 posEscalierStudio = [[7 * 16 + 8, 70 * 16 + 8], [61 * 16 + 8, 61 * 16 + 8]]
+posEscAtelier = [[51 * 16 + 8, 91 * 16 + 8], [59 * 16 + 8, 59 * 16 + 8]]
 let test2 = 0
 forever(function () {
     if (estDansStudio(coinSupDrtStudioCol, coinSupDrtStudioRow, coinInfDrtSudioRow, coinSupGchStudioCol)) {
@@ -687,6 +736,14 @@ forever(function () {
         }
         if (Joueur.left >= posEscalierStudio[0][1] && Joueur.y == posEscalierStudio[1][1]) {
             Joueur.setPosition(posEscalierStudio[0][0] + 16, posEscalierStudio[1][0])
+        }
+    }
+    if (estDansAtelier(coinSupDrtAtelierCol, coinSupDrtAtelierRow, coinInfDrtAtelierRow, coinSupGchAtelierCol)) {
+        if (Joueur.top <= posEscAtelier[1][0] && Joueur.top >= posEscAtelier[1][0] - 8 && Math.ceil(Joueur.x / 16) == Math.ceil(posEscAtelier[0][0] / 16)) {
+            Joueur.setPosition(posEscAtelier[0][1], posEscAtelier[1][1])
+        }
+        if (Joueur.top >= posEscAtelier[1][1] && Math.ceil(Joueur.x / 16) == Math.ceil(posEscAtelier[0][1] / 16)) {
+            Joueur.setPosition(posEscAtelier[0][0], posEscAtelier[1][0] + 16)
         }
     }
 })
