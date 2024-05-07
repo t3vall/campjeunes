@@ -16,6 +16,13 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
         isCursorVisible = 0
     }
 })
+function estDansAtelier (coinSupDrtCol: number, coinSupDrtRow: number, coinInfDrtRow: number, coinSupGchCol: number) {
+    if (estRDCAtelier(coinSupDrtCol, coinSupDrtRow, coinInfDrtRow, coinSupGchCol) || estEtageAtelier(coinSupDrtCol, coinSupDrtRow, coinInfDrtRow, coinSupGchCol)) {
+        return true
+    } else {
+        return false
+    }
+}
 sprites.onOverlap(SpriteKind.Player, SpriteKind.QtObjet, function (sprite, otherSprite) {
     info.changeScoreBy(10)
     q1MDP.setFlag(SpriteFlag.Invisible, false)
@@ -48,17 +55,25 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`tileStair2`, function (sprite
             tiles.placeOnTile(sprite, tiles.getTileLocation(Math.floor(sprite.x / 16), Math.floor(sprite.y / 16) - 1))
         }
     }
+    if (estRDCAtelier(coinSupDrtAtelierCol, coinSupDrtAtelierRow, coinInfDrtAtelierRow, coinSupGchAtelierCol)) {
+        if (Math.ceil(sprite.y / 16) == Math.floor(posEscalierStudio[1][0] / 16)) {
+            tiles.placeOnTile(sprite, tiles.getTileLocation(Math.floor(sprite.x / 16), Math.floor(sprite.y / 16) - 1))
+        }
+    }
 })
 function stopMove () {
     controller.moveSprite(Joueur, 0, 0)
 }
 function creetuileEscalier (coinSupDrtCol: number, coinInfDrtRow: number, coinSupDrtRow: number, coinSupGchCol: number, Maison: boolean) {
-    if (coinSupGchCol <= rdcDrtGch && coinSupDrtRow >= rdcHtBs) {
+    if (coinSupGchCol <= rdcGchDrt && coinSupDrtRow >= rdcHtBs) {
         tiles.setTileAt(tiles.getTileLocation(coinSupDrtCol - 1, coinInfDrtRow - 2), assets.tile`tileStair0`)
         tiles.setTileAt(tiles.getTileLocation(coinSupDrtCol - 1, coinInfDrtRow - 1), assets.tile`myTile7`)
         tiles.setTileAt(tiles.getTileLocation(coinSupDrtCol - 2, coinInfDrtRow - 1), assets.tile`tileStair2`)
-    } else if (coinSupDrtCol > rdcDrtGch) {
-    	
+    } else if (coinSupDrtCol > rdcGchDrt) {
+        tiles.setTileAt(tiles.getTileLocation(coinSupDrtCol - 1, coinInfDrtRow - 3), assets.tile`tileStair0`)
+        tiles.setTileAt(tiles.getTileLocation(coinSupDrtCol - 1, coinInfDrtRow - 2), assets.tile`tileStair0`)
+        tiles.setTileAt(tiles.getTileLocation(coinSupDrtCol - 1, coinInfDrtRow - 1), assets.tile`myTile7`)
+        tiles.setTileAt(tiles.getTileLocation(coinSupDrtCol - 2, coinInfDrtRow - 1), assets.tile`tileStair2`)
     } else {
         if (Maison) {
             if (true) {
@@ -69,11 +84,18 @@ function creetuileEscalier (coinSupDrtCol: number, coinInfDrtRow: number, coinSu
         }
     }
 }
+function estRDCAtelier (coinSupDrtCol: number, coinSupDrtRow: number, coinInfDrtRow: number, coinSupGchCol: number) {
+    if (Joueur.x < coinSupDrtCol * 16 && Joueur.x > coinSupGchCol * 16 && Joueur.y > coinSupDrtRow * 16) {
+        return true
+    } else {
+        return false
+    }
+}
 function creerTuileCoin (coinSupDrtCol: number, coinInfDrtRow: number, coinSupDrtRow: number, coinSupGchCol: number, Maison: boolean) {
     for (let X22 = 0; X22 <= coinSupDrtCol; X22++) {
         for (let Y22 = 0; Y22 <= coinInfDrtRow; Y22++) {
             if (!(Maison)) {
-                if (coinSupGchCol <= rdcDrtGch && coinSupDrtRow <= rdcHtBs) {
+                if (coinSupGchCol <= rdcGchDrt && coinSupDrtRow <= rdcHtBs) {
                     if (X22 == coinSupGchCol && Y22 == coinSupDrtRow) {
                         tiles.setTileAt(tiles.getTileLocation(X22, Y22), assets.tile`myTile21`)
                     }
@@ -168,6 +190,10 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`tuileNoir`, function (sprite,
         if (Math.ceil(sprite.y / 16) == location.row) {
             tiles.placeOnTile(sprite, tiles.getTileLocation(Math.floor(sprite.x / 16), Math.floor(sprite.y / 16) - 1))
         }
+    } else if (estDansAtelier(coinSupDrtAtelierCol, coinSupDrtAtelierRow, coinInfDrtAtelierRow, coinSupGchAtelierCol)) {
+        if (Math.ceil(sprite.x / 16) == location.column) {
+            tiles.placeOnTile(sprite, tiles.getTileLocation(Math.floor(sprite.x / 16) - 1, Math.floor(sprite.y / 16)))
+        }
     }
 })
 function updateQuete (numQuete: number) {
@@ -178,6 +204,20 @@ function updateQuete (numQuete: number) {
         }
     }
 }
+scene.onOverlapTile(SpriteKind.Player, assets.tile`tileStair0`, function (sprite, location) {
+    if (estRDCAtelier(coinSupDrtAtelierCol, coinSupDrtAtelierRow, coinInfDrtAtelierRow, coinSupGchAtelierCol)) {
+        if (Math.ceil(sprite.x / 16) == Math.floor(posEscAtelier[0][0] / 16)) {
+            tiles.placeOnTile(sprite, tiles.getTileLocation(Math.floor(sprite.x / 16) - 1, Math.floor(sprite.y / 16)))
+        }
+        if (Math.ceil(sprite.y / 16) == Math.floor(posEscAtelier[1][0] / 16)) {
+            tiles.placeOnTile(sprite, tiles.getTileLocation(Math.floor(sprite.x / 16), Math.floor(sprite.y / 16) - 1))
+        }
+    } else if (estEtageAtelier(coinSupDrtAtelierCol, coinSupDrtAtelierRow, coinInfDrtAtelierRow, coinSupGchAtelierCol)) {
+        if (Math.ceil(sprite.x / 16) == Math.floor(posEscAtelier[0][1] / 16)) {
+            tiles.placeOnTile(sprite, tiles.getTileLocation(Math.floor(sprite.x / 16) - 1, Math.floor(sprite.y / 16)))
+        }
+    }
+})
 function creerTuileSol (coinSupDrtCol: number, coinInfDrtRow: number, coinSupDrtRow: number, coinSupGchCol: number, Maison: boolean) {
     for (let X23 = 0; X23 <= coinSupDrtCol; X23++) {
         for (let Y23 = 0; Y23 <= coinInfDrtRow; Y23++) {
@@ -208,7 +248,7 @@ function creerTuileMur (coinSupDrtCol: number, coinInfDrtRow: number, coinSupDrt
     for (let X24 = 0; X24 <= coinSupDrtCol; X24++) {
         for (let Y24 = 0; Y24 <= coinInfDrtRow; Y24++) {
             if (!(Maison)) {
-                if (coinSupGchCol <= rdcDrtGch && coinSupDrtRow <= rdcHtBs) {
+                if (coinSupGchCol <= rdcGchDrt && coinSupDrtRow <= rdcHtBs) {
                     if (Y24 == coinSupDrtRow && X24 >= coinSupGchCol) {
                         tiles.setTileAt(tiles.getTileLocation(X24, Y24), assets.tile`tileMur6`)
                     }
@@ -259,6 +299,13 @@ function creerTuileMur (coinSupDrtCol: number, coinInfDrtRow: number, coinSupDrt
                 }
             }
         }
+    }
+}
+function estEtageAtelier (coinSupDrtCol: number, coinSupDrtRow: number, coinInfDrtRow: number, coinSupGchCol: number) {
+    if (Joueur.x < (coinSupDrtCol + 40) * 16 && Joueur.x > (coinSupGchCol + 40) * 16 && Joueur.y > coinSupDrtRow * 16) {
+        return true
+    } else {
+        return false
     }
 }
 function estRDCStudio (coinSupDrtCol: number, coinSupDrtRow: number, coinInfDrtRow: number, coinSupGchCol: number) {
@@ -583,6 +630,7 @@ let logOutIcon: Sprite = null
 let curseur3: Sprite = null
 let tempQ1MDP: Sprite = null
 let q1MDP: Sprite = null
+let posEscAtelier: number[][] = []
 let posEscalierStudio: number[][] = []
 let txtQueteL2: TextSprite = null
 let txtQueteL1: TextSprite = null
@@ -617,7 +665,7 @@ let isCursorVisible = 0
 let curseur2: Sprite = null
 let mdpPC = ""
 let rdcHtBs = 0
-let rdcDrtGch = 0
+let rdcGchDrt = 0
 let songAtelier = music.createSong(assets.song`Atelier`)
 let songStudio = music.createSong(assets.song`Studio`)
 let songJardin = music.createSong(assets.song`Jardin`)
@@ -626,7 +674,7 @@ let mySprite = sprites.create(assets.image`croix`, SpriteKind.Player)
 let debug = 0
 let rdcLargeur = 52
 let rdcHauteur = 62
-rdcDrtGch = rdcLargeur / 2
+rdcGchDrt = rdcLargeur / 2
 rdcHtBs = rdcLargeur / 2
 info.setScore(0)
 mdpPC = "P"
@@ -682,6 +730,7 @@ txtQueteL2.top = 8
 txtQueteL1.setFlag(SpriteFlag.RelativeToCamera, true)
 txtQueteL2.setFlag(SpriteFlag.RelativeToCamera, true)
 posEscalierStudio = [[7 * 16 + 8, 70 * 16 + 8], [61 * 16 + 8, 61 * 16 + 8]]
+posEscAtelier = [[51 * 16 + 8, 91 * 16 + 8], [59 * 16 + 8, 59 * 16 + 8]]
 let test2 = 0
 forever(function () {
     if (estDansStudio(coinSupDrtStudioCol, coinSupDrtStudioRow, coinInfDrtSudioRow, coinSupGchStudioCol)) {
@@ -690,6 +739,14 @@ forever(function () {
         }
         if (Joueur.left >= posEscalierStudio[0][1] && Joueur.y == posEscalierStudio[1][1]) {
             Joueur.setPosition(posEscalierStudio[0][0] + 16, posEscalierStudio[1][0])
+        }
+    }
+    if (estDansAtelier(coinSupDrtAtelierCol, coinSupDrtAtelierRow, coinInfDrtAtelierRow, coinSupGchAtelierCol)) {
+        if (Joueur.top <= posEscAtelier[1][0] && Joueur.top >= posEscAtelier[1][0] - 8 && Math.ceil(Joueur.x / 16) == Math.ceil(posEscAtelier[0][0] / 16)) {
+            Joueur.setPosition(posEscAtelier[0][1], posEscAtelier[1][1])
+        }
+        if (Joueur.top >= posEscAtelier[1][1] && Math.ceil(Joueur.x / 16) == Math.ceil(posEscAtelier[0][1] / 16)) {
+            Joueur.setPosition(posEscAtelier[0][0], posEscAtelier[1][0] + 16)
         }
     }
 })
