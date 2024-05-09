@@ -107,35 +107,7 @@ function creetuileEscalier (coinSupDrtCol: number, coinInfDrtRow: number, coinSu
 function creerTuileCoin (coinSupDrtCol: number, coinInfDrtRow: number, coinSupDrtRow: number, coinSupGchCol: number, Maison: boolean) {
     for (let X22 = 0; X22 <= coinSupDrtCol; X22++) {
         for (let Y22 = 0; Y22 <= coinInfDrtRow; Y22++) {
-            if (!(Maison)) {
-                if (coinSupGchCol <= rdcGchDrt && coinSupDrtRow <= rdcHtBs) {
-                    if (X22 == coinSupGchCol && Y22 == coinSupDrtRow) {
-                        tiles.setTileAt(tiles.getTileLocation(X22, Y22), assets.tile`myTile21`)
-                    }
-                    if (X22 == coinSupDrtCol && Y22 == coinSupDrtRow) {
-                        tiles.setTileAt(tiles.getTileLocation(X22, Y22), assets.tile`myTile22`)
-                    }
-                    if (X22 == coinSupDrtCol && Y22 == coinInfDrtRow) {
-                        tiles.setTileAt(tiles.getTileLocation(X22, Y22), assets.tile`myTile23`)
-                    }
-                    if (X22 == coinSupGchCol && Y22 == coinInfDrtRow) {
-                        tiles.setTileAt(tiles.getTileLocation(X22, Y22), assets.tile`myTile9`)
-                    }
-                } else {
-                    if (X22 == coinSupGchCol && Y22 == coinSupDrtRow) {
-                        tiles.setTileAt(tiles.getTileLocation(X22, Y22), assets.tile`tileCoinSupGch`)
-                    }
-                    if (X22 == coinSupDrtCol && Y22 == coinSupDrtRow) {
-                        tiles.setTileAt(tiles.getTileLocation(X22, Y22), assets.tile`tileCoinSupDrt`)
-                    }
-                    if (X22 == coinSupDrtCol && Y22 == coinInfDrtRow) {
-                        tiles.setTileAt(tiles.getTileLocation(X22, Y22), assets.tile`tileCoinInfDrt`)
-                    }
-                    if (X22 == coinSupGchCol && Y22 == coinInfDrtRow) {
-                        tiles.setTileAt(tiles.getTileLocation(X22, Y22), assets.tile`tileCoinInfGch`)
-                    }
-                }
-            } else {
+            if (Maison) {
                 if (X22 == coinSupGchCol && Y22 == coinSupDrtRow) {
                     tiles.setTileAt(tiles.getTileLocation(X22, Y22), assets.tile`myTile21`)
                 }
@@ -147,6 +119,33 @@ function creerTuileCoin (coinSupDrtCol: number, coinInfDrtRow: number, coinSupDr
                 }
                 if (X22 == coinSupGchCol && Y22 == coinInfDrtRow) {
                     tiles.setTileAt(tiles.getTileLocation(X22, Y22), assets.tile`myTile9`)
+                }
+            }
+            if (coinSupGchCol <= rdcGchDrt && coinSupDrtRow <= rdcHtBs) {
+                if (X22 == coinSupGchCol && Y22 == coinSupDrtRow) {
+                    tiles.setTileAt(tiles.getTileLocation(X22, Y22), assets.tile`myTile21`)
+                }
+                if (X22 == coinSupDrtCol && Y22 == coinSupDrtRow) {
+                    tiles.setTileAt(tiles.getTileLocation(X22, Y22), assets.tile`myTile22`)
+                }
+                if (X22 == coinSupDrtCol && Y22 == coinInfDrtRow) {
+                    tiles.setTileAt(tiles.getTileLocation(X22, Y22), assets.tile`myTile23`)
+                }
+                if (X22 == coinSupGchCol && Y22 == coinInfDrtRow) {
+                    tiles.setTileAt(tiles.getTileLocation(X22, Y22), assets.tile`myTile9`)
+                }
+            } else {
+                if (X22 == coinSupGchCol && Y22 == coinSupDrtRow) {
+                    tiles.setTileAt(tiles.getTileLocation(X22, Y22), assets.tile`tileCoinSupGch`)
+                }
+                if (X22 == coinSupDrtCol && Y22 == coinSupDrtRow) {
+                    tiles.setTileAt(tiles.getTileLocation(X22, Y22), assets.tile`tileCoinSupDrt`)
+                }
+                if (X22 == coinSupDrtCol && Y22 == coinInfDrtRow) {
+                    tiles.setTileAt(tiles.getTileLocation(X22, Y22), assets.tile`tileCoinInfDrt`)
+                }
+                if (X22 == coinSupGchCol && Y22 == coinInfDrtRow) {
+                    tiles.setTileAt(tiles.getTileLocation(X22, Y22), assets.tile`tileCoinInfGch`)
                 }
             }
         }
@@ -222,13 +221,11 @@ function creerTuileSol (coinSupDrtCol: number, coinInfDrtRow: number, coinSupDrt
         for (let Y23 = 0; Y23 <= coinInfDrtRow; Y23++) {
             if (X23 >= coinSupGchCol + 1 && X23 <= coinSupDrtCol - 1 && (Y23 >= coinSupDrtRow + 1 && Y23 <= coinInfDrtRow - 1)) {
                 tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tileSol1`)
-                if (Maison) {
-                    if (X23 > 30 && X23 < 34 && (Y23 > 24 && Y23 < 28)) {
-                        tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`myTile18`)
-                    }
-                }
             }
             if (Maison) {
+                if (X23 > 30 && X23 < 34 && (Y23 > 24 && Y23 < 28)) {
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`myTile18`)
+                }
                 if (X23 == coinSupGchCol && (Y23 >= coinSupDrtPmaisonRow + 1 && Y23 <= coinInfDrtPmaisonRow - 1)) {
                     tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tileSol1`)
                 }
@@ -246,35 +243,7 @@ function estDansStudio (coinSupDrtCol: number, coinSupDrtRow: number, coinInfDrt
 function creerTuileMur (coinSupDrtCol: number, coinInfDrtRow: number, coinSupDrtRow: number, coinSupGchCol: number, Maison: boolean) {
     for (let X24 = 0; X24 <= coinSupDrtCol; X24++) {
         for (let Y24 = 0; Y24 <= coinInfDrtRow; Y24++) {
-            if (!(Maison)) {
-                if (coinSupGchCol <= rdcGchDrt && coinSupDrtRow <= rdcHtBs) {
-                    if (Y24 == coinSupDrtRow && X24 >= coinSupGchCol) {
-                        tiles.setTileAt(tiles.getTileLocation(X24, Y24), assets.tile`tileMur6`)
-                    }
-                    if (Y24 == coinInfDrtRow && X24 >= coinSupGchCol) {
-                        tiles.setTileAt(tiles.getTileLocation(X24, Y24), assets.tile`tileMur6`)
-                    }
-                    if (X24 == coinSupGchCol && (Y24 >= coinSupDrtRow && Y24 <= coinInfDrtRow)) {
-                        tiles.setTileAt(tiles.getTileLocation(X24, Y24), assets.tile`tileMur3`)
-                    }
-                    if (X24 == coinSupDrtCol && (Y24 >= coinSupDrtRow && Y24 <= coinInfDrtRow)) {
-                        tiles.setTileAt(tiles.getTileLocation(X24, Y24), assets.tile`tileMur3`)
-                    }
-                } else {
-                    if (Y24 == coinSupDrtRow && X24 >= coinSupGchCol) {
-                        tiles.setTileAt(tiles.getTileLocation(X24, Y24), assets.tile`tileMur2`)
-                    }
-                    if (Y24 == coinInfDrtRow && X24 >= coinSupGchCol) {
-                        tiles.setTileAt(tiles.getTileLocation(X24, Y24), assets.tile`tileMur4`)
-                    }
-                    if (X24 == coinSupGchCol && (Y24 >= coinSupDrtRow && Y24 <= coinInfDrtRow)) {
-                        tiles.setTileAt(tiles.getTileLocation(X24, Y24), assets.tile`tileMur1`)
-                    }
-                    if (X24 == coinSupDrtCol && (Y24 >= coinSupDrtRow && Y24 <= coinInfDrtRow)) {
-                        tiles.setTileAt(tiles.getTileLocation(X24, Y24), assets.tile`tileMur0`)
-                    }
-                }
-            } else {
+            if(Maison) {
                 if (Y24 == coinSupDrtRow && X24 >= coinSupGchCol) {
                     tiles.setTileAt(tiles.getTileLocation(X24, Y24), assets.tile`tileMur6`)
                 }
@@ -295,6 +264,33 @@ function creerTuileMur (coinSupDrtCol: number, coinInfDrtRow: number, coinSupDrt
                 }
                 if (X24 == 26 && Y24 == coinInfDrtRow) {
                     tiles.setTileAt(tiles.getTileLocation(X24, Y24), assets.tile`myTile13`)
+                }
+            }
+            if (coinSupGchCol <= rdcGchDrt && coinSupDrtRow <= rdcHtBs) {
+                if (Y24 == coinSupDrtRow && X24 >= coinSupGchCol) {
+                    tiles.setTileAt(tiles.getTileLocation(X24, Y24), assets.tile`tileMur6`)
+                }
+                if (Y24 == coinInfDrtRow && X24 >= coinSupGchCol) {
+                    tiles.setTileAt(tiles.getTileLocation(X24, Y24), assets.tile`tileMur6`)
+                }
+                if (X24 == coinSupGchCol && (Y24 >= coinSupDrtRow && Y24 <= coinInfDrtRow)) {
+                    tiles.setTileAt(tiles.getTileLocation(X24, Y24), assets.tile`tileMur3`)
+                }
+                if (X24 == coinSupDrtCol && (Y24 >= coinSupDrtRow && Y24 <= coinInfDrtRow)) {
+                    tiles.setTileAt(tiles.getTileLocation(X24, Y24), assets.tile`tileMur3`)
+                }
+            } else {
+                if (Y24 == coinSupDrtRow && X24 >= coinSupGchCol) {
+                    tiles.setTileAt(tiles.getTileLocation(X24, Y24), assets.tile`tileMur2`)
+                }
+                if (Y24 == coinInfDrtRow && X24 >= coinSupGchCol) {
+                    tiles.setTileAt(tiles.getTileLocation(X24, Y24), assets.tile`tileMur4`)
+                }
+                if (X24 == coinSupGchCol && (Y24 >= coinSupDrtRow && Y24 <= coinInfDrtRow)) {
+                    tiles.setTileAt(tiles.getTileLocation(X24, Y24), assets.tile`tileMur1`)
+                }
+                if (X24 == coinSupDrtCol && (Y24 >= coinSupDrtRow && Y24 <= coinInfDrtRow)) {
+                    tiles.setTileAt(tiles.getTileLocation(X24, Y24), assets.tile`tileMur0`)
                 }
             }
         }
