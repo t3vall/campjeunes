@@ -1,8 +1,6 @@
 namespace SpriteKind {
-    export const Toit = SpriteKind.create()
     export const PNJ = SpriteKind.create()
     export const PC = SpriteKind.create()
-    export const Exterieur = SpriteKind.create()
     export const QtObjet = SpriteKind.create()
     export const Curseur = SpriteKind.create()
     export const Icon = SpriteKind.create()
