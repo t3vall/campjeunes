@@ -742,6 +742,3 @@ forever(function () {
         Joueur.setPosition((114 * 16) + 8, (26 * 16) + 8)
     }
 })
-game.onUpdate(function () {
-	
-})
