@@ -1,5 +1,5 @@
 {
-    "name": "CampJeunes",
+    "name": "CampJeunes - Copier",
     "description": "",
     "dependencies": {
         "device": "*",
@@ -16,7 +16,8 @@
         "tilemap.g.jres",
         "tilemap.g.ts",
         "images.g.jres",
-        "images.g.ts"
+        "images.g.ts",
+        "main.py"
     ],
     "testFiles": [
         "test.ts"
@@ -28,5 +29,5 @@
     "supportedTargets": [
         "arcade"
     ],
-    "preferredEditor": "tsprj"
+    "preferredEditor": "blocksprj"
 }
