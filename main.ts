@@ -160,6 +160,7 @@ function debutQuete () {
         txtQueteL2.setText("Mot de Passe du PC!")
         q1MDP = sprites.create(assets.image`spritePapier`, SpriteKind.QtObjet)
         tempQ1MDP = sprites.create(assets.image`spritePapier`, SpriteKind.QtObjet)
+        q1MDP.setPosition(0, 0)
         q1MDP.setFlag(SpriteFlag.Invisible, true)
         tempQ1MDP.setPosition(randint(12, 38) * 16, randint(37, 58) * 16)
     }
