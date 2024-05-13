@@ -273,6 +273,25 @@ f f . . . . f 1 1 f . . . . . .
 . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . 
 `;
+            case "image11":
+            case "couchFront0":return img`
+...cccccccccccccccccc...
+..cbddddddddddddddddbc..
+.cddddddddddddddddddddc.
+.cddbbbbbbbbbbbbbbbbddc.
+.cdbbbbbbbbbbbbbbbbbbdc.
+.cdbbbbbbbbbbbbbbbbbbdc.
+cbbbccccccccccccccccbbbc
+cddcbddddddddddddddbcddc
+cddcddddddddddddddddcddc
+cddcddddddddddddddddcddc
+cddcddddddddddddddddcddc
+cbdcddddddddddddddddcdbc
+ccbbbbbbbbbbbbbbbbbbbbcc
+ccbbbbbbbbbbbbbbbbbbbbcc
+cccccccccccccccccccccccc
+..cbbc............cbbc..
+`;
         }
         return null;
     })
