@@ -228,6 +228,42 @@ function creerTuileSol (coinSupDrtCol: number, coinInfDrtRow: number, coinSupDrt
                 if (X23 == coinSupGchCol && (Y23 >= coinSupDrtPmaisonRow + 1 && Y23 <= coinInfDrtPmaisonRow - 1)) {
                     tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tileSol1`)
                 }
+                if (X23 == 32 && Y23 == 19) {
+                    tiles.setTileAt(tiles.getTileLocation(X23,Y23), assets.tile`canapeBleuHaut`)
+                }
+                if (X23 == 32 && Y23 == 20) {
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`canapeVBleuMilieu`)
+                }
+                if (X23 == 32 && Y23 == 21) {
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`canapeBleuBas`)
+                }
+                if (X23 == 33 && Y23 == 19) {
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`canapeBleuGch`)
+                }
+                if (X23 == 34 && Y23 == 19) {
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`canapeHBleuMilieu`)
+                }
+                if (X23 == 35 && Y23 == 19) {
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`canapeBleuDrt`)
+                }
+                if (X23 == 33 && Y23 == 20) {
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tableBasseSupGch`)
+                }
+                if (X23 == 33 && Y23 == 21) {
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tableBasseInfGch`)
+                }
+                if (X23 == 34 && Y23 == 20) {
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`switch`)
+                }
+                if (X23 == 34 && Y23 == 21) {
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tableBasseInfMilVide`)
+                }
+                if (X23 == 35 && Y23 == 20) {
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tableBasseSupDrt`)
+                }
+                if (X23 == 35 && Y23 == 21) {
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tableBasseInfDrt`)
+                }
             }
         }
     }
@@ -675,7 +711,7 @@ controller.moveSprite(Joueur, 100, 100)
 scene.cameraFollowSprite(Joueur)
 Joueur.setFlag(SpriteFlag.ShowPhysics, true)
 tiles.placeOnTile(PC2, tiles.getTileLocation(1, 41))
-tiles.placeOnTile(Joueur, tiles.getTileLocation(11, 55))
+tiles.placeOnTile(Joueur, tiles.getTileLocation(26, 47))
 tiles.placeOnTile(PNJ1, tiles.getTileLocation(5, 55))
 coinSupGchStudioCol = 0
 coinSupDrtStudioCol = 9
