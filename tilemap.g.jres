@@ -644,6 +644,12 @@
         "tilemapTile": true,
         "displayName": "canapeVJauneMilieu"
     },
+    "tile108": {
+        "data": "hwQQABAAAAD//////////xEREf//ERERERHx8R8fEREREfHxHx8RERERH/Ef8REREREf8R/xERERER/xH/EREdHxEfEf0d/RHf0d8R8RHx3d/RHxH9Hf3d3fHfEfEf3dvd8R8R/R/b3b3x3xHxH92/vdEfEf0b2/+9sd8R8R3b+/3RHxH9G9+w==",
+        "mimeType": "image/x-mkcd-f4",
+        "tilemapTile": true,
+        "displayName": "myTile29"
+    },
     "niveau1": {
         "id": "niveau1",
         "mimeType": "application/mkcd-tilemap",

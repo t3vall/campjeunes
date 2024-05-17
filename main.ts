@@ -305,13 +305,32 @@ function creerTuileMur (coinSupDrtCol: number, coinInfDrtRow: number, coinSupDrt
                     }
                     if (Y24 == coinInfDrtRow && X24 >= coinSupGchCol) {
                         tiles.setTileAt(tiles.getTileLocation(X24, Y24), assets.tile`tileMurRow`)
-                    }                
+                    }
                     if (X24 == coinSupGchCol && (Y24 >= coinSupDrtRow && Y24 <= coinInfDrtRow)) {
                         tiles.setTileAt(tiles.getTileLocation(X24, Y24), assets.tile`tileMur3`)
                     }
                     if (X24 == coinSupDrtCol && (Y24 >= coinSupDrtRow && Y24 <= coinInfDrtRow)) {
                         tiles.setTileAt(tiles.getTileLocation(X24, Y24), assets.tile`tileMur3`)
                     }
+                }
+            } else if (coinSupGchCol <= rdcGchDrt && coinSupDrtRow >= rdcHtBs){
+                if (Y24 == coinSupDrtRow && X24 >= coinSupGchCol) {
+                    tiles.setTileAt(tiles.getTileLocation(X24, Y24), assets.tile`tileMur2`)
+                }
+                if (Y24 == coinInfDrtRow && X24 >= coinSupGchCol) {
+                    tiles.setTileAt(tiles.getTileLocation(X24, Y24), assets.tile`tileMur4`)
+                }
+                if (X24 == coinSupGchCol && (Y24 >= coinSupDrtRow && Y24 <= coinInfDrtRow)) {
+                    tiles.setTileAt(tiles.getTileLocation(X24, Y24), assets.tile`tileMur1`)
+                }
+                if (X24 == coinSupDrtCol && (Y24 >= coinSupDrtRow && Y24 <= coinInfDrtRow)) {
+                    tiles.setTileAt(tiles.getTileLocation(X24, Y24), assets.tile`tileMur0`)
+                }
+                if (Y24 == 53 && X24 == coinSupDrtCol) {
+                    tiles.setTileAt(tiles.getTileLocation(X24, Y24), assets.tile`myTile11`)
+                }
+                if (Y24 == 53 && X24 == coinSupGchCol) {
+                    tiles.setTileAt(tiles.getTileLocation(X24, Y24), assets.tile`myTile29`)
                 }
             } else {
                 if (Y24 == coinSupDrtRow && X24 >= coinSupGchCol) {
@@ -423,8 +442,14 @@ function creerMurInterieur (coinSupDrtCol: number, coinInfDrtRow: number, coinSu
                         tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
                     }
                 }
-            } else {
-            	
+            } else if (coinSupGchCol <= rdcGchDrt && coinSupDrtRow >= rdcHtBs) {
+                if(X23 > coinSupGchCol && X23 < coinSupDrtCol - 2) {
+                    if (Y23 == 53) {
+                        tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tileMurRow`)
+                        tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
+                    }
+                    
+                }                
             }
         }
     }
@@ -694,7 +719,7 @@ scene.cameraFollowSprite(Joueur)
 Joueur.setFlag(SpriteFlag.ShowPhysics, true)
 tiles.placeOnTile(PC2, tiles.getTileLocation(1, 41))
 tiles.placeOnTile(Joueur, tiles.getTileLocation(26, 47))
-tiles.placeOnTile(PNJ1, tiles.getTileLocation(5, 55))
+tiles.placeOnTile(PNJ1, tiles.getTileLocation(5, 50))
 coinSupGchStudioCol = 0
 coinSupDrtStudioCol = 9
 coinSupDrtStudioRow = 37
