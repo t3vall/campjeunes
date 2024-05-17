@@ -560,24 +560,6 @@
         "tilemapTile": true,
         "displayName": "canapeBleuBas"
     },
-    "tile95": {
-        "data": "hwQQABAAAADd3d3d3d3d3d3d3d3d3czM3d3d3d3NVcXd3d3d3UxVxd3d3d3dTFRc3d3d3d1MVEzd3d3d3UxUTN3d3d3dTFRM3d3d3d1cVEzd3d3dzczMzN3d3d1cVVVV3d3d3UxERETd3d3dTERERN3d3d1MRERE3d3d3c1VVVXd3d3d3czMzA==",
-        "mimeType": "image/x-mkcd-f4",
-        "tilemapTile": true,
-        "displayName": "canapeBleuHaut0"
-    },
-    "tile96": {
-        "data": "hwQQABAAAADd3d3d3d3d3d3MzNzd3d3dzFVVzN3d3d1MVVW83d3d3UxUVbzd3d3dTFRVzN3d3d1MVFXc3d3d3UxUVdzd3d3dXFRV3N3d3d3MzMzc3d3d3VVVVdzd3d3dVVVVzN3d3d1VVVW83d3d3VVVVbzd3d3dVVVVzN3d3d3MzMzd3d3d3Q==",
-        "mimeType": "image/x-mkcd-f4",
-        "tilemapTile": true,
-        "displayName": "canapeBleuBas0"
-    },
-    "tile97": {
-        "data": "hwQQABAAAADd3d3d3d3d3d3d3d3d3d3dzMzMzMzMzMxVVVVVVVVVVURERERERERERERERERERERERERERERERERERERERERERERERERERETMzMzMzMzMzFVVVVVVVVVVRERERERERFVEREREREREREREREREREREVVVVVVVVVVXMzMzMzMzMzA==",
-        "mimeType": "image/x-mkcd-f4",
-        "tilemapTile": true,
-        "displayName": "canapeBleuMilieu0"
-    },
     "tile107": {
         "data": "hwQQABAAAADd3f3u7u7u7t3d/e7u7u7u3d397u7u7u7d3f3u+Ijo7t3d/e6IiOju3d397v//7+7d3f3u///v7t3d/e7//+/u3d397v/d7+7d3f3u//3v7t3d/e7//+/u3d397v//7+7d3f3uIiLi7t3d/e4i8uLu3d397u7u7u7d3f3u7u7u7g==",
         "mimeType": "image/x-mkcd-f4",
@@ -643,6 +625,24 @@
         "mimeType": "image/x-mkcd-f4",
         "tilemapTile": true,
         "displayName": "tableBasseInfMilVide"
+    },
+    "tile95": {
+        "data": "hwQQABAAAADd3d3d3d3d3d3d3d3d3czM3d3d3d3NVcXd3d3d3UxVxd3d3d3dTFRc3d3d3d1MVEzd3d3d3UxUTN3d3d3dTFRM3d3d3d1cVEzd3d3dzczMzN3d3d1cVVVV3d3d3UxERETd3d3dTERERN3d3d1MRERE3d3d3c1VVVXd3d3d3czMzA==",
+        "mimeType": "image/x-mkcd-f4",
+        "tilemapTile": true,
+        "displayName": "canapeJauneHaut"
+    },
+    "tile96": {
+        "data": "hwQQABAAAADd3d3d3d3d3d3MzNzd3d3dzFVVzN3d3d1MVVW83d3d3UxUVbzd3d3dTFRVzN3d3d1MVFXc3d3d3UxUVdzd3d3dXFRV3N3d3d3MzMzc3d3d3VVVVdzd3d3dVVVVzN3d3d1VVVW83d3d3VVVVbzd3d3dVVVVzN3d3d3MzMzd3d3d3Q==",
+        "mimeType": "image/x-mkcd-f4",
+        "tilemapTile": true,
+        "displayName": "canapeJauneBas"
+    },
+    "tile97": {
+        "data": "hwQQABAAAADd3d3d3d3d3d3d3d3d3d3dzMzMzMzMzMxVVVVVVVVVVURERERERERERERERERERERERERERERERERERERERERERERERERERETMzMzMzMzMzFVVVVVVVVVVRERERERERFVEREREREREREREREREREREVVVVVVVVVVXMzMzMzMzMzA==",
+        "mimeType": "image/x-mkcd-f4",
+        "tilemapTile": true,
+        "displayName": "canapeVJauneMilieu"
     },
     "niveau1": {
         "id": "niveau1",

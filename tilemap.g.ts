@@ -189,12 +189,6 @@ namespace myTiles {
     //% fixedInstance jres blockIdentity=images._tile
     export const tile94 = image.ofBuffer(hex``);
     //% fixedInstance jres blockIdentity=images._tile
-    export const tile95 = image.ofBuffer(hex``);
-    //% fixedInstance jres blockIdentity=images._tile
-    export const tile96 = image.ofBuffer(hex``);
-    //% fixedInstance jres blockIdentity=images._tile
-    export const tile97 = image.ofBuffer(hex``);
-    //% fixedInstance jres blockIdentity=images._tile
     export const tile107 = image.ofBuffer(hex``);
     //% fixedInstance jres blockIdentity=images._tile
     export const tile93 = image.ofBuffer(hex``);
@@ -216,6 +210,12 @@ namespace myTiles {
     export const tile105 = image.ofBuffer(hex``);
     //% fixedInstance jres blockIdentity=images._tile
     export const tile106 = image.ofBuffer(hex``);
+    //% fixedInstance jres blockIdentity=images._tile
+    export const tile95 = image.ofBuffer(hex``);
+    //% fixedInstance jres blockIdentity=images._tile
+    export const tile96 = image.ofBuffer(hex``);
+    //% fixedInstance jres blockIdentity=images._tile
+    export const tile97 = image.ofBuffer(hex``);
 
     helpers._registerFactory("tilemap", function(name: string) {
         switch(helpers.stringTrim(name)) {
@@ -1184,12 +1184,6 @@ namespace myTiles {
             case "tile92":return tile92;
             case "canapeBleuBas":
             case "tile94":return tile94;
-            case "canapeBleuHaut0":
-            case "tile95":return tile95;
-            case "canapeBleuBas0":
-            case "tile96":return tile96;
-            case "canapeBleuMilieu0":
-            case "tile97":return tile97;
             case "switch":
             case "tile107":return tile107;
             case "canapeVBleuMilieu":
@@ -1212,6 +1206,12 @@ namespace myTiles {
             case "tile105":return tile105;
             case "tableBasseInfMilVide":
             case "tile106":return tile106;
+            case "canapeJauneHaut":
+            case "tile95":return tile95;
+            case "canapeJauneBas":
+            case "tile96":return tile96;
+            case "canapeVJauneMilieu":
+            case "tile97":return tile97;
         }
         return null;
     })
