@@ -663,6 +663,9 @@ let posEscalierStudio: number[][] = []
 let posEscAtelier: number[][] = []
 let txtQueteL2: TextSprite = null
 let txtQueteL1: TextSprite = null
+let spritePos: TextSprite = null
+let spriteEtage: TextSprite = null
+let prevEtage = ""
 let numQuete = 0
 let coinInfDrtPmaisonRow = 0
 let coinSupDrtPmaisonRow = 0
@@ -760,6 +763,14 @@ txtQueteL1.setFlag(SpriteFlag.RelativeToCamera, true)
 txtQueteL2.setFlag(SpriteFlag.RelativeToCamera, true)
 posEscalierStudio = [[7 * 16 + 8, 70 * 16 + 8], [61 * 16 + 8, 61 * 16 + 8]]
 posEscAtelier = [[51 * 16 + 8, 91 * 16 + 8], [59 * 16 + 8, 59 * 16 + 8]]
+spritePos = textsprite.create("ici", 1, 15)
+spritePos.left = scene.screenWidth() / 2 - (spritePos.x - spritePos.left)
+spritePos.top = 110
+spritePos.setFlag(SpriteFlag.RelativeToCamera, true)
+spriteEtage = textsprite.create("ici", 1, 15)
+spriteEtage.left = scene.screenWidth() / 2 - (spriteEtage.x - spriteEtage.left)
+spriteEtage.top = 101
+spriteEtage.setFlag(SpriteFlag.RelativeToCamera, true)
 let test2 = 0
 forever(function () {
     if (estDansAtelier(coinSupDrtAtelierCol, coinSupDrtAtelierRow, coinInfDrtAtelierRow, coinSupGchAtelierCol)) {
@@ -779,4 +790,69 @@ forever(function () {
     if (Math.ceil(Joueur.x / 16) == 114 && Math.ceil(Joueur.y / 16) == 26) {
         Joueur.setPosition((114 * 16) + 8, (26 * 16) + 8)
     }
-})
+    if (Joueur.x > 0 && Joueur.x < rdcLargeur * 16) {
+        spriteEtage.setText("RDC")
+        prevEtage = "RDC"
+        spriteEtage.left = scene.screenWidth() / 2 - (spriteEtage.x - spriteEtage.left)
+    } else if (Joueur.x > (coinSupGchPmaisonCol + 54) * 16 && Joueur.x < (coinSupDrtMaisonCol + 54) * 16) {
+        spriteEtage.setText("1er Etage")
+        prevEtage = "1er Etage"
+        spriteEtage.left = scene.screenWidth() / 2 - (spriteEtage.x - spriteEtage.left)
+    } else if (Joueur.x > (coinSupGchMaisonCol + 94) * 16 && Joueur.x < (coinSupDrtMaisonCol + 94) * 16) {
+        spriteEtage.setText("2eme Etage")
+        prevEtage = "2eme Etage"
+        spriteEtage.left = scene.screenWidth() / 2 - (spriteEtage.x - spriteEtage.left)
+    }
+    if (Joueur.x > 0 && Joueur.x < rdcLargeur * 16 && Joueur.y > 0 && Joueur.y < rdcHauteur * 16) {
+        spritePos.setText("Jardin")
+        spritePos.left = scene.screenWidth() / 2 - (spritePos.x - spritePos.left)
+    }
+    if (Joueur.x > coinSupGchStudioCol && Joueur.x < coinSupDrtStudioCol * 16 && Joueur.y > coinSupDrtStudioRow *16 && Joueur.y < coinInfDrtSudioRow * 16) {
+        spritePos.setText("Studio")
+        spritePos.left = scene.screenWidth() / 2 - (spritePos.x - spritePos.left)
+    }
+    if (Joueur.x > coinSupGchAtelierCol * 16 && Joueur.x < coinSupDrtAtelierCol * 16 && Joueur.y > coinSupDrtAtelierRow * 16 && Joueur.y < coinInfDrtAtelierRow * 16) {
+        spritePos.setText("Atelier")
+        spritePos.left = scene.screenWidth() / 2 - (spritePos.x - spritePos.left)
+    }
+    if (Joueur.x > coinSupGchPmaisonCol * 16 && Joueur.x < coinSupDrtPmaisonCol * 16 && Joueur.y > coinSupDrtPmaisonRow * 16 && Joueur.y < coinInfDrtPmaisonRow * 16) {
+        spritePos.setText("Cuisine")
+        spritePos.left = scene.screenWidth() / 2 - (spritePos.x - spritePos.left)
+    }
+    if (Joueur.x > coinSupGchMaisonCol * 16 && Joueur.x < 26 * 16 && Joueur.y > coinSupDrtMaisonRow * 16 && Joueur.y < coinInfDrtMaisonRow * 16) {
+        spritePos.setText("Salon")
+        spritePos.left = scene.screenWidth() / 2 - (spritePos.x - spritePos.left)
+    }
+    if (Joueur.x > 30 * 16 && Joueur.x < coinSupDrtMaisonCol * 16 && Joueur.y > coinSupDrtMaisonRow * 16 && Joueur.y < 24 * 16) {
+        spritePos.setText("Salle de Jeu")
+        spritePos.left = scene.screenWidth() / 2 - (spritePos.x - spritePos.left)
+    }
+    if (Joueur.x > 34 * 16 && Joueur.x < coinSupDrtMaisonCol * 16 && Joueur.y > 24 * 16 && Joueur.y < 28 * 16) {
+        spritePos.setText("Toilettes")
+        spritePos.left = scene.screenWidth() / 2 - (spritePos.x - spritePos.left)
+    }
+    if (Joueur.x > 30 * 16 && Joueur.x < 34 * 16 &&
+        Joueur.y > 24 * 16 && Joueur.y < 28 * 16 ||
+        Joueur.x > 84 * 16 && Joueur.x < 88 * 16 &&
+        Joueur.y > 24 * 16 && Joueur.y < 28 * 16 ||
+        Joueur.x > 114 * 16 && Joueur.x < 118 * 16 &&
+        Joueur.y > 24 * 16 && Joueur.y < 28 * 16 ||
+        Joueur.x > 30 * 16 && Joueur.x < 34 * 16 &&
+        Joueur.y > 74 * 16 && Joueur.y < 78 * 16) {
+        spriteEtage.setText(prevEtage)
+        if (prevEtage === "1er Etage") {
+            pause(6000)
+        } else if (prevEtage === "2eme Etage") {
+            pause(9000)
+        }
+        
+        spritePos.setText("Ascenseur")
+        spritePos.left = scene.screenWidth() / 2 - (spritePos.x - spritePos.left)
+    }
+    if (Joueur.x > 26 * 16 && Joueur.x < 30 * 16 &&
+        Joueur.y > coinSupDrtMaisonRow * 16 && Joueur.y < coinInfDrtMaisonRow * 16 ||
+        Joueur.x > 30 * 16 && Joueur.x < coinSupDrtMaisonCol * 16 &&
+        Joueur.y > 28 * 16 && Joueur.y < coinInfDrtMaisonRow * 16 ) {
+        spritePos.setText("Couloir")
+        spritePos.left = scene.screenWidth() / 2 - (spritePos.x - spritePos.left)
+    }})
