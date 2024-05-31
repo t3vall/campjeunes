@@ -216,6 +216,117 @@ ccbbbbbbbbbbbbbbbbbbbbcc
 cccccccccccccccccccccccc
 ..cbbc............cbbc..
 `;
+            case "image4":
+            case "pot":return img`
+. . . . . . . 7 7 7 7 . . . . . 
+. . . . . . . 7 e e 7 . . . . . 
+. . . . . . . . 7 e . . . . . . 
+. . . . . . 7 . . e . . . . . . 
+. . . . . . 7 7 . e e . 7 . . . 
+. . . . . . . . e e e 7 . . . . 
+. . . . . . . . e . . . . . . . 
+. . . . . 7 . . e . 7 . . . . . 
+. . . . . 7 7 e e . . e 7 . . . 
+. . . . . . . e . . . e . . . . 
+. . f f f f f f f f f f f f . . 
+. f e e e e e e e e e e e e f . 
+. . f f f f f f f f f f f f . . 
+. . . f e e e e e e e e f . . . 
+. . . f e e e e e e e e f . . . 
+. . . . f f f f f f f f . . . . 
+`;
+            case "image12":
+            case "smallShelf0":return img`
+.cccccccccccccc.
+cbddddddddddddbc
+cddddddddddddddc
+cddddddddddddddc
+cddddddddddddddc
+cddddddddddddddc
+cddddddddddddddc
+cddddddddddddddc
+cdbbbbbbbbbbbbdc
+cbbbbbbbbbbbbbbc
+cbddddddddddddbc
+cbcbbbcbbcbbbcbc
+fbcbbbcddcbbbcbf
+fbcbbbbccbbbbcbf
+fbccccccccccccbf
+fbbbbbbbbbbbbbbf
+fbddddddddddddbf
+fbcbbbcbbcbbbcbf
+fbcbbbcddcbbbcbf
+fbcbbbbccbbbbcbf
+fbccccccccccccbf
+fbbbbbbbbbbbbbbf
+fbffffffffffffbf
+ffffffffffffffff
+`;
+            case "image13":
+            case "smallShelf2":return img`
+.cccccccccccccc.
+cbddddddddddddbc
+cddddddddddddddc
+cddddddddddddddc
+cddddddddddddddc
+cddddddddddddddc
+cddddddddddddddc
+cbddddddddddddbc
+ccbbbbbbbbbbbbcc
+ccffffffffffffcc
+cbc44c7c66c3ccbc
+cbc44c7c66c3ccbc
+fbc44c7c66c3ccbf
+fdccccccccccccdf
+fdcbbddddddbbcdf
+fdffffffffffffdf
+fdcc4c44c3c7ccdf
+fdcc4c44c3c7ccdf
+fdcccc44ccc7ccdf
+fdccccccccccccdf
+fdcbbddddddbbcdf
+fdcbbddddddbbcdf
+fdffffffffffffdf
+ffffffffffffffff
+`;
+            case "image14":
+            case "livreA":return img`
+c c b b b b b b b b b b b b c c 
+c c f f f f f f f f f f f f c c 
+c b c 4 4 c 7 c 6 6 c 3 c c b c 
+c b c 4 4 c 7 c 6 6 c 3 c c b c 
+f b c 4 4 c 7 c 6 6 c 3 c c b f 
+f d c c c c c c c c c c c c d f 
+f d c b b d d d d d d b b c d f 
+f d f f f f f f f f f f f f d f 
+f d c c 4 c 4 4 c 3 c 7 c c d f 
+f d c c 4 c 4 4 c 3 c 7 c c d f 
+f d c c c c 4 4 c c c 7 c c d f 
+f d c c c c c c c c c c c c d f 
+f d c b b d d d d d d b b c d f 
+f d c b b d d d d d d b b c d f 
+f d f f f f f f f f f f f f d f 
+f f f f f f f f f f f f f f f f 
+`;
+            case "image15":
+            case "livreB":return img`
+d d d d d d d d d d d d d d d d 
+d d d d d d d d d d d d d d d d 
+d d d d d d d d d d d d d d d d 
+d d d d d d d d d d d d d d d d 
+d d d d d d d d d d d d d d d d 
+d d d d d d d d d d d d d d d d 
+d d d d d d d d d d d d d d d d 
+d c c c c c c c c c c c c c c d 
+c b d d d d d d d d d d d d b c 
+c d d d d d d d d d d d d d d c 
+c d d d d d d d d d d d d d d c 
+c d d d d d d d d d d d d d d c 
+c d d d d d d d d d d d d d d c 
+c d d d d d d d d d d d d d d c 
+c b d d d d d d d d d d d d b c 
+c c b b b b b b b b b b b b c c 
+`;
         }
         return null;
     })
