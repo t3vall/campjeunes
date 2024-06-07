@@ -206,6 +206,7 @@ function creerTuileSol (coinSupDrtCol: number, coinInfDrtRow: number, coinSupDrt
         for (let Y23 = 0; Y23 <= coinInfDrtRow; Y23++) {
             if (X23 >= coinSupGchCol + 1 && X23 <= coinSupDrtCol - 1 && (Y23 >= coinSupDrtRow + 1 && Y23 <= coinInfDrtRow - 1)) {
                 tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tileSol1`)
+                // tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`planTravail1`)
             }
             if (Maison) {
                 if (X23 > 30 && X23 < 34 && (Y23 > 24 && Y23 < 28)) {
@@ -258,6 +259,31 @@ function creerTuileSol (coinSupDrtCol: number, coinInfDrtRow: number, coinSupDrt
                 }
                 if (X23 == 35 && Y23 == 21) {
                     tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tableBasseInfDrt`)
+                }
+            } else if (!Maison) {
+                if ((X23 == 9) && (Y23 == 30)) {
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`planTravail2`)
+                    tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
+                }
+                if ((X23 == 9) && (((Y23 >= 24) && (Y23 <= 25)) || ((Y23 >= 27) && (Y23 <= 29)))) {
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`planTravail2_2`)
+                    tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
+                }
+                if ((X23 == 9) && (Y23 == 26)) {
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`evier`)
+                    tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
+                }
+                if ((X23 == 9) && (Y23 == 23)) {
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`frigo3`)
+                    tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
+                }
+                if ((X23 == 10) && (Y23 == 23)) {
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`frigo4`)
+                    tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
+                }
+                if ((X23 == 10) && (Y23 == 24)) {
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`frigo2`)
+                    tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
                 }
             }
         }
