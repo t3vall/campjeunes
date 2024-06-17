@@ -79,6 +79,11 @@
         "mimeType": "image/x-mkcd-f4",
         "displayName": "livreB"
     },
+    "image16": {
+        "data": "hwQQABAAAAAAAHd3dwcAAAB3d3d3dwcAcHd3d3d3dwBwd3d3d3d3AHd3d2ZmdncHd3dnZmZ2dwd3d2Z2Znd3B3d3Zndmd3cHd3dmd2Z3dwd3d2Z2Znd3B3d3Z2ZmdncHd3d3ZmZ2dwdwd3d3d3d3AHB3d3d3d3cAAHd3d3d3BwAAAHd3dwcAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "bouttonA"
+    },
     "song1": {
         "data": "00780004080200",
         "mimeType": "application/mkcd-song",

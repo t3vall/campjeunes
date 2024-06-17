@@ -4,6 +4,7 @@ namespace SpriteKind {
     export const QtObjet = SpriteKind.create()
     export const Curseur = SpriteKind.create()
     export const Icon = SpriteKind.create()
+    export const UI = SpriteKind.create()
 }
 controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
     if (isCursorVisible == 0) {
@@ -20,6 +21,47 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.QtObjet, function (sprite, other
     tempQ1MDP.setPosition(1 * 16, 244 * 16)
     updateQuete(numQuete)
 })
+function peutInterragir() {
+    bouttonA.setPosition(scene.screenWidth() / 2, (scene.screenHeight() / 2) + 20)
+    if (((Math.floor(Joueur.x / 16)) == posPorteStudioCol + 1) && ((Math.floor(Joueur.y / 16)) == posPorteStudioRow) ||
+        ((Math.floor(Joueur.x / 16)) == posPorte2StudioCol + 1) && ((Math.floor(Joueur.y / 16)) == posPorte2StudioRow) ||
+        ((Math.floor(Joueur.x / 16)) == posPorteAtelierCol - 1) && ((Math.floor(Joueur.y / 16)) == posPorteAtelierRow) ||
+        ((Math.floor(Joueur.x / 16)) == posPorteMaisonCol + 1) && ((Math.floor(Joueur.y / 16)) == posPorteMaisonRow) ||
+        ((Math.floor(Joueur.x / 16)) == posPorteStudioCol - 1) && ((Math.floor(Joueur.y / 16)) == posPorteStudioRow) ||
+        ((Math.floor(Joueur.x / 16)) == posPorte2StudioCol - 1) && ((Math.floor(Joueur.y / 16)) == posPorte2StudioRow) ||
+        ((Math.floor(Joueur.x / 16)) == posPorteAtelierCol + 1) && ((Math.floor(Joueur.y / 16)) == posPorteAtelierRow) ||
+        ((Math.floor(Joueur.x / 16)) == posPorteMaisonCol - 1) && ((Math.floor(Joueur.y / 16)) == posPorteMaisonRow)) {
+        bouttonA.setFlag(SpriteFlag.Invisible, false)
+    } else if (Math.floor(Joueur.x / 16) == 11 && Math.floor(Joueur.y / 16) == 58 ||
+            Math.floor(Joueur.x / 16) == 11 && Math.floor(Joueur.y / 16) == 48 ||
+            Math.floor(Joueur.x / 16) == 39 && Math.floor(Joueur.y / 16) == 58 ||
+            Math.floor(Joueur.x / 16) == 42 && Math.floor(Joueur.y / 16) == 31){
+        bouttonA.setFlag(SpriteFlag.Invisible, false)
+    } else if (Math.floor(Joueur.x / 16) == 11 && Math.floor(Joueur.y / 16) == 56 ||
+            Math.floor(Joueur.x / 16) == 11 && Math.floor(Joueur.y / 16) == 46 ||
+            Math.floor(Joueur.x / 16) == 39 && Math.floor(Joueur.y / 16) == 56 ||
+            Math.floor(Joueur.x / 16) == 42 && Math.floor(Joueur.y / 16) == 29){
+        bouttonA.setFlag(SpriteFlag.Invisible, false)
+        bouttonA.setPosition(scene.screenWidth() / 2, (scene.screenHeight() / 2) - 20)
+    } else { 
+        for (let valeur of sprites.allOfKind(SpriteKind.PNJ)) {
+            if (Math.floor(Joueur.y / 16) == Math.floor(valeur.y / 16) &&
+                ((Math.floor(Joueur.x / 16) - Math.floor(valeur.x / 16) == 1) ||
+                (Math.ceil(Joueur.x / 16) - Math.floor(valeur.x / 16) == 0))) {
+                bouttonA.setFlag(SpriteFlag.Invisible, false)
+            } else if (Math.floor(Joueur.x / 16) == Math.floor(valeur.x / 16) &&
+                    Math.floor(Joueur.y / 16) - Math.floor(valeur.y / 16) == 1) {
+                bouttonA.setFlag(SpriteFlag.Invisible, false)
+            } else if (Math.floor(Joueur.x / 16) == Math.floor(valeur.x / 16) &&
+                    Math.ceil(Joueur.y / 16) - Math.floor(valeur.y / 16) == 0) {
+                bouttonA.setFlag(SpriteFlag.Invisible, false)
+                bouttonA.setPosition(scene.screenWidth() / 2, (scene.screenHeight() / 2) - 20)
+            }else {
+                bouttonA.setFlag(SpriteFlag.Invisible, true)
+            }
+        }
+    }
+}
 function estRDCAtelier(coinSupDrtCol: number, coinSupDrtRow: number, coinInfDrtRow: number, coinSupGchCol: number) {
     if (Joueur.x < coinSupDrtCol * 16 && Joueur.x > coinSupGchCol * 16 && Joueur.y > coinSupDrtRow * 16) {
         return true
@@ -651,7 +693,12 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
         game.splash("La Maison")
     }
     for (let valeur2 of sprites.allOfKind(SpriteKind.PNJ)) {
-        if (Math.floor(Joueur.y / 16) == Math.floor(valeur2.y / 16) && (Math.floor(Joueur.x / 16) - Math.floor(valeur2.x / 16) == 1 || Math.ceil(Joueur.x / 16) - Math.floor(valeur2.x / 16) == 0) || Math.floor(Joueur.x / 16) == Math.floor(valeur2.x / 16) && (Math.floor(Joueur.y / 16) - Math.floor(valeur2.y / 16) == 1 || Math.ceil(Joueur.y / 16) - Math.floor(valeur2.y / 16) == 0)) {
+        if (Math.floor(Joueur.y / 16) == Math.floor(valeur2.y / 16) &&
+            (Math.floor(Joueur.x / 16) - Math.floor(valeur2.x / 16) == 1 ||
+            Math.ceil(Joueur.x / 16) - Math.floor(valeur2.x / 16) == 0) ||
+            Math.floor(Joueur.x / 16) == Math.floor(valeur2.x / 16) &&
+            (Math.floor(Joueur.y / 16) - Math.floor(valeur2.y / 16) == 1 ||
+            Math.ceil(Joueur.y / 16) - Math.floor(valeur2.y / 16) == 0)) {
             game.setDialogFrame(img`
                 .....cccccccccccccc.....
                 ...cbd111111111111dbc...
@@ -722,9 +769,11 @@ function creerTuileToit (coinSupDrtCol: number, coinInfDrtRow: number, coinSupDr
     }
 }
 let logOutIcon: Sprite = null
+let bouttonA: Sprite = null
 let curseur3: Sprite = null
 let tempQ1MDP: Sprite = null
 let q1MDP: Sprite = null
+// let posPNJ: number[][] = []
 let posEscalierStudio: number[][] = []
 let posEscAtelier: number[][] = []
 let posPorteStudio: number[][] = []
@@ -785,15 +834,22 @@ curseur2 = sprites.create(assets.image`spriteCurseur`, SpriteKind.Curseur)
 isCursorVisible = 0
 isPCOn = 0
 tiles.setCurrentTilemap(tilemap`niveau0`)
+bouttonA = sprites.create(assets.image`bouttonA`, SpriteKind.UI)
+bouttonA.setPosition(scene.screenWidth() / 2, (scene.screenHeight() / 2) + 20)
+bouttonA.setFlag(SpriteFlag.RelativeToCamera, true)
+bouttonA.setFlag(SpriteFlag.Invisible, true)
+// posPNJ = [[], []]
 PC2 = sprites.create(assets.image`SpritePc`, SpriteKind.PC)
 Joueur = sprites.create(assets.image`Mario`, SpriteKind.Player)
 PNJ1 = sprites.create(assets.image`Luigi`, SpriteKind.PNJ)
 controller.moveSprite(Joueur, 100, 100)
 scene.cameraFollowSprite(Joueur)
-Joueur.setFlag(SpriteFlag.ShowPhysics, true)
+// Joueur.setFlag(SpriteFlag.ShowPhysics, true)
 tiles.placeOnTile(PC2, tiles.getTileLocation(1, 41))
 tiles.placeOnTile(Joueur, tiles.getTileLocation(26, 47))
-tiles.placeOnTile(PNJ1, tiles.getTileLocation(5, 50))
+tiles.placeOnTile(PNJ1, tiles.getTileLocation(6, 50))
+// posPNJ[0][0] = 5
+// posPNJ[1][0] = 50
 coinSupGchStudioCol = 0
 coinSupDrtStudioCol = 9
 coinSupDrtStudioRow = 37
@@ -857,6 +913,7 @@ spriteEtage.top = 101
 spriteEtage.setFlag(SpriteFlag.RelativeToCamera, true)
 let test2 = 0
 forever(function () {
+    peutInterragir()
     if (estDansAtelier(coinSupDrtAtelierCol, coinSupDrtAtelierRow, coinInfDrtAtelierRow, coinSupGchAtelierCol)) {
         if (Joueur.top <= posEscAtelier[1][0] && Joueur.top >= posEscAtelier[1][0] - 8 && Math.ceil(Joueur.x / 16) == Math.ceil(posEscAtelier[0][0] / 16)) {
             Joueur.setPosition(posEscAtelier[0][1], posEscAtelier[1][1])
