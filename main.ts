@@ -290,39 +290,39 @@ function creerTuileSol (coinSupDrtCol: number, coinInfDrtRow: number, coinSupDrt
                     tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`frigo2`)
                 }
                 if ((X23 == 15) && (Y23 == 26)) {
-                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tableBasseSupDrt`)
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tableBasseSupDrt3`)
                     tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
                 }
                 if ((X23 == 11) && (Y23 == 28)) {
-                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tableBasseInfGch2`)
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tableBasseInfGch3`)
                     tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
                 }
                 if ((X23 == 11) && (Y23 == 26)) {
-                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tableBasseSupGch`)
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tableBasseSupGch3`)
                     tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
                 }
                 if ((X23 == 15) && (Y23 == 28)) {
-                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tableBasseInfDrt2`)
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tableBasseInfDrt3`)
                     tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
                 }
                 if (((X23 >= 12) && (X23 <= 14)) && (Y23 == 26)) {
-                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tableBasseSupMilVide`)
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tableBasseSupMil`)
                     tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
                 }
                 if (((X23 >= 12) && (X23 <= 14)) && (Y23 == 28)) {
-                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tableBasseInfMilVide`)
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tableBasseInfMil`)
                     tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
                 }
                 if ((X23 == 11) && (Y23 == 27)) {
-                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tableBasseMilGch`)
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tableBasseMilGch1`)
                     tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
                 }
                 if ((X23 == 15) && (Y23 == 27)) {
-                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tableBasseMilDrt`)
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tableBasseMilDrt1`)
                     tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
                 }
                 if (((X23 >= 12) && (X23 <= 14)) && (Y23 == 27)) {
-                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tableBasseMilCtr`)
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tableBasseMilCtr2`)
                 }
             }
         }
