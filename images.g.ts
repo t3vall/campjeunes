@@ -346,6 +346,44 @@ c c b b b b b b b b b b b b c c
 . . . . 7 7 7 7 7 7 7 7 . . . . 
 . . . . . . . . . . . . . . . . 
 `;
+            case "image17":
+            case "benoît":return img`
+. . . . e e e e e e e e . . . . 
+. . . e e e e e e e e e . . . . 
+. . . e e e e e e f f f . . . . 
+. . e e e e e e e 3 e f 3 3 . . 
+. . . e e e e 3 e 3 3 e 3 3 3 . 
+. . e e e e 3 3 3 3 e e e e . . 
+. . . . . 3 e e e e e e e . . . 
+. . . . f f f f f f f e e . . . 
+. . . f f f f 6 6 6 6 f f f . . 
+. . f f f f 6 4 4 4 4 6 f f f . 
+. . 3 3 3 f 6 4 6 3 4 6 f 3 3 . 
+. . 3 3 3 3 f f f f f f 3 3 3 . 
+. . 3 3 3 f f f f f f f f 3 3 . 
+. . . . f f f f . f f f f . . . 
+. . . 4 4 4 4 . . . 4 4 4 4 . . 
+. . 4 4 4 4 4 . . . 4 4 4 4 4 . 
+`;
+            case "image18":
+            case "nicolas":return img`
+. . . . . . . . . . d . . . . . 
+. . . . d d d d d d d d . . . . 
+. . . . d d d d 3 3 f 3 . . . . 
+. . . d d 3 d 3 3 3 f 3 3 3 . . 
+. . . d d 3 d d 3 3 3 d 3 3 3 . 
+. . . d d d d 3 3 3 d d d d . . 
+. . . . . 3 d d d d d f f . . . 
+. . . . 7 7 7 7 8 8 7 . . . . . 
+. . . 7 7 7 7 7 8 8 7 7 7 7 . . 
+. . 7 7 7 7 7 7 8 8 7 7 7 7 7 . 
+. . 3 3 3 7 7 7 8 8 7 7 7 3 3 . 
+. . 3 3 3 3 7 7 e e 7 7 3 3 3 . 
+. . 3 3 3 e e e e e e e e 3 3 . 
+. . . . e e e e . e e e e . . . 
+. . . d d d d . . . d d d d . . 
+. . d d d d d . . . d d d d d . 
+`;
         }
         return null;
     })

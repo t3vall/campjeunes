@@ -43,7 +43,12 @@ function peutInterragir() {
             Math.floor(Joueur.x / 16) == 42 && Math.floor(Joueur.y / 16) == 29){
         bouttonA.setFlag(SpriteFlag.Invisible, false)
         bouttonA.setPosition(scene.screenWidth() / 2, (scene.screenHeight() / 2) - 20)
-    } else { 
+    } else if (Math.floor(Joueur.x / 16) == 34 - 1 && Math.floor(Joueur.y / 16) == 27 ||
+            Math.floor(Joueur.x / 16) == 88 - 1 && Math.floor(Joueur.y / 16) == 27 ||
+            Math.floor(Joueur.x / 16) == 118 - 1 && Math.floor(Joueur.y / 16) == 27){
+        bouttonA.setFlag(SpriteFlag.Invisible, false)
+        bouttonA.setPosition(scene.screenWidth() / 2, (scene.screenHeight() / 2) - 20)
+    } else {
         for (let valeur of sprites.allOfKind(SpriteKind.PNJ)) {
             if (Math.floor(Joueur.y / 16) == Math.floor(valeur.y / 16) &&
                 ((Math.floor(Joueur.x / 16) - Math.floor(valeur.x / 16) == 1) ||
@@ -264,6 +269,42 @@ function creerTuileSol (coinSupDrtCol: number, coinInfDrtRow: number, coinSupDrt
                 }
                 if (X23 == 20 && Y23 == 21) {
                     tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`canapeJauneBas`)
+                }
+                if (X23 == 19 && Y23 == 26) {
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tableBasseSupGch`)
+                    tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
+                }
+                if (X23 == 19 && Y23 == 27) {
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tableBasseInfGch2`)
+                    tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
+                }
+                if (X23 == 20 && Y23 == 26) {
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tableBasseSupMilVide`)
+                    tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
+                }
+                if (X23 == 20 && Y23 == 27) {
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tableBasseInfInt`)
+                    tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
+                }
+                if (X23 == 21 && Y23 == 26) {
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tableBasseSupDrt`)
+                    tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
+                }
+                if (X23 == 20 && Y23 == 28) {
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tableBasseMilGch`)
+                    tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
+                }
+                if (X23 == 21 && (Y23 == 27 || Y23 == 28)) {
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tableBasseMilDrt`)
+                    tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
+                }
+                if (X23 == 20 && Y23 == 29) {
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tableBasseInfGch2`)
+                    tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
+                }
+                if (X23 == 21 && Y23 == 29) {
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tableBasseInfDrt2`)
+                    tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
                 }
                 if (X23 == 32 && Y23 == 19) {
                     tiles.setTileAt(tiles.getTileLocation(X23,Y23), assets.tile`canapeBleuHaut`)
@@ -844,7 +885,7 @@ Joueur = sprites.create(assets.image`Mario`, SpriteKind.Player)
 PNJ1 = sprites.create(assets.image`Luigi`, SpriteKind.PNJ)
 controller.moveSprite(Joueur, 100, 100)
 scene.cameraFollowSprite(Joueur)
-// Joueur.setFlag(SpriteFlag.ShowPhysics, true)
+Joueur.setFlag(SpriteFlag.ShowPhysics, true)
 tiles.placeOnTile(PC2, tiles.getTileLocation(1, 41))
 tiles.placeOnTile(Joueur, tiles.getTileLocation(26, 47))
 tiles.placeOnTile(PNJ1, tiles.getTileLocation(6, 50))
