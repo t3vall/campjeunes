@@ -407,6 +407,58 @@ function creerTuileSol (coinSupDrtCol: number, coinInfDrtRow: number, coinSupDrt
                 if (((X23 >= 12) && (X23 <= 14)) && (Y23 == 27)) {
                     tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tableBasseMilCtr2`)
                 }
+                if ((X23 == 1) && (Y23 == 54)) {
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`enceinteGch2-1`)
+                    tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
+                }
+                if ((X23 == 2) && (Y23 == 54)) {
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`enceinteGch2-2`)
+                    tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
+                }
+                if ((X23 == 1) && (Y23 == 55)) {
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`enceinteGch2-3`)
+                    tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
+                }
+                if ((X23 == 8) && (Y23 == 54)) {
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`enceinteDrt2-1`)
+                    tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
+                }
+                if ((X23 == 7) && (Y23 == 54)) {
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`enceinteDrt2-2`)
+                    tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
+                }
+                if ((X23 == 8) && (Y23 == 55)) {
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`enceinteGch2-3`)
+                    tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
+                }
+                if ((X23 == 3) && (Y23 == 54)) {
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tableMixageSupGch`)
+                    tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
+                }
+                if ((X23 == 4) && (Y23 == 54)) {
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tableMixageSupMil1`)
+                    tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
+                }
+                if ((X23 == 5) && (Y23 == 54)) {
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tableMixageSupMil2`)
+                    tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
+                }
+                if ((X23 == 6) && (Y23 == 54)) {
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tableMixageSupDrt`)
+                    tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
+                }
+                if ((X23 == 3) && (Y23 == 55)) {
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tableMixageInfGch`)
+                    tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
+                }
+                if ((X23 == 4 || X23 == 5) && (Y23 == 55)) {
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tableMixageInfMil`)
+                    tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
+                }
+                if ((X23 == 6) && (Y23 == 55)) {
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tableMixageInfDrt`)
+                    tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
+                }
             }
         }
     }
@@ -863,7 +915,6 @@ let songAtelier = music.createSong(assets.song`Atelier`)
 let songStudio = music.createSong(assets.song`Studio`)
 let songJardin = music.createSong(assets.song`Jardin`)
 let songMaison = music.createSong(assets.song`Maison`)
-let mySprite = sprites.create(assets.image`croix`, SpriteKind.Player)
 let debug = 0
 let rdcLargeur = 52
 let rdcHauteur = 62
