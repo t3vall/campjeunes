@@ -419,6 +419,16 @@ function creerTuileSol (coinSupDrtCol: number, coinInfDrtRow: number, coinSupDrt
                     tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`enceinteGch2-3`)
                     tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
                 }
+                if ((X23 == 2) && (Y23 == 55)) {
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`enceinteGch2-4`)
+                    tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
+                }
+                if ((X23 == 1) && (Y23 == 56)) {
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`supportEnceinteGch1`)
+                }
+                if ((X23 == 2) && (Y23 == 56)) {
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`supportEnceinteGch2`)
+                }
                 if ((X23 == 8) && (Y23 == 54)) {
                     tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`enceinteDrt2-1`)
                     tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
@@ -428,8 +438,18 @@ function creerTuileSol (coinSupDrtCol: number, coinInfDrtRow: number, coinSupDrt
                     tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
                 }
                 if ((X23 == 8) && (Y23 == 55)) {
-                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`enceinteGch2-3`)
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`enceinteDrt2-3`)
                     tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
+                }
+                if ((X23 == 7) && (Y23 == 55)) {
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`enceinteDrt2-4`)
+                    tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
+                }
+                if ((X23 == 8) && (Y23 == 56)) {
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`supportEnceinteDrt1`)
+                }
+                if ((X23 == 7) && (Y23 == 56)) {
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`supportEnceinteDrt2`)
                 }
                 if ((X23 == 3) && (Y23 == 54)) {
                     tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tableMixageSupGch`)
