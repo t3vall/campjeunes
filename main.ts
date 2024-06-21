@@ -287,7 +287,7 @@ function creerTuileSol (coinSupDrtCol: number, coinInfDrtRow: number, coinSupDrt
                     tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
                 }
                 if (X23 == 21 && Y23 == 26) {
-                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tableBasseSupDrt`)
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tablePCSupDrt`)
                     tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
                 }
                 if (X23 == 20 && Y23 == 28) {
@@ -308,39 +308,86 @@ function creerTuileSol (coinSupDrtCol: number, coinInfDrtRow: number, coinSupDrt
                 }
                 if (X23 == 32 && Y23 == 19) {
                     tiles.setTileAt(tiles.getTileLocation(X23,Y23), assets.tile`canapeBleuHaut`)
+                    tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
                 }
                 if (X23 == 32 && Y23 == 20) {
                     tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`canapeVBleuMilieu`)
+                    tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
                 }
                 if (X23 == 32 && Y23 == 21) {
                     tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`canapeBleuBas`)
+                    tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
                 }
                 if (X23 == 33 && Y23 == 19) {
                     tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`canapeBleuGch`)
+                    tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
                 }
                 if (X23 == 34 && Y23 == 19) {
                     tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`canapeHBleuMilieu`)
+                    tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
                 }
                 if (X23 == 35 && Y23 == 19) {
                     tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`canapeBleuDrt`)
+                    tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
                 }
                 if (X23 == 33 && Y23 == 20) {
                     tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tableBasseSupGch`)
+                    tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
                 }
                 if (X23 == 33 && Y23 == 21) {
                     tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tableBasseInfGch`)
+                    tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
                 }
                 if (X23 == 34 && Y23 == 20) {
                     tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`switch`)
+                    tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
                 }
                 if (X23 == 34 && Y23 == 21) {
                     tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tableBasseInfMilVide`)
+                    tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
                 }
                 if (X23 == 35 && Y23 == 20) {
-                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tableBasseSupDrt`)
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tablePCSupDrt`)
+                    tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
                 }
                 if (X23 == 35 && Y23 == 21) {
                     tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tableBasseInfDrt`)
+                    tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
+                }
+                if ((X23 == 36) && (Y23 == 14)) {
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tableBasseSupDrt3`)
+                    tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
+                }
+                if ((X23 == 33) && (Y23 == 16)) {
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tableBasseInfGch3`)
+                    tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
+                }
+                if ((X23 == 33) && (Y23 == 14)) {
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tableBasseSupGch3`)
+                    tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
+                }
+                if ((X23 == 36) && (Y23 == 16)) {
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tableBasseInfDrt3`)
+                    tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
+                }
+                if (((X23 >= 34) && (X23 <= 35)) && (Y23 == 14)) {
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tableBasseSupMil`)
+                    tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
+                }
+                if (((X23 >= 34) && (X23 <= 35)) && (Y23 == 16)) {
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tableBasseInfMil`)
+                    tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
+                }
+                if ((X23 == 33) && (Y23 == 15)) {
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tableBasseMilGch1`)
+                    tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
+                }
+                if ((X23 == 36) && (Y23 == 15)) {
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tableBasseMilDrt1`)
+                    tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
+                }
+                if (((X23 >= 34) && (X23 <= 35)) && (Y23 == 15)) {
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tableBasseMilCtr2`)
                 }
             } else if (!Maison) {
                 if ((X23 == 9) && (Y23 == 30)) {
@@ -428,28 +475,6 @@ function creerTuileSol (coinSupDrtCol: number, coinInfDrtRow: number, coinSupDrt
                 }
                 if ((X23 == 2) && (Y23 == 56)) {
                     tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`supportEnceinteGch2`)
-                }
-                if ((X23 == 8) && (Y23 == 54)) {
-                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`enceinteDrt2-1`)
-                    tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
-                }
-                if ((X23 == 7) && (Y23 == 54)) {
-                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`enceinteDrt2-2`)
-                    tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
-                }
-                if ((X23 == 8) && (Y23 == 55)) {
-                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`enceinteDrt2-3`)
-                    tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
-                }
-                if ((X23 == 7) && (Y23 == 55)) {
-                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`enceinteDrt2-4`)
-                    tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
-                }
-                if ((X23 == 8) && (Y23 == 56)) {
-                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`supportEnceinteDrt1`)
-                }
-                if ((X23 == 7) && (Y23 == 56)) {
-                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`supportEnceinteDrt2`)
                 }
                 if ((X23 == 3) && (Y23 == 54)) {
                     tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tableMixageSupGch`)
@@ -958,7 +983,7 @@ controller.moveSprite(Joueur, 100, 100)
 scene.cameraFollowSprite(Joueur)
 Joueur.setFlag(SpriteFlag.ShowPhysics, true)
 tiles.placeOnTile(PC2, tiles.getTileLocation(1, 41))
-tiles.placeOnTile(Joueur, tiles.getTileLocation(26, 47))
+tiles.placeOnTile(Joueur, tiles.getTileLocation(42, 32))
 tiles.placeOnTile(PNJ1, tiles.getTileLocation(6, 50))
 // posPNJ[0][0] = 5
 // posPNJ[1][0] = 50
