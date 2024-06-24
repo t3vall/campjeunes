@@ -1106,7 +1106,7 @@ tiles.placeOnTile(PC2, tiles.getTileLocation(1, 41))
 tiles.placeOnTile(Joueur, tiles.getTileLocation(41, 45))
 tiles.placeOnTile(PNJ1, tiles.getTileLocation(6, 50))
 tiles.placeOnTile(decoupeuse, tiles.getTileLocation(50, 38))
-decoupeuse.setPosition((50*16)+8, 39*16)
+decoupeuse.setPosition((50*16)+8, (38*16)+8)
 // posPNJ[0][0] = 5
 // posPNJ[1][0] = 50
 coinSupGchStudioCol = 0
