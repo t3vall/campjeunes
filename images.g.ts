@@ -346,6 +346,43 @@ c c b b b b b b b b b b b b c c
 . . . d d d d . . . d d d d . . 
 . . d d d d d . . . d d d d d . 
 `;
+            case "image9":
+            case "decoupeuse":return img`
+................................................
+................................................
+bccccccccccccccccceeeeeeeeeeeeeccccccccccccccccb
+bccccccccccccccccceeeeeeeeeeeeeccccccccccccccccb
+bccccccccccccccccceeeeeeeeeeeeeccccccccccccccccb
+bccccccccccccccccceeeeeeeeeeeeeccccccccccccccccb
+bccccccccccccccccceeebbbbbbbeeeccccccccccccccccb
+bccccccccccccccccceeebbbbbbbeeeccccccccccccccccb
+bccccccccccccccccceeebbbbbbbeeeccccccccccccccccb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bccccccccccccccccceeebbbbbbbeeeccccccccccccccccb
+bccccccccccccccccceeebbbbbbbeeeccccccccccccccccb
+bccccccccccccccccceeebbbbbbbeeeccccccccccccccccb
+bccccccccccccccccceeefffffffeeeccccccccccccccccb
+bccccccccccccccccceeefffffffeeeccccccccccccccccb
+bccccccccccccccccceeeeeeeeeeeeeccccccccccccccccb
+bccccccccccccccccceeeeeeeeeeeeeccccccccccccccccb
+fccccccccccccccccceeeeeeeeeeeeeccccccccccccccccf
+fccccccccccccccccceeeeeeeeeeeeeccccccccccccccccf
+fccccccccccccccccceeeeeeeeeeeeeccccccccccccccccf
+fccccccccccccccccceeeeeeeeeeeeeccccccccccccccccf
+fccccccccccccccccceeeeeeeeeeeeeccccccccccccccccf
+fccccccccccccccccceeeeeeeeeeeeeccccccccccccccccf
+fccccccccccccccccceeeeeeeeeeeeeccccccccccccccccf
+fccccccccccccccccceeeeeeeeeeeeeccccccccccccccccf
+ffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffff
+`;
         }
         return null;
     })
