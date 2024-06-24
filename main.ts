@@ -26,20 +26,22 @@ function peutInterragir() {
     if (((Math.floor(Joueur.x / 16)) == posPorteStudioCol + 1) && ((Math.floor(Joueur.y / 16)) == posPorteStudioRow) ||
         ((Math.floor(Joueur.x / 16)) == posPorte2StudioCol + 1) && ((Math.floor(Joueur.y / 16)) == posPorte2StudioRow) ||
         ((Math.floor(Joueur.x / 16)) == posPorteAtelierCol - 1) && ((Math.floor(Joueur.y / 16)) == posPorteAtelierRow) ||
+        ((Math.floor(Joueur.x / 16)) == posPorte2AtelierCol - 1) && ((Math.floor(Joueur.y / 16)) == posPorte2AtelierRow) ||
         ((Math.floor(Joueur.x / 16)) == posPorteMaisonCol + 1) && ((Math.floor(Joueur.y / 16)) == posPorteMaisonRow) ||
         ((Math.floor(Joueur.x / 16)) == posPorteStudioCol - 1) && ((Math.floor(Joueur.y / 16)) == posPorteStudioRow) ||
         ((Math.floor(Joueur.x / 16)) == posPorte2StudioCol - 1) && ((Math.floor(Joueur.y / 16)) == posPorte2StudioRow) ||
         ((Math.floor(Joueur.x / 16)) == posPorteAtelierCol + 1) && ((Math.floor(Joueur.y / 16)) == posPorteAtelierRow) ||
+        ((Math.floor(Joueur.x / 16)) == posPorte2AtelierCol + 1) && ((Math.floor(Joueur.y / 16)) == posPorte2AtelierRow) ||
         ((Math.floor(Joueur.x / 16)) == posPorteMaisonCol - 1) && ((Math.floor(Joueur.y / 16)) == posPorteMaisonRow)) {
         bouttonA.setFlag(SpriteFlag.Invisible, false)
     } else if (Math.floor(Joueur.x / 16) == 11 && Math.floor(Joueur.y / 16) == 58 ||
             Math.floor(Joueur.x / 16) == 11 && Math.floor(Joueur.y / 16) == 48 ||
-            Math.floor(Joueur.x / 16) == 39 && Math.floor(Joueur.y / 16) == 58 ||
+            Math.floor(Joueur.x / 16) == 40 && Math.floor(Joueur.y / 16) == 46 ||
             Math.floor(Joueur.x / 16) == 42 && Math.floor(Joueur.y / 16) == 31){
         bouttonA.setFlag(SpriteFlag.Invisible, false)
     } else if (Math.floor(Joueur.x / 16) == 11 && Math.floor(Joueur.y / 16) == 56 ||
             Math.floor(Joueur.x / 16) == 11 && Math.floor(Joueur.y / 16) == 46 ||
-            Math.floor(Joueur.x / 16) == 39 && Math.floor(Joueur.y / 16) == 56 ||
+            Math.floor(Joueur.x / 16) == 40 && Math.floor(Joueur.y / 16) == 44 ||
             Math.floor(Joueur.x / 16) == 42 && Math.floor(Joueur.y / 16) == 29){
         bouttonA.setFlag(SpriteFlag.Invisible, false)
         bouttonA.setPosition(scene.screenWidth() / 2, (scene.screenHeight() / 2) - 20)
@@ -504,6 +506,33 @@ function creerTuileSol (coinSupDrtCol: number, coinInfDrtRow: number, coinSupDrt
                     tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tableMixageInfDrt`)
                     tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
                 }
+                if ((X23 == 47) && (Y23 == 58)) {
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`canapeBleuGch2`)
+                    tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
+                }
+                if ((X23 == 48) && (Y23 == 58)) {
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`canapeBleuDrt2`)
+                    tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
+                }
+                if ((X23 == 47 || X23 == 48) && (Y23 == 61)) {
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tableBasseSupMil`)
+                    tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
+                }
+                if ((X23 == 46) && (Y23 == 61)) {
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tableBasseSupGch4`)
+                    tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
+                }
+                if ((X23 == 49) && (Y23 == 61)) {
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tableBasseSupDrt4`)
+                }
+                if ((X23 == 44) && (Y23 == 56)) {
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`meubleA`)
+                    tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
+                }
+                if ((X23 == 44) && (Y23 == 57)) {
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`meubleB`)
+                    tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
+                }
             }
         }
     }
@@ -587,6 +616,12 @@ function creerTuileMur (coinSupDrtCol: number, coinInfDrtRow: number, coinSupDrt
                 }
                 if (X24 == coinSupDrtCol && (Y24 >= coinSupDrtRow && Y24 <= coinInfDrtRow)) {
                     tiles.setTileAt(tiles.getTileLocation(X24, Y24), assets.tile`tileMur0`)
+                }
+                if (Y24 == 55 && X24 == coinSupDrtCol) {
+                    tiles.setTileAt(tiles.getTileLocation(X24, Y24), assets.tile`myTile11`)
+                }
+                if (Y24 == 55 && X24 == coinSupGchCol) {
+                    tiles.setTileAt(tiles.getTileLocation(X24, Y24), assets.tile`myTile29`)
                 }
             }
         }
@@ -693,6 +728,19 @@ function creerMurInterieur (coinSupDrtCol: number, coinInfDrtRow: number, coinSu
                     }
                     
                 }                
+            } else if (coinSupGchCol >= rdcGchDrt && coinSupDrtRow >= rdcHtBs) {
+                if (Y23 == 55 && ((X23 > coinSupGchCol && X23 < 46) || (X23 > 49 && X23 < coinSupDrtCol))) {
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tileMurRow`)
+                    tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
+                }
+                if (Y23 == 55 && X23 == 46) {
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tileMur7`)
+                    tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
+                }
+                if (Y23 == 55 && X23 == 49) {
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tileMur8`)
+                    tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
+                }
             }
         }
     }
@@ -796,12 +844,14 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
             PNJ1.setFlag(SpriteFlag.Invisible, true)
         }
     }
-    if (Math.floor(Joueur.x / 16) == posPorteAtelierCol - 1 && Math.floor(Joueur.y / 16) == posPorteAtelierRow) {
+    if ((Math.floor(Joueur.x / 16) == posPorteAtelierCol - 1 || Math.floor(Joueur.x / 16) == posPorte2AtelierCol - 1)
+        && (Math.floor(Joueur.y / 16) == posPorteAtelierRow || Math.floor(Joueur.y / 16) == posPorte2AtelierRow)) {
         if (game.ask("Voulez vous entrer?")) {
             tiles.placeOnTile(Joueur, tiles.getTileLocation(Math.floor(Joueur.x / 16) + 2, Math.floor(Joueur.y / 16)))
             creerIntBat(coinSupDrtAtelierCol, coinInfDrtAtelierRow, coinSupDrtAtelierRow, coinSupGchAtelierCol, posPorteAtelier[0].length, posPorteAtelier, false)
         }
-    } else if (Math.floor(Joueur.x / 16) == posPorteAtelierCol + 1 && Math.floor(Joueur.y / 16) == posPorteAtelierRow) {
+    } else if ((Math.floor(Joueur.x / 16) == posPorteAtelierCol + 1 || Math.floor(Joueur.x / 16) == posPorte2AtelierCol + 1)
+        && (Math.floor(Joueur.y / 16) == posPorteAtelierRow || Math.floor(Joueur.y / 16) == posPorte2AtelierRow)) {
         if (game.ask("Voulez vous Sortir?")) {
             tiles.placeOnTile(Joueur, tiles.getTileLocation(Math.floor(Joueur.x / 16) - 2, Math.floor(Joueur.y / 16)))
             creerTuileToit(coinSupDrtAtelierCol, coinInfDrtAtelierRow, coinSupDrtAtelierRow, coinSupGchAtelierCol)
@@ -935,6 +985,8 @@ let coinSupDrtMaisonCol = 0
 let coinSupGchMaisonCol = 0
 let posPorteAtelierRow = 0
 let posPorteAtelierCol = 0
+let posPorte2AtelierRow = 0
+let posPorte2AtelierCol = 0
 let coinInfDrtAtelierRow = 0
 let coinSupDrtAtelierRow = 0
 let coinSupDrtAtelierCol = 0
@@ -983,7 +1035,7 @@ controller.moveSprite(Joueur, 100, 100)
 scene.cameraFollowSprite(Joueur)
 Joueur.setFlag(SpriteFlag.ShowPhysics, true)
 tiles.placeOnTile(PC2, tiles.getTileLocation(1, 41))
-tiles.placeOnTile(Joueur, tiles.getTileLocation(42, 32))
+tiles.placeOnTile(Joueur, tiles.getTileLocation(41, 45))
 tiles.placeOnTile(PNJ1, tiles.getTileLocation(6, 50))
 // posPNJ[0][0] = 5
 // posPNJ[1][0] = 50
@@ -1005,10 +1057,14 @@ coinSupDrtAtelierCol = 52
 coinSupDrtAtelierRow = 37
 coinInfDrtAtelierRow = 62
 posPorteAtelierCol = 43
-posPorteAtelierRow = 57
-posPorteAtelier = [[0], [0]]
+posPorteAtelierRow = 45
+posPorte2AtelierRow = 46
+posPorte2AtelierCol = 43
+posPorteAtelier = [[0,1], [0,1]]
 posPorteAtelier[0][0] = posPorteAtelierCol
 posPorteAtelier[1][0] = posPorteAtelierRow
+posPorteAtelier[0][1] = posPorte2AtelierCol
+posPorteAtelier[1][1] = posPorte2AtelierRow
 coinSupGchMaisonCol = 17
 coinSupDrtMaisonCol = 39
 coinSupDrtMaisonRow = 12
