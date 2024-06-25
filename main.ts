@@ -1034,6 +1034,7 @@ let posEscAtelier: number[][] = []
 let posPorteStudio: number[][] = []
 let posPorteAtelier: number[][] = []
 let posPorteMaison: number[][] = []
+let tabLieux: any[][] = []
 let txtQueteL2: TextSprite = null
 let txtQueteL1: TextSprite = null
 let spritePos: TextSprite = null
@@ -1175,6 +1176,7 @@ spriteEtage = textsprite.create("ici", 1, 15)
 spriteEtage.left = scene.screenWidth() / 2 - (spriteEtage.x - spriteEtage.left)
 spriteEtage.top = 101
 spriteEtage.setFlag(SpriteFlag.RelativeToCamera, true)
+tabLieux = [["studio", "atelier", "salle de jeu", "salon", "cuisine", "coloc", "service jeunese", "espace numerique", "agora"], [0, 0, 0, 0, 0, 0, 0, 0, 0]]
 let test2 = 0
 forever(function () {
     peutInterragir()
@@ -1215,22 +1217,42 @@ forever(function () {
     if (Joueur.x > coinSupGchStudioCol && Joueur.x < coinSupDrtStudioCol * 16 && Joueur.y > coinSupDrtStudioRow *16 && Joueur.y < coinInfDrtSudioRow * 16) {
         spritePos.setText("Studio")
         spritePos.left = scene.screenWidth() / 2 - (spritePos.x - spritePos.left)
+        if (tabLieux[1][0] == 0) {
+            info.changeScoreBy(50)
+            tabLieux[1][0] = 1
+        }
     }
     if (Joueur.x > coinSupGchAtelierCol * 16 && Joueur.x < coinSupDrtAtelierCol * 16 && Joueur.y > coinSupDrtAtelierRow * 16 && Joueur.y < coinInfDrtAtelierRow * 16) {
         spritePos.setText("Atelier")
         spritePos.left = scene.screenWidth() / 2 - (spritePos.x - spritePos.left)
+        if (tabLieux[1][1] == 0) {
+            info.changeScoreBy(50)
+            tabLieux[1][1] = 1
+        }
     }
     if (Joueur.x > coinSupGchPmaisonCol * 16 && Joueur.x < coinSupDrtPmaisonCol * 16 && Joueur.y > coinSupDrtPmaisonRow * 16 && Joueur.y < coinInfDrtPmaisonRow * 16) {
         spritePos.setText("Cuisine")
         spritePos.left = scene.screenWidth() / 2 - (spritePos.x - spritePos.left)
+        if (tabLieux[1][4] == 0) {
+            info.changeScoreBy(50)
+            tabLieux[1][4] = 1
+        }
     }
     if (Joueur.x > coinSupGchMaisonCol * 16 && Joueur.x < 26 * 16 && Joueur.y > coinSupDrtMaisonRow * 16 && Joueur.y < coinInfDrtMaisonRow * 16) {
         spritePos.setText("Salon")
         spritePos.left = scene.screenWidth() / 2 - (spritePos.x - spritePos.left)
+        if (tabLieux[1][3] == 0) {
+            info.changeScoreBy(50)
+            tabLieux[1][3] = 1
+        }
     }
     if (Joueur.x > 30 * 16 && Joueur.x < coinSupDrtMaisonCol * 16 && Joueur.y > coinSupDrtMaisonRow * 16 && Joueur.y < 24 * 16) {
         spritePos.setText("Salle de Jeu")
         spritePos.left = scene.screenWidth() / 2 - (spritePos.x - spritePos.left)
+        if (tabLieux[1][2] == 0) {
+            info.changeScoreBy(50)
+            tabLieux[1][2] = 1
+        }
     }
     if ((Joueur.x > 34 * 16 && Joueur.x < coinSupDrtMaisonCol * 16 && Joueur.y > 24 * 16 && Joueur.y < 28 * 16) ||
         (Joueur.x > 88 * 16 && Joueur.x < (coinSupDrtMaisonCol + 54) * 16 && Joueur.y > 24 * 16 && Joueur.y < 28 * 16) ||
@@ -1273,18 +1295,34 @@ forever(function () {
     if (Joueur.x > 84 * 16 && Joueur.x < (coinSupDrtMaisonCol + 54) * 16 && Joueur.y > coinSupDrtMaisonRow * 16 && Joueur.y < 24 * 16) {
         spritePos.setText("La Coloc")
         spritePos.left = scene.screenWidth() / 2 - (spritePos.x - spritePos.left)
+        if (tabLieux[1][5] == 0) {
+            info.changeScoreBy(50)
+            tabLieux[1][5] = 1
+        }
     }
     if (Joueur.x > 114 * 16 && Joueur.x < (coinSupDrtMaisonCol + 84) * 16 && Joueur.y > coinSupDrtMaisonRow * 16 && Joueur.y < 24 * 16) {
         spritePos.setText("Espace Numérique")
         spritePos.left = scene.screenWidth() / 2 - (spritePos.x - spritePos.left)
+        if (tabLieux[1][7] == 0) {
+            info.changeScoreBy(50)
+            tabLieux[1][7] = 1
+        }
     }
     if (Joueur.x > (coinSupGchPmaisonCol + 54) * 16 && Joueur.x < 80 * 16 && Joueur.y > coinSupDrtMaisonRow * 16 && Joueur.y < coinInfDrtMaisonRow * 16) {
         spritePos.setText("Service Jeunesse")
         spritePos.left = scene.screenWidth() / 2 - (spritePos.x - spritePos.left)
+        if (tabLieux[1][6] == 0) {
+            info.changeScoreBy(50)
+            tabLieux[1][6] = 1
+        }
     }
     if (Joueur.x > (coinSupGchMaisonCol + 84) * 16 && Joueur.x < 110 * 16 && Joueur.y > coinSupDrtMaisonRow * 16 && Joueur.y < coinInfDrtMaisonRow * 16) {
         spritePos.setText("L'Agora")
         spritePos.left = scene.screenWidth() / 2 - (spritePos.x - spritePos.left)
+        if (tabLieux[1][8] == 0) {
+            info.changeScoreBy(50)
+            tabLieux[1][8] = 1
+        }
     }
     if (Math.abs(Joueur.x - decoupeuse.x) <= 32 && Math.abs(Joueur.y - decoupeuse.y) <= 32) {
         animation.runImageAnimation(decoupeuse, assets.animation`decoupeuseAnimation`, 100, true)
