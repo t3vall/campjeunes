@@ -1286,4 +1286,12 @@ forever(function () {
         spritePos.setText("L'Agora")
         spritePos.left = scene.screenWidth() / 2 - (spritePos.x - spritePos.left)
     }
+    if (Math.abs(Joueur.x - decoupeuse.x) <= 32 && Math.abs(Joueur.y - decoupeuse.y) <= 32) {
+        animation.runImageAnimation(decoupeuse, assets.animation`decoupeuseAnimation`, 100, true)
+        pause(1600)
+        bouttonA.setFlag(SpriteFlag.Invisible, false)
+    } else {
+        animation.stopAnimation(animation.AnimationTypes.All, decoupeuse)
+        bouttonA.setFlag(SpriteFlag.Invisible, true)
+    }
 })
