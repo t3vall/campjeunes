@@ -914,6 +914,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
             tiles.placeOnTile(Joueur, tiles.getTileLocation(Math.floor(Joueur.x / 16) + 2, Math.floor(Joueur.y / 16)))
             creerIntBat(coinSupDrtAtelierCol, coinInfDrtAtelierRow, coinSupDrtAtelierRow, coinSupGchAtelierCol, posPorteAtelier[0].length, posPorteAtelier, false)
             decoupeuse.setFlag(SpriteFlag.Invisible, false)
+            impr3D.setFlag(SpriteFlag.Invisible, false)
         }
     } else if ((Math.floor(Joueur.x / 16) == posPorteAtelierCol + 1 || Math.floor(Joueur.x / 16) == posPorte2AtelierCol + 1)
         && (Math.floor(Joueur.y / 16) == posPorteAtelierRow || Math.floor(Joueur.y / 16) == posPorte2AtelierRow)) {
@@ -921,6 +922,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
             tiles.placeOnTile(Joueur, tiles.getTileLocation(Math.floor(Joueur.x / 16) - 2, Math.floor(Joueur.y / 16)))
             creerTuileToit(coinSupDrtAtelierCol, coinInfDrtAtelierRow, coinSupDrtAtelierRow, coinSupGchAtelierCol)
             decoupeuse.setFlag(SpriteFlag.Invisible, true)
+            impr3D.setFlag(SpriteFlag.Invisible, true)
         }
     }
     if (Math.floor(Joueur.x / 16) == posPorteMaisonCol + 1 && Math.floor(Joueur.y / 16) == posPorteMaisonRow) {
@@ -1028,6 +1030,7 @@ let curseur3: Sprite = null
 let tempQ1MDP: Sprite = null
 let q1MDP: Sprite = null
 let decoupeuse: Sprite = null
+let impr3D: Sprite = null
 // let posPNJ: number[][] = []
 let posEscalierStudio: number[][] = []
 let posEscAtelier: number[][] = []
@@ -1100,13 +1103,14 @@ PC2 = sprites.create(assets.image`SpritePc`, SpriteKind.PC)
 Joueur = sprites.create(assets.image`Mario`, SpriteKind.Player)
 PNJ1 = sprites.create(assets.image`Luigi`, SpriteKind.PNJ)
 decoupeuse = sprites.create(assets.image`decoupeuse`, SpriteKind.Machine)
+impr3D = sprites.create(assets.image`impr3D`, SpriteKind.Machine)
 controller.moveSprite(Joueur, 100, 100)
 scene.cameraFollowSprite(Joueur)
 Joueur.setFlag(SpriteFlag.ShowPhysics, true)
 tiles.placeOnTile(PC2, tiles.getTileLocation(1, 41))
 tiles.placeOnTile(Joueur, tiles.getTileLocation(41, 45))
 tiles.placeOnTile(PNJ1, tiles.getTileLocation(6, 50))
-tiles.placeOnTile(decoupeuse, tiles.getTileLocation(50, 38))
+tiles.placeOnTile(impr3D, tiles.getTileLocation(51, 45))
 decoupeuse.setPosition((50*16)+8, (38*16)+8)
 // posPNJ[0][0] = 5
 // posPNJ[1][0] = 50
@@ -1152,6 +1156,7 @@ coinInfDrtPmaisonRow = 31
 PNJ1.setFlag(SpriteFlag.Invisible, true)
 PC2.setFlag(SpriteFlag.Invisible, true)
 decoupeuse.setFlag(SpriteFlag.Invisible, true)
+impr3D.setFlag(SpriteFlag.Invisible, true)
 curseur2.left = scene.cameraProperty(CameraProperty.Left) + 0
 curseur2.top = scene.cameraProperty(CameraProperty.Top) + 28
 curseur2.z = 0
@@ -1327,9 +1332,13 @@ forever(function () {
     if (Math.abs(Joueur.x - decoupeuse.x) <= 32 && Math.abs(Joueur.y - decoupeuse.y) <= 32) {
         animation.runImageAnimation(decoupeuse, assets.animation`decoupeuseAnimation`, 100, true)
         pause(1600)
-        bouttonA.setFlag(SpriteFlag.Invisible, false)
     } else {
         animation.stopAnimation(animation.AnimationTypes.All, decoupeuse)
-        bouttonA.setFlag(SpriteFlag.Invisible, true)
+    }
+    if (Math.abs(Joueur.x - impr3D.x) <= 16 && Math.abs(Joueur.y - impr3D.y) <= 16) {
+        animation.runImageAnimation(impr3D, assets.animation`impr3DAnimation`, 200, true)
+        pause(4600)
+    } else {
+        animation.stopAnimation(animation.AnimationTypes.All, impr3D)
     }
 })
