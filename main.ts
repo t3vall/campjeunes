@@ -284,7 +284,7 @@ function creerTuileSol (coinSupDrtCol: number, coinInfDrtRow: number, coinSupDrt
                     tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`canapeJauneBas`)
                 }
                 if (X23 == 20 && Y23 == 26) {
-                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tableBasseSupGch`)
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tablePCSupGch`)
                     tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
                 }
                 if (X23 == 20 && Y23 == 27) {
@@ -348,7 +348,7 @@ function creerTuileSol (coinSupDrtCol: number, coinInfDrtRow: number, coinSupDrt
                     tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
                 }
                 if (X23 == 33 && Y23 == 20) {
-                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tableBasseSupGch`)
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tablePCSupGch`)
                     tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
                 }
                 if (X23 == 33 && Y23 == 21) {
@@ -380,7 +380,7 @@ function creerTuileSol (coinSupDrtCol: number, coinInfDrtRow: number, coinSupDrt
                     tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
                 }
                 if ((X23 == 33) && (Y23 == 14)) {
-                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tableBasseSupGch3`)
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tablePCSupGch3`)
                     tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
                 }
                 if ((X23 == 36) && (Y23 == 16)) {
@@ -446,7 +446,7 @@ function creerTuileSol (coinSupDrtCol: number, coinInfDrtRow: number, coinSupDrt
                     tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
                 }
                 if ((X23 == 11) && (Y23 == 26)) {
-                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tableBasseSupGch3`)
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tablePCSupGch3`)
                     tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
                 }
                 if ((X23 == 15) && (Y23 == 28)) {
@@ -537,7 +537,7 @@ function creerTuileSol (coinSupDrtCol: number, coinInfDrtRow: number, coinSupDrt
                     tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
                 }
                 if ((X23 == 46) && (Y23 == 61)) {
-                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tableBasseSupGch4`)
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tablePCSupGch4`)
                     tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
                 }
                 if ((X23 == 49) && (Y23 == 61)) {
@@ -580,7 +580,7 @@ function creerTuileSol (coinSupDrtCol: number, coinInfDrtRow: number, coinSupDrt
                     tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
                 }
                 if ((X23 == 49) && (Y23 == 51)) {
-                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tableBasseSupGch4`)
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tablePCSupGch4`)
                     tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
                 }
                 if ((X23 == 44) && (Y23 == 38)) {
@@ -609,6 +609,41 @@ function creerTuileSol (coinSupDrtCol: number, coinInfDrtRow: number, coinSupDrt
                 }
                 if ((X23 >= 45 && X23 <= 47) && (Y23 == 39)) {
                     tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tableBasseInfMil`)
+                    tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
+                }
+                if ((X23 == 51) && (Y23 == 44)) {
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tablePCSupGch`)
+                    tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
+                }
+                if ((X23 == 51) && (Y23 == 46)) {
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tableBasseMilGch`)
+                    tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
+                }
+                if ((X23 == 51) && (Y23 == 46)) {
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tablePCInfGch`)
+                    tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
+                }
+                if ((X23 == 47) && (Y23 == 42)) {
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tablePCSupGch`)
+                    tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
+                }
+                if ((X23 == 48) && (Y23 == 42)) {
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tablePCSupDrt`)
+                    tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
+                }
+                if ((X23 == 47) && (Y23 == 46)) {
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tablePCInfGch`)
+                    tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
+                } if ((X23 == 48) && (Y23 == 46)) {
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tablePCInfDrt`)
+                    tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
+                }
+                if ((X23 == 47) && (Y23 >= 43 && Y23 <= 45)) {
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tablePCMilGch`)
+                    tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
+                }
+                if ((X23 == 48) && (Y23 >= 43 && Y23 <= 45)) {
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tablePCMilDrt`)
                     tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
                 }
             }

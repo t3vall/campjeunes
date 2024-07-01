@@ -153,12 +153,6 @@ namespace myTiles {
     //% fixedInstance jres blockIdentity=images._tile
     export const tile14 = image.ofBuffer(hex``);
     //% fixedInstance jres blockIdentity=images._tile
-    export const tile13 = image.ofBuffer(hex``);
-    //% fixedInstance jres blockIdentity=images._tile
-    export const tile19 = image.ofBuffer(hex``);
-    //% fixedInstance jres blockIdentity=images._tile
-    export const tile20 = image.ofBuffer(hex``);
-    //% fixedInstance jres blockIdentity=images._tile
     export const tile30 = image.ofBuffer(hex``);
     //% fixedInstance jres blockIdentity=images._tile
     export const tile31 = image.ofBuffer(hex``);
@@ -267,8 +261,6 @@ namespace myTiles {
     //% fixedInstance jres blockIdentity=images._tile
     export const tile22 = image.ofBuffer(hex``);
     //% fixedInstance jres blockIdentity=images._tile
-    export const tile104 = image.ofBuffer(hex``);
-    //% fixedInstance jres blockIdentity=images._tile
     export const tile105 = image.ofBuffer(hex``);
     //% fixedInstance jres blockIdentity=images._tile
     export const tile106 = image.ofBuffer(hex``);
@@ -276,14 +268,6 @@ namespace myTiles {
     export const tile101 = image.ofBuffer(hex``);
     //% fixedInstance jres blockIdentity=images._tile
     export const tile102 = image.ofBuffer(hex``);
-    //% fixedInstance jres blockIdentity=images._tile
-    export const tile60 = image.ofBuffer(hex``);
-    //% fixedInstance jres blockIdentity=images._tile
-    export const tile18 = image.ofBuffer(hex``);
-    //% fixedInstance jres blockIdentity=images._tile
-    export const tile16 = image.ofBuffer(hex``);
-    //% fixedInstance jres blockIdentity=images._tile
-    export const tile25 = image.ofBuffer(hex``);
     //% fixedInstance jres blockIdentity=images._tile
     export const tile45 = image.ofBuffer(hex``);
     //% fixedInstance jres blockIdentity=images._tile
@@ -299,13 +283,29 @@ namespace myTiles {
     //% fixedInstance jres blockIdentity=images._tile
     export const tile56 = image.ofBuffer(hex``);
     //% fixedInstance jres blockIdentity=images._tile
+    export const tile142 = image.ofBuffer(hex``);
+    //% fixedInstance jres blockIdentity=images._tile
+    export const tile143 = image.ofBuffer(hex``);
+    //% fixedInstance jres blockIdentity=images._tile
+    export const tile60 = image.ofBuffer(hex``);
+    //% fixedInstance jres blockIdentity=images._tile
+    export const tile20 = image.ofBuffer(hex``);
+    //% fixedInstance jres blockIdentity=images._tile
+    export const tile19 = image.ofBuffer(hex``);
+    //% fixedInstance jres blockIdentity=images._tile
     export const tile63 = image.ofBuffer(hex``);
     //% fixedInstance jres blockIdentity=images._tile
     export const tile21 = image.ofBuffer(hex``);
     //% fixedInstance jres blockIdentity=images._tile
-    export const tile142 = image.ofBuffer(hex``);
+    export const tile25 = image.ofBuffer(hex``);
     //% fixedInstance jres blockIdentity=images._tile
-    export const tile143 = image.ofBuffer(hex``);
+    export const tile16 = image.ofBuffer(hex``);
+    //% fixedInstance jres blockIdentity=images._tile
+    export const tile18 = image.ofBuffer(hex``);
+    //% fixedInstance jres blockIdentity=images._tile
+    export const tile13 = image.ofBuffer(hex``);
+    //% fixedInstance jres blockIdentity=images._tile
+    export const tile104 = image.ofBuffer(hex``);
 
     helpers._registerFactory("tilemap", function(name: string) {
         switch(helpers.stringTrim(name)) {
@@ -723,12 +723,6 @@ namespace myTiles {
             case "tile12":return tile12;
             case "tablePCSupDrt":
             case "tile14":return tile14;
-            case "tablePCSupGch":
-            case "tile13":return tile13;
-            case "tablePCInfGch0":
-            case "tile19":return tile19;
-            case "tablePCInfGch1":
-            case "tile20":return tile20;
             case "tablePCSupGch0":
             case "tile30":return tile30;
             case "tilePath6":
@@ -837,8 +831,6 @@ namespace myTiles {
             case "tile17":return tile17;
             case "supportEnceinteGch2":
             case "tile22":return tile22;
-            case "tableBasseSupGch":
-            case "tile104":return tile104;
             case "tableBasseSupMilVide":
             case "tile105":return tile105;
             case "tableBasseInfMilVide":
@@ -847,14 +839,6 @@ namespace myTiles {
             case "tile101":return tile101;
             case "tableBasseInfDrt":
             case "tile102":return tile102;
-            case "tablePCInfDrt0":
-            case "tile60":return tile60;
-            case "tablePCInfDrt":
-            case "tile18":return tile18;
-            case "tablePCInfGch":
-            case "tile16":return tile16;
-            case "tablePCInfGch2":
-            case "tile25":return tile25;
             case "tablePCMilDrt":
             case "tile45":return tile45;
             case "TuilePanneau0":
@@ -869,14 +853,30 @@ namespace myTiles {
             case "tile51":return tile51;
             case "tablePCMilGch":
             case "tile56":return tile56;
-            case "tablePCMilGch2":
-            case "tile63":return tile63;
-            case "tablePCMilGch3":
-            case "tile21":return tile21;
             case "chaiseSup":
             case "tile142":return tile142;
             case "chaiseInf":
             case "tile143":return tile143;
+            case "tablePCInfDrt":
+            case "tile60":return tile60;
+            case "tablePCMilDrt2":
+            case "tile20":return tile20;
+            case "tablePCMilGch2":
+            case "tile19":return tile19;
+            case "tablePCMilGch3-1":
+            case "tile63":return tile63;
+            case "tablePCMilGch3-2":
+            case "tile21":return tile21;
+            case "tablePCInfDrt2":
+            case "tile25":return tile25;
+            case "tablePCInfGch2":
+            case "tile16":return tile16;
+            case "tablePCInfGch":
+            case "tile18":return tile18;
+            case "tablePCSupGch2":
+            case "tile13":return tile13;
+            case "tablePCSupGch":
+            case "tile104":return tile104;
         }
         return null;
     })

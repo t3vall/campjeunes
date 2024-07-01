@@ -453,24 +453,6 @@
         "tilemapTile": true,
         "displayName": "tablePCSupDrt"
     },
-    "tile13": {
-        "data": "hwQQABAAAAD//////////x8RERERERERHxEREREREREfERGxu7u7ux8REbEdHR0dHxERsdHR0dEfERGxHR0dHR8REbHR0dHRHxERsbu7u7sfERGxmRkRkR8REZuZERG5HxERu7u7u7sfERERERERER8RERERERERHxEREREREREfEREREREREQ==",
-        "mimeType": "image/x-mkcd-f4",
-        "tilemapTile": true,
-        "displayName": "tablePCSupGch"
-    },
-    "tile19": {
-        "data": "hwQQABAAAAD//////////xEREREREREREREREREREREbmZkRu7u7uxvZnRHb0dHRG9mdERsdHR0b+ZkR29HR0RvxEREbHR0d+/8REbu7u7sbERERm5kREREREbGZGRGRERERsbu7u7sREREREREREREREREREREREREREREREREREREREREREQ==",
-        "mimeType": "image/x-mkcd-f4",
-        "tilemapTile": true,
-        "displayName": "tablePCInfGch0"
-    },
-    "tile20": {
-        "data": "hwQQABAAAAAREREREREREREREREREREREREREREREREREREREREREREREbG7u7u7ERERsZkZEZEbERERm5kREfv/ERG7u7u7G/ERERsdHR0b+ZkR29HR0RvZnREbHR0dG9mdEdvR0dEbmZkRu7u7uxERERERERERERERERERERH//////////w==",
-        "mimeType": "image/x-mkcd-f4",
-        "tilemapTile": true,
-        "displayName": "tablePCInfGch1"
-    },
     "tile30": {
         "data": "hwQQABAAAAAfERERERERER8RERERERERHxEREREREREfERERERERER8REbu7u7u7HxERm5kREbkfERGxmRkRkR8REbG7u7u7HxERsdHR0dEfERGxHR0dHR8REbHR0dHRHxERsR0dHR0fERGxu7u7ux8RERERERERHxERERERERH//////////w==",
         "mimeType": "image/x-mkcd-f4",
@@ -795,12 +777,6 @@
         "tilemapTile": true,
         "displayName": "supportEnceinteGch2"
     },
-    "tile104": {
-        "data": "hwQQABAAAAD//////////x8RERERERERHxEREREREREfERERERERER8RERERERERHxEREREREREfERERERERER8RERERERERHxEREREREREfERERERERER8RERERERERHxEREREREREfERERERERER8RERERERERHxEREREREREfEREREREREQ==",
-        "mimeType": "image/x-mkcd-f4",
-        "tilemapTile": true,
-        "displayName": "tableBasseSupGch"
-    },
     "tile105": {
         "data": "hwQQABAAAAAfERERERERER8RERERERERHxEREREREREfERERERERER8RERERERERHxEREREREREfERERERERER8RERERERERHxEREREREREfERERERERER8RERERERERHxEREREREREfERERERERER8RERERERERHxEREREREREfEREREREREQ==",
         "mimeType": "image/x-mkcd-f4",
@@ -824,30 +800,6 @@
         "mimeType": "image/x-mkcd-f4",
         "tilemapTile": true,
         "displayName": "tableBasseInfDrt"
-    },
-    "tile60": {
-        "data": "hwQQABAAAAARERGx393d3REREbHf3d3dERERsd/d3d0RERGx393d3REREbHf3d3dERERsd/d3d0RERGx393d3REREbHf3d3dERERsd/d3d0RERGx393d3REREbHf3d3dERERsd/d3d0RERGx/////xEREbEfERHxERERsf//////////393d3Q==",
-        "mimeType": "image/x-mkcd-f4",
-        "tilemapTile": true,
-        "displayName": "tablePCInfDrt0"
-    },
-    "tile18": {
-        "data": "hwQQABAAAAD/////393d3REREbH/////ERERsR8REfERERGx/////xEREbHf3d3dERERsd/d3d0RERGx393d3REREbHf3d3dERERsd/d3d0RERGx393d3REREbHf3d3dERERsd/d3d0RERGx393d3REREbHf3d3dERERsd/d3d0RERGx393d3Q==",
-        "mimeType": "image/x-mkcd-f4",
-        "tilemapTile": true,
-        "displayName": "tablePCInfDrt"
-    },
-    "tile16": {
-        "data": "hwQQABAAAAD/////393d3RERERH/////ERERER8REfEbmZkR/////xvZnRHf3d3dG9mdEd/d3d0b+ZkR393d3RvxERHf3d3d+/8REd/d3d0bERER393d3RERERHf3d3dEREREd/d3d0RERER393d3RERERHf3d3dEREREd/d3d0RERER393d3Q==",
-        "mimeType": "image/x-mkcd-f4",
-        "tilemapTile": true,
-        "displayName": "tablePCInfGch"
-    },
-    "tile25": {
-        "data": "hwQQABAAAAARERER393d3RERERHf3d3dEREREd/d3d0RERER393d3RERERHf3d3dEREREd/d3d0bERER393d3fv/ERHf3d3dG/EREd/d3d0b+ZkR393d3RvZnRHf3d3dG9mdEd/d3d0bmZkR/////xEREREfERHxEREREf//////////393d3Q==",
-        "mimeType": "image/x-mkcd-f4",
-        "tilemapTile": true,
-        "displayName": "tablePCInfGch2"
     },
     "tile45": {
         "data": "hwQQABAAAAARERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERH//////////w==",
@@ -891,18 +843,6 @@
         "tilemapTile": true,
         "displayName": "tablePCMilGch"
     },
-    "tile63": {
-        "data": "hwQQABAAAAD//////////xERERERERERERERERERERERERGxu7u7uxEREbEdHR0dERERsdHR0dERERGxHR0dHREREbHR0dHRERERsbu7u7sRERGxmRkRkREREZuZERG5ERERu7u7u7sREREREREREREREREREREREREREREREREREREREREREQ==",
-        "mimeType": "image/x-mkcd-f4",
-        "tilemapTile": true,
-        "displayName": "tablePCMilGch2"
-    },
-    "tile21": {
-        "data": "hwQQABAAAAD//////////xEREREREREREREREREREREbmZkRERERERvZnRERERERG9mdEREREREb+ZkRERERERvxERERERER+/8REREREREbEREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREQ==",
-        "mimeType": "image/x-mkcd-f4",
-        "tilemapTile": true,
-        "displayName": "tablePCMilGch3"
-    },
     "tile142": {
         "data": "hwQQABAAAADd3d3d/f///93d3d397u7u3d3d3f3////d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3Q==",
         "mimeType": "image/x-mkcd-f4",
@@ -914,6 +854,66 @@
         "mimeType": "image/x-mkcd-f4",
         "tilemapTile": true,
         "displayName": "chaiseInf"
+    },
+    "tile60": {
+        "data": "hwQQABAAAAARERGx393d3REREbHf3d3dERERsd/d3d0RERGx393d3REREbHf3d3dERERsd/d3d0RERGx393d3REREbHf3d3dERERsd/d3d0RERGx393d3REREbHf3d3dERERsd/d3d0RERGx/////xEREbEfERHxERERsf//////////393d3Q==",
+        "mimeType": "image/x-mkcd-f4",
+        "tilemapTile": true,
+        "displayName": "tablePCInfDrt"
+    },
+    "tile20": {
+        "data": "hwQQABAAAAAREREREREREREREREREREREREREREREREREREREREREREREbG7u7u7ERERsZkZEZEbERERm5kREfv/ERG7u7u7G/ERERsdHR0b+ZkR29HR0RvZnREbHR0dG9mdEdvR0dEbmZkRu7u7uxERERERERERERERERERERH//////////w==",
+        "mimeType": "image/x-mkcd-f4",
+        "tilemapTile": true,
+        "displayName": "tablePCMilDrt2"
+    },
+    "tile19": {
+        "data": "hwQQABAAAAD//////////xEREREREREREREREREREREbmZkRu7u7uxvZnRHb0dHRG9mdERsdHR0b+ZkR29HR0RvxEREbHR0d+/8REbu7u7sbERERm5kREREREbGZGRGRERERsbu7u7sREREREREREREREREREREREREREREREREREREREREREQ==",
+        "mimeType": "image/x-mkcd-f4",
+        "tilemapTile": true,
+        "displayName": "tablePCMilGch2"
+    },
+    "tile63": {
+        "data": "hwQQABAAAAD//////////xERERERERERERERERERERERERGxu7u7uxEREbEdHR0dERERsdHR0dERERGxHR0dHREREbHR0dHRERERsbu7u7sRERGxmRkRkREREZuZERG5ERERu7u7u7sREREREREREREREREREREREREREREREREREREREREREQ==",
+        "mimeType": "image/x-mkcd-f4",
+        "tilemapTile": true,
+        "displayName": "tablePCMilGch3-1"
+    },
+    "tile21": {
+        "data": "hwQQABAAAAD//////////xEREREREREREREREREREREbmZkRERERERvZnRERERERG9mdEREREREb+ZkRERERERvxERERERER+/8REREREREbEREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREQ==",
+        "mimeType": "image/x-mkcd-f4",
+        "tilemapTile": true,
+        "displayName": "tablePCMilGch3-2"
+    },
+    "tile25": {
+        "data": "hwQQABAAAAARERER393d3RERERHf3d3dEREREd/d3d0RERER393d3RERERHf3d3dEREREd/d3d0bERER393d3fv/ERHf3d3dG/EREd/d3d0b+ZkR393d3RvZnRHf3d3dG9mdEd/d3d0bmZkR/////xEREREfERHxEREREf//////////393d3Q==",
+        "mimeType": "image/x-mkcd-f4",
+        "tilemapTile": true,
+        "displayName": "tablePCInfDrt2"
+    },
+    "tile16": {
+        "data": "hwQQABAAAAD/////393d3RERERH/////ERERER8REfEbmZkR/////xvZnRHf3d3dG9mdEd/d3d0b+ZkR393d3RvxERHf3d3d+/8REd/d3d0bERER393d3RERERHf3d3dEREREd/d3d0RERER393d3RERERHf3d3dEREREd/d3d0RERER393d3Q==",
+        "mimeType": "image/x-mkcd-f4",
+        "tilemapTile": true,
+        "displayName": "tablePCInfGch2"
+    },
+    "tile18": {
+        "data": "hwQQABAAAAD/////393d3REREbH/////ERERsR8REfERERGx/////xEREbHf3d3dERERsd/d3d0RERGx393d3REREbHf3d3dERERsd/d3d0RERGx393d3REREbHf3d3dERERsd/d3d0RERGx393d3REREbHf3d3dERERsd/d3d0RERGx393d3Q==",
+        "mimeType": "image/x-mkcd-f4",
+        "tilemapTile": true,
+        "displayName": "tablePCInfGch"
+    },
+    "tile13": {
+        "data": "hwQQABAAAAD//////////x8RERERERERHxEREREREREfERGxu7u7ux8REbEdHR0dHxERsdHR0dEfERGxHR0dHR8REbHR0dHRHxERsbu7u7sfERGxmRkRkR8REZuZERG5HxERu7u7u7sfERERERERER8RERERERERHxEREREREREfEREREREREQ==",
+        "mimeType": "image/x-mkcd-f4",
+        "tilemapTile": true,
+        "displayName": "tablePCSupGch2"
+    },
+    "tile104": {
+        "data": "hwQQABAAAAD//////////x8RERERERERHxEREREREREfERERERERER8RERERERERHxEREREREREfERERERERER8RERERERERHxEREREREREfERERERERER8RERERERERHxEREREREREfERERERERER8RERERERERHxEREREREREfEREREREREQ==",
+        "mimeType": "image/x-mkcd-f4",
+        "tilemapTile": true,
+        "displayName": "tablePCSupGch"
     },
     "niveau9": {
         "id": "niveau9",
