@@ -7,6 +7,7 @@ namespace SpriteKind {
     export const UI = SpriteKind.create()
     export const Machine = SpriteKind.create()
 }
+//accéder à l'inventaire en pressant B
 controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
     if (isCursorVisible == 0) {
         curseur2.setFlag(SpriteFlag.Invisible, false)
@@ -16,6 +17,7 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
         isCursorVisible = 0
     }
 })
+//prise des objet quand on passe dessus
 sprites.onOverlap(SpriteKind.Player, SpriteKind.QtObjet, function (sprite, otherSprite) {
     info.changeScoreBy(10)
     q1MDP.setFlag(SpriteFlag.Invisible, false)
@@ -23,7 +25,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.QtObjet, function (sprite, other
     updateQuete(numQuete)
 })
 function peutInterragir() {
-    bouttonA.setPosition(scene.screenWidth() / 2, (scene.screenHeight() / 2) + 20)
+    boutonA.setPosition(scene.screenWidth() / 2, (scene.screenHeight() / 2) + 20)
     if (((Math.floor(Joueur.x / 16)) == posPorteStudioCol + 1) && ((Math.floor(Joueur.y / 16)) == posPorteStudioRow) ||
         ((Math.floor(Joueur.x / 16)) == posPorte2StudioCol + 1) && ((Math.floor(Joueur.y / 16)) == posPorte2StudioRow) ||
         ((Math.floor(Joueur.x / 16)) == posPorteAtelierCol - 1) && ((Math.floor(Joueur.y / 16)) == posPorteAtelierRow) ||
@@ -34,38 +36,44 @@ function peutInterragir() {
         ((Math.floor(Joueur.x / 16)) == posPorteAtelierCol + 1) && ((Math.floor(Joueur.y / 16)) == posPorteAtelierRow) ||
         ((Math.floor(Joueur.x / 16)) == posPorte2AtelierCol + 1) && ((Math.floor(Joueur.y / 16)) == posPorte2AtelierRow) ||
         ((Math.floor(Joueur.x / 16)) == posPorteMaisonCol - 1) && ((Math.floor(Joueur.y / 16)) == posPorteMaisonRow)) {
-        bouttonA.setFlag(SpriteFlag.Invisible, false)
+        boutonA.setFlag(SpriteFlag.Invisible, false)
     } else if (Math.floor(Joueur.x / 16) == 11 && Math.floor(Joueur.y / 16) == 58 ||
             Math.floor(Joueur.x / 16) == 11 && Math.floor(Joueur.y / 16) == 48 ||
             Math.floor(Joueur.x / 16) == 40 && Math.floor(Joueur.y / 16) == 46 ||
             Math.floor(Joueur.x / 16) == 42 && Math.floor(Joueur.y / 16) == 31){
-        bouttonA.setFlag(SpriteFlag.Invisible, false)
+        boutonA.setFlag(SpriteFlag.Invisible, false)
+        //ci-dessus fait apparaître l'image du bouton A en dessous du joueur pour les panneaux a l'exterieur du Studio
     } else if (Math.floor(Joueur.x / 16) == 11 && Math.floor(Joueur.y / 16) == 56 ||
             Math.floor(Joueur.x / 16) == 11 && Math.floor(Joueur.y / 16) == 46 ||
             Math.floor(Joueur.x / 16) == 40 && Math.floor(Joueur.y / 16) == 44 ||
             Math.floor(Joueur.x / 16) == 42 && Math.floor(Joueur.y / 16) == 29){
-        bouttonA.setFlag(SpriteFlag.Invisible, false)
-        bouttonA.setPosition(scene.screenWidth() / 2, (scene.screenHeight() / 2) - 20)
+        boutonA.setFlag(SpriteFlag.Invisible, false)
+        boutonA.setPosition(scene.screenWidth() / 2, (scene.screenHeight() / 2) - 20)
+        //ci-dessus fait apparaître l'image du bouton A au dessus du joueur pour les panneaux a l'exterieur du Studio
     } else if (Math.floor(Joueur.x / 16) == 34 - 1 && Math.floor(Joueur.y / 16) == 27 ||
             Math.floor(Joueur.x / 16) == 88 - 1 && Math.floor(Joueur.y / 16) == 27 ||
             Math.floor(Joueur.x / 16) == 118 - 1 && Math.floor(Joueur.y / 16) == 27){
-        bouttonA.setFlag(SpriteFlag.Invisible, false)
-        bouttonA.setPosition(scene.screenWidth() / 2, (scene.screenHeight() / 2) - 20)
+        boutonA.setFlag(SpriteFlag.Invisible, false)
+        boutonA.setPosition(scene.screenWidth() / 2, (scene.screenHeight() / 2) - 20)
+        //ci-dessus fait apparaître l'image du bouton A au dessus du joueur pour l'ascenseur
     } else {
         for (let valeur of sprites.allOfKind(SpriteKind.PNJ)) {
             if (Math.floor(Joueur.y / 16) == Math.floor(valeur.y / 16) &&
                 ((Math.floor(Joueur.x / 16) - Math.floor(valeur.x / 16) == 1) ||
                 (Math.ceil(Joueur.x / 16) - Math.floor(valeur.x / 16) == 0))) {
-                bouttonA.setFlag(SpriteFlag.Invisible, false)
+                boutonA.setFlag(SpriteFlag.Invisible, false)
+                //ci-dessus fait apparaître l'image du bouton A au dessous du joueur pour chaque PNJ
             } else if (Math.floor(Joueur.x / 16) == Math.floor(valeur.x / 16) &&
                     Math.floor(Joueur.y / 16) - Math.floor(valeur.y / 16) == 1) {
-                bouttonA.setFlag(SpriteFlag.Invisible, false)
+                boutonA.setFlag(SpriteFlag.Invisible, false)
+                //ci-dessus fait apparaître l'image du bouton A au dessous du joueur pour chaque PNJ
             } else if (Math.floor(Joueur.x / 16) == Math.floor(valeur.x / 16) &&
                     Math.ceil(Joueur.y / 16) - Math.floor(valeur.y / 16) == 0) {
-                bouttonA.setFlag(SpriteFlag.Invisible, false)
-                bouttonA.setPosition(scene.screenWidth() / 2, (scene.screenHeight() / 2) - 20)
+                boutonA.setFlag(SpriteFlag.Invisible, false)
+                boutonA.setPosition(scene.screenWidth() / 2, (scene.screenHeight() / 2) - 20)
+                //ci-dessus fait apparaître l'image du bouton A au dessus du joueur pour chaque PNJ
             }else {
-                bouttonA.setFlag(SpriteFlag.Invisible, true)
+                boutonA.setFlag(SpriteFlag.Invisible, true)
             }
         }
     }
@@ -102,6 +110,7 @@ function creerTuilePorte (coinSupDrtCol: number, coinInfDrtRow: number, nbPorte:
         }
     }
 }
+//fonctionnalité qui repousse le joueur pour respecter le sens logiqe des escalier
 scene.onOverlapTile(SpriteKind.Player, assets.tile`tileStair2`, function (sprite, location) {
     if (estRDCStudio(coinSupDrtStudioCol, coinSupDrtStudioRow, coinInfDrtSudioRow, coinSupGchStudioCol)) {
         if (!(Math.floor(sprite.x / 16) == Math.ceil(posEscalierStudio[0][0] / 16) || Math.floor(sprite.x / 16) == Math.floor(posEscalierStudio[0][0] / 16))) {
@@ -158,7 +167,7 @@ function creerTuileCoin (coinSupDrtCol: number, coinInfDrtRow: number, coinSupDr
                 if (X22 == coinSupGchCol && Y22 == coinInfDrtRow) {
                     tiles.setTileAt(tiles.getTileLocation(X22, Y22), assets.tile`myTile9`)
                 }
-            }
+            }//ci-dessous met les coin pour la partie gauche de la Maison
             if (coinSupGchCol <= rdcGchDrt && coinSupDrtRow <= rdcHtBs) {
                 if (X22 == coinSupGchCol && Y22 == coinSupDrtRow) {
                     tiles.setTileAt(tiles.getTileLocation(X22, Y22), assets.tile`myTile21`)
@@ -184,7 +193,7 @@ function creerTuileCoin (coinSupDrtCol: number, coinInfDrtRow: number, coinSupDr
                 }
                 if (X22 == coinSupGchCol && Y22 == coinInfDrtRow) {
                     tiles.setTileAt(tiles.getTileLocation(X22, Y22), assets.tile`tileCoinInfGch`)
-                }
+                }//ci-dessus met les coin pour le Studio et l'Atelier
             }
         }
     }
@@ -236,6 +245,7 @@ function creerIntBat (coinSupDrtCol: number, coinInfDrtRow: number, coinSupDrtRo
     creerMurInterieur(coinSupDrtCol, coinInfDrtRow, coinSupDrtRow, coinSupGchCol, Maison)
     creerTuileEscalier(coinSupDrtCol, coinInfDrtRow, coinSupDrtRow, coinSupGchCol, Maison)
 }
+//même principe que pour les escaliers mais pour les tuiles noires des etages des studio et atelier
 scene.onOverlapTile(SpriteKind.Player, assets.tile`tuileNoir`, function (sprite, location) {
     if (estDansAtelier(coinSupDrtAtelierCol, coinSupDrtAtelierRow, coinInfDrtAtelierRow, coinSupGchAtelierCol)) {
         if (Math.ceil(sprite.x / 16) == location.column) {
@@ -273,40 +283,44 @@ function creerTuileSol (coinSupDrtCol: number, coinInfDrtRow: number, coinSupDrt
                 if (X23 == 20 && Y23 == 21) {
                     tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`canapeJauneBas`)
                 }
-                if (X23 == 19 && Y23 == 26) {
+                if (X23 == 20 && Y23 == 26) {
                     tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tableBasseSupGch`)
                     tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
                 }
-                if (X23 == 19 && Y23 == 27) {
-                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tableBasseInfGch2`)
-                    tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
-                }
-                if (X23 == 20 && Y23 == 26) {
-                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tableBasseSupMilVide`)
-                    tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
-                }
                 if (X23 == 20 && Y23 == 27) {
-                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tableBasseInfInt`)
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tablePCMilGch2`)
+                    tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
+                }
+                if (X23 == 20 && Y23 == 28) {
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tablePCMilGch3`)
                     tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
                 }
                 if (X23 == 21 && Y23 == 26) {
                     tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tablePCSupDrt`)
                     tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
                 }
-                if (X23 == 20 && Y23 == 28) {
-                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tableBasseMilGch`)
-                    tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
-                }
                 if (X23 == 21 && (Y23 == 27 || Y23 == 28)) {
-                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tableBasseMilDrt`)
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tablePCMilDrt`)
                     tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
                 }
                 if (X23 == 20 && Y23 == 29) {
-                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tableBasseInfGch2`)
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tableBasseInfGch`)
                     tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
                 }
                 if (X23 == 21 && Y23 == 29) {
-                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tableBasseInfDrt2`)
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tableBasseInfDrt`)
+                    tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
+                }
+                if (X23 == 19 && Y23 == 27) {
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`chaiseSup`)
+                    tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
+                }
+                if (X23 == 19 && Y23 == 28) {
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`chaise`)
+                    tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
+                }
+                if (X23 == 19 && Y23 == 29) {
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`chaiseInf`)
                     tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
                 }
                 if (X23 == 32 && Y23 == 19) {
@@ -393,6 +407,7 @@ function creerTuileSol (coinSupDrtCol: number, coinInfDrtRow: number, coinSupDrt
                     tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tableBasseMilCtr2`)
                 }
             } else if (!Maison) {
+                //La Cuisine
                 if ((X23 == 9) && (Y23 == 30)) {
                     tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`cuisiniere`)
                     tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
@@ -457,6 +472,7 @@ function creerTuileSol (coinSupDrtCol: number, coinInfDrtRow: number, coinSupDrt
                 if (((X23 >= 12) && (X23 <= 14)) && (Y23 == 27)) {
                     tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tableBasseMilCtr2`)
                 }
+                //le Studio
                 if ((X23 == 1) && (Y23 == 54)) {
                     tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`enceinteGch2-1`)
                     tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
@@ -507,6 +523,7 @@ function creerTuileSol (coinSupDrtCol: number, coinInfDrtRow: number, coinSupDrt
                     tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tableMixageInfDrt`)
                     tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
                 }
+                //l'Atelier
                 if ((X23 == 47) && (Y23 == 58)) {
                     tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`canapeBleuGch2`)
                     tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
@@ -630,7 +647,7 @@ function creerTuileMur (coinSupDrtCol: number, coinInfDrtRow: number, coinSupDrt
                 if (X24 == 26 && Y24 == coinInfDrtRow) {
                     tiles.setTileAt(tiles.getTileLocation(X24, Y24), assets.tile`myTile13`)
                 }
-            }
+            }//la partie gauche de la Maison
             if (coinSupGchCol <= rdcGchDrt && coinSupDrtRow <= rdcHtBs) {
                 if (!Maison) {
                     if ((Y24 == coinSupDrtRow && X24 >= coinSupGchCol)) {
@@ -647,6 +664,7 @@ function creerTuileMur (coinSupDrtCol: number, coinInfDrtRow: number, coinSupDrt
                     }
                 }
             } else if (coinSupGchCol <= rdcGchDrt && coinSupDrtRow >= rdcHtBs){
+                //le Studio
                 if (Y24 == coinSupDrtRow && X24 >= coinSupGchCol) {
                     tiles.setTileAt(tiles.getTileLocation(X24, Y24), assets.tile`tileMur2`)
                 }
@@ -666,6 +684,7 @@ function creerTuileMur (coinSupDrtCol: number, coinInfDrtRow: number, coinSupDrt
                     tiles.setTileAt(tiles.getTileLocation(X24, Y24), assets.tile`myTile29`)
                 }
             } else {
+                //l'Atelier
                 if (Y24 == coinSupDrtRow && X24 >= coinSupGchCol) {
                     tiles.setTileAt(tiles.getTileLocation(X24, Y24), assets.tile`tileMur2`)
                 }
@@ -782,6 +801,7 @@ function creerMurInterieur (coinSupDrtCol: number, coinInfDrtRow: number, coinSu
                     }
                 }
             } else if (coinSupGchCol <= rdcGchDrt && coinSupDrtRow >= rdcHtBs) {
+                //le Studio
                 if(X23 > coinSupGchCol && X23 < coinSupDrtCol) {
                     if (Y23 == 53) {
                         tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tileMurRow`)
@@ -790,6 +810,7 @@ function creerMurInterieur (coinSupDrtCol: number, coinInfDrtRow: number, coinSu
                     
                 }                
             } else if (coinSupGchCol >= rdcGchDrt && coinSupDrtRow >= rdcHtBs) {
+                //l'Atelier
                 if (Y23 == 55 && ((X23 > coinSupGchCol && X23 < 46) || (X23 > 49 && X23 < coinSupDrtCol))) {
                     tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tileMurRow`)
                     tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
@@ -884,6 +905,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Icon, function (sprite, otherSpr
         info.changeScoreBy(100)
     }
 })
+//les 2 overlaps ci-dessous empeche le joueur de passer à travers les PNJ et Machine
 sprites.onOverlap(SpriteKind.Player, SpriteKind.PNJ, function (sprite, otherSprite) {
     tiles.placeOnTile(sprite, tiles.getTileLocation(Math.floor(sprite.x / 16), Math.floor(sprite.y / 16)))
 })
@@ -1025,7 +1047,7 @@ function creerTuileToit (coinSupDrtCol: number, coinInfDrtRow: number, coinSupDr
     }
 }
 let logOutIcon: Sprite = null
-let bouttonA: Sprite = null
+let boutonA: Sprite = null
 let curseur3: Sprite = null
 let tempQ1MDP: Sprite = null
 let q1MDP: Sprite = null
@@ -1094,10 +1116,10 @@ curseur2 = sprites.create(assets.image`spriteCurseur`, SpriteKind.Curseur)
 isCursorVisible = 0
 isPCOn = 0
 tiles.setCurrentTilemap(tilemap`niveau0`)
-bouttonA = sprites.create(assets.image`bouttonA`, SpriteKind.UI)
-bouttonA.setPosition(scene.screenWidth() / 2, (scene.screenHeight() / 2) + 20)
-bouttonA.setFlag(SpriteFlag.RelativeToCamera, true)
-bouttonA.setFlag(SpriteFlag.Invisible, true)
+boutonA = sprites.create(assets.image`boutonA`, SpriteKind.UI)
+boutonA.setPosition(scene.screenWidth() / 2, (scene.screenHeight() / 2) + 20)
+boutonA.setFlag(SpriteFlag.RelativeToCamera, true)
+boutonA.setFlag(SpriteFlag.Invisible, true)
 // posPNJ = [[], []]
 PC2 = sprites.create(assets.image`SpritePc`, SpriteKind.PC)
 Joueur = sprites.create(assets.image`Mario`, SpriteKind.Player)

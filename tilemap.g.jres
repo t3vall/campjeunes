@@ -651,18 +651,6 @@
         "tilemapTile": true,
         "displayName": "chaise"
     },
-    "tile142": {
-        "data": "hwQQABAAAADd3d3d/f///93d3d397u7u3d3d3f3////d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3Q==",
-        "mimeType": "image/x-mkcd-f4",
-        "tilemapTile": true,
-        "displayName": "myTile32"
-    },
-    "tile143": {
-        "data": "hwQQABAAAAD//93d3d3d3e7+3d3d3d3d///d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3f//3d3d3d3d7v7d3d3d3d3//93d3d3d3Q==",
-        "mimeType": "image/x-mkcd-f4",
-        "tilemapTile": true,
-        "displayName": "myTile33"
-    },
     "tile114": {
         "data": "hwQQABAAAADd3d3dzMzMzN3d3d3b3d3d3d3d3d3d3b3d3d3d3N3dvd3d3d3c3d293d3d3dzd3b3d3d3d3N3dvd3d3d3c3d293d3d3dzd3b3d3d3d3N3dvd3d3d3c3d293d3d3dzd3b3d3d3d3N3dvd3d3d3c3d293d3d3dvd3d3d3d3dzMzMzA==",
         "mimeType": "image/x-mkcd-f4",
@@ -728,12 +716,6 @@
         "mimeType": "image/x-mkcd-f4",
         "tilemapTile": true,
         "displayName": "TuilePanneau2"
-    },
-    "tile150": {
-        "data": "hwQQABAAAADO393d3d3d3c7f3d3d3d3dzt/d3d3d3d3O393d3d3d3c7f3d3d3d3dzt/d3d3d3d3O/////////+7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7g==",
-        "mimeType": "image/x-mkcd-f4",
-        "tilemapTile": true,
-        "displayName": "tableBasseInfInt"
     },
     "tile54": {
         "data": "hwQQABAAAAD7//////////vPzMzMzP//+8/MzMzM///7zxwRERH///vP/P8fEf//+88cERER///7z/z/HxH///vPHBEREf//+88cERER///7z/z/HxH///vPHBEREf//+8/8/x8R///7zxwRERH///vP/P8fEf//+88cERER///7zxwRERH//w==",
@@ -867,12 +849,6 @@
         "tilemapTile": true,
         "displayName": "tablePCInfGch2"
     },
-    "tile21": {
-        "data": "hwQQABAAAAD//////////xEREREREREREREREREREREbmZkRERERERvZnRERERERG9mdEREREREb+ZkRERERERvxERERERER+/8REREREREbEREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREQ==",
-        "mimeType": "image/x-mkcd-f4",
-        "tilemapTile": true,
-        "displayName": "tablePCInfGch3"
-    },
     "tile45": {
         "data": "hwQQABAAAAARERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERH//////////w==",
         "mimeType": "image/x-mkcd-f4",
@@ -908,6 +884,36 @@
         "mimeType": "image/x-mkcd-f4",
         "tilemapTile": true,
         "displayName": "planTravail2_3"
+    },
+    "tile56": {
+        "data": "hwQQABAAAAD//////////xEREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREQ==",
+        "mimeType": "image/x-mkcd-f4",
+        "tilemapTile": true,
+        "displayName": "tablePCMilGch"
+    },
+    "tile63": {
+        "data": "hwQQABAAAAD//////////xERERERERERERERERERERERERGxu7u7uxEREbEdHR0dERERsdHR0dERERGxHR0dHREREbHR0dHRERERsbu7u7sRERGxmRkRkREREZuZERG5ERERu7u7u7sREREREREREREREREREREREREREREREREREREREREREQ==",
+        "mimeType": "image/x-mkcd-f4",
+        "tilemapTile": true,
+        "displayName": "tablePCMilGch2"
+    },
+    "tile21": {
+        "data": "hwQQABAAAAD//////////xEREREREREREREREREREREbmZkRERERERvZnRERERERG9mdEREREREb+ZkRERERERvxERERERER+/8REREREREbEREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREQ==",
+        "mimeType": "image/x-mkcd-f4",
+        "tilemapTile": true,
+        "displayName": "tablePCMilGch3"
+    },
+    "tile142": {
+        "data": "hwQQABAAAADd3d3d/f///93d3d397u7u3d3d3f3////d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3Q==",
+        "mimeType": "image/x-mkcd-f4",
+        "tilemapTile": true,
+        "displayName": "chaiseSup"
+    },
+    "tile143": {
+        "data": "hwQQABAAAAD//93d3d3d3e7+3d3d3d3d///d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3f//3d3d3d3d7v7d3d3d3d3//93d3d3d3Q==",
+        "mimeType": "image/x-mkcd-f4",
+        "tilemapTile": true,
+        "displayName": "chaiseInf"
     },
     "niveau9": {
         "id": "niveau9",
