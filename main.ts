@@ -999,7 +999,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
         || ((Math.floor(Joueur.x / 16) == 11 && Math.floor(Joueur.y / 16) == 46 || Math.floor(Joueur.x / 16) == 11 && Math.floor(Joueur.y / 16) == 48))) {
         game.splash("Le Studio")
     }
-    if (Math.floor(Joueur.x / 16) == 39 && Math.floor(Joueur.y / 16) == 56 || Math.floor(Joueur.x / 16) == 39 && Math.floor(Joueur.y / 16) == 58) {
+    if (Math.floor(Joueur.x / 16) == 40 && Math.floor(Joueur.y / 16) == 44 || Math.floor(Joueur.x / 16) == 40 && Math.floor(Joueur.y / 16) == 46) {
         game.splash("L'Atelier")
     }
     if (Math.floor(Joueur.x / 16) == 42 && Math.floor(Joueur.y / 16) == 29 || Math.floor(Joueur.x / 16) == 42 && Math.floor(Joueur.y / 16) == 31) {
