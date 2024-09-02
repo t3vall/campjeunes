@@ -1043,6 +1043,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
                 game.showLongText("Bonjour Mario!", DialogLayout.Bottom)
                 if (numQuete == 0) {
                     game.showLongText("Tu doit trouver le Mot de Passe du PC!", DialogLayout.Bottom)
+                    game.showLongText("J'etais dans le JARDIN ce matin, il doit y etre!!!", DialogLayout.Bottom)
                     debutQuete()
                 }
             } else {
