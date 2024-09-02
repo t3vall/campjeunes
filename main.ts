@@ -1040,9 +1040,9 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
                 `)
             if (Math.percentChance(90)) {
                 info.changeScoreBy(10)
-                game.showLongText("bonjour mario!", DialogLayout.Bottom)
-                game.showLongText("Tu doit trouver le Mot de Passe du PC!", DialogLayout.Bottom)
+                game.showLongText("Bonjour Mario!", DialogLayout.Bottom)
                 if (numQuete == 0) {
+                    game.showLongText("Tu doit trouver le Mot de Passe du PC!", DialogLayout.Bottom)
                     debutQuete()
                 }
             } else {
