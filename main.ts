@@ -1013,44 +1013,37 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
             (Math.floor(Joueur.y / 16) - Math.floor(valeur2.y / 16) == 1 ||
             Math.ceil(Joueur.y / 16) - Math.floor(valeur2.y / 16) == 0)) {
                 if ((Math.floor(valeur2.x / 16) == 112 && Math.floor(valeur2.y / 16 ) == 15)) {
-            game.setDialogFrame(img`
-                .....cccccccccccccc.....
-                ...cbd111111111111dbc...
-                ..cd1111111111111111dc..
-                .cd111111111111111111dc.
-                .b11111111111111111111b.
-                cd11111111111111111111dc
-                c1111111111111111111111c
-                c1111111111111111111111c
-                c1111111111111111111111c
-                c1111111111111111111111c
-                c1111111111111111111111c
-                c1111111111111111111111c
-                c1111111111111111111111c
-                c1111111111111111111111c
-                c1111111111111111111111c
-                c1111111111111111111111c
-                c1111111111111111111111c
-                cd11111111111111111111dc
-                .b11111111111111111111b.
-                .cd111111111111111111dc.
-                ..cd1111111111111111dc..
-                ..b11d111111111111dbc...
-                .b11bcccccccccccccc.....
-                ccccc...................
-                `)
-            if (Math.percentChance(90)) {
+                    game.setDialogFrame(img`
+                        .....cccccccccccccc.....
+                        ...cbd111111111111dbc...
+                        ..cd1111111111111111dc..
+                        .cd111111111111111111dc.
+                        .b11111111111111111111b.
+                        cd11111111111111111111dc
+                        c1111111111111111111111c
+                        c1111111111111111111111c
+                        c1111111111111111111111c
+                        c1111111111111111111111c
+                        c1111111111111111111111c
+                        c1111111111111111111111c
+                        c1111111111111111111111c
+                        c1111111111111111111111c
+                        c1111111111111111111111c
+                        c1111111111111111111111c
+                        c1111111111111111111111c
+                        cd11111111111111111111dc
+                        .b11111111111111111111b.
+                        .cd111111111111111111dc.
+                        ..cd1111111111111111dc..
+                        ..b11d111111111111dbc...
+                        .b11bcccccccccccccc.....
+                        ccccc...................
+                    `)
                 info.changeScoreBy(10)
                 game.showLongText("Bonjour Mario!", DialogLayout.Bottom)
                 if (numQuete == 0) {
-                    game.showLongText("Tu doit trouver le Mot de Passe du PC!", DialogLayout.Bottom)
-                    game.showLongText("J'etais dans le JARDIN ce matin, il doit y etre!!!", DialogLayout.Bottom)
+                    game.showLongText("Tu doit trouver le Mot de Passe du PC! J'etais dans le JARDIN ce matin, il doit y etre!!!", DialogLayout.Bottom)
                     debutQuete()
-                }
-            } else {
-                info.changeScoreBy(100)
-                game.showLongText("Mario!!!!", DialogLayout.Bottom)
-                game.showLongText("On est pas dans le bon jeu!!!!!", DialogLayout.Bottom)
             }
             }
         }
