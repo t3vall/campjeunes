@@ -1197,7 +1197,8 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
                 info.changeScoreBy(10)
                 game.showLongText("Bonjour!", DialogLayout.Bottom)
                 game.showLongText("Ecrire Texte du pnj de l'atelier", DialogLayout.Bottom)
-            } else if ((Math.floor(valeur2.x / 16) == 23 && Math.floor(valeur2.y / 16) == 45)) {
+            } else if ((Math.floor(valeur2.x / 16) == 5 && Math.floor(valeur2.y / 16) == 47)) {
+                //!!!!! Pour le pnj du studio en haut
                 game.setDialogFrame(img`
                         .....cccccccccccccc.....
                         ...cbd111111111111dbc...
@@ -1226,8 +1227,9 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
                 `)
                 info.changeScoreBy(10)
                 game.showLongText("Bonjour!", DialogLayout.Bottom)
-                game.showLongText("Ecrire Texte du Pnj au spawn", DialogLayout.Bottom)
-            } else if ((Math.floor(valeur2.x / 16) == 23 && Math.floor(valeur2.y / 16) == 45)) {
+                game.showLongText("Ecrire Texte du Pnj au studio haut", DialogLayout.Bottom)
+            } else if ((Math.floor(valeur2.x / 16) == 4 && Math.floor(valeur2.y / 16) == 57)) {
+                //!!!!! Pour le pnj du studio en bas
                 game.setDialogFrame(img`
                         .....cccccccccccccc.....
                         ...cbd111111111111dbc...
@@ -1256,8 +1258,9 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
                 `)
                 info.changeScoreBy(10)
                 game.showLongText("Bonjour!", DialogLayout.Bottom)
-                game.showLongText("Ecrire Texte du Pnj au spawn", DialogLayout.Bottom)
-            } else if ((Math.floor(valeur2.x / 16) == 23 && Math.floor(valeur2.y / 16) == 45)) {
+                game.showLongText("Ecrire Texte du Pnj au studio bas", DialogLayout.Bottom)
+            } else if ((Math.floor(valeur2.x / 16) == 23 && Math.floor(valeur2.y / 16) == 24)) {
+                //!!!!! Pour le pnj du salon
                 game.setDialogFrame(img`
                     .....cccccccccccccc.....
                     ...cbd111111111111dbc...
@@ -1286,8 +1289,9 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
                 `)
                 info.changeScoreBy(10)
                 game.showLongText("Bonjour!", DialogLayout.Bottom)
-                game.showLongText("Ecrire Texte du Pnj au spawn", DialogLayout.Bottom)
-            } else if ((Math.floor(valeur2.x / 16) == 23 && Math.floor(valeur2.y / 16) == 45)) {
+                game.showLongText("Ecrire Texte du Pnj au salon", DialogLayout.Bottom)
+            } else if ((Math.floor(valeur2.x / 16) == 33 && Math.floor(valeur2.y / 16) == 17)) {
+                //!!!!! Pour le pnj de la salle de jeu
                 game.setDialogFrame(img`
                         .....cccccccccccccc.....
                         ...cbd111111111111dbc...
@@ -1316,8 +1320,9 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
                 `)
                 info.changeScoreBy(10)
                 game.showLongText("Bonjour!", DialogLayout.Bottom)
-                game.showLongText("Ecrire Texte du Pnj au spawn", DialogLayout.Bottom)
-            } else if ((Math.floor(valeur2.x / 16) == 23 && Math.floor(valeur2.y / 16) == 45)) {
+                game.showLongText("Ecrire Texte du Pnj au salle de jeu", DialogLayout.Bottom)
+            } else if ((Math.floor(valeur2.x / 16) == 75 && Math.floor(valeur2.y / 16) == 24)) {
+                //!!!!! Pour le pnj du service jeunesse
                 game.setDialogFrame(img`
                         .....cccccccccccccc.....
                         ...cbd111111111111dbc...
@@ -1346,8 +1351,9 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
                 `)
                 info.changeScoreBy(10)
                 game.showLongText("Bonjour!", DialogLayout.Bottom)
-                game.showLongText("Ecrire Texte du Pnj au spawn", DialogLayout.Bottom)
-            } else if ((Math.floor(valeur2.x / 16) == 23 && Math.floor(valeur2.y / 16) == 45)) {
+                game.showLongText("Ecrire Texte du Pnj au service jeunesse", DialogLayout.Bottom)
+            } else if ((Math.floor(valeur2.x / 16) == 82 && Math.floor(valeur2.y / 16) == 15)) {
+                //!!!!! Pour le pnj dans le couloir etg 1
                 game.setDialogFrame(img`
                         .....cccccccccccccc.....
                         ...cbd111111111111dbc...
@@ -1376,8 +1382,9 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
                 `)
                 info.changeScoreBy(10)
                 game.showLongText("Bonjour!", DialogLayout.Bottom)
-                game.showLongText("Ecrire Texte du Pnj au spawn", DialogLayout.Bottom)
-            } else if ((Math.floor(valeur2.x / 16) == 23 && Math.floor(valeur2.y / 16) == 45)) {
+                game.showLongText("Ecrire Texte du Pnj dans le couloir etg 1", DialogLayout.Bottom)
+            } else if ((Math.floor(valeur2.x / 16) == 112 && Math.floor(valeur2.y / 16) == 15)) {
+                //!!!!! Pour le pnj dans le couloir etg 2
                 game.setDialogFrame(img`
                         .....cccccccccccccc.....
                         ...cbd111111111111dbc...
@@ -1406,7 +1413,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
                 `)
                 info.changeScoreBy(10)
                 game.showLongText("Bonjour!", DialogLayout.Bottom)
-                game.showLongText("Ecrire Texte du Pnj au spawn", DialogLayout.Bottom)
+                game.showLongText("Ecrire Texte du Pnj dans le couloir etg 2", DialogLayout.Bottom)
             }
         }
     }
