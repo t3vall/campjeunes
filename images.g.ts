@@ -41,25 +41,6 @@ namespace myImages {
 . . . e e e e . . . e e e e . . 
 . . e e e e e . . . e e e e e . 
 `;
-            case "*uJ#z2_13ege6rd]wPo":
-            case "Mario":return img`
-. . . . . 2 2 2 2 2 2 . . . . . 
-. . . . 2 2 2 2 2 2 2 2 2 2 . . 
-. . . . e e e e 3 3 e 3 . . . . 
-. . . e e 3 e 3 3 3 e 3 3 3 . . 
-. . . e e 3 e e 3 3 3 e 3 3 3 . 
-. . . e e e 3 3 3 3 e e e e . . 
-. . . . . 3 3 3 3 3 3 3 3 . . . 
-. . . . 2 2 2 8 2 2 2 . . . . . 
-. . . 2 2 2 2 8 2 2 8 2 2 2 . . 
-. . 2 2 2 2 2 8 8 8 8 2 2 2 2 . 
-. . 3 3 3 2 8 5 8 8 5 8 2 3 3 . 
-. . 3 3 3 3 8 8 8 8 8 8 3 3 3 . 
-. . 3 3 3 8 8 8 8 8 8 8 8 3 3 . 
-. . . . 8 8 8 8 . 8 8 8 8 . . . 
-. . . e e e e . . . e e e e . . 
-. . e e e e e . . . e e e e e . 
-`;
             case "image3":
             case "SpritePc":return img`
 . . . b b b b b b b b b . . . . 
@@ -409,6 +390,44 @@ c . . . . . . . . . . . . . . c
 . . 7 7 7 7 7 7 7 7 7 7 7 7 . . 
 . . . . 7 7 7 7 7 7 7 7 . . . . 
 . . . . . . . . . . . . . . . . 
+`;
+            case "*uJ#z2_13ege6rd]wPo":
+            case "Mario":return img`
+. . . . e e e e e e e e . . . . 
+. . . e e e e e e e e e . . . . 
+. . . e e e e e e f f f . . . . 
+. . e e e e e e e 3 e f 3 3 . . 
+. . . e e e e 3 e 3 3 e 3 3 3 . 
+. . e e e e 3 3 3 3 e e e e . . 
+. . . . . 3 e e e e e e e . . . 
+. . . . f f f f f f f e e . . . 
+. . . f f f f 6 6 6 6 f f f . . 
+. . f f f f 6 4 4 4 4 6 f f f . 
+. . 3 3 3 f 6 4 6 3 4 6 f 3 3 . 
+. . 3 3 3 3 f f f f f f 3 3 3 . 
+. . 3 3 3 f f f f f f f f 3 3 . 
+. . . . f f f f . f f f f . . . 
+. . . 4 4 4 4 . . . 4 4 4 4 . . 
+. . 4 4 4 4 4 . . . 4 4 4 4 4 . 
+`;
+            case "image20":
+            case "pnj2":return img`
+. f f f . f f f f . f f f . 
+f f f f f c c c c f f f f f 
+f f f f b c c c c b f f f f 
+f f f c 3 c c c c 3 c f f f 
+. f 3 3 c c c c c c 3 3 f . 
+. f c c c c 4 4 c c c c f . 
+. f f c c 4 4 4 4 c c f f . 
+. f f f b f 4 4 f b f f f . 
+. f f 4 1 f d d f 1 4 f f . 
+. . f f d d d d d d f f . . 
+. . e f e 4 4 4 4 e f e . . 
+. e 4 f b 3 3 3 3 b f 4 e . 
+. 4 d f 3 3 3 3 3 3 c d 4 . 
+. 4 4 f 6 6 6 6 6 6 f 4 4 . 
+. . . . f f f f f f . . . . 
+. . . . f f . . f f . . . . 
 `;
         }
         return null;

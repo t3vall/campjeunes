@@ -288,11 +288,11 @@ function creerTuileSol (coinSupDrtCol: number, coinInfDrtRow: number, coinSupDrt
                     tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
                 }
                 if (X23 == 20 && Y23 == 27) {
-                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tablePCMilGch2`)
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tablePCMilGch3-1`)
                     tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
                 }
                 if (X23 == 20 && Y23 == 28) {
-                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tablePCMilGch3`)
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tablePCMilGch3-2`)
                     tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
                 }
                 if (X23 == 21 && Y23 == 26) {
@@ -380,7 +380,7 @@ function creerTuileSol (coinSupDrtCol: number, coinInfDrtRow: number, coinSupDrt
                     tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
                 }
                 if ((X23 == 33) && (Y23 == 14)) {
-                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tablePCSupGch3`)
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tableBasseSupGch3`)
                     tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
                 }
                 if ((X23 == 36) && (Y23 == 16)) {
@@ -446,7 +446,7 @@ function creerTuileSol (coinSupDrtCol: number, coinInfDrtRow: number, coinSupDrt
                     tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
                 }
                 if ((X23 == 11) && (Y23 == 26)) {
-                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tablePCSupGch3`)
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tableBasseSupGch3`)
                     tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
                 }
                 if ((X23 == 15) && (Y23 == 28)) {
@@ -580,7 +580,7 @@ function creerTuileSol (coinSupDrtCol: number, coinInfDrtRow: number, coinSupDrt
                     tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
                 }
                 if ((X23 == 49) && (Y23 == 51)) {
-                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tablePCSupGch4`)
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tableBasseSupGch4`)
                     tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
                 }
                 if ((X23 == 44) && (Y23 == 38)) {
@@ -1129,6 +1129,7 @@ let coinSupDrtStudioRow = 0
 let coinSupDrtStudioCol = 0
 let coinSupGchStudioCol = 0
 let PNJ1: Sprite = null
+let PNJ2: Sprite = null
 let Joueur: Sprite = null
 let PC2: Sprite = null
 let isPCOn = 0
@@ -1160,6 +1161,7 @@ boutonA.setFlag(SpriteFlag.Invisible, true)
 PC2 = sprites.create(assets.image`SpritePc`, SpriteKind.PC)
 Joueur = sprites.create(assets.image`Mario`, SpriteKind.Player)
 PNJ1 = sprites.create(assets.image`Luigi`, SpriteKind.PNJ)
+PNJ2 = sprites.create(assets.image`pnj2`, SpriteKind.PNJ)
 decoupeuse = sprites.create(assets.image`decoupeuse`, SpriteKind.Machine)
 impr3D = sprites.create(assets.image`impr3D`, SpriteKind.Machine)
 controller.moveSprite(Joueur, 100, 100)
@@ -1169,6 +1171,8 @@ tiles.placeOnTile(PC2, tiles.getTileLocation(1, 41))
 tiles.placeOnTile(Joueur, tiles.getTileLocation(41, 45))
 tiles.placeOnTile(PNJ1, tiles.getTileLocation(6, 50))
 tiles.placeOnTile(impr3D, tiles.getTileLocation(51, 45))
+//definir la position du PNJ2
+tiles.placeOnTile(PNJ2, tiles.getTileLocation(51, 45))
 decoupeuse.setPosition((50*16)+8, (38*16)+8)
 // posPNJ[0][0] = 5
 // posPNJ[1][0] = 50
