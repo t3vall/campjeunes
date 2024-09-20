@@ -72,6 +72,118 @@ function peutInterragir() {
                     boutonA.setFlag(SpriteFlag.Invisible, false)
                     boutonA.setPosition(scene.screenWidth() / 2, (scene.screenHeight() / 2) - 20)
                     //ci-dessus fait apparaître l'image du bouton A au dessus du joueur pour un PNJ
+        } else if ((Math.floor(Joueur.x / 16) == Math.ceil(PNJ1.x / 16) ||
+                    Math.ceil(Joueur.x / 16) == Math.floor(PNJ1.x / 16)) &&
+                    Math.floor(Joueur.y / 16) == Math.floor(PNJ1.y / 16)) {
+                    boutonA.setFlag(SpriteFlag.Invisible, false)
+                    //ci-dessus fait apparaître l'image du bouton A au dessous du joueur pour un PNJ
+        } else if ( Math.floor(Joueur.y / 16) == Math.ceil(PNJ1.y / 16) &&
+                    Math.floor(Joueur.x / 16) == Math.floor(PNJ1.x / 16)) {
+                    boutonA.setFlag(SpriteFlag.Invisible, false)
+                    //ci-dessus fait apparaître l'image du bouton A au dessous du joueur pour un PNJ
+        } else if ( Math.ceil(Joueur.y / 16) == Math.floor(PNJ1.y / 16) &&
+                    Math.floor(Joueur.x / 16) == Math.floor(PNJ1.x / 16)) {
+                    boutonA.setFlag(SpriteFlag.Invisible, false)
+                    boutonA.setPosition(scene.screenWidth() / 2, (scene.screenHeight() / 2) - 20)
+                    //ci-dessus fait apparaître l'image du bouton A au dessus du joueur pour un PNJ
+        } else if ((Math.floor(Joueur.x / 16) == Math.ceil(PNJ2.x / 16) ||
+                    Math.ceil(Joueur.x / 16) == Math.floor(PNJ2.x / 16)) &&
+                    Math.floor(Joueur.y / 16) == Math.floor(PNJ2.y / 16)) {
+                    boutonA.setFlag(SpriteFlag.Invisible, false)
+                    //ci-dessus fait apparaître l'image du bouton A au dessous du joueur pour un PNJ
+        } else if ( Math.floor(Joueur.y / 16) == Math.ceil(PNJ2.y / 16) &&
+                    Math.floor(Joueur.x / 16) == Math.floor(PNJ2.x / 16)) {
+                    boutonA.setFlag(SpriteFlag.Invisible, false)
+                    //ci-dessus fait apparaître l'image du bouton A au dessous du joueur pour un PNJ
+        } else if ( Math.ceil(Joueur.y / 16) == Math.floor(PNJ2.y / 16) &&
+                    Math.floor(Joueur.x / 16) == Math.floor(PNJ2.x / 16)) {
+                    boutonA.setFlag(SpriteFlag.Invisible, false)
+                    boutonA.setPosition(scene.screenWidth() / 2, (scene.screenHeight() / 2) - 20)
+                    //ci-dessus fait apparaître l'image du bouton A au dessus du joueur pour un PNJ
+        } else if ((Math.floor(Joueur.x / 16) == Math.ceil(PNJ3.x / 16) ||
+            Math.ceil(Joueur.x / 16) == Math.floor(PNJ3.x / 16)) &&
+            Math.floor(Joueur.y / 16) == Math.floor(PNJ3.y / 16)) {
+            boutonA.setFlag(SpriteFlag.Invisible, false)
+            //ci-dessus fait apparaître l'image du bouton A au dessous du joueur pour un PNJ
+        } else if (Math.floor(Joueur.y / 16) == Math.ceil(PNJ3.y / 16) &&
+            Math.floor(Joueur.x / 16) == Math.floor(PNJ3.x / 16)) {
+            boutonA.setFlag(SpriteFlag.Invisible, false)
+            //ci-dessus fait apparaître l'image du bouton A au dessous du joueur pour un PNJ
+        } else if (Math.ceil(Joueur.y / 16) == Math.floor(PNJ3.y / 16) &&
+            Math.floor(Joueur.x / 16) == Math.floor(PNJ3.x / 16)) {
+            boutonA.setFlag(SpriteFlag.Invisible, false)
+            boutonA.setPosition(scene.screenWidth() / 2, (scene.screenHeight() / 2) - 20)
+                    //ci-dessus fait apparaître l'image du bouton A au dessus du joueur pour un PNJ
+        } else if ((Math.floor(Joueur.x / 16) == Math.ceil(PNJ4.x / 16) ||
+            Math.ceil(Joueur.x / 16) == Math.floor(PNJ4.x / 16)) &&
+            Math.floor(Joueur.y / 16) == Math.floor(PNJ4.y / 16)) {
+            boutonA.setFlag(SpriteFlag.Invisible, false)
+            //ci-dessus fait apparaître l'image du bouton A au dessous du joueur pour un PNJ
+        } else if (Math.floor(Joueur.y / 16) == Math.ceil(PNJ4.y / 16) &&
+            Math.floor(Joueur.x / 16) == Math.floor(PNJ4.x / 16)) {
+            boutonA.setFlag(SpriteFlag.Invisible, false)
+            //ci-dessus fait apparaître l'image du bouton A au dessous du joueur pour un PNJ
+        } else if (Math.ceil(Joueur.y / 16) == Math.floor(PNJ4.y / 16) &&
+            Math.floor(Joueur.x / 16) == Math.floor(PNJ4.x / 16)) {
+            boutonA.setFlag(SpriteFlag.Invisible, false)
+            boutonA.setPosition(scene.screenWidth() / 2, (scene.screenHeight() / 2) - 20)
+                    //ci-dessus fait apparaître l'image du bouton A au dessus du joueur pour un PNJ
+        } else if ((Math.floor(Joueur.x / 16) == Math.ceil(PNJ5.x / 16) ||
+            Math.ceil(Joueur.x / 16) == Math.floor(PNJ5.x / 16)) &&
+            Math.floor(Joueur.y / 16) == Math.floor(PNJ5.y / 16)) {
+            boutonA.setFlag(SpriteFlag.Invisible, false)
+            //ci-dessus fait apparaître l'image du bouton A au dessous du joueur pour un PNJ
+        } else if (Math.floor(Joueur.y / 16) == Math.ceil(PNJ5.y / 16) &&
+            Math.floor(Joueur.x / 16) == Math.floor(PNJ5.x / 16)) {
+            boutonA.setFlag(SpriteFlag.Invisible, false)
+            //ci-dessus fait apparaître l'image du bouton A au dessous du joueur pour un PNJ
+        } else if (Math.ceil(Joueur.y / 16) == Math.floor(PNJ5.y / 16) &&
+            Math.floor(Joueur.x / 16) == Math.floor(PNJ5.x / 16)) {
+            boutonA.setFlag(SpriteFlag.Invisible, false)
+            boutonA.setPosition(scene.screenWidth() / 2, (scene.screenHeight() / 2) - 20)
+                    //ci-dessus fait apparaître l'image du bouton A au dessus du joueur pour un PNJ
+        } else if ((Math.floor(Joueur.x / 16) == Math.ceil(PNJ6.x / 16) ||
+            Math.ceil(Joueur.x / 16) == Math.floor(PNJ6.x / 16)) &&
+            Math.floor(Joueur.y / 16) == Math.floor(PNJ6.y / 16)) {
+            boutonA.setFlag(SpriteFlag.Invisible, false)
+            //ci-dessus fait apparaître l'image du bouton A au dessous du joueur pour un PNJ
+        } else if (Math.floor(Joueur.y / 16) == Math.ceil(PNJ6.y / 16) &&
+            Math.floor(Joueur.x / 16) == Math.floor(PNJ6.x / 16)) {
+            boutonA.setFlag(SpriteFlag.Invisible, false)
+            //ci-dessus fait apparaître l'image du bouton A au dessous du joueur pour un PNJ
+        } else if (Math.ceil(Joueur.y / 16) == Math.floor(PNJ6.y / 16) &&
+            Math.floor(Joueur.x / 16) == Math.floor(PNJ6.x / 16)) {
+            boutonA.setFlag(SpriteFlag.Invisible, false)
+            boutonA.setPosition(scene.screenWidth() / 2, (scene.screenHeight() / 2) - 20)
+                    //ci-dessus fait apparaître l'image du bouton A au dessus du joueur pour un PNJ
+        } else if ((Math.floor(Joueur.x / 16) == Math.ceil(PNJ7.x / 16) ||
+            Math.ceil(Joueur.x / 16) == Math.floor(PNJ7.x / 16)) &&
+            Math.floor(Joueur.y / 16) == Math.floor(PNJ7.y / 16)) {
+            boutonA.setFlag(SpriteFlag.Invisible, false)
+            //ci-dessus fait apparaître l'image du bouton A au dessous du joueur pour un PNJ
+        } else if (Math.floor(Joueur.y / 16) == Math.ceil(PNJ7.y / 16) &&
+            Math.floor(Joueur.x / 16) == Math.floor(PNJ7.x / 16)) {
+            boutonA.setFlag(SpriteFlag.Invisible, false)
+            //ci-dessus fait apparaître l'image du bouton A au dessous du joueur pour un PNJ
+        } else if (Math.ceil(Joueur.y / 16) == Math.floor(PNJ7.y / 16) &&
+            Math.floor(Joueur.x / 16) == Math.floor(PNJ7.x / 16)) {
+            boutonA.setFlag(SpriteFlag.Invisible, false)
+            boutonA.setPosition(scene.screenWidth() / 2, (scene.screenHeight() / 2) - 20)
+                    //ci-dessus fait apparaître l'image du bouton A au dessus du joueur pour un PNJ
+        } else if ((Math.floor(Joueur.x / 16) == Math.ceil(PNJ8.x / 16) ||
+            Math.ceil(Joueur.x / 16) == Math.floor(PNJ8.x / 16)) &&
+            Math.floor(Joueur.y / 16) == Math.floor(PNJ8.y / 16)) {
+            boutonA.setFlag(SpriteFlag.Invisible, false)
+            //ci-dessus fait apparaître l'image du bouton A au dessous du joueur pour un PNJ
+        } else if (Math.floor(Joueur.y / 16) == Math.ceil(PNJ8.y / 16) &&
+            Math.floor(Joueur.x / 16) == Math.floor(PNJ8.x / 16)) {
+            boutonA.setFlag(SpriteFlag.Invisible, false)
+            //ci-dessus fait apparaître l'image du bouton A au dessous du joueur pour un PNJ
+        } else if (Math.ceil(Joueur.y / 16) == Math.floor(PNJ8.y / 16) &&
+            Math.floor(Joueur.x / 16) == Math.floor(PNJ8.x / 16)) {
+            boutonA.setFlag(SpriteFlag.Invisible, false)
+            boutonA.setPosition(scene.screenWidth() / 2, (scene.screenHeight() / 2) - 20)
+                    //ci-dessus fait apparaître l'image du bouton A au dessus du joueur pour un PNJ
         } else {
             boutonA.setFlag(SpriteFlag.Invisible, true)
         }
