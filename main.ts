@@ -1132,8 +1132,9 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
             Math.floor(Joueur.x / 16) == Math.floor(valeur2.x / 16) &&
             (Math.floor(Joueur.y / 16) - Math.floor(valeur2.y / 16) == 1 ||
             Math.ceil(Joueur.y / 16) - Math.floor(valeur2.y / 16) == 0)) {
-                //!!!!!pourle pnj du spawn
+                //!!!!!dialogue des pnj
             if ((Math.floor(valeur2.x / 16) == 23 && Math.floor(valeur2.y / 16 ) == 45)) {
+                //!!!!!pourle pnj du spawn
                 game.setDialogFrame(img`
                         .....cccccccccccccc.....
                         ...cbd111111111111dbc...
