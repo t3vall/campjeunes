@@ -89,15 +89,45 @@
         "mimeType": "image/x-mkcd-f4",
         "displayName": "boutonA"
     },
-    "*uJ#z2_13ege6rd]wPo": {
-        "data": "hwQQABAAAAAAAAAAAAAAAAAAAAAAAAAAAODgAPAzA0Dg7u4A/zMDRO7u7vD/M/NE7u7u8/8//0Tu7j7+b/b/RO7uM/5G9P8A7u4+/kb2DwDuPzP+RvP/AO7v4/5G9P9E7v/u7m/2/0QAMOPu/z//RAAw4wD/MwNEAAADAPAzA0AAAAAAAAAAAA==",
-        "mimeType": "image/x-mkcd-f4",
-        "displayName": "Mario"
-    },
     "image20": {
         "data": "hwQOABAAAADw/wAAAAAAAP////8P4EQA///D//9OTQD/z8P89P//APA7zLzRvmP/z8zM9N80Y//PzExE3TRjD8/MTETdNGMPz8zM9N80Y//wO8y80b5j///Pw/z0//wA///D//9OTQD/////D+BEAPD/AAAAAAAA",
         "mimeType": "image/x-mkcd-f4",
         "displayName": "pnj2"
+    },
+    "image19": {
+        "data": "hwQNABAAAAAA8M//APDuAAD/z///7+QA8P/P/+T//wDw//y/Qb9n//////9Pfmf/////7kR+Zw//z+/uRH5nD//M7/9Pfmf/8P//v0G/Z//w///85P//AAD/z/z/7+QAAMDM/wDw7gAAAAAAAAAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "pnj3"
+    },
+    "image21": {
+        "data": "hwQOABAAAAAAAPD/DwAAAADwX7X770QAAF9VtbtO/Q/wVVX89P+8D/BVtbzRbjnzX1VN9N+UuftfVUtE3ZQ5s19VS0TdlLm7X1VN9N+UOfPwVbW80W658/BVVfz0/7wPAF9VtbtO/Q8A8F+1++9EAAAA8P8PAAAA",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "pnj4"
+    },
+    "image24": {
+        "data": "hwQOABAAAACgqgAAAAAAAKqqqqoK4EQAqqrDqvpOTQCqysOs9P//AKA7zLzRvnX/yszM9N9Udf/KzExE3VR1D8rMTETdVHUPyszM9N9Udf+gO8y80b51/6rKw6z0//wAqqrDqvpOTQCqqqqqCuBEAKCqAAAAAAAA",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "pnj7"
+    },
+    "image22": {
+        "data": "hwQNABAAAAAAUNVVAPDuAABV1VX/7+QAUFXVVeT//wBQVV21Qb/K/1VVVZlJrsr/VVVV7kSuyg9V1eXuRK7KD1Xd5ZlJrsr/UFVVtUG/yv9QVVVd5P//AABV1V3/7+QAANDdVQDw7gAAAAAAAAAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "pnj5"
+    },
+    "image23": {
+        "data": "hwQOABAAAAAAAPD/DwAAAADwL7L770QAAC8isrtO/Q/wIiL89P+8D/AisrzRbmf2LyJNdNd0t/svIktE3XRnti8iS0TddLe7LyJNdNd0Z/bwIrK80W639vAiIvz0/7wPAC8isrtO/Q8A8C+y++9EAAAA8P8PAAAA",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "pnj6"
+    },
+    "image25": {
+        "data": "hwQMABAAAAAA8P//D+BEAAD//0T+T00A8P//TuT//wDw/kT03b5h/+9ORPTdFGH/7+5ERL0UYQ/v7k5EvRRhD+/u7vTdFGH/8P7v9N2+Yf/w//9O5P//AAD//0T+T00AAPD//w/gRAA=",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "pnj8"
+    },
+    "*uJ#z2_13ege6rd]wPo": {
+        "data": "hwQQABAAAAAAAAAAAAAAAABARAQAAAAAQERERFAzA2BANEREVTMDZkQzM1RVM8NmRDMzVFU1zGZEHTNTJcLMZkR3I1Nyx8wARDMTU3LJDABEdyNTcsnMAEQdM1Nyx8xmRDMzVCXCzGZEMzNUVTXMZkA0RERVMwNmQERERFAzA2AAQEQEAAAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "Mario"
     },
     "anim1": {
         "namespace": "myAnimations",

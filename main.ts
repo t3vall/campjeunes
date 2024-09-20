@@ -954,7 +954,8 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
             tiles.placeOnTile(Joueur, tiles.getTileLocation(Math.floor(Joueur.x / 16) - 2, Math.floor(Joueur.y / 16)))
             creerIntBat(coinSupDrtStudioCol, coinInfDrtSudioRow, coinSupDrtStudioRow, coinSupGchStudioCol, posPorteStudio[0].length, posPorteStudio, false)
             PC2.setFlag(SpriteFlag.Invisible, false)
-            PNJ1.setFlag(SpriteFlag.Invisible, false)
+            PNJ4.setFlag(SpriteFlag.Invisible, false)
+            PNJ5.setFlag(SpriteFlag.Invisible, false)
         }
     } else if ((Math.floor(Joueur.x / 16) == posPorteStudioCol - 1 || Math.floor(Joueur.x / 16) == posPorte2StudioCol - 1)
                 && (Math.floor(Joueur.y / 16) == posPorteStudioRow || Math.floor(Joueur.y / 16) == posPorte2StudioRow)) {
@@ -962,7 +963,8 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
             tiles.placeOnTile(Joueur, tiles.getTileLocation(Math.floor(Joueur.x / 16) + 2, Math.floor(Joueur.y / 16)))
             creerTuileToit(coinSupDrtStudioCol, coinInfDrtSudioRow, coinSupDrtStudioRow, coinSupGchStudioCol)
             PC2.setFlag(SpriteFlag.Invisible, true)
-            PNJ1.setFlag(SpriteFlag.Invisible, true)
+            PNJ4.setFlag(SpriteFlag.Invisible, true)
+            PNJ5.setFlag(SpriteFlag.Invisible, true)
         }
     }
     if ((Math.floor(Joueur.x / 16) == posPorteAtelierCol - 1 || Math.floor(Joueur.x / 16) == posPorte2AtelierCol - 1)
@@ -972,6 +974,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
             creerIntBat(coinSupDrtAtelierCol, coinInfDrtAtelierRow, coinSupDrtAtelierRow, coinSupGchAtelierCol, posPorteAtelier[0].length, posPorteAtelier, false)
             decoupeuse.setFlag(SpriteFlag.Invisible, false)
             impr3D.setFlag(SpriteFlag.Invisible, false)
+            PNJ1.setFlag(SpriteFlag.Invisible, false)
         }
     } else if ((Math.floor(Joueur.x / 16) == posPorteAtelierCol + 1 || Math.floor(Joueur.x / 16) == posPorte2AtelierCol + 1)
         && (Math.floor(Joueur.y / 16) == posPorteAtelierRow || Math.floor(Joueur.y / 16) == posPorte2AtelierRow)) {
@@ -980,6 +983,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
             creerTuileToit(coinSupDrtAtelierCol, coinInfDrtAtelierRow, coinSupDrtAtelierRow, coinSupGchAtelierCol)
             decoupeuse.setFlag(SpriteFlag.Invisible, true)
             impr3D.setFlag(SpriteFlag.Invisible, true)
+            PNJ1.setFlag(SpriteFlag.Invisible, true)
         }
     }
     if (Math.floor(Joueur.x / 16) == posPorteMaisonCol + 1 && Math.floor(Joueur.y / 16) == posPorteMaisonRow) {
@@ -1012,8 +1016,9 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
             Math.floor(Joueur.x / 16) == Math.floor(valeur2.x / 16) &&
             (Math.floor(Joueur.y / 16) - Math.floor(valeur2.y / 16) == 1 ||
             Math.ceil(Joueur.y / 16) - Math.floor(valeur2.y / 16) == 0)) {
-                if ((Math.floor(valeur2.x / 16) == 112 && Math.floor(valeur2.y / 16 ) == 15)) {
-                    game.setDialogFrame(img`
+                //!!!!!pourle pnj du spawn
+            if ((Math.floor(valeur2.x / 16) == 23 && Math.floor(valeur2.y / 16 ) == 45)) {
+                game.setDialogFrame(img`
                         .....cccccccccccccc.....
                         ...cbd111111111111dbc...
                         ..cd1111111111111111dc..
@@ -1038,13 +1043,254 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
                         ..b11d111111111111dbc...
                         .b11bcccccccccccccc.....
                         ccccc...................
-                    `)
+                `)
                 info.changeScoreBy(10)
-                game.showLongText("Bonjour Mario!", DialogLayout.Bottom)
+                game.showLongText("Bonjour!", DialogLayout.Bottom)
                 if (numQuete == 0) {
-                    game.showLongText("Tu doit trouver le Mot de Passe du PC! J'etais dans le JARDIN ce matin, il doit y etre!!!", DialogLayout.Bottom)
+                    game.showLongText("Ecrire Texte du pnj au spawn", DialogLayout.Bottom)
                     debutQuete()
-            }
+                }
+            } else if ((Math.floor(valeur2.x / 16) == 46 && Math.floor(valeur2.y / 16) == 45)) {
+                //!!!!! Pour le pnj de l'atelier
+                game.setDialogFrame(img`
+                        .....cccccccccccccc.....
+                        ...cbd111111111111dbc...
+                        ..cd1111111111111111dc..
+                        .cd111111111111111111dc.
+                        .b11111111111111111111b.
+                        cd11111111111111111111dc
+                        c1111111111111111111111c
+                        c1111111111111111111111c
+                        c1111111111111111111111c
+                        c1111111111111111111111c
+                        c1111111111111111111111c
+                        c1111111111111111111111c
+                        c1111111111111111111111c
+                        c1111111111111111111111c
+                        c1111111111111111111111c
+                        c1111111111111111111111c
+                        c1111111111111111111111c
+                        cd11111111111111111111dc
+                        .b11111111111111111111b.
+                        .cd111111111111111111dc.
+                        ..cd1111111111111111dc..
+                        ..b11d111111111111dbc...
+                        .b11bcccccccccccccc.....
+                        ccccc...................
+                `)
+                info.changeScoreBy(10)
+                game.showLongText("Bonjour!", DialogLayout.Bottom)
+                game.showLongText("Ecrire Texte du pnj de l'atelier", DialogLayout.Bottom)
+            } else if ((Math.floor(valeur2.x / 16) == 23 && Math.floor(valeur2.y / 16) == 45)) {
+                game.setDialogFrame(img`
+                        .....cccccccccccccc.....
+                        ...cbd111111111111dbc...
+                        ..cd1111111111111111dc..
+                        .cd111111111111111111dc.
+                        .b11111111111111111111b.
+                        cd11111111111111111111dc
+                        c1111111111111111111111c
+                        c1111111111111111111111c
+                        c1111111111111111111111c
+                        c1111111111111111111111c
+                        c1111111111111111111111c
+                        c1111111111111111111111c
+                        c1111111111111111111111c
+                        c1111111111111111111111c
+                        c1111111111111111111111c
+                        c1111111111111111111111c
+                        c1111111111111111111111c
+                        cd11111111111111111111dc
+                        .b11111111111111111111b.
+                        .cd111111111111111111dc.
+                        ..cd1111111111111111dc..
+                        ..b11d111111111111dbc...
+                        .b11bcccccccccccccc.....
+                        ccccc...................
+                `)
+                info.changeScoreBy(10)
+                game.showLongText("Bonjour!", DialogLayout.Bottom)
+                game.showLongText("Ecrire Texte du Pnj au spawn", DialogLayout.Bottom)
+            } else if ((Math.floor(valeur2.x / 16) == 23 && Math.floor(valeur2.y / 16) == 45)) {
+                game.setDialogFrame(img`
+                        .....cccccccccccccc.....
+                        ...cbd111111111111dbc...
+                        ..cd1111111111111111dc..
+                        .cd111111111111111111dc.
+                        .b11111111111111111111b.
+                        cd11111111111111111111dc
+                        c1111111111111111111111c
+                        c1111111111111111111111c
+                        c1111111111111111111111c
+                        c1111111111111111111111c
+                        c1111111111111111111111c
+                        c1111111111111111111111c
+                        c1111111111111111111111c
+                        c1111111111111111111111c
+                        c1111111111111111111111c
+                        c1111111111111111111111c
+                        c1111111111111111111111c
+                        cd11111111111111111111dc
+                        .b11111111111111111111b.
+                        .cd111111111111111111dc.
+                        ..cd1111111111111111dc..
+                        ..b11d111111111111dbc...
+                        .b11bcccccccccccccc.....
+                        ccccc...................
+                `)
+                info.changeScoreBy(10)
+                game.showLongText("Bonjour!", DialogLayout.Bottom)
+                game.showLongText("Ecrire Texte du Pnj au spawn", DialogLayout.Bottom)
+            } else if ((Math.floor(valeur2.x / 16) == 23 && Math.floor(valeur2.y / 16) == 45)) {
+                game.setDialogFrame(img`
+                    .....cccccccccccccc.....
+                    ...cbd111111111111dbc...
+                    ..cd1111111111111111dc..
+                    .cd111111111111111111dc.
+                    .b11111111111111111111b.
+                    cd11111111111111111111dc
+                    c1111111111111111111111c
+                    c1111111111111111111111c
+                    c1111111111111111111111c
+                    c1111111111111111111111c
+                    c1111111111111111111111c
+                    c1111111111111111111111c
+                    c1111111111111111111111c
+                    c1111111111111111111111c
+                    c1111111111111111111111c
+                    c1111111111111111111111c
+                    c1111111111111111111111c
+                    cd11111111111111111111dc
+                    .b11111111111111111111b.
+                    .cd111111111111111111dc.
+                    ..cd1111111111111111dc..
+                    ..b11d111111111111dbc...
+                    .b11bcccccccccccccc.....
+                    ccccc...................
+                `)
+                info.changeScoreBy(10)
+                game.showLongText("Bonjour!", DialogLayout.Bottom)
+                game.showLongText("Ecrire Texte du Pnj au spawn", DialogLayout.Bottom)
+            } else if ((Math.floor(valeur2.x / 16) == 23 && Math.floor(valeur2.y / 16) == 45)) {
+                game.setDialogFrame(img`
+                        .....cccccccccccccc.....
+                        ...cbd111111111111dbc...
+                        ..cd1111111111111111dc..
+                        .cd111111111111111111dc.
+                        .b11111111111111111111b.
+                        cd11111111111111111111dc
+                        c1111111111111111111111c
+                        c1111111111111111111111c
+                        c1111111111111111111111c
+                        c1111111111111111111111c
+                        c1111111111111111111111c
+                        c1111111111111111111111c
+                        c1111111111111111111111c
+                        c1111111111111111111111c
+                        c1111111111111111111111c
+                        c1111111111111111111111c
+                        c1111111111111111111111c
+                        cd11111111111111111111dc
+                        .b11111111111111111111b.
+                        .cd111111111111111111dc.
+                        ..cd1111111111111111dc..
+                        ..b11d111111111111dbc...
+                        .b11bcccccccccccccc.....
+                        ccccc...................
+                `)
+                info.changeScoreBy(10)
+                game.showLongText("Bonjour!", DialogLayout.Bottom)
+                game.showLongText("Ecrire Texte du Pnj au spawn", DialogLayout.Bottom)
+            } else if ((Math.floor(valeur2.x / 16) == 23 && Math.floor(valeur2.y / 16) == 45)) {
+                game.setDialogFrame(img`
+                        .....cccccccccccccc.....
+                        ...cbd111111111111dbc...
+                        ..cd1111111111111111dc..
+                        .cd111111111111111111dc.
+                        .b11111111111111111111b.
+                        cd11111111111111111111dc
+                        c1111111111111111111111c
+                        c1111111111111111111111c
+                        c1111111111111111111111c
+                        c1111111111111111111111c
+                        c1111111111111111111111c
+                        c1111111111111111111111c
+                        c1111111111111111111111c
+                        c1111111111111111111111c
+                        c1111111111111111111111c
+                        c1111111111111111111111c
+                        c1111111111111111111111c
+                        cd11111111111111111111dc
+                        .b11111111111111111111b.
+                        .cd111111111111111111dc.
+                        ..cd1111111111111111dc..
+                        ..b11d111111111111dbc...
+                        .b11bcccccccccccccc.....
+                        ccccc...................
+                `)
+                info.changeScoreBy(10)
+                game.showLongText("Bonjour!", DialogLayout.Bottom)
+                game.showLongText("Ecrire Texte du Pnj au spawn", DialogLayout.Bottom)
+            } else if ((Math.floor(valeur2.x / 16) == 23 && Math.floor(valeur2.y / 16) == 45)) {
+                game.setDialogFrame(img`
+                        .....cccccccccccccc.....
+                        ...cbd111111111111dbc...
+                        ..cd1111111111111111dc..
+                        .cd111111111111111111dc.
+                        .b11111111111111111111b.
+                        cd11111111111111111111dc
+                        c1111111111111111111111c
+                        c1111111111111111111111c
+                        c1111111111111111111111c
+                        c1111111111111111111111c
+                        c1111111111111111111111c
+                        c1111111111111111111111c
+                        c1111111111111111111111c
+                        c1111111111111111111111c
+                        c1111111111111111111111c
+                        c1111111111111111111111c
+                        c1111111111111111111111c
+                        cd11111111111111111111dc
+                        .b11111111111111111111b.
+                        .cd111111111111111111dc.
+                        ..cd1111111111111111dc..
+                        ..b11d111111111111dbc...
+                        .b11bcccccccccccccc.....
+                        ccccc...................
+                `)
+                info.changeScoreBy(10)
+                game.showLongText("Bonjour!", DialogLayout.Bottom)
+                game.showLongText("Ecrire Texte du Pnj au spawn", DialogLayout.Bottom)
+            } else if ((Math.floor(valeur2.x / 16) == 23 && Math.floor(valeur2.y / 16) == 45)) {
+                game.setDialogFrame(img`
+                        .....cccccccccccccc.....
+                        ...cbd111111111111dbc...
+                        ..cd1111111111111111dc..
+                        .cd111111111111111111dc.
+                        .b11111111111111111111b.
+                        cd11111111111111111111dc
+                        c1111111111111111111111c
+                        c1111111111111111111111c
+                        c1111111111111111111111c
+                        c1111111111111111111111c
+                        c1111111111111111111111c
+                        c1111111111111111111111c
+                        c1111111111111111111111c
+                        c1111111111111111111111c
+                        c1111111111111111111111c
+                        c1111111111111111111111c
+                        c1111111111111111111111c
+                        cd11111111111111111111dc
+                        .b11111111111111111111b.
+                        .cd111111111111111111dc.
+                        ..cd1111111111111111dc..
+                        ..b11d111111111111dbc...
+                        .b11bcccccccccccccc.....
+                        ccccc...................
+                `)
+                info.changeScoreBy(10)
+                game.showLongText("Bonjour!", DialogLayout.Bottom)
+                game.showLongText("Ecrire Texte du Pnj au spawn", DialogLayout.Bottom)
             }
         }
     }
@@ -1125,6 +1371,13 @@ let coinSupDrtStudioCol = 0
 let coinSupGchStudioCol = 0
 let PNJ1: Sprite = null
 let PNJ2: Sprite = null
+let PNJ3: Sprite = null
+let PNJ4: Sprite = null
+let PNJ5: Sprite = null
+let PNJ6: Sprite = null
+let PNJ7: Sprite = null
+let PNJ8: Sprite = null
+let PNJ9: Sprite = null
 let Joueur: Sprite = null
 let PC2: Sprite = null
 let isPCOn = 0
@@ -1155,19 +1408,32 @@ boutonA.setFlag(SpriteFlag.Invisible, true)
 // posPNJ = [[], []]
 PC2 = sprites.create(assets.image`SpritePc`, SpriteKind.PC)
 Joueur = sprites.create(assets.image`Mario`, SpriteKind.Player)
-PNJ1 = sprites.create(assets.image`Luigi`, SpriteKind.PNJ)
+PNJ1 = sprites.create(assets.image`nicolas`, SpriteKind.PNJ)
 PNJ2 = sprites.create(assets.image`pnj2`, SpriteKind.PNJ)
+PNJ3 = sprites.create(assets.image`pnj3`, SpriteKind.PNJ)
+PNJ4 = sprites.create(assets.image`pnj4`, SpriteKind.PNJ)
+PNJ5 = sprites.create(assets.image`pnj5`, SpriteKind.PNJ)
+PNJ6 = sprites.create(assets.image`pnj6`, SpriteKind.PNJ)
+PNJ7 = sprites.create(assets.image`pnj7`, SpriteKind.PNJ)
+PNJ8 = sprites.create(assets.image`pnj8`, SpriteKind.PNJ)
+PNJ9 = sprites.create(assets.image`benoît`, SpriteKind.PNJ)
 decoupeuse = sprites.create(assets.image`decoupeuse`, SpriteKind.Machine)
 impr3D = sprites.create(assets.image`impr3D`, SpriteKind.Machine)
 controller.moveSprite(Joueur, 100, 100)
 scene.cameraFollowSprite(Joueur)
 Joueur.setFlag(SpriteFlag.ShowPhysics, true)
 tiles.placeOnTile(PC2, tiles.getTileLocation(1, 41))
-tiles.placeOnTile(Joueur, tiles.getTileLocation(41, 45))
-tiles.placeOnTile(PNJ1, tiles.getTileLocation(6, 50))
+tiles.placeOnTile(Joueur, tiles.getTileLocation(26, 47))
+tiles.placeOnTile(PNJ1, tiles.getTileLocation(46, 45)) //atelier
 tiles.placeOnTile(impr3D, tiles.getTileLocation(51, 45))
-//definir la position du PNJ2
-tiles.placeOnTile(PNJ2, tiles.getTileLocation(112, 15))
+tiles.placeOnTile(PNJ2, tiles.getTileLocation(112, 15)) //couloir etg2
+tiles.placeOnTile(PNJ3, tiles.getTileLocation(82, 15)) //couloir etg1
+tiles.placeOnTile(PNJ4, tiles.getTileLocation(5, 47)) //studio ht
+tiles.placeOnTile(PNJ5, tiles.getTileLocation(4, 57)) //studio bas
+tiles.placeOnTile(PNJ6, tiles.getTileLocation(75, 24)) //service jeunesse
+tiles.placeOnTile(PNJ7, tiles.getTileLocation(33, 17)) //salle de jeu
+tiles.placeOnTile(PNJ8, tiles.getTileLocation(23, 24)) //salon
+tiles.placeOnTile(PNJ9, tiles.getTileLocation(23, 45)) //spawn
 decoupeuse.setPosition((50*16)+8, (38*16)+8)
 // posPNJ[0][0] = 5
 // posPNJ[1][0] = 50
@@ -1211,6 +1477,10 @@ coinSupDrtPmaisonCol = 17
 coinSupDrtPmaisonRow = 22
 coinInfDrtPmaisonRow = 31
 PNJ1.setFlag(SpriteFlag.Invisible, true)
+PNJ4.setFlag(SpriteFlag.Invisible, true)
+PNJ5.setFlag(SpriteFlag.Invisible, true)
+PNJ7.setFlag(SpriteFlag.Invisible, true)
+PNJ8.setFlag(SpriteFlag.Invisible, true)
 PC2.setFlag(SpriteFlag.Invisible, true)
 decoupeuse.setFlag(SpriteFlag.Invisible, true)
 impr3D.setFlag(SpriteFlag.Invisible, true)
