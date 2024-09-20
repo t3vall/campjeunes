@@ -57,24 +57,23 @@ function peutInterragir() {
         boutonA.setPosition(scene.screenWidth() / 2, (scene.screenHeight() / 2) - 20)
         //ci-dessus fait apparaître l'image du bouton A au dessus du joueur pour l'ascenseur
     } else {
-        for (let valeur of sprites.allOfKind(SpriteKind.PNJ)) {
-            if (Math.floor(Joueur.y / 16) == Math.floor(valeur.y / 16) &&
-                ((Math.floor(Joueur.x / 16) - Math.floor(valeur.x / 16) == 1) ||
-                (Math.ceil(Joueur.x / 16) - Math.floor(valeur.x / 16) == 0))) {
-                boutonA.setFlag(SpriteFlag.Invisible, false)
-                //ci-dessus fait apparaître l'image du bouton A au dessous du joueur pour chaque PNJ
-            } else if (Math.floor(Joueur.x / 16) == Math.floor(valeur.x / 16) &&
-                    Math.floor(Joueur.y / 16) - Math.floor(valeur.y / 16) == 1) {
-                boutonA.setFlag(SpriteFlag.Invisible, false)
-                //ci-dessus fait apparaître l'image du bouton A au dessous du joueur pour chaque PNJ
-            } else if (Math.floor(Joueur.x / 16) == Math.floor(valeur.x / 16) &&
-                    Math.ceil(Joueur.y / 16) - Math.floor(valeur.y / 16) == 0) {
-                boutonA.setFlag(SpriteFlag.Invisible, false)
-                boutonA.setPosition(scene.screenWidth() / 2, (scene.screenHeight() / 2) - 20)
-                //ci-dessus fait apparaître l'image du bouton A au dessus du joueur pour chaque PNJ
-            }else {
-                boutonA.setFlag(SpriteFlag.Invisible, true)
-            }
+        //bouton d'interaction pour les PNJ
+        if ((Math.floor(Joueur.x / 16) == Math.ceil(PNJ9.x / 16) ||
+            Math.ceil(Joueur.x / 16) == Math.floor(PNJ9.x / 16)) &&
+            Math.floor(Joueur.y / 16) == Math.floor(PNJ9.y / 16)) {
+            boutonA.setFlag(SpriteFlag.Invisible, false)
+            //ci-dessus fait apparaître l'image du bouton A au dessous du joueur pour un PNJ
+        } else if ( Math.floor(Joueur.y / 16) == Math.ceil(PNJ9.y / 16) &&
+                    Math.floor(Joueur.x / 16) == Math.floor(PNJ9.x / 16)) {
+                    boutonA.setFlag(SpriteFlag.Invisible, false)
+                    //ci-dessus fait apparaître l'image du bouton A au dessous du joueur pour un PNJ
+        } else if ( Math.ceil(Joueur.y / 16) == Math.floor(PNJ9.y / 16) &&
+                    Math.floor(Joueur.x / 16) == Math.floor(PNJ9.x / 16)) {
+                    boutonA.setFlag(SpriteFlag.Invisible, false)
+                    boutonA.setPosition(scene.screenWidth() / 2, (scene.screenHeight() / 2) - 20)
+                    //ci-dessus fait apparaître l'image du bouton A au dessus du joueur pour un PNJ
+        } else {
+            boutonA.setFlag(SpriteFlag.Invisible, true)
         }
     }
 }
@@ -202,6 +201,7 @@ function creerTuileCoin (coinSupDrtCol: number, coinInfDrtRow: number, coinSupDr
         tiles.setTileAt(tiles.getTileLocation(coinSupDrtPmaisonCol, coinInfDrtPmaisonRow), assets.tile`myTile16`)
     }
 }
+//penser a changer le texte de la Quete
 function debutQuete () {
     if (numQuete == 0) {
         numQuete = 1
@@ -991,12 +991,16 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
             tiles.placeOnTile(Joueur, tiles.getTileLocation(Math.floor(Joueur.x / 16) - 2, Math.floor(Joueur.y / 16)))
             creerIntBat(coinSupDrtPmaisonCol, coinInfDrtPmaisonRow, coinSupDrtPmaisonRow, coinSupGchPmaisonCol, posPorteMaison[0].length, posPorteMaison, false)
             creerIntBat(coinSupDrtMaisonCol, coinInfDrtMaisonRow, coinSupDrtMaisonRow, coinSupGchMaisonCol, posPorteMaison[0].length, posPorteMaison, true)
+            PNJ7.setFlag(SpriteFlag.Invisible, false)
+            PNJ8.setFlag(SpriteFlag.Invisible, false)
         }
     } else if (Math.floor(Joueur.x / 16) == posPorteMaisonCol - 1 && Math.floor(Joueur.y / 16) == posPorteMaisonRow) {
         if (game.ask("Voulez vous Sortir?")) {
             tiles.placeOnTile(Joueur, tiles.getTileLocation(Math.floor(Joueur.x / 16) + 2, Math.floor(Joueur.y / 16)))
             creerTuileToit(coinSupDrtPmaisonCol, coinInfDrtPmaisonRow, coinSupDrtPmaisonRow, coinSupGchPmaisonCol)
             creerTuileToit(coinSupDrtMaisonCol, coinInfDrtMaisonRow, coinSupDrtMaisonRow, coinSupGchMaisonCol)
+            PNJ7.setFlag(SpriteFlag.Invisible, true)
+            PNJ8.setFlag(SpriteFlag.Invisible, true)
         }
     }
     if (((Math.floor(Joueur.x / 16) == 11 && Math.floor(Joueur.y / 16) == 56 || Math.floor(Joueur.x / 16) == 11 && Math.floor(Joueur.y / 16) == 58))
