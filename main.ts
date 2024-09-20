@@ -537,7 +537,7 @@ function creerTuileSol (coinSupDrtCol: number, coinInfDrtRow: number, coinSupDrt
                     tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
                 }
                 if ((X23 == 46) && (Y23 == 61)) {
-                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tablePCSupGch4`)
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tableBasseSupGch4`)
                     tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
                 }
                 if ((X23 == 49) && (Y23 == 61)) {
@@ -1012,6 +1012,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
             Math.floor(Joueur.x / 16) == Math.floor(valeur2.x / 16) &&
             (Math.floor(Joueur.y / 16) - Math.floor(valeur2.y / 16) == 1 ||
             Math.ceil(Joueur.y / 16) - Math.floor(valeur2.y / 16) == 0)) {
+                if ((Math.floor(valeur2.x / 16) == 112 && Math.floor(valeur2.y / 16 ) == 15)) {
             game.setDialogFrame(img`
                 .....cccccccccccccc.....
                 ...cbd111111111111dbc...
@@ -1050,6 +1051,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
                 info.changeScoreBy(100)
                 game.showLongText("Mario!!!!", DialogLayout.Bottom)
                 game.showLongText("On est pas dans le bon jeu!!!!!", DialogLayout.Bottom)
+            }
             }
         }
     }
@@ -1172,7 +1174,7 @@ tiles.placeOnTile(Joueur, tiles.getTileLocation(41, 45))
 tiles.placeOnTile(PNJ1, tiles.getTileLocation(6, 50))
 tiles.placeOnTile(impr3D, tiles.getTileLocation(51, 45))
 //definir la position du PNJ2
-tiles.placeOnTile(PNJ2, tiles.getTileLocation(51, 45))
+tiles.placeOnTile(PNJ2, tiles.getTileLocation(112, 15))
 decoupeuse.setPosition((50*16)+8, (38*16)+8)
 // posPNJ[0][0] = 5
 // posPNJ[1][0] = 50
