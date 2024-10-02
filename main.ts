@@ -386,6 +386,24 @@ function creerTuileSol (coinSupDrtCol: number, coinInfDrtRow: number, coinSupDrt
                 if (X23 == coinSupGchCol && (Y23 >= coinSupDrtPmaisonRow + 1 && Y23 <= coinInfDrtPmaisonRow - 1)) {
                     tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tileSol1`)
                 }
+                if (X23 == 19 && Y23 == 14) {
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`canapeBleuGch`)
+                }
+                if (X23 == 20 && Y23 == 14) {
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`canapeHBleuMilieu`)
+                }
+                if (X23 == 21 && Y23 == 14) {
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`canapeBleuDrt`)
+                }
+                if (X23 == 23 && Y23 == 14) {
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`canapeBleuGch`)
+                }
+                if (X23 == 24 && Y23 == 14) {
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`canapeHBleuMilieu`)
+                }
+                if (X23 == 25 && Y23 == 14) {
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`canapeBleuDrt`)
+                }
                 if (X23 == 20 && Y23 == 19) {
                     tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`canapeJauneHaut`)
                 }
@@ -1514,6 +1532,7 @@ let songAtelier = music.createSong(assets.song`Atelier`)
 let songStudio = music.createSong(assets.song`Studio`)
 let songJardin = music.createSong(assets.song`Jardin`)
 let songMaison = music.createSong(assets.song`Maison`)
+let songAmbiance = music.createSong(assets.song`mySong`)
 let debug = 0
 let rdcLargeur = 52
 let rdcHauteur = 62
@@ -1633,6 +1652,7 @@ spriteEtage.left = scene.screenWidth() / 2 - (spriteEtage.x - spriteEtage.left)
 spriteEtage.top = 101
 spriteEtage.setFlag(SpriteFlag.RelativeToCamera, true)
 tabLieux = [["studio", "atelier", "salle de jeu", "salon", "cuisine", "coloc", "service jeunese", "espace numerique", "agora"], [0, 0, 0, 0, 0, 0, 0, 0, 0]]
+music.play(songAmbiance, music.PlaybackMode.LoopingInBackground)
 let test2 = 0
 forever(function () {
     peutInterragir()
