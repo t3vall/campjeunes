@@ -1564,7 +1564,7 @@ decoupeuse = sprites.create(assets.image`decoupeuse`, SpriteKind.Machine)
 impr3D = sprites.create(assets.image`impr3D`, SpriteKind.Machine)
 controller.moveSprite(Joueur, 100, 100)
 scene.cameraFollowSprite(Joueur)
-Joueur.setFlag(SpriteFlag.ShowPhysics, true)
+Joueur.setFlag(SpriteFlag.ShowPhysics, false) //afficher les coordonnées
 tiles.placeOnTile(PC2, tiles.getTileLocation(1, 41))
 tiles.placeOnTile(Joueur, tiles.getTileLocation(26, 47))
 tiles.placeOnTile(PNJ1, tiles.getTileLocation(46, 45)) //atelier
