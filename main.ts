@@ -994,6 +994,9 @@ function creerMurInterieur (coinSupDrtCol: number, coinInfDrtRow: number, coinSu
         }
     }
 }
+function startMusic () {
+    music.play(songAmbiance, music.PlaybackMode.LoopingInBackground)
+}
 function appuisBtnAsc () {
     if (Joueur.tileKindAt(TileDirection.Right, assets.tile`tileMur16`)) {
         stopMove()
@@ -1048,6 +1051,7 @@ function appuisBtnAsc () {
         music.play(music.createSong(assets.song`AscArrivé`), music.PlaybackMode.InBackground)
     }
     startMove()
+    startMusic()
 }
 function startMove () {
     controller.moveSprite(Joueur, 100, 100)
@@ -1683,7 +1687,7 @@ spriteEtage.top = 101
 spriteEtage.setFlag(SpriteFlag.RelativeToCamera, true)
 tabLieux = [["studio", "atelier", "salle de jeu", "salon", "cuisine", "coloc", "service jeunese", "espace numerique", "agora"], [0, 0, 0, 0, 0, 0, 0, 0, 0]]
 tabPerso = [["jardin", "studioht", "studiobs", "atelier", "salon", "salle de jeu", "coloc", "service jeunese", "espace numerique/agora"], [0, 0, 0, 0, 0, 0, 0, 0, 0]]
-music.play(songAmbiance, music.PlaybackMode.LoopingInBackground)
+startMusic()
 let test2 = 0
 forever(function () {
     peutInterragir()
