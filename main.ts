@@ -317,8 +317,10 @@ function creerTuileCoin (coinSupDrtCol: number, coinInfDrtRow: number, coinSupDr
 function debutQuete () {
     if (numQuete == 0) {
         numQuete = 1
-        txtQueteL1.setText("Retrouver le")
-        txtQueteL2.setText("Mot de Passe du PC!")
+        txtQueteL1.setText("Visitez les lieux")
+        txtQueteL2.setText("et obtenez le Score Max.")
+        // txtQueteL1.setText("Retrouver le")
+        // txtQueteL2.setText("Mot de Passe du PC!")
         //q1MDP = sprites.create(assets.image`spritePapier`, SpriteKind.QtObjet)
         //tempQ1MDP = sprites.create(assets.image`spritePapier`, SpriteKind.QtObjet)
         //q1MDP.setPosition(0, 0)
@@ -1179,7 +1181,10 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
                         .b11bcccccccccccccc.....
                         ccccc...................
                 `)
-                info.changeScoreBy(10)
+                if (tabPerso[1][0] == 0) {
+                    info.changeScoreBy(50)
+                    tabPerso[1][0] = 1
+                }
                 game.showLongText("Bonjour!", DialogLayout.Bottom)
                 if (numQuete == 0) {
                     game.showLongText("Ecrire Texte du pnj au spawn", DialogLayout.Bottom)
@@ -1213,7 +1218,10 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
                         .b11bcccccccccccccc.....
                         ccccc...................
                 `)
-                info.changeScoreBy(10)
+                if (tabPerso[1][3] == 0) {
+                    info.changeScoreBy(50)
+                    tabPerso[1][3] = 1
+                }
                 game.showLongText("Bonjour!", DialogLayout.Bottom)
                 game.showLongText("Ecrire Texte du pnj de l'atelier", DialogLayout.Bottom)
             } else if ((Math.floor(valeur2.x / 16) == 5 && Math.floor(valeur2.y / 16) == 47)) {
@@ -1244,7 +1252,10 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
                         .b11bcccccccccccccc.....
                         ccccc...................
                 `)
-                info.changeScoreBy(10)
+                if (tabPerso[1][1] == 0) {
+                    info.changeScoreBy(50)
+                    tabPerso[1][1] = 1
+                }
                 game.showLongText("Bonjour!", DialogLayout.Bottom)
                 game.showLongText("Ecrire Texte du Pnj au studio haut", DialogLayout.Bottom)
             } else if ((Math.floor(valeur2.x / 16) == 4 && Math.floor(valeur2.y / 16) == 57)) {
@@ -1275,7 +1286,10 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
                         .b11bcccccccccccccc.....
                         ccccc...................
                 `)
-                info.changeScoreBy(10)
+                if (tabPerso[1][2] == 0) {
+                    info.changeScoreBy(50)
+                    tabPerso[1][2] = 1
+                }
                 game.showLongText("Bonjour!", DialogLayout.Bottom)
                 game.showLongText("Ecrire Texte du Pnj au studio bas", DialogLayout.Bottom)
             } else if ((Math.floor(valeur2.x / 16) == 23 && Math.floor(valeur2.y / 16) == 24)) {
@@ -1306,7 +1320,10 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
                     .b11bcccccccccccccc.....
                     ccccc...................
                 `)
-                info.changeScoreBy(10)
+                if (tabPerso[1][4] == 0) {
+                    info.changeScoreBy(50)
+                    tabPerso[1][4] = 1
+                }
                 game.showLongText("Bonjour!", DialogLayout.Bottom)
                 game.showLongText("Ecrire Texte du Pnj au salon", DialogLayout.Bottom)
             } else if ((Math.floor(valeur2.x / 16) == 33 && Math.floor(valeur2.y / 16) == 17)) {
@@ -1337,7 +1354,10 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
                         .b11bcccccccccccccc.....
                         ccccc...................
                 `)
-                info.changeScoreBy(10)
+                if (tabPerso[1][5] == 0) {
+                    info.changeScoreBy(50)
+                    tabPerso[1][5] = 1
+                }
                 game.showLongText("Bonjour!", DialogLayout.Bottom)
                 game.showLongText("Ecrire Texte du Pnj au salle de jeu", DialogLayout.Bottom)
             } else if ((Math.floor(valeur2.x / 16) == 75 && Math.floor(valeur2.y / 16) == 24)) {
@@ -1368,7 +1388,10 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
                         .b11bcccccccccccccc.....
                         ccccc...................
                 `)
-                info.changeScoreBy(10)
+                if (tabPerso[1][6] == 0) {
+                    info.changeScoreBy(50)
+                    tabPerso[1][6] = 1
+                }
                 game.showLongText("Bonjour!", DialogLayout.Bottom)
                 game.showLongText("Ecrire Texte du Pnj au service jeunesse", DialogLayout.Bottom)
             } else if ((Math.floor(valeur2.x / 16) == 82 && Math.floor(valeur2.y / 16) == 15)) {
@@ -1399,7 +1422,10 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
                         .b11bcccccccccccccc.....
                         ccccc...................
                 `)
-                info.changeScoreBy(10)
+                if (tabPerso[1][7] == 0) {
+                    info.changeScoreBy(50)
+                    tabPerso[1][7] = 1
+                }
                 game.showLongText("Bonjour!", DialogLayout.Bottom)
                 game.showLongText("Ecrire Texte du Pnj dans le couloir etg 1", DialogLayout.Bottom)
             } else if ((Math.floor(valeur2.x / 16) == 112 && Math.floor(valeur2.y / 16) == 15)) {
@@ -1430,7 +1456,10 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
                         .b11bcccccccccccccc.....
                         ccccc...................
                 `)
-                info.changeScoreBy(10)
+                if (tabPerso[1][8] == 0) {
+                    info.changeScoreBy(50)
+                    tabPerso[1][8] = 1
+                }
                 game.showLongText("Bonjour!", DialogLayout.Bottom)
                 game.showLongText("Ecrire Texte du Pnj dans le couloir etg 2", DialogLayout.Bottom)
             }
@@ -1479,6 +1508,7 @@ let posPorteStudio: number[][] = []
 let posPorteAtelier: number[][] = []
 let posPorteMaison: number[][] = []
 let tabLieux: any[][] = []
+let tabPerso: any[][] = []
 let txtQueteL2: TextSprite = null
 let txtQueteL1: TextSprite = null
 let spritePos: TextSprite = null
@@ -1652,6 +1682,7 @@ spriteEtage.left = scene.screenWidth() / 2 - (spriteEtage.x - spriteEtage.left)
 spriteEtage.top = 101
 spriteEtage.setFlag(SpriteFlag.RelativeToCamera, true)
 tabLieux = [["studio", "atelier", "salle de jeu", "salon", "cuisine", "coloc", "service jeunese", "espace numerique", "agora"], [0, 0, 0, 0, 0, 0, 0, 0, 0]]
+tabPerso = [["jardin", "studioht", "studiobs", "atelier", "salon", "salle de jeu", "coloc", "service jeunese", "espace numerique/agora"], [0, 0, 0, 0, 0, 0, 0, 0, 0]]
 music.play(songAmbiance, music.PlaybackMode.LoopingInBackground)
 let test2 = 0
 forever(function () {
