@@ -1002,56 +1002,49 @@ function appuisBtnAsc () {
         stopMove()
         story.showPlayerChoices("1er Etage", "2e Etage")
         if (story.checkLastAnswer("1er Etage")) {
-            music.play(music.createSong(assets.song`dansAsc`), music.PlaybackMode.InBackground)
+            music.play(music.createSong(assets.song`dansAscCrt`), music.PlaybackMode.InBackground)
             Joueur.setPosition(Joueur.x - 1 * 16, Joueur.y + 49 * 16)
             pause(3000)
             Joueur.setPosition(Joueur.x + 54 * 16, Joueur.y - 50 * 16)
-            music.stopAllSounds()
         } else {
-            music.play(music.createSong(assets.song`dansAsc`), music.PlaybackMode.InBackground)
+            music.play(music.createSong(assets.song`dansAscLg`), music.PlaybackMode.InBackground)
             Joueur.setPosition(Joueur.x - 1 * 16, Joueur.y + 49 * 16)
             pause(6000)
             Joueur.setPosition(Joueur.x + 84 * 16, Joueur.y - 50 * 16)
-            music.stopAllSounds()
         }
         music.play(music.createSong(assets.song`AscArrivé`), music.PlaybackMode.InBackground)
     } else if (Joueur.tileKindAt(TileDirection.Right, assets.tile`tileMur17`)) {
         stopMove()
         story.showPlayerChoices("RdC", "2e Etage")
         if (story.checkLastAnswer("RdC")) {
-            music.play(music.createSong(assets.song`dansAsc`), music.PlaybackMode.InBackground)
+            music.play(music.createSong(assets.song`dansAscCrt`), music.PlaybackMode.InBackground)
             Joueur.setPosition(Joueur.x - 55 * 16, Joueur.y + 49 * 16)
             pause(3000)
             Joueur.setPosition(Joueur.x, Joueur.y - 50 * 16)
-            music.stopAllSounds()
         } else {
-            music.play(music.createSong(assets.song`dansAsc`), music.PlaybackMode.InBackground)
+            music.play(music.createSong(assets.song`dansAscCrt`), music.PlaybackMode.InBackground)
             Joueur.setPosition(Joueur.x - 55 * 16, Joueur.y + 49 * 16)
             pause(3000)
             Joueur.setPosition(Joueur.x + 84 * 16, Joueur.y - 50 * 16)
-            music.stopAllSounds()
         }
         music.play(music.createSong(assets.song`AscArrivé`), music.PlaybackMode.InBackground)
     } else if (Joueur.tileKindAt(TileDirection.Right, assets.tile`tileMur18`)) {
         stopMove()
         story.showPlayerChoices("RdC", "1er Etage")
         if (story.checkLastAnswer("RdC")) {
-            music.play(music.createSong(assets.song`dansAsc`), music.PlaybackMode.InBackground)
+            music.play(music.createSong(assets.song`dansAscLg`), music.PlaybackMode.InBackground)
             Joueur.setPosition(Joueur.x - 85 * 16, Joueur.y + 49 * 16)
             pause(6000)
             Joueur.setPosition(Joueur.x, Joueur.y - 50 * 16)
-            music.stopAllSounds()
         } else {
-            music.play(music.createSong(assets.song`dansAsc`), music.PlaybackMode.InBackground)
+            music.play(music.createSong(assets.song`dansAscCrt`), music.PlaybackMode.InBackground)
             Joueur.setPosition(Joueur.x - 85 * 16, Joueur.y + 49 * 16)
             pause(3000)
             Joueur.setPosition(Joueur.x + 54 * 16, Joueur.y - 50 * 16)
-            music.stopAllSounds()
         }
         music.play(music.createSong(assets.song`AscArrivé`), music.PlaybackMode.InBackground)
     }
     startMove()
-    startMusic()
 }
 function startMove () {
     controller.moveSprite(Joueur, 100, 100)
