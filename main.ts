@@ -995,6 +995,7 @@ function creerMurInterieur (coinSupDrtCol: number, coinInfDrtRow: number, coinSu
     }
 }
 function startMusic () {
+    music.setVolume(50)
     music.play(songAmbiance, music.PlaybackMode.LoopingInBackground)
 }
 function appuisBtnAsc () {
