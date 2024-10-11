@@ -20,6 +20,7 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
 //prise des objet quand on passe dessus
 sprites.onOverlap(SpriteKind.Player, SpriteKind.QtObjet, function (sprite, otherSprite) {
     info.changeScoreBy(10)
+    nbExp += 10
     q1MDP.setFlag(SpriteFlag.Invisible, false)
     tempQ1MDP.setPosition(1 * 16, 244 * 16)
     updateQuete(numQuete)
@@ -317,8 +318,8 @@ function creerTuileCoin (coinSupDrtCol: number, coinInfDrtRow: number, coinSupDr
 function debutQuete () {
     if (numQuete == 0) {
         numQuete = 1
-        txtQueteL1.setText("Visitez les lieux")
-        txtQueteL2.setText("et obtenez le Score Max.")
+        txtQueteL1.setText("Visites les lieux")
+        txtQueteL2.setText("et obtiens 900 en Score")
         // txtQueteL1.setText("Retrouver le")
         // txtQueteL2.setText("Mot de Passe du PC!")
         //q1MDP = sprites.create(assets.image`spritePapier`, SpriteKind.QtObjet)
@@ -369,9 +370,15 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`tuileNoir`, function (sprite,
 })
 function updateQuete (numQuete: number) {
     if (numQuete == 1) {
-        if (tempQ1MDP.tilemapLocation().column == 1 && tempQ1MDP.tilemapLocation().row == 244) {
-            txtQueteL1.setText("Entrer dans l'ordinateur")
-            txtQueteL2.setText("")
+        // if (tempQ1MDP.tilemapLocation().column == 1 && tempQ1MDP.tilemapLocation().row == 244) {
+        //     txtQueteL1.setText("Entrer dans l'ordinateur")
+        //     txtQueteL2.setText("")
+        // }
+        if (nbExp == 900) {
+            game.setGameOverMessage(true, "Mot à te donner")
+            game.gameOver(true)
+
+            //game.showLongText("okay", DialogLayout.Bottom)
         }
     }
 }
@@ -1181,6 +1188,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
                 `)
                 if (tabPerso[1][0] == 0) {
                     info.changeScoreBy(50)
+                    nbExp += 50
                     tabPerso[1][0] = 1
                 }
                 game.showLongText("Bonjour!", DialogLayout.Bottom)
@@ -1218,6 +1226,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
                 `)
                 if (tabPerso[1][3] == 0) {
                     info.changeScoreBy(50)
+                    nbExp += 50
                     tabPerso[1][3] = 1
                 }
                 game.showLongText("Bonjour!", DialogLayout.Bottom)
@@ -1252,6 +1261,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
                 `)
                 if (tabPerso[1][1] == 0) {
                     info.changeScoreBy(50)
+                    nbExp += 50
                     tabPerso[1][1] = 1
                 }
                 game.showLongText("Bonjour!", DialogLayout.Bottom)
@@ -1286,6 +1296,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
                 `)
                 if (tabPerso[1][2] == 0) {
                     info.changeScoreBy(50)
+                    nbExp += 50
                     tabPerso[1][2] = 1
                 }
                 game.showLongText("Bonjour!", DialogLayout.Bottom)
@@ -1320,6 +1331,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
                 `)
                 if (tabPerso[1][4] == 0) {
                     info.changeScoreBy(50)
+                    nbExp += 50
                     tabPerso[1][4] = 1
                 }
                 game.showLongText("Bonjour!", DialogLayout.Bottom)
@@ -1354,6 +1366,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
                 `)
                 if (tabPerso[1][5] == 0) {
                     info.changeScoreBy(50)
+                    nbExp += 50
                     tabPerso[1][5] = 1
                 }
                 game.showLongText("Bonjour!", DialogLayout.Bottom)
@@ -1388,6 +1401,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
                 `)
                 if (tabPerso[1][6] == 0) {
                     info.changeScoreBy(50)
+                    nbExp += 50
                     tabPerso[1][6] = 1
                 }
                 game.showLongText("Bonjour!", DialogLayout.Bottom)
@@ -1395,33 +1409,34 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
             } else if ((Math.floor(valeur2.x / 16) == 82 && Math.floor(valeur2.y / 16) == 15)) {
                 //!!!!! Pour le pnj dans le couloir etg 1
                 game.setDialogFrame(img`
-                        .....cccccccccccccc.....
-                        ...cbd111111111111dbc...
-                        ..cd1111111111111111dc..
-                        .cd111111111111111111dc.
-                        .b11111111111111111111b.
-                        cd11111111111111111111dc
-                        c1111111111111111111111c
-                        c1111111111111111111111c
-                        c1111111111111111111111c
-                        c1111111111111111111111c
-                        c1111111111111111111111c
-                        c1111111111111111111111c
-                        c1111111111111111111111c
-                        c1111111111111111111111c
-                        c1111111111111111111111c
-                        c1111111111111111111111c
-                        c1111111111111111111111c
-                        cd11111111111111111111dc
-                        .b11111111111111111111b.
-                        .cd111111111111111111dc.
-                        ..cd1111111111111111dc..
-                        ..b11d111111111111dbc...
-                        .b11bcccccccccccccc.....
-                        ccccc...................
+                    .....cccccccccccccc.....
+                    ...cbd111111111111dbc...
+                    ..cd1111111111111111dc..
+                    .cd111111111111111111dc.
+                    .b11111111111111111111b.
+                    cd11111111111111111111dc
+                    c1111111111111111111111c
+                    c1111111111111111111111c
+                    c1111111111111111111111c
+                    c1111111111111111111111c
+                    c1111111111111111111111c
+                    c1111111111111111111111c
+                    c1111111111111111111111c
+                    c1111111111111111111111c
+                    c1111111111111111111111c
+                    c1111111111111111111111c
+                    c1111111111111111111111c
+                    cd11111111111111111111dc
+                    .b11111111111111111111b.
+                    .cd111111111111111111dc.
+                    ..cd1111111111111111dc..
+                    ..b11d111111111111dbc...
+                    .b11bcccccccccccccc.....
+                    ccccc...................
                 `)
                 if (tabPerso[1][7] == 0) {
                     info.changeScoreBy(50)
+                    nbExp += 50
                     tabPerso[1][7] = 1
                 }
                 game.showLongText("Bonjour!", DialogLayout.Bottom)
@@ -1456,6 +1471,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
                 `)
                 if (tabPerso[1][8] == 0) {
                     info.changeScoreBy(50)
+                    nbExp += 50
                     tabPerso[1][8] = 1
                 }
                 game.showLongText("Bonjour!", DialogLayout.Bottom)
@@ -1472,7 +1488,12 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
         }
     }
     logInPC()
-    appuisBtnAsc()
+    // appuisBtnAsc()
+    if ((Joueur.tileKindAt(TileDirection.Right, assets.tile`tileMur16`))||
+        (Joueur.tileKindAt(TileDirection.Right, assets.tile`tileMur17`))||
+        (Joueur.tileKindAt(TileDirection.Right, assets.tile`tileMur18`))) {
+        appuisBtnAsc()
+    }
 })
 function creerTuileToit (coinSupDrtCol: number, coinInfDrtRow: number, coinSupDrtRow: number, coinSupGchCol: number) {
     for (let X223 = 0; X223 <= coinSupDrtCol; X223++) {
@@ -1550,6 +1571,7 @@ let PNJ8: Sprite = null
 let PNJ9: Sprite = null
 let Joueur: Sprite = null
 let PC2: Sprite = null
+let nbExp = 0
 let isPCOn = 0
 let isCursorVisible = 0
 let curseur2: Sprite = null
@@ -1685,6 +1707,7 @@ startMusic()
 let test2 = 0
 forever(function () {
     peutInterragir()
+    updateQuete(numQuete)
     if (estDansAtelier(coinSupDrtAtelierCol, coinSupDrtAtelierRow, coinInfDrtAtelierRow, coinSupGchAtelierCol)) {
         if (Joueur.top <= posEscAtelier[1][0] && Joueur.top >= posEscAtelier[1][0] - 8 && Math.ceil(Joueur.x / 16) == Math.ceil(posEscAtelier[0][0] / 16)) {
             Joueur.setPosition(posEscAtelier[0][1], posEscAtelier[1][1])
@@ -1724,6 +1747,7 @@ forever(function () {
         spritePos.left = scene.screenWidth() / 2 - (spritePos.x - spritePos.left)
         if (tabLieux[1][0] == 0) {
             info.changeScoreBy(50)
+            nbExp += 50
             tabLieux[1][0] = 1
         }
     }
@@ -1732,6 +1756,7 @@ forever(function () {
         spritePos.left = scene.screenWidth() / 2 - (spritePos.x - spritePos.left)
         if (tabLieux[1][1] == 0) {
             info.changeScoreBy(50)
+            nbExp += 50
             tabLieux[1][1] = 1
         }
     }
@@ -1740,6 +1765,7 @@ forever(function () {
         spritePos.left = scene.screenWidth() / 2 - (spritePos.x - spritePos.left)
         if (tabLieux[1][4] == 0) {
             info.changeScoreBy(50)
+            nbExp += 50
             tabLieux[1][4] = 1
         }
     }
@@ -1748,6 +1774,7 @@ forever(function () {
         spritePos.left = scene.screenWidth() / 2 - (spritePos.x - spritePos.left)
         if (tabLieux[1][3] == 0) {
             info.changeScoreBy(50)
+            nbExp += 50
             tabLieux[1][3] = 1
         }
     }
@@ -1756,6 +1783,7 @@ forever(function () {
         spritePos.left = scene.screenWidth() / 2 - (spritePos.x - spritePos.left)
         if (tabLieux[1][2] == 0) {
             info.changeScoreBy(50)
+            nbExp += 50
             tabLieux[1][2] = 1
         }
     }
@@ -1802,6 +1830,7 @@ forever(function () {
         spritePos.left = scene.screenWidth() / 2 - (spritePos.x - spritePos.left)
         if (tabLieux[1][5] == 0) {
             info.changeScoreBy(50)
+            nbExp += 50
             tabLieux[1][5] = 1
         }
     }
@@ -1810,6 +1839,7 @@ forever(function () {
         spritePos.left = scene.screenWidth() / 2 - (spritePos.x - spritePos.left)
         if (tabLieux[1][7] == 0) {
             info.changeScoreBy(50)
+            nbExp += 50
             tabLieux[1][7] = 1
         }
     }
@@ -1818,6 +1848,7 @@ forever(function () {
         spritePos.left = scene.screenWidth() / 2 - (spritePos.x - spritePos.left)
         if (tabLieux[1][6] == 0) {
             info.changeScoreBy(50)
+            nbExp += 50
             tabLieux[1][6] = 1
         }
     }
@@ -1826,6 +1857,7 @@ forever(function () {
         spritePos.left = scene.screenWidth() / 2 - (spritePos.x - spritePos.left)
         if (tabLieux[1][8] == 0) {
             info.changeScoreBy(50)
+            nbExp += 50
             tabLieux[1][8] = 1
         }
     }
