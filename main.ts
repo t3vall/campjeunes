@@ -1185,7 +1185,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
                 }
                 game.showLongText("Bonjour!", DialogLayout.Bottom)
                 if (numQuete == 0) {
-                    game.showLongText("Ecrire Texte du pnj au spawn", DialogLayout.Bottom)
+                    game.showLongText("Bienvenue au Campus des Jeunes. Tu trouveras ici tout pour t'accueillir au mieux. Parcours les lieux et obtient un score de 900Xp. Ensuite reviens me voir pour valider ta quete de découverte des lieux.", DialogLayout.Bottom)
                     debutQuete()
                 }
             } else if ((Math.floor(valeur2.x / 16) == 46 && Math.floor(valeur2.y / 16) == 45)) {
@@ -1221,7 +1221,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
                     tabPerso[1][3] = 1
                 }
                 game.showLongText("Bonjour!", DialogLayout.Bottom)
-                game.showLongText("Ecrire Texte du pnj de l'atelier", DialogLayout.Bottom)
+                game.showLongText("Ici c'est l'Atelier, c'est l'endroit ou on peut fabriquer des choses avec des outils comme une imprimante 3D ou une découpeuse laser. On peut aussi apprendre a programmer des cartes electronique ou apprendre à créer des minis jeux video. On a des projets sur la création de maquettes animée, la création de PODCAST ou la Déco du Campus. Vient me voir et on discutera de tes projets. :)", DialogLayout.Bottom)
             } else if ((Math.floor(valeur2.x / 16) == 5 && Math.floor(valeur2.y / 16) == 47)) {
                 //!!!!! Pour le pnj du studio en haut
                 game.setDialogFrame(img`
@@ -1255,7 +1255,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
                     tabPerso[1][1] = 1
                 }
                 game.showLongText("Bonjour!", DialogLayout.Bottom)
-                game.showLongText("Ecrire Texte du Pnj au studio haut", DialogLayout.Bottom)
+                game.showLongText("Ici c'est le Studio B. Normalement c'est un endoit pour faire des expositions ou jouer de la musique. On peut reserver cette salle pour divers projets et on pense ouvrir le lieu pour du ESport.", DialogLayout.Bottom)
             } else if ((Math.floor(valeur2.x / 16) == 4 && Math.floor(valeur2.y / 16) == 57)) {
                 //!!!!! Pour le pnj du studio en bas
                 game.setDialogFrame(img`
@@ -1289,7 +1289,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
                     tabPerso[1][2] = 1
                 }
                 game.showLongText("Bonjour!", DialogLayout.Bottom)
-                game.showLongText("Ecrire Texte du Pnj au studio bas", DialogLayout.Bottom)
+                game.showLongText("Ici c'est le Studio A. C'est l'endroit ou on va créer des la musique et faire des enregistrements sonores. Si un atelier Podcast est crée c'est ici que l'on viendra pour nous enregistrer.", DialogLayout.Bottom)
             } else if ((Math.floor(valeur2.x / 16) == 23 && Math.floor(valeur2.y / 16) == 24)) {
                 //!!!!! Pour le pnj du salon
                 game.setDialogFrame(img`
@@ -1323,7 +1323,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
                     tabPerso[1][4] = 1
                 }
                 game.showLongText("Bonjour!", DialogLayout.Bottom)
-                game.showLongText("Ecrire Texte du Pnj au salon", DialogLayout.Bottom)
+                game.showLongText("Bienvenue dans le Salon. Assiez toi sur un canapé et discutons :). Ici tu trouveras de l'information Jeunesses mais tu pourras juste te poser et discuter avec tes amis. Tu peux participer à la décoration du lieu et des autres espaces. Si tu as des idées n'hésites pas à en parler.", DialogLayout.Bottom)
             } else if ((Math.floor(valeur2.x / 16) == 33 && Math.floor(valeur2.y / 16) == 17)) {
                 //!!!!! Pour le pnj de la salle de jeu
                 game.setDialogFrame(img`
@@ -1357,7 +1357,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
                     tabPerso[1][5] = 1
                 }
                 game.showLongText("Bonjour!", DialogLayout.Bottom)
-                game.showLongText("Ecrire Texte du Pnj au salle de jeu", DialogLayout.Bottom)
+                game.showLongText("La salle de jeu ... C'est quoi ? Ben l'endroit pour s'amuser entre nous avec tes amis ou même pour nous défier sur un jeu. Et si on créait un LeaderBoard de nos Score ? Allez on joue à des jeux de société ou à la PS4 ? N'hésites pas non plus a tenter une partie de babyfoot :) ", DialogLayout.Bottom)
             } else if ((Math.floor(valeur2.x / 16) == 75 && Math.floor(valeur2.y / 16) == 24)) {
                 //!!!!! Pour le pnj du service jeunesse
                 game.setDialogFrame(img`
@@ -1391,7 +1391,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
                     tabPerso[1][6] = 1
                 }
                 game.showLongText("Bonjour!", DialogLayout.Bottom)
-                game.showLongText("Ecrire Texte du Pnj au service jeunesse", DialogLayout.Bottom)
+                game.showLongText("Ici le service Jeunesses vous accueille. Alors si vous voulez réserver une salle ou proposer un projet autour de la jeunesse, vous êtes au bon endroit. Téléphone par exemple au 05 49 94 90 18 .", DialogLayout.Bottom)
             } else if ((Math.floor(valeur2.x / 16) == 82 && Math.floor(valeur2.y / 16) == 15)) {
                 //!!!!! Pour le pnj dans le couloir etg 1
                 game.setDialogFrame(img`
@@ -1425,7 +1425,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
                     tabPerso[1][7] = 1
                 }
                 game.showLongText("Bonjour!", DialogLayout.Bottom)
-                game.showLongText("Ecrire Texte du Pnj dans le couloir etg 1", DialogLayout.Bottom)
+                game.showLongText("Nous avons la salle 'la colloc' à disposition pour vos formations ou réunion. Elle accueille 15 personnes et tu peux la réserver.", DialogLayout.Bottom)
             } else if ((Math.floor(valeur2.x / 16) == 112 && Math.floor(valeur2.y / 16) == 15)) {
                 //!!!!! Pour le pnj dans le couloir etg 2
                 game.setDialogFrame(img`
@@ -1459,7 +1459,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
                     tabPerso[1][8] = 1
                 }
                 game.showLongText("Bonjour!", DialogLayout.Bottom)
-                game.showLongText("Ecrire Texte du Pnj dans le couloir etg 2", DialogLayout.Bottom)
+                game.showLongText("Nous avons la salle 'la digitale' à disposition pour vos formations ou réunion. Elle accueille 15 personnes et tu peux la réserver. De l'autre coté, la salle la plus grande c'est la salle '3.0'. Idéale pour des réunions plus fun ou du coworking.", DialogLayout.Bottom)
             }
         }
     }
