@@ -375,10 +375,9 @@ function updateQuete (numQuete: number) {
         //     txtQueteL2.setText("")
         // }
         if (nbExp == 900) {
+            pause(35000)
             game.setGameOverMessage(true, "Mot à te donner")
             game.gameOver(true)
-
-            //game.showLongText("okay", DialogLayout.Bottom)
         }
     }
 }
@@ -1489,11 +1488,17 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     }
     logInPC()
     // appuisBtnAsc()
-    if ((Joueur.tileKindAt(TileDirection.Right, assets.tile`tileMur16`))||
-        (Joueur.tileKindAt(TileDirection.Right, assets.tile`tileMur17`))||
-        (Joueur.tileKindAt(TileDirection.Right, assets.tile`tileMur18`))) {
+    if ((tiles.tileAtLocationEquals(tiles.getTileLocation((Math.ceil(Joueur.x / 16)), Joueur.y/16), assets.tile`tileMur16`))||
+        (tiles.tileAtLocationEquals(tiles.getTileLocation((Math.ceil(Joueur.x / 16)), Joueur.y/16), assets.tile`tileMur17`)) ||
+        (tiles.tileAtLocationEquals(tiles.getTileLocation((Math.ceil(Joueur.x / 16)), Joueur.y/16), assets.tile`tileMur18`))) {
         appuisBtnAsc()
     }
+    // if ((Joueur.tileKindAt(TileDirection.Right, assets.tile`tileMur16`))||
+    //     (Joueur.tileKindAt(TileDirection.Right, assets.tile`tileMur17`))||
+    //     (Joueur.tileKindAt(TileDirection.Right, assets.tile`tileMur18`))) {
+    //     appuisBtnAsc()
+        
+    // }
 })
 function creerTuileToit (coinSupDrtCol: number, coinInfDrtRow: number, coinSupDrtRow: number, coinSupGchCol: number) {
     for (let X223 = 0; X223 <= coinSupDrtCol; X223++) {
