@@ -1089,7 +1089,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
         if (game.ask("Voulez vous entrer?")) {
             tiles.placeOnTile(Joueur, tiles.getTileLocation(Math.floor(Joueur.x / 16) - 2, Math.floor(Joueur.y / 16)))
             creerIntBat(coinSupDrtStudioCol, coinInfDrtSudioRow, coinSupDrtStudioRow, coinSupGchStudioCol, posPorteStudio[0].length, posPorteStudio, false)
-            PC2.setFlag(SpriteFlag.Invisible, false)
+            PC2.setFlag(SpriteFlag.Invisible, true)
             PNJ4.setFlag(SpriteFlag.Invisible, false)
             PNJ5.setFlag(SpriteFlag.Invisible, false)
         }
