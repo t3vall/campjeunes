@@ -1194,7 +1194,57 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
                 if (numQuete == 0) {
                     game.showLongText("Bienvenue au Campus des Jeunes. Tu trouveras ici tout pour t'accueillir au mieux. Parcours les lieux et obtient un score de 900Xp. Ensuite reviens me voir pour valider ta quete de découverte des lieux.", DialogLayout.Bottom)
                     debutQuete()
-                }
+                } else if (numQuete == 1){
+                    if (nbExp == 900) { 
+                        game.showLongText("Tu as réussis!!!", DialogLayout.Bottom)
+                        pause(5000)
+                        //---Liste des mots à donner à la Fin---
+                        if (Math.percentChance(5)) {
+                            game.setGameOverMessage(true, "Energie")
+                        } else if (Math.percentChance(5)) {
+                            game.setGameOverMessage(true, "Rêves")
+                        } else if (Math.percentChance(5)) {
+                            game.setGameOverMessage(true, "Aventure")
+                        } else if (Math.percentChance(5)) {
+                            game.setGameOverMessage(true, "Liberté")
+                        } else if (Math.percentChance(5)) {
+                            game.setGameOverMessage(true, "Innovation")
+                        } else if (Math.percentChance(5)) {
+                            game.setGameOverMessage(true, "Créativité")
+                        } else if (Math.percentChance(5)) {
+                            game.setGameOverMessage(true, "Amitié")
+                        } else if (Math.percentChance(5)) {
+                            game.setGameOverMessage(true, "Découverte")
+                        } else if (Math.percentChance(5)) {
+                            game.setGameOverMessage(true, "Passion")
+                        } else if (Math.percentChance(5)) {
+                            game.setGameOverMessage(true, "Idéalisme")
+                        } else if (Math.percentChance(5)) {
+                            game.setGameOverMessage(true, "Espoir")
+                        } else if (Math.percentChance(5)) {
+                            game.setGameOverMessage(true, "Ambition")
+                        } else if (Math.percentChance(5)) {
+                            game.setGameOverMessage(true, "Courage")
+                        } else if (Math.percentChance(5)) {
+                            game.setGameOverMessage(true, "Dynamisme")
+                        } else if (Math.percentChance(5)) {
+                            game.setGameOverMessage(true, "Curiosité")
+                        } else if (Math.percentChance(5)) {
+                            game.setGameOverMessage(true, "Enthousiasme")
+                        } else if (Math.percentChance(5)) {
+                            game.setGameOverMessage(true, "Changement")
+                        } else if (Math.percentChance(5)) {
+                            game.setGameOverMessage(true, "Identité")
+                        } else if (Math.percentChance(5)) {
+                            game.setGameOverMessage(true, "Exploration")
+                        } else {
+                            game.setGameOverMessage(true, "Inspiration")
+                        }
+                        game.gameOver(true)
+                    } else {
+                        game.showLongText("Rappelle toi, visites chaque pièces et parles à toutes les personnes pour avoir les 900xp!!", DialogLayout.Bottom)
+                    }
+                } 
             } else if ((Math.floor(valeur2.x / 16) == 46 && Math.floor(valeur2.y / 16) == 45)) {
                 //!!!!! Pour le pnj de l'atelier
                 game.setDialogFrame(img`
@@ -1229,7 +1279,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
                     tabPerso[1][3] = 1
                 }
                 game.showLongText("Bonjour!", DialogLayout.Bottom)
-                game.showLongText("Ici c'est l'Atelier, c'est l'endroit ou on peut fabriquer des choses avec des outils comme une imprimante 3D ou une découpeuse laser. On peut aussi apprendre a programmer des cartes electronique ou apprendre à créer des minis jeux video. On a des projets sur la création de maquettes animée, la création de PODCAST ou la Déco du Campus. Vient me voir et on discutera de tes projets. :)", DialogLayout.Bottom)
+                game.showLongText("Ici c'est l'Atelier, c'est l'endroit où on peut fabriquer des choses avec des outils comme une imprimante 3D ou une découpeuse laser. On peut aussi apprendre a programmer des cartes electronique ou apprendre à créer des minis jeux video. On a des projets sur la création de maquettes animée, la création de PODCAST ou la Déco du Campus. Vient me voir et on discutera de tes projets. :)", DialogLayout.Bottom)
             } else if ((Math.floor(valeur2.x / 16) == 5 && Math.floor(valeur2.y / 16) == 47)) {
                 //!!!!! Pour le pnj du studio en haut
                 game.setDialogFrame(img`
@@ -1712,7 +1762,6 @@ startMusic()
 let test2 = 0
 forever(function () {
     peutInterragir()
-    updateQuete(numQuete)
     if (estDansAtelier(coinSupDrtAtelierCol, coinSupDrtAtelierRow, coinInfDrtAtelierRow, coinSupGchAtelierCol)) {
         if (Joueur.top <= posEscAtelier[1][0] && Joueur.top >= posEscAtelier[1][0] - 8 && Math.ceil(Joueur.x / 16) == Math.ceil(posEscAtelier[0][0] / 16)) {
             Joueur.setPosition(posEscAtelier[0][1], posEscAtelier[1][1])
