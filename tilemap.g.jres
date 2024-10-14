@@ -921,6 +921,12 @@
         "tilemapTile": true,
         "displayName": "tableBasseMilGch2"
     },
+    "tile103": {
+        "data": "hwQQABAAAADu7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7//////////93v7u7uzv7d3e/u7u7O/t3d7+7u7s7+3f//////////7uzu7v7u7u7//////////w==",
+        "mimeType": "image/x-mkcd-f4",
+        "tilemapTile": true,
+        "displayName": "tableBasseMilDrt2"
+    },
     "niveau9": {
         "id": "niveau9",
         "mimeType": "application/mkcd-tilemap",
