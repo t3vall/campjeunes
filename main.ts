@@ -680,6 +680,26 @@ function creerTuileSol (coinSupDrtCol: number, coinInfDrtRow: number, coinSupDrt
                     tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tableBasseMilCtr2`)
                 }
                 //le Studio
+                if (((X23 >= 1) && (X23 <= 8)) && (Y23 == 38)) {
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`meubleA`)
+                    tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
+                }
+                if (((X23 >= 1) && (X23 <= 8)) && (Y23 == 39)) {
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`meubleB`)
+                    tiles.setWallAt(tiles.getTileLocation(X23, Y23), false)
+                }
+                if ((X23 == 1) && (Y23 == 50)) {
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tableBasseSupGch3`)
+                    tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
+                }
+                if ((X23 == 1) && (Y23 == 51)) {
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tableBasseMilGch1`)
+                    tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
+                }
+                if ((X23 == 1) && (Y23 == 52)) {
+                    tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`tableBasseInfGch3`)
+                    tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
+                }
                 if ((X23 == 1) && (Y23 == 54)) {
                     tiles.setTileAt(tiles.getTileLocation(X23, Y23), assets.tile`enceinteGch2-1`)
                     tiles.setWallAt(tiles.getTileLocation(X23, Y23), true)
